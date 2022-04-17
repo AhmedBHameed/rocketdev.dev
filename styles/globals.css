@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  font-family: 'Roboto';
+}
+
+@layer base {
+  body {
+    @apply transition-colors bg-slate-200 text-gray-900 dark:bg-slate-900 dark:text-gray-100;
+    @apply min-h-screen;
+  }
+
+  ::selection {
+    @apply text-white bg-indigo-500;
+  }
+}
+
+/* Latest page */
+.post-card:hover .post-card--title,
+.post-card:hover .post-card--readme_icon {
+  @apply text-indigo-500 transition-colors;
+}
+
+.post-card .post-card--readme_icon {
+  @apply transition-transform transform translate-x-0;
+}
+.post-card:hover .post-card--readme_icon {
+  @apply transition-transform transform translate-x-1;
+}
+
+/* Toast message */
+.Toastify__toast {
+  @apply bg-zinc-300 dark:bg-slate-700;
+}

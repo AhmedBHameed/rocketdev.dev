@@ -1,0 +1,7 @@
+.radial-transparent {
+  background: radial-gradient(transparent 0%, transparent 30%, #292524 70%);
+}
+
+.light .radial-transparent {
+  background: radial-gradient(transparent 0%, transparent 30%, #e7e5e4 70%);
+}

@@ -1,0 +1,20 @@
+overwrite: true
+schema: 'http://localhost:5000/graphql'
+documents: '**/*.gql.ts'
+generates:
+  ./graphql/generated/graphql.tsx:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-react-apollo'
+    config:
+      withHooks: true
+      scalars:
+        Date: Date
+  ./graphql/schema/graphql.schema.json:
+    plugins:
+      - 'introspection'
+
+hooks:
+  afterAllFileWrite:
+    - prettier --write

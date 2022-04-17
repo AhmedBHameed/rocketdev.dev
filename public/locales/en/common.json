@@ -1,0 +1,9 @@
+{
+  "emailLabel": "Email",
+  "emailPlaceholder": "ُEmail",
+  "passwordLabel": "Password",
+  "passwordPlaceholder": "Password",
+  "validationError.invalidEmail": "Invalid email",
+  "validationError.invalidPassword": "Invalid password. Password must have at least: • 8 characters long Password • 1 uppercase and 1 lowercase character • 1 number • 1 non-alpha-numeric character • with no space",
+  "validationError.required": "This field required"
+}
