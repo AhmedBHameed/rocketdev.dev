@@ -4,37 +4,52 @@ import Col from '../components/Col/Col';
 import Layout from '../components/Layout';
 import Row from '../components/Row/Row';
 import PostCard from '../components/Latest/PostCard';
-
-import {useNotifications} from '../components/ToastMessage/Hooks/NotificationsHook';
 import {GetServerSideProps, NextPage} from 'next';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import {useTranslation} from 'next-i18next';
 import {ROUTES} from '../config/routes';
 import apolloClient from '../utils/apolloClient';
-import LIST_POST_QUERY from '../graphql/LIST_POST_QUERY.gql';
-import {ListPostsQuery} from '../graphql/generated/graphql';
+import {
+  LanguageEnum,
+  ListPostsQuery,
+  ListPostsQueryVariables,
+} from '../graphql/generated/graphql';
 import slugToTitle from '../utils/slugToTitle';
 import {ApolloQueryResult} from '@apollo/client';
+import LATEST_POSTS_QUERY from '../graphql/LATEST_POSTS_QUERY.gql';
+import AlertError from '../components/AlertError/AlertError';
 
 interface LatestProps {
+  locale: string;
   listPostsQuery: ApolloQueryResult<ListPostsQuery>;
+  error: {
+    status: number;
+    message: string;
+  } | null;
 }
 
-const Latest: NextPage<LatestProps> = ({listPostsQuery}) => {
+const Latest: NextPage<LatestProps> = ({listPostsQuery, error, locale}) => {
   const {t} = useTranslation('latest');
-  const {notify} = useNotifications();
-  const triggerToastMessage = () => {
-    notify(
-      {
-        type: 'success',
-        title: 'Hey',
-        message: 'Welcome to our hi.health services',
-      },
-      {
-        autoClose: 15000,
-      }
+  // const {notify} = useNotifications();
+  // const triggerToastMessage = () => {
+  //   notify(
+  //     {
+  //       type: 'success',
+  //       title: 'Hey',
+  //       message: 'Welcome to our hi.health services',
+  //     },
+  //     {
+  //       autoClose: 15000,
+  //     }
+  //   );
+  // };
+
+  if (error)
+    return (
+      <Layout>
+        <AlertError message={error.message} httpStatusCode={error.status} />
+      </Layout>
     );
-  };
 
   const postPath = ROUTES.post.path;
 
@@ -46,21 +61,20 @@ const Latest: NextPage<LatestProps> = ({listPostsQuery}) => {
         </Col>
 
         <Col className="col-end-6">
-          <BoldLabel>35 posts</BoldLabel>
+          <BoldLabel>
+            {listPostsQuery.data?.listPosts.totalCount} posts
+          </BoldLabel>
         </Col>
       </Row>
 
       <Row xs={1} md={2} gap={4}>
-        {(listPostsQuery.data?.listPosts || []).map((post) => (
+        {(listPostsQuery.data?.listPosts.data || []).map((post) => (
           <Col key={post.nanoId}>
             <PostCard
               href={`${postPath}/${post.slug}/${post.nanoId}`}
-              onClick={triggerToastMessage}
               title={slugToTitle(post.slug)}
-              subTitle="The mental model shift that makes CSS more intuitive"
-              contentPreview={`
-          As front-end developers, we often learn CSS by focusing on individual properties. Instead, we should focus on how the language uses those properties to calculate layouts. In this blog post, we'll pop the hood on CSS and see how the language is structured, and how to learn it effectively.
-          `}
+              subTitle={post.postContents?.[0].metaTags.description}
+              contentPreview={post.postContents?.[0].contentPreview}
             />
           </Col>
         ))}
@@ -75,14 +89,34 @@ export const getServerSideProps: GetServerSideProps = async ({locale}) => {
     'navbar',
     'latest',
   ]);
+  let listPostsQuery = {};
+  let httpError = null;
 
-  const listPostsQuery = await apolloClient.query<ListPostsQuery>({
-    query: LIST_POST_QUERY,
-  });
+  try {
+    listPostsQuery = await apolloClient.query<
+      ListPostsQuery,
+      ListPostsQueryVariables
+    >({
+      query: LATEST_POSTS_QUERY,
+      variables: {
+        lang: locale as LanguageEnum,
+      },
+    });
+  } catch (error) {
+    httpError = {};
+    const errorMessage = error?.message || '';
+    if (errorMessage.includes('ECONNREFUSED')) {
+      httpError.message =
+        "Oh no! We couldn't connect to the server. Please refresh the page.";
+      httpError.status = 500;
+    }
+  }
 
   return {
     props: {
+      locale,
       listPostsQuery,
+      error: httpError,
       ...translations,
     },
   };

@@ -1,0 +1,9 @@
+{
+  "headTitle": "Sign up",
+  "firstNameLabel": "First name",
+  "firstNamePlaceholder": "First name",
+  "lastNameLabel": "Last name",
+  "lastNamePlaceholder": "Last name",
+  "youHaveAccount": "You have an account?",
+  "actionButton": "Sign up"
+}

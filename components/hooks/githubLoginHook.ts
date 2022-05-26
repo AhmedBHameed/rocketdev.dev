@@ -1,6 +1,6 @@
 import {useCallback, useState} from 'react';
 import {GithubLoginMutation} from '../../graphql/generated/graphql';
-import GITHUB_LOGIN_MUTATION from '../../graphql/GITHUB_LOGIN_MUTATION.gql';
+import GITHUB_LOGIN_QUERY from '../../graphql/GITHUB_LOGIN_QUERY.gql';
 import apolloClient from '../../utils/apolloClient';
 
 const useGithubLoginHook = () => {
@@ -12,7 +12,7 @@ const useGithubLoginHook = () => {
     setLoading(true);
     try {
       const result = await apolloClient.query<GithubLoginMutation>({
-        query: GITHUB_LOGIN_MUTATION,
+        query: GITHUB_LOGIN_QUERY,
         variables: {
           code,
         },

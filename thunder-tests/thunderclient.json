@@ -1,0 +1,173 @@
+[
+  {
+    "_id": "7aee3fbc-dacb-42b8-8b5c-bd8596c06066",
+    "colId": "d845b0d6-4b8b-4381-83f2-5ac7faebb483",
+    "containerId": "7f4bbe66-a78b-484d-8c2d-790a70a8a8e7",
+    "name": "Create tokens",
+    "url": "http://localhost:5000/graphql",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2022-04-24T20:12:35.338Z",
+    "modified": "2022-04-24T20:26:06.492Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "graphql",
+      "raw": "",
+      "form": [],
+      "graphql": {
+        "query": " query CreateTokens(\n    $email: EmailAddress!\n    $password: Password!\n    $rememberMe: Boolean\n  ) {\n    createTokens(\n      input: {email: $email, password: $password, rememberMe: $rememberMe}\n    ) {\n      accessToken\n      refreshToken\n      accessTokenExpire\n      refreshTokenExpire\n    }\n  }",
+        "variables": "{\n    \"email\":\"ahmedbazy@gmail.com\",\n    \"password\":\"Ahmed@hihealth123\",\n    \"rememberMe\": true\n}"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "089c63c7-ebf2-4771-81f0-81f5da00be79",
+    "colId": "d845b0d6-4b8b-4381-83f2-5ac7faebb483",
+    "containerId": "7f4bbe66-a78b-484d-8c2d-790a70a8a8e7",
+    "name": "Verify me",
+    "url": "http://localhost:5000/graphql",
+    "method": "POST",
+    "sortNum": 20000,
+    "created": "2022-04-24T20:15:44.240Z",
+    "modified": "2022-04-24T20:16:56.916Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "graphql",
+      "raw": "",
+      "form": [],
+      "graphql": {
+        "query": "query VerifyMe {\n    verifyMe {\n      id\n      avatar\n      name {\n        first\n        last\n      }\n      authorization {\n        id\n        actions {\n          name\n          permissions\n        }\n      }\n    }\n  }"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "8337cbdc-0fa5-43f3-a397-99158f9eed7d",
+    "colId": "d845b0d6-4b8b-4381-83f2-5ac7faebb483",
+    "containerId": "7f4bbe66-a78b-484d-8c2d-790a70a8a8e7",
+    "name": "Refresh tokens",
+    "url": "http://localhost:5000/graphql",
+    "method": "POST",
+    "sortNum": 30000,
+    "created": "2022-04-24T20:24:20.137Z",
+    "modified": "2022-04-24T20:24:55.844Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "graphql",
+      "raw": "",
+      "form": [],
+      "graphql": {
+        "query": "  query RefreshTokens {\n    refreshTokens {\n      accessToken\n      refreshToken\n      accessTokenExpire\n      refreshTokenExpire\n    }\n  }"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "cbc4dc06-accc-4a7e-9d00-f66e91c0c96e",
+    "colId": "d845b0d6-4b8b-4381-83f2-5ac7faebb483",
+    "containerId": "d6520ffc-2ed2-4338-82fc-70b27e329745",
+    "name": "Public posts",
+    "url": "http://localhost:5000/graphql",
+    "method": "POST",
+    "sortNum": 40000,
+    "created": "2022-04-24T20:28:06.668Z",
+    "modified": "2022-04-25T00:33:03.376Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "graphql",
+      "raw": "",
+      "form": [],
+      "graphql": {
+        "query": "query ListPosts($input: ListPostCollateInput, $lang: LanguageEnum) {\n    listPosts(input: $input) {\n      data {\n        id\n        slug\n        nanoId\n        authorId\n        isPremium\n        visibility\n        tagIds\n        postContents(lang: $lang) {\n          id\n          postImage\n          lang\n          body\n          contentPreview\n          readingTime\n          metaTags {\n            injectHeader\n            injectCssStyle\n            description\n          }\n          publishedAt\n          createdAt\n          updatedAt\n        }\n        tags {\n          id\n          imgSrc\n          name\n          description\n        }\n        author {\n          email\n          avatar\n          name {\n            first\n            last\n          }\n        }\n        prevPostId\n        nextPostId\n        createdAt\n        updatedAt\n      }\n\n      totalCount\n      page {\n        number\n        size\n      }\n    }\n  }",
+        "variables": "{\n    \"input\": {\n        \"page\":{\n          \"number\": 1,\n          \"size\": 1\n        }\n    },\n    \"lang\": \"en\"\n}"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "6fff1ae5-fcbf-4c9d-aa37-10a6410c8ac5",
+    "colId": "d845b0d6-4b8b-4381-83f2-5ac7faebb483",
+    "containerId": "7f4bbe66-a78b-484d-8c2d-790a70a8a8e7",
+    "name": "Clear tokens",
+    "url": "http://localhost:5000/graphql",
+    "method": "POST",
+    "sortNum": 50000,
+    "created": "2022-04-24T20:30:43.728Z",
+    "modified": "2022-04-24T20:30:52.974Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "graphql",
+      "raw": "",
+      "form": [],
+      "graphql": {
+        "query": "  query ClearTokens {\n    clearTokens {\n      message\n    }\n  }"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "cb56acd3-924b-4d6f-b09f-564b5150e82a",
+    "colId": "d845b0d6-4b8b-4381-83f2-5ac7faebb483",
+    "containerId": "7f4bbe66-a78b-484d-8c2d-790a70a8a8e7",
+    "name": "Login with GitHub",
+    "url": "http://localhost:5000/graphql",
+    "method": "POST",
+    "sortNum": 60000,
+    "created": "2022-04-25T00:51:36.473Z",
+    "modified": "2022-04-25T01:10:11.534Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "graphql",
+      "raw": "",
+      "form": [],
+      "graphql": {
+        "query": "  query GithubLogin($code: ID!) {\n    githubLogin(code: $code) {\n      accessToken\n      refreshToken\n      accessTokenExpire\n      refreshTokenExpire\n    }\n  }",
+        "variables": "{\n    \"code\": \"9ed60344f4dff2690f7f\"\n}"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "389df302-0a8c-4c12-9974-7806a5ecef06",
+    "colId": "d845b0d6-4b8b-4381-83f2-5ac7faebb483",
+    "containerId": "7f4bbe66-a78b-484d-8c2d-790a70a8a8e7",
+    "name": "create user authorization",
+    "url": "http://localhost:5000/graphql",
+    "method": "POST",
+    "sortNum": 70000,
+    "created": "2022-05-26T20:21:02.624Z",
+    "modified": "2022-05-26T20:49:43.401Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "",
+        "isDisabled": true
+      },
+      {
+        "name": "Cookie",
+        "value": "SL_G_WPT_TO=en; SL_GWPT_Show_Hide_tmp=undefined; SL_wptGlobTipTmp=undefined; ACCESS_TOKEN=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiMDFFR1hNRDgzNzhGNVRaOE5HUDlKOEozVFoiLCJpc0FjdGl2ZSI6dHJ1ZSwiaXNTdXBlciI6dHJ1ZSwidmVyaWZpY2F0aW9uSWQiOiIwMUVHWE1EODM3OEY1VFo4Tk1QOUo4SjNUWiIsImlzUmVmcmVzaFRva2VuIjpmYWxzZX0sImlhdCI6MTY1MzU5NzM5MywiZXhwIjoxNjUzNTk4NTkzLCJpc3MiOiJhaG1lZGhhbWVlZC5kZXYiLCJqdGkiOiIwMUc0MTFCTUE4REExQ0s4RUFYVjBXWE5UOSJ9.l1y66Dqysmzw4rl88eRCt8LJ75TJqtsOXU8gPunSsiDCDv4H8IMmA3iQNTTXCBBmC_g4AtRemuvSC2HMDZ3RDUwoanyD4YhT0yeqVAB-eEQoX4OC22k98A1DthWpTEHNIbPa7-a83aQAp7E3SccLklBZvbXPNy-2NtWZY7t21q6wOLDULlmrHZ2NIsKVolvwjBsbsv-ZyJulGqNvcaK2D472ANhljxfinN9pthGj6NkxBsTzDvZRIErnjV7X7fHdoPMWkG5lw-SlgeCanZLZgaRlppz5rs7zX9XQHPob-2nbae8iEvNskxudbIWNI993r7FffxIX0H4j6NvPrEvGxA; REFRESH_TOKEN=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiMDFFR1hNRDgzNzhGNVRaOE5HUDlKOEozVFoiLCJpc0FjdGl2ZSI6dHJ1ZSwiaXNTdXBlciI6dHJ1ZSwidmVyaWZpY2F0aW9uSWQiOiIwMUVHWE1EODM3OEY1VFo4Tk1QOUo4SjNUWiIsImlzUmVmcmVzaFRva2VuIjp0cnVlfSwiaWF0IjoxNjUzNTk3MzkzLCJleHAiOjE2NTQyMDIxOTMsImlzcyI6ImFobWVkaGFtZWVkLmRldiIsImp0aSI6IjAxRzQxMUJNQURDVkE3WEZROTBLUUg3QlpTIn0.cKfN8NM1ru3ppyD0-mEsqju9M9gPH-HzUSVg-3cSgf_t4MhEReWErncHVBx1JklVPGRkwBBm0dxiDSM904LyR4Xo-IQkaZbzfitXXovpfFpbo8hr-RbhcGReCgVwZlpWUCwh_0tkNMbGO3kydhSYcVOL40jbKDFc1RjMsyQHcz5YNQdG4aN562DaTGDFD1-ROl2jz5D0JQoQeyj3SPrZoR7-bjjazl2ouqIWW-YZmy68_vbDXP3wcbyVb0Rt-PJLeF6ii51oDCLAJfzBngD83i9_wAU-yEGPkZtCW5bsOKv7BstbQPmqBDdACD4KqoY9UbIYk_yO_lqIvnZDg_4wSA"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "graphql",
+      "raw": "",
+      "form": [],
+      "graphql": {
+        "query": "mutation UpsertAuthorization($input: AuthorizationInput!){\n  upsertAuthorization(input: $input) {\n    id\n    userId\n    actions {\n      name\n      permissions\n    }\n  }\n}\n",
+        "variables": "{\n    \"input\": {\n        \"userId\": \"01G411CNG3KMAGCDBZ56B10TPZ\",\n        \"actions\": [{\n            \"name\": \"authorizations\",\n            \"permissions\": [\"read:own\"]\n        }]\n    }\n}"
+      }
+    },
+    "auth": {
+      "type": "basic"
+    },
+    "tests": []
+  }
+]

@@ -18,6 +18,9 @@ const ROUTES = {
   forgotPassword: {
     path: '/forgot-password',
   },
+  resetPassword: {
+    path: '/reset-password',
+  },
 };
 
 export {ROUTES};

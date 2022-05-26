@@ -144,8 +144,8 @@ export type FilterTagInput = {
 };
 
 export enum LanguageEnum {
-  Ar = 'AR',
-  En = 'EN',
+  Ar = 'ar',
+  En = 'en',
 }
 
 /**
@@ -197,14 +197,13 @@ export type Mutation = {
   __typename?: 'Mutation';
   createUser?: Maybe<User>;
   forgotPassword?: Maybe<Message>;
-  githubLogin?: Maybe<Auth>;
   /** Set user access to forbidden. User in this case should reset their password to reactivate and change password. */
   invalidateUserToken?: Maybe<Message>;
   mutator?: Maybe<Mutator>;
   resetPassword?: Maybe<Message>;
   signup?: Maybe<Message>;
-  updateAuthorization?: Maybe<Authorization>;
   updateUser?: Maybe<User>;
+  upsertAuthorization?: Maybe<Authorization>;
 };
 
 export type MutationCreateUserArgs = {
@@ -213,10 +212,6 @@ export type MutationCreateUserArgs = {
 
 export type MutationForgotPasswordArgs = {
   email: Scalars['EmailAddress'];
-};
-
-export type MutationGithubLoginArgs = {
-  code: Scalars['ID'];
 };
 
 export type MutationInvalidateUserTokenArgs = {
@@ -231,12 +226,12 @@ export type MutationSignupArgs = {
   input: SignupInput;
 };
 
-export type MutationUpdateAuthorizationArgs = {
-  input: AuthorizationInput;
-};
-
 export type MutationUpdateUserArgs = {
   input: UpdateUserInput;
+};
+
+export type MutationUpsertAuthorizationArgs = {
+  input: AuthorizationInput;
 };
 
 export type Mutator = {
@@ -263,6 +258,13 @@ export type MutatorUpsertTagArgs = {
   input: UpsertTagInput;
 };
 
+/** Pagination data model */
+export type Pagination = {
+  __typename?: 'Pagination';
+  number?: Maybe<Scalars['PositiveInt']>;
+  size?: Maybe<Scalars['PositiveInt']>;
+};
+
 /**
  * Pagination input config. An object of `page`, `size` properties is required to apply pagination.
  *
@@ -281,24 +283,50 @@ export type Post = {
   __typename?: 'Post';
   author?: Maybe<User>;
   authorId?: Maybe<Scalars['String']>;
-  body?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['Date']>;
   id?: Maybe<Scalars['ID']>;
   isPremium?: Maybe<Scalars['Boolean']>;
   lang?: Maybe<LanguageEnum>;
-  metaTags?: Maybe<PostMetaTags>;
   nanoId?: Maybe<Scalars['String']>;
   nextPostId?: Maybe<Scalars['ID']>;
-  postImage?: Maybe<Scalars['String']>;
+  postContentIds: Array<Maybe<Scalars['ID']>>;
+  postContents?: Maybe<Array<Maybe<PostContent>>>;
   prevPostId?: Maybe<Scalars['ID']>;
-  publishedAt?: Maybe<Scalars['Date']>;
-  readingTime?: Maybe<Scalars['String']>;
   slug?: Maybe<Scalars['String']>;
   tagIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
   tags?: Maybe<Array<Maybe<Tag>>>;
   type?: Maybe<PostTypeEnum>;
   updatedAt?: Maybe<Scalars['Date']>;
   visibility?: Maybe<Scalars['Boolean']>;
+};
+
+export type PostPostContentsArgs = {
+  lang?: InputMaybe<LanguageEnum>;
+};
+
+export type PostContent = {
+  __typename?: 'PostContent';
+  body?: Maybe<Scalars['String']>;
+  contentPreview?: Maybe<Scalars['String']>;
+  createdAt?: Maybe<Scalars['Date']>;
+  id?: Maybe<Scalars['ID']>;
+  lang?: Maybe<LanguageEnum>;
+  metaTags?: Maybe<PostMetaTags>;
+  postImage?: Maybe<Scalars['String']>;
+  publishedAt?: Maybe<Scalars['Date']>;
+  readingTime?: Maybe<Scalars['String']>;
+  updatedAt?: Maybe<Scalars['Date']>;
+};
+
+export type PostContentInput = {
+  body?: InputMaybe<Scalars['String']>;
+  contentPreview?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['ID']>;
+  lang?: InputMaybe<LanguageEnum>;
+  metaTags?: InputMaybe<PostMetaTagsInput>;
+  postImage?: InputMaybe<Scalars['String']>;
+  publishedAt?: InputMaybe<Scalars['Date']>;
+  readingTime?: InputMaybe<Scalars['String']>;
 };
 
 /** Filtering configuration by fields. */
@@ -316,6 +344,18 @@ export type PostFilterInput = {
   authorId?: InputMaybe<Scalars['ID']>;
   createdAt?: InputMaybe<Scalars['String']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  isPremium?: InputMaybe<Scalars['Boolean']>;
+  nanoId?: InputMaybe<Scalars['ID']>;
+  slug?: InputMaybe<Scalars['String']>;
+  type?: InputMaybe<PostTypeEnum>;
+  updatedAt?: InputMaybe<Scalars['String']>;
+  visibility?: InputMaybe<Scalars['Boolean']>;
+};
+
+/** Get single post */
+export type PostInput = {
+  createdAt?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['ID']>;
   isPremium?: InputMaybe<Scalars['Boolean']>;
   lang?: InputMaybe<LanguageEnum>;
   nanoId?: InputMaybe<Scalars['ID']>;
@@ -338,6 +378,13 @@ export type PostMetaTagsInput = {
   injectHeader?: InputMaybe<Scalars['String']>;
 };
 
+export type PostResponse = {
+  __typename?: 'PostResponse';
+  data?: Maybe<Array<Maybe<Post>>>;
+  page?: Maybe<Pagination>;
+  totalCount?: Maybe<Scalars['Int']>;
+};
+
 /** Single sorting configuration by field name and direction. An object of `key` `direction` properties is required when applying for sorting. */
 export type PostSortingByFieldInput = {
   createdAt?: InputMaybe<SortingEnum>;
@@ -352,7 +399,7 @@ export type PostSortingByFieldInput = {
 
 export enum PostTypeEnum {
   Course = 'COURSE',
-  Post = 'Post',
+  Post = 'POST',
 }
 
 export type Querier = {
@@ -388,10 +435,12 @@ export type Query = {
   __typename?: 'Query';
   clearTokens?: Maybe<Message>;
   createTokens?: Maybe<Auth>;
+  getPost?: Maybe<Post>;
   getUser?: Maybe<User>;
   getUserAuthorization?: Maybe<Authorization>;
+  githubLogin?: Maybe<Auth>;
   listCourses?: Maybe<Array<Maybe<Course>>>;
-  listPosts?: Maybe<Array<Maybe<Post>>>;
+  listPosts?: Maybe<PostResponse>;
   listUsers?: Maybe<Array<Maybe<User>>>;
   querier?: Maybe<Querier>;
   refreshTokens?: Maybe<Auth>;
@@ -402,12 +451,20 @@ export type QueryCreateTokensArgs = {
   input: AuthInput;
 };
 
+export type QueryGetPostArgs = {
+  input: PostInput;
+};
+
 export type QueryGetUserArgs = {
   id: Scalars['ID'];
 };
 
 export type QueryGetUserAuthorizationArgs = {
   id: Scalars['ID'];
+};
+
+export type QueryGithubLoginArgs = {
+  code: Scalars['ID'];
 };
 
 export type QueryListCoursesArgs = {
@@ -495,6 +552,7 @@ export type UpsertCourseInput = {
 export type UpsertPostInput = {
   authorId?: InputMaybe<Scalars['String']>;
   body?: InputMaybe<Scalars['String']>;
+  contentPreview?: InputMaybe<Scalars['String']>;
   id: Scalars['ID'];
   isPremium?: InputMaybe<Scalars['Boolean']>;
   lang?: InputMaybe<LanguageEnum>;
@@ -606,12 +664,79 @@ export type CreateTokensQuery = {
   } | null;
 };
 
-export type GithubLoginMutationVariables = Exact<{
+export type ForgotPasswordMutationVariables = Exact<{
+  email: Scalars['EmailAddress'];
+}>;
+
+export type ForgotPasswordMutation = {
+  __typename?: 'Mutation';
+  forgotPassword?: {__typename?: 'Message'; message?: string | null} | null;
+};
+
+export type GetPostQueryVariables = Exact<{
+  input: PostInput;
+  lang?: InputMaybe<LanguageEnum>;
+}>;
+
+export type GetPostQuery = {
+  __typename?: 'Query';
+  getPost?: {
+    __typename?: 'Post';
+    id?: string | null;
+    slug?: string | null;
+    nanoId?: string | null;
+    authorId?: string | null;
+    isPremium?: boolean | null;
+    visibility?: boolean | null;
+    tagIds?: Array<string | null> | null;
+    prevPostId?: string | null;
+    nextPostId?: string | null;
+    createdAt?: Date | null;
+    updatedAt?: Date | null;
+    postContents?: Array<{
+      __typename?: 'PostContent';
+      id?: string | null;
+      postImage?: string | null;
+      lang?: LanguageEnum | null;
+      body?: string | null;
+      contentPreview?: string | null;
+      readingTime?: string | null;
+      publishedAt?: Date | null;
+      createdAt?: Date | null;
+      updatedAt?: Date | null;
+      metaTags?: {
+        __typename?: 'PostMetaTags';
+        injectHeader?: string | null;
+        injectCssStyle?: string | null;
+        description?: string | null;
+      } | null;
+    } | null> | null;
+    tags?: Array<{
+      __typename?: 'Tag';
+      id?: string | null;
+      imgSrc?: string | null;
+      name?: string | null;
+      description?: string | null;
+    } | null> | null;
+    author?: {
+      __typename?: 'User';
+      email?: any | null;
+      avatar?: string | null;
+      name?: {
+        __typename?: 'Username';
+        first?: string | null;
+        last?: string | null;
+      } | null;
+    } | null;
+  } | null;
+};
+
+export type GithubLoginQueryVariables = Exact<{
   code: Scalars['ID'];
 }>;
 
-export type GithubLoginMutation = {
-  __typename?: 'Mutation';
+export type GithubLoginQuery = {
+  __typename?: 'Query';
   githubLogin?: {
     __typename?: 'Auth';
     accessToken: string;
@@ -623,52 +748,67 @@ export type GithubLoginMutation = {
 
 export type ListPostsQueryVariables = Exact<{
   input?: InputMaybe<ListPostCollateInput>;
+  lang?: InputMaybe<LanguageEnum>;
 }>;
 
 export type ListPostsQuery = {
   __typename?: 'Query';
-  listPosts?: Array<{
-    __typename?: 'Post';
-    id?: string | null;
-    slug?: string | null;
-    nanoId?: string | null;
-    postImage?: string | null;
-    authorId?: string | null;
-    body?: string | null;
-    readingTime?: string | null;
-    isPremium?: boolean | null;
-    lang?: LanguageEnum | null;
-    visibility?: boolean | null;
-    publishedAt?: Date | null;
-    tagIds?: Array<string | null> | null;
-    prevPostId?: string | null;
-    nextPostId?: string | null;
-    createdAt?: Date | null;
-    updatedAt?: Date | null;
-    author?: {
-      __typename?: 'User';
-      email?: any | null;
-      avatar?: string | null;
-      name?: {
-        __typename?: 'Username';
-        first?: string | null;
-        last?: string | null;
-      } | null;
-    } | null;
-    metaTags?: {
-      __typename?: 'PostMetaTags';
-      description?: string | null;
-      injectCssStyle?: string | null;
-      injectHeader?: string | null;
-    } | null;
-    tags?: Array<{
-      __typename?: 'Tag';
+  listPosts?: {
+    __typename?: 'PostResponse';
+    totalCount?: number | null;
+    data?: Array<{
+      __typename?: 'Post';
       id?: string | null;
-      imgSrc?: string | null;
-      name?: string | null;
-      description?: string | null;
+      slug?: string | null;
+      nanoId?: string | null;
+      authorId?: string | null;
+      isPremium?: boolean | null;
+      visibility?: boolean | null;
+      tagIds?: Array<string | null> | null;
+      prevPostId?: string | null;
+      nextPostId?: string | null;
+      createdAt?: Date | null;
+      updatedAt?: Date | null;
+      postContents?: Array<{
+        __typename?: 'PostContent';
+        postImage?: string | null;
+        lang?: LanguageEnum | null;
+        contentPreview?: string | null;
+        readingTime?: string | null;
+        publishedAt?: Date | null;
+        createdAt?: Date | null;
+        updatedAt?: Date | null;
+        metaTags?: {
+          __typename?: 'PostMetaTags';
+          injectHeader?: string | null;
+          injectCssStyle?: string | null;
+          description?: string | null;
+        } | null;
+      } | null> | null;
+      tags?: Array<{
+        __typename?: 'Tag';
+        id?: string | null;
+        imgSrc?: string | null;
+        name?: string | null;
+        description?: string | null;
+      } | null> | null;
+      author?: {
+        __typename?: 'User';
+        email?: any | null;
+        avatar?: string | null;
+        name?: {
+          __typename?: 'Username';
+          first?: string | null;
+          last?: string | null;
+        } | null;
+      } | null;
     } | null> | null;
-  } | null> | null;
+    page?: {
+      __typename?: 'Pagination';
+      number?: any | null;
+      size?: any | null;
+    } | null;
+  } | null;
 };
 
 export type RefreshTokensQueryVariables = Exact<{[key: string]: never}>;
@@ -682,6 +822,18 @@ export type RefreshTokensQuery = {
     accessTokenExpire?: number | null;
     refreshTokenExpire?: number | null;
   } | null;
+};
+
+export type SignupMutationVariables = Exact<{
+  firstName: Scalars['String'];
+  lastName: Scalars['String'];
+  email: Scalars['EmailAddress'];
+  password: Scalars['Password'];
+}>;
+
+export type SignupMutation = {
+  __typename?: 'Mutation';
+  signup?: {__typename?: 'Message'; message?: string | null} | null;
 };
 
 export type VerifyMeQueryVariables = Exact<{[key: string]: never}>;
@@ -833,67 +985,88 @@ export type CreateTokensQueryResult = Apollo.QueryResult<
   CreateTokensQuery,
   CreateTokensQueryVariables
 >;
-export const GithubLoginDocument = gql`
-  mutation GithubLogin($code: ID!) {
-    githubLogin(code: $code) {
-      accessToken
-      refreshToken
-      accessTokenExpire
-      refreshTokenExpire
+export const ForgotPasswordDocument = gql`
+  mutation ForgotPassword($email: EmailAddress!) {
+    forgotPassword(email: $email) {
+      message
     }
   }
 `;
-export type GithubLoginMutationFn = Apollo.MutationFunction<
-  GithubLoginMutation,
-  GithubLoginMutationVariables
+export type ForgotPasswordMutationFn = Apollo.MutationFunction<
+  ForgotPasswordMutation,
+  ForgotPasswordMutationVariables
 >;
 
 /**
- * __useGithubLoginMutation__
+ * __useForgotPasswordMutation__
  *
- * To run a mutation, you first call `useGithubLoginMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useGithubLoginMutation` returns a tuple that includes:
+ * To run a mutation, you first call `useForgotPasswordMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useForgotPasswordMutation` returns a tuple that includes:
  * - A mutate function that you can call at any time to execute the mutation
  * - An object with fields that represent the current status of the mutation's execution
  *
  * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
  *
  * @example
- * const [githubLoginMutation, { data, loading, error }] = useGithubLoginMutation({
+ * const [forgotPasswordMutation, { data, loading, error }] = useForgotPasswordMutation({
  *   variables: {
- *      code: // value for 'code'
+ *      email: // value for 'email'
  *   },
  * });
  */
-export function useGithubLoginMutation(
+export function useForgotPasswordMutation(
   baseOptions?: Apollo.MutationHookOptions<
-    GithubLoginMutation,
-    GithubLoginMutationVariables
+    ForgotPasswordMutation,
+    ForgotPasswordMutationVariables
   >
 ) {
   const options = {...defaultOptions, ...baseOptions};
-  return Apollo.useMutation<GithubLoginMutation, GithubLoginMutationVariables>(
-    GithubLoginDocument,
-    options
-  );
+  return Apollo.useMutation<
+    ForgotPasswordMutation,
+    ForgotPasswordMutationVariables
+  >(ForgotPasswordDocument, options);
 }
-export type GithubLoginMutationHookResult = ReturnType<
-  typeof useGithubLoginMutation
+export type ForgotPasswordMutationHookResult = ReturnType<
+  typeof useForgotPasswordMutation
 >;
-export type GithubLoginMutationResult =
-  Apollo.MutationResult<GithubLoginMutation>;
-export type GithubLoginMutationOptions = Apollo.BaseMutationOptions<
-  GithubLoginMutation,
-  GithubLoginMutationVariables
+export type ForgotPasswordMutationResult =
+  Apollo.MutationResult<ForgotPasswordMutation>;
+export type ForgotPasswordMutationOptions = Apollo.BaseMutationOptions<
+  ForgotPasswordMutation,
+  ForgotPasswordMutationVariables
 >;
-export const ListPostsDocument = gql`
-  query ListPosts($input: ListPostCollateInput) {
-    listPosts(input: $input) {
+export const GetPostDocument = gql`
+  query GetPost($input: PostInput!, $lang: LanguageEnum) {
+    getPost(input: $input) {
       id
       slug
       nanoId
-      postImage
       authorId
+      isPremium
+      visibility
+      tagIds
+      postContents(lang: $lang) {
+        id
+        postImage
+        lang
+        body
+        contentPreview
+        readingTime
+        metaTags {
+          injectHeader
+          injectCssStyle
+          description
+        }
+        publishedAt
+        createdAt
+        updatedAt
+      }
+      tags {
+        id
+        imgSrc
+        name
+        description
+      }
       author {
         email
         avatar
@@ -902,28 +1075,163 @@ export const ListPostsDocument = gql`
           last
         }
       }
-      body
-      readingTime
-      isPremium
-      lang
-      visibility
-      publishedAt
-      metaTags {
-        description
-        injectCssStyle
-        injectHeader
-      }
-      tagIds
-      tags {
-        id
-        imgSrc
-        name
-        description
-      }
       prevPostId
       nextPostId
       createdAt
       updatedAt
+    }
+  }
+`;
+
+/**
+ * __useGetPostQuery__
+ *
+ * To run a query within a React component, call `useGetPostQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetPostQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetPostQuery({
+ *   variables: {
+ *      input: // value for 'input'
+ *      lang: // value for 'lang'
+ *   },
+ * });
+ */
+export function useGetPostQuery(
+  baseOptions: Apollo.QueryHookOptions<GetPostQuery, GetPostQueryVariables>
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useQuery<GetPostQuery, GetPostQueryVariables>(
+    GetPostDocument,
+    options
+  );
+}
+export function useGetPostLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<GetPostQuery, GetPostQueryVariables>
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useLazyQuery<GetPostQuery, GetPostQueryVariables>(
+    GetPostDocument,
+    options
+  );
+}
+export type GetPostQueryHookResult = ReturnType<typeof useGetPostQuery>;
+export type GetPostLazyQueryHookResult = ReturnType<typeof useGetPostLazyQuery>;
+export type GetPostQueryResult = Apollo.QueryResult<
+  GetPostQuery,
+  GetPostQueryVariables
+>;
+export const GithubLoginDocument = gql`
+  query GithubLogin($code: ID!) {
+    githubLogin(code: $code) {
+      accessToken
+      refreshToken
+      accessTokenExpire
+      refreshTokenExpire
+    }
+  }
+`;
+
+/**
+ * __useGithubLoginQuery__
+ *
+ * To run a query within a React component, call `useGithubLoginQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGithubLoginQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGithubLoginQuery({
+ *   variables: {
+ *      code: // value for 'code'
+ *   },
+ * });
+ */
+export function useGithubLoginQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    GithubLoginQuery,
+    GithubLoginQueryVariables
+  >
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useQuery<GithubLoginQuery, GithubLoginQueryVariables>(
+    GithubLoginDocument,
+    options
+  );
+}
+export function useGithubLoginLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GithubLoginQuery,
+    GithubLoginQueryVariables
+  >
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useLazyQuery<GithubLoginQuery, GithubLoginQueryVariables>(
+    GithubLoginDocument,
+    options
+  );
+}
+export type GithubLoginQueryHookResult = ReturnType<typeof useGithubLoginQuery>;
+export type GithubLoginLazyQueryHookResult = ReturnType<
+  typeof useGithubLoginLazyQuery
+>;
+export type GithubLoginQueryResult = Apollo.QueryResult<
+  GithubLoginQuery,
+  GithubLoginQueryVariables
+>;
+export const ListPostsDocument = gql`
+  query ListPosts($input: ListPostCollateInput, $lang: LanguageEnum) {
+    listPosts(input: $input) {
+      data {
+        id
+        slug
+        nanoId
+        authorId
+        isPremium
+        visibility
+        tagIds
+        postContents(lang: $lang) {
+          postImage
+          lang
+          contentPreview
+          readingTime
+          metaTags {
+            injectHeader
+            injectCssStyle
+            description
+          }
+          publishedAt
+          createdAt
+          updatedAt
+        }
+        tags {
+          id
+          imgSrc
+          name
+          description
+        }
+        author {
+          email
+          avatar
+          name {
+            first
+            last
+          }
+        }
+        prevPostId
+        nextPostId
+        createdAt
+        updatedAt
+      }
+      totalCount
+      page {
+        number
+        size
+      }
     }
   }
 `;
@@ -941,6 +1249,7 @@ export const ListPostsDocument = gql`
  * const { data, loading, error } = useListPostsQuery({
  *   variables: {
  *      input: // value for 'input'
+ *      lang: // value for 'lang'
  *   },
  * });
  */
@@ -1032,6 +1341,68 @@ export type RefreshTokensLazyQueryHookResult = ReturnType<
 export type RefreshTokensQueryResult = Apollo.QueryResult<
   RefreshTokensQuery,
   RefreshTokensQueryVariables
+>;
+export const SignupDocument = gql`
+  mutation Signup(
+    $firstName: String!
+    $lastName: String!
+    $email: EmailAddress!
+    $password: Password!
+  ) {
+    signup(
+      input: {
+        email: $email
+        firstName: $firstName
+        lastName: $lastName
+        password: $password
+      }
+    ) {
+      message
+    }
+  }
+`;
+export type SignupMutationFn = Apollo.MutationFunction<
+  SignupMutation,
+  SignupMutationVariables
+>;
+
+/**
+ * __useSignupMutation__
+ *
+ * To run a mutation, you first call `useSignupMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useSignupMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [signupMutation, { data, loading, error }] = useSignupMutation({
+ *   variables: {
+ *      firstName: // value for 'firstName'
+ *      lastName: // value for 'lastName'
+ *      email: // value for 'email'
+ *      password: // value for 'password'
+ *   },
+ * });
+ */
+export function useSignupMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    SignupMutation,
+    SignupMutationVariables
+  >
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useMutation<SignupMutation, SignupMutationVariables>(
+    SignupDocument,
+    options
+  );
+}
+export type SignupMutationHookResult = ReturnType<typeof useSignupMutation>;
+export type SignupMutationResult = Apollo.MutationResult<SignupMutation>;
+export type SignupMutationOptions = Apollo.BaseMutationOptions<
+  SignupMutation,
+  SignupMutationVariables
 >;
 export const VerifyMeDocument = gql`
   query VerifyMe {

@@ -5,6 +5,7 @@ import BoldLabel from '../Label/BoldLabel';
 import MediumLabel from '../Label/MediumLabel';
 import {ChevronDoubleRightIcon} from '@heroicons/react/outline';
 import {useTranslation} from 'next-i18next';
+import slugToTitle from '../../utils/slugToTitle';
 
 interface PostCardProps {
   title: string;
@@ -27,9 +28,10 @@ const PostCard: React.FC<PostCardProps> = ({
     <div
       className={clsx(
         'p-8',
+        'min-h-[250px]',
         'rounded-2xl',
-        'bg-white',
-        'dark:bg-slate-800',
+        'bg-neutral-100',
+        'dark:bg-neutral-800',
         'h-full'
       )}
     >
@@ -46,7 +48,7 @@ const PostCard: React.FC<PostCardProps> = ({
           <a className={clsx('flex', 'flex-col', 'justify-between', 'h-full')}>
             <div>
               <h3 className={clsx('post-card--title', 'text-xl')}>
-                <BoldLabel>{title}</BoldLabel>
+                <BoldLabel>{slugToTitle(title)}</BoldLabel>
               </h3>
               <h3 className={clsx('text-base', 'mb-4', 'text-gray-400')}>
                 <MediumLabel>{subTitle}</MediumLabel>

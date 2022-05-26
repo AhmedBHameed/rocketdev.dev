@@ -139,7 +139,7 @@ module.exports = {
       },
     },
   }, // customize the theme however you want here
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 };
 
 // module.exports = {

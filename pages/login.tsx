@@ -18,7 +18,6 @@ import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import RocketDevsSvg from '../components/SVG/ReactDevsSvg';
 import {GITHUB_CLIENT_ID} from '../config/environments';
 import {ROUTES} from '../config/routes';
-import {useGithubLoginMutation} from '../graphql/generated/graphql';
 import clsx from '../utils/clsx';
 import {
   GetStaticProps,

@@ -25,5 +25,8 @@
   "i18n-ally.theme.annotation": "#4bff00",
   "i18n-ally.theme.annotationMissing": "#d37070",
   "i18n-ally.keystyle": "nested",
-  "i18n-ally.localesPaths": ["public/locales"]
+  "i18n-ally.localesPaths": ["public/locales"],
+  "thunder-client.saveRequestOnSend": true,
+  "thunder-client.saveToWorkspace": true,
+  "thunder-client.showActivityFromCollection": true
 }

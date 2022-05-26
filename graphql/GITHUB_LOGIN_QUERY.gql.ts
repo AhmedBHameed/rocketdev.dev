@@ -1,7 +1,7 @@
 import {gql} from '@apollo/client';
 
-const GITHUB_LOGIN_MUTATION = gql`
-  mutation GithubLogin($code: ID!) {
+const GITHUB_LOGIN_QUERY = gql`
+  query GithubLogin($code: ID!) {
     githubLogin(code: $code) {
       accessToken
       refreshToken
@@ -11,4 +11,4 @@ const GITHUB_LOGIN_MUTATION = gql`
   }
 `;
 
-export default GITHUB_LOGIN_MUTATION;
+export default GITHUB_LOGIN_QUERY;

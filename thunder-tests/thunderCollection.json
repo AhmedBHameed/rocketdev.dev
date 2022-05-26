@@ -1,0 +1,24 @@
+[
+  {
+    "_id": "d845b0d6-4b8b-4381-83f2-5ac7faebb483",
+    "colName": "rocketdev.dev",
+    "created": "2022-04-24T20:12:09.713Z",
+    "folders": [
+      {
+        "_id": "7f4bbe66-a78b-484d-8c2d-790a70a8a8e7",
+        "name": "AUTH",
+        "containerId": "",
+        "created": "2022-04-24T20:16:50.203Z",
+        "sortNum": 10000
+      },
+      {
+        "_id": "d6520ffc-2ed2-4338-82fc-70b27e329745",
+        "name": "PUBLIC",
+        "containerId": "",
+        "created": "2022-04-24T20:27:46.097Z",
+        "sortNum": 20000
+      }
+    ],
+    "sortNum": 10000
+  }
+]
