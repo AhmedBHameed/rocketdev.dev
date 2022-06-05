@@ -3,6 +3,7 @@
   "forgotPassword": "Forgot password?",
   "githubLogin": "Login with github",
   "headTitle": "Log in",
+  "loginActionButton": "Login",
   "rememberMeLabel": "Remember me",
   "youDontHaveAccount": "You don't have account?"
 }

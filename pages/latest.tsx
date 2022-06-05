@@ -99,6 +99,11 @@ export const getServerSideProps: GetServerSideProps = async ({locale}) => {
     >({
       query: LATEST_POSTS_QUERY,
       variables: {
+        input: {
+          filter: {
+            isPremium: false,
+          },
+        },
         lang: locale as LanguageEnum,
       },
     });

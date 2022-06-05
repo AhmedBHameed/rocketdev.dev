@@ -3,5 +3,6 @@ const DOMAIN = IS_PROD
   ? process.env.NEXT_PUBLIC_DOMAIN
   : 'http://localhost:5000';
 const GITHUB_CLIENT_ID = process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID || '';
+const STATIC_ASSETS_PATH = `https://minio.rocketdev.dev`;
 
-export {DOMAIN, IS_PROD, GITHUB_CLIENT_ID};
+export {DOMAIN, IS_PROD, GITHUB_CLIENT_ID, STATIC_ASSETS_PATH};

@@ -8,31 +8,26 @@ import {
   FormControl,
   InputField,
   PasswordField,
-} from '../components/Forms';
+} from '../../components/Forms';
 
-import loginSchema from '../components/Login/loginSchema';
-import {LoginInput} from '../components/Login/models/LoginInput';
+import LoadingButton from '../../components/Buttons/LoadingButton';
+import loginSchema from '../../components/Login/loginSchema';
+import {LoginInput} from '../../components/Login/models/LoginInput';
 import {useTranslation} from 'next-i18next';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
-import RocketDevsSvg from '../components/SVG/ReactDevsSvg';
-import {GITHUB_CLIENT_ID} from '../config/environments';
-import {ROUTES} from '../config/routes';
-import clsx from '../utils/clsx';
-import {
-  GetStaticProps,
-  // GetStaticPaths,
-  // GetServerSideProps,
-  NextPage,
-} from 'next';
-import Link from 'next/link';
-import useGithubLoginHook from '../components/hooks/githubLoginHook';
-import useCreateTokens from '../components/hooks/createTokensHook';
-import LoadingButton from '../components/Buttons/LoadingButton';
 
-const Login: NextPage = () => {
-  const router = useRouter();
-  const loginTrans = useTranslation('login');
-  const commonTrans = useTranslation('common');
+import {GITHUB_CLIENT_ID} from '../../config/environments';
+import {ROUTES} from '../../config/routes';
+import clsx from '../../utils/clsx';
+import {GetStaticProps, NextPage} from 'next';
+import useGithubLoginHook from '../../components/hooks/githubLoginHook';
+import useCreateTokens from '../../components/hooks/createTokensHook';
+import useNavigateToDashboard from '../../components/Dashboard/hooks/navigateToDashboardHook';
+import RocketDevsSvg from '../../components/SVG/ReactDevsSvg';
+
+const DashboardLogin: NextPage = () => {
+  const {goToAdminDashboard} = useNavigateToDashboard();
+  const {t, i18n} = useTranslation(['login', 'common']);
 
   const createTokensQuery = useCreateTokens();
 
@@ -45,9 +40,7 @@ const Login: NextPage = () => {
         password: loginData.password,
         rememberMe: loginData.rememberMe,
       });
-      router.push(ROUTES.latest.path, undefined, {
-        locale: loginTrans.i18n.language,
-      });
+      goToAdminDashboard();
     } catch (e) {
       console.log(e);
     }
@@ -56,7 +49,7 @@ const Login: NextPage = () => {
   const handleGithubLogin = useCallback(async (code: string) => {
     try {
       await githubQuery.githubLogin(code);
-      router.push(ROUTES.latest.path);
+      goToAdminDashboard();
     } catch (e) {
       console.log(e);
     }
@@ -64,7 +57,7 @@ const Login: NextPage = () => {
 
   const getGithubCode = useCallback(() => {
     window.open(
-      `https://github.com/login/oauth/authorize?client_id=${GITHUB_CLIENT_ID}&scope=user&redirect_uri=${window.location.origin}/login`,
+      `https://github.com/login/oauth/authorize?client_id=${GITHUB_CLIENT_ID}&scope=user&redirect_uri=${window.location.origin}/dashboard/login`,
       '_self'
     );
   }, []);
@@ -93,10 +86,12 @@ const Login: NextPage = () => {
     }
   }, []);
 
-  const currentLocale = loginTrans.i18n.language;
+  const currentLocale = i18n.language;
 
-  const emailError = errors.email?.message;
-  const passwordError = errors.password?.message;
+  const emailError = t(`common:${errors.email?.message}`, {defaultValue: ''});
+  const passwordError = t(`common:${errors.password?.message}`, {
+    defaultValue: '',
+  });
 
   const loading = createTokensQuery.loading || githubQuery.loading;
 
@@ -119,7 +114,7 @@ const Login: NextPage = () => {
         </div>
 
         <h2 className="mt-2 text-center text-3xl font-extrabold text-gray-900 dark:text-gray-100">
-          {loginTrans.t<string>('headTitle')}
+          {t<string>('headTitle')}
         </h2>
       </div>
 
@@ -164,13 +159,13 @@ const Login: NextPage = () => {
                 'focus:ring-gray-500'
               )}
             >
-              {loginTrans.t<string>('githubLogin')}
+              {t<string>('githubLogin')}
             </LoadingButton>
           </div>
           <form onSubmit={handleSubmit(handleLogin)} className="space-y-2">
             <FormControl
               label="Email"
-              error={commonTrans.t<string>(emailError)}
+              error={emailError}
               // hideErrorPlaceholder?: boolean;
               htmlFor="email"
               helperTextId="email"
@@ -185,7 +180,9 @@ const Login: NextPage = () => {
                     error={!!emailError}
                     name="email"
                     onChange={onChange}
-                    placeholder={loginTrans.t<string>('emailPlaceholder')}
+                    placeholder={t('common:emailPlaceholder', {
+                      defaultValue: 'Email',
+                    })}
                     testId="email-input"
                     value={value}
                   />
@@ -194,8 +191,8 @@ const Login: NextPage = () => {
             </FormControl>
 
             <FormControl
-              label={loginTrans.t<string>('passwordLabel')}
-              error={commonTrans.t<string>(passwordError)}
+              label={t('common:passwordLabel', {defaultValue: 'Password'})}
+              error={passwordError}
               // hideErrorPlaceholder?: boolean;
               htmlFor="password"
               helperTextId="password"
@@ -210,7 +207,9 @@ const Login: NextPage = () => {
                     error={!!passwordError}
                     name="password"
                     onChange={onChange}
-                    placeholder={commonTrans.t('passwordPlaceholder')}
+                    placeholder={t('common:passwordPlaceholder', {
+                      defaultValue: 'Password',
+                    })}
                     testId="password-input"
                     value={value}
                   />
@@ -236,7 +235,9 @@ const Login: NextPage = () => {
                         id="remember_me"
                         value={value}
                         labelClassName="text-gray-50 mx-3"
-                        label={loginTrans.t<string>('rememberMeLabel')}
+                        label={t<string>('login:rememberMeLabel', {
+                          defaultValue: 'Remember me',
+                        })}
                         ariaLabel="remember me"
                         testId="remember-me-checkbox"
                         onChange={onChange}
@@ -245,17 +246,6 @@ const Login: NextPage = () => {
                     )}
                   />
                 </FormControl>
-
-                <div className="text-sm">
-                  <Link
-                    href={ROUTES.forgotPassword.path}
-                    locale={currentLocale}
-                  >
-                    <a className="font-medium text-red-500 hover:text-red-400">
-                      {loginTrans.t<string>('forgotPassword')}
-                    </a>
-                  </Link>
-                </div>
               </div>
             </div>
 
@@ -286,21 +276,8 @@ const Login: NextPage = () => {
                   'focus:ring-red-500'
                 )}
               >
-                Login
+                {t<string>('login.actionButton', {defaultValue: 'Log in'})}
               </LoadingButton>
-
-              <Link href={ROUTES.signup.path} locale={currentLocale}>
-                <a
-                  className={clsx(
-                    'font-medium',
-                    'text-red-500',
-                    'hover:text-red-400',
-                    'mt-2'
-                  )}
-                >
-                  {loginTrans.t<string>('youDontHaveAccount')}
-                </a>
-              </Link>
             </div>
           </form>
         </div>
@@ -322,4 +299,4 @@ export const getStaticProps: GetStaticProps = async ({locale}) => {
   };
 };
 
-export default Login;
+export default DashboardLogin;

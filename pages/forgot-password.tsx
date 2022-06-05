@@ -3,7 +3,7 @@ import {useRouter} from 'next/router';
 import {useCallback} from 'react';
 import {Controller, useForm} from 'react-hook-form';
 import {FormControl, InputField} from '../components/Forms';
-import LoadingButton from '../components/Button/LoadingButton';
+
 import {useTranslation} from 'next-i18next';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import RocketDevsSvg from '../components/SVG/ReactDevsSvg';
@@ -14,6 +14,7 @@ import Link from 'next/link';
 import {ForgotPasswordInput} from '../components/ForgotPassword/models/ForgotPasswordInput';
 import {useForgotPasswordMutation} from '../graphql/generated/graphql';
 import forgotPasswordSchema from '../components/ForgotPassword/models/forgotPasswordSchema';
+import LoadingButton from '../components/Buttons/LoadingButton';
 
 const ForgotPasswordPage: React.FC = () => {
   const forgotPasswordLocale = useTranslation('forgotPassword');

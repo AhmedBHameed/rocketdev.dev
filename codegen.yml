@@ -8,6 +8,7 @@ generates:
       - 'typescript-operations'
       - 'typescript-react-apollo'
     config:
+      # arrayInputCoercion: true
       withHooks: true
       scalars:
         Date: Date

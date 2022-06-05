@@ -1,6 +1,6 @@
 {
   "emailLabel": "Email",
-  "emailPlaceholder": "ُEmail",
+  "emailPlaceholder": "Email",
   "passwordLabel": "Password",
   "passwordPlaceholder": "Password",
   "validationError.invalidEmail": "Invalid email",

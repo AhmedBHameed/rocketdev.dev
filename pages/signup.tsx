@@ -5,7 +5,6 @@ import {Controller, useForm} from 'react-hook-form';
 
 import {FormControl, InputField, PasswordField} from '../components/Forms';
 
-import LoadingButton from '../components/Button/LoadingButton';
 import {useTranslation} from 'next-i18next';
 import RocketDevsSvg from '../components/SVG/ReactDevsSvg';
 import clsx from '../utils/clsx';
@@ -16,6 +15,7 @@ import {ROUTES} from '../config/routes';
 import signupSchema from '../components/Signup/signupSchema';
 import {GetStaticProps} from 'next';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
+import LoadingButton from '../components/Buttons/LoadingButton';
 
 const Signup = () => {
   const signupTrans = useTranslation('signup');

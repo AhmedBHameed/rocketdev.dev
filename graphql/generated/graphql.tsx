@@ -95,7 +95,7 @@ export type CourseFilterInput = {
   _or?: InputMaybe<Array<InputMaybe<CourseFilterInput>>>;
   authorId?: InputMaybe<Scalars['ID']>;
   createdAt?: InputMaybe<Scalars['String']>;
-  id?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  id?: InputMaybe<Scalars['ID']>;
   isPremium?: InputMaybe<Scalars['Boolean']>;
   lang?: InputMaybe<LanguageEnum>;
   slug?: InputMaybe<Scalars['String']>;
@@ -398,33 +398,34 @@ export type PostSortingByFieldInput = {
 };
 
 export enum PostTypeEnum {
+  Article = 'ARTICLE',
   Course = 'COURSE',
-  Post = 'POST',
 }
 
 export type Querier = {
   __typename?: 'Querier';
   about?: Maybe<Scalars['String']>;
+  getCourse?: Maybe<Course>;
   id: Scalars['ID'];
   isSuper?: Maybe<Scalars['Boolean']>;
   listCoursePosts?: Maybe<Array<Maybe<Post>>>;
-  listPosts?: Maybe<Array<Maybe<Post>>>;
-  listPremiumCourses?: Maybe<Array<Maybe<Course>>>;
+  /** List all posts. */
+  listPosts?: Maybe<PostResponse>;
   listTags?: Maybe<Array<Maybe<Tag>>>;
   occupation?: Maybe<Scalars['String']>;
   userActionsAsJson: Scalars['String'];
 };
 
+export type QuerierGetCourseArgs = {
+  id: Scalars['String'];
+};
+
 export type QuerierListCoursePostsArgs = {
-  input?: InputMaybe<ListCourseCollateInput>;
+  ids: Array<Scalars['String']>;
 };
 
 export type QuerierListPostsArgs = {
   input?: InputMaybe<ListPostCollateInput>;
-};
-
-export type QuerierListPremiumCoursesArgs = {
-  input?: InputMaybe<ListCourseCollateInput>;
 };
 
 export type QuerierListTagsArgs = {
@@ -440,6 +441,7 @@ export type Query = {
   getUserAuthorization?: Maybe<Authorization>;
   githubLogin?: Maybe<Auth>;
   listCourses?: Maybe<Array<Maybe<Course>>>;
+  /** List public posts with type of ARTICLE. Post with type of 'COURSE' will be excluded. */
   listPosts?: Maybe<PostResponse>;
   listUsers?: Maybe<Array<Maybe<User>>>;
   querier?: Maybe<Querier>;
@@ -811,6 +813,85 @@ export type ListPostsQuery = {
   } | null;
 };
 
+export type ListCoursesQueryVariables = Exact<{
+  input: ListCourseCollateInput;
+}>;
+
+export type ListCoursesQuery = {
+  __typename?: 'Query';
+  listCourses?: Array<{
+    __typename?: 'Course';
+    id?: string | null;
+    slug?: string | null;
+    tagIds?: Array<string | null> | null;
+    visibility?: boolean | null;
+    image?: string | null;
+    isPremium?: boolean | null;
+    lang?: LanguageEnum | null;
+    postIds?: Array<string | null> | null;
+    publishedAt?: Date | null;
+    accessedByUserIds?: Array<string | null> | null;
+    author?: {
+      __typename?: 'User';
+      email?: any | null;
+      avatar?: string | null;
+      name?: {
+        __typename?: 'Username';
+        first?: string | null;
+        last?: string | null;
+      } | null;
+    } | null;
+  } | null> | null;
+};
+
+export type ListUsersQueryVariables = Exact<{
+  input: ListUsersCollateInput;
+}>;
+
+export type ListUsersQuery = {
+  __typename?: 'Query';
+  listUsers?: Array<{
+    __typename?: 'User';
+    id: string;
+    email?: any | null;
+    avatar?: string | null;
+    gender?: string | null;
+    about?: string | null;
+    githubUrl?: string | null;
+    isActive?: boolean | null;
+    isSuper?: boolean | null;
+    createdAt?: Date | null;
+    updatedAt?: Date | null;
+    name?: {
+      __typename?: 'Username';
+      first?: string | null;
+      last?: string | null;
+    } | null;
+    authorization?: {
+      __typename?: 'Authorization';
+      id?: string | null;
+      userId?: string | null;
+      createdAt?: Date | null;
+      updatedAt?: Date | null;
+      actions?: Array<{
+        __typename?: 'UserAction';
+        name?: string | null;
+        permissions?: Array<string | null> | null;
+      } | null> | null;
+    } | null;
+    address?: {
+      __typename?: 'UserAddress';
+      state?: string | null;
+      city?: string | null;
+      street?: string | null;
+      subdivision?: string | null;
+      lane?: string | null;
+      house?: string | null;
+      zip?: string | null;
+    } | null;
+  } | null> | null;
+};
+
 export type RefreshTokensQueryVariables = Exact<{[key: string]: never}>;
 
 export type RefreshTokensQuery = {
@@ -857,6 +938,135 @@ export type VerifyMeQuery = {
         name?: string | null;
         permissions?: Array<string | null> | null;
       } | null> | null;
+    } | null;
+  } | null;
+};
+
+export type ListQuerierCoursePostsQueryVariables = Exact<{
+  ids: Array<Scalars['String']> | Scalars['String'];
+}>;
+
+export type ListQuerierCoursePostsQuery = {
+  __typename?: 'Query';
+  querier?: {
+    __typename?: 'Querier';
+    listCoursePosts?: Array<{
+      __typename?: 'Post';
+      id?: string | null;
+      slug?: string | null;
+      nanoId?: string | null;
+      lang?: LanguageEnum | null;
+      isPremium?: boolean | null;
+      type?: PostTypeEnum | null;
+      visibility?: boolean | null;
+      nextPostId?: string | null;
+      prevPostId?: string | null;
+      createdAt?: Date | null;
+      updatedAt?: Date | null;
+      author?: {
+        __typename?: 'User';
+        email?: any | null;
+        avatar?: string | null;
+        name?: {
+          __typename?: 'Username';
+          first?: string | null;
+          last?: string | null;
+        } | null;
+      } | null;
+      tags?: Array<{
+        __typename?: 'Tag';
+        id?: string | null;
+        name?: string | null;
+        imgSrc?: string | null;
+        description?: string | null;
+      } | null> | null;
+      postContents?: Array<{
+        __typename?: 'PostContent';
+        id?: string | null;
+        postImage?: string | null;
+        lang?: LanguageEnum | null;
+        body?: string | null;
+        contentPreview?: string | null;
+        readingTime?: string | null;
+        publishedAt?: Date | null;
+        createdAt?: Date | null;
+        updatedAt?: Date | null;
+        metaTags?: {
+          __typename?: 'PostMetaTags';
+          injectHeader?: string | null;
+          injectCssStyle?: string | null;
+          description?: string | null;
+        } | null;
+      } | null> | null;
+    } | null> | null;
+  } | null;
+};
+
+export type ListQuerierPostsQueryVariables = Exact<{
+  input: ListPostCollateInput;
+}>;
+
+export type ListQuerierPostsQuery = {
+  __typename?: 'Query';
+  querier?: {
+    __typename?: 'Querier';
+    listPosts?: {
+      __typename?: 'PostResponse';
+      totalCount?: number | null;
+      data?: Array<{
+        __typename?: 'Post';
+        id?: string | null;
+        slug?: string | null;
+        nanoId?: string | null;
+        lang?: LanguageEnum | null;
+        isPremium?: boolean | null;
+        type?: PostTypeEnum | null;
+        visibility?: boolean | null;
+        nextPostId?: string | null;
+        prevPostId?: string | null;
+        createdAt?: Date | null;
+        updatedAt?: Date | null;
+        author?: {
+          __typename?: 'User';
+          email?: any | null;
+          avatar?: string | null;
+          name?: {
+            __typename?: 'Username';
+            first?: string | null;
+            last?: string | null;
+          } | null;
+        } | null;
+        tags?: Array<{
+          __typename?: 'Tag';
+          id?: string | null;
+          name?: string | null;
+          imgSrc?: string | null;
+          description?: string | null;
+        } | null> | null;
+        postContents?: Array<{
+          __typename?: 'PostContent';
+          id?: string | null;
+          postImage?: string | null;
+          lang?: LanguageEnum | null;
+          body?: string | null;
+          contentPreview?: string | null;
+          readingTime?: string | null;
+          publishedAt?: Date | null;
+          createdAt?: Date | null;
+          updatedAt?: Date | null;
+          metaTags?: {
+            __typename?: 'PostMetaTags';
+            injectHeader?: string | null;
+            injectCssStyle?: string | null;
+            description?: string | null;
+          } | null;
+        } | null> | null;
+      } | null> | null;
+      page?: {
+        __typename?: 'Pagination';
+        number?: any | null;
+        size?: any | null;
+      } | null;
     } | null;
   } | null;
 };
@@ -1282,6 +1492,164 @@ export type ListPostsQueryResult = Apollo.QueryResult<
   ListPostsQuery,
   ListPostsQueryVariables
 >;
+export const ListCoursesDocument = gql`
+  query ListCourses($input: ListCourseCollateInput!) {
+    listCourses(input: $input) {
+      id
+      slug
+      author {
+        email
+        avatar
+        name {
+          first
+          last
+        }
+      }
+      tagIds
+      visibility
+      image
+      isPremium
+      lang
+      postIds
+      publishedAt
+      accessedByUserIds
+    }
+  }
+`;
+
+/**
+ * __useListCoursesQuery__
+ *
+ * To run a query within a React component, call `useListCoursesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useListCoursesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useListCoursesQuery({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useListCoursesQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    ListCoursesQuery,
+    ListCoursesQueryVariables
+  >
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useQuery<ListCoursesQuery, ListCoursesQueryVariables>(
+    ListCoursesDocument,
+    options
+  );
+}
+export function useListCoursesLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    ListCoursesQuery,
+    ListCoursesQueryVariables
+  >
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useLazyQuery<ListCoursesQuery, ListCoursesQueryVariables>(
+    ListCoursesDocument,
+    options
+  );
+}
+export type ListCoursesQueryHookResult = ReturnType<typeof useListCoursesQuery>;
+export type ListCoursesLazyQueryHookResult = ReturnType<
+  typeof useListCoursesLazyQuery
+>;
+export type ListCoursesQueryResult = Apollo.QueryResult<
+  ListCoursesQuery,
+  ListCoursesQueryVariables
+>;
+export const ListUsersDocument = gql`
+  query ListUsers($input: ListUsersCollateInput!) {
+    listUsers(input: $input) {
+      id
+      name {
+        first
+        last
+      }
+      email
+      avatar
+      gender
+      authorization {
+        id
+        userId
+        actions {
+          name
+          permissions
+        }
+        createdAt
+        updatedAt
+      }
+      about
+      githubUrl
+      isActive
+      isSuper
+      address {
+        state
+        city
+        street
+        subdivision
+        lane
+        house
+        zip
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+
+/**
+ * __useListUsersQuery__
+ *
+ * To run a query within a React component, call `useListUsersQuery` and pass it any options that fit your needs.
+ * When your component renders, `useListUsersQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useListUsersQuery({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useListUsersQuery(
+  baseOptions: Apollo.QueryHookOptions<ListUsersQuery, ListUsersQueryVariables>
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useQuery<ListUsersQuery, ListUsersQueryVariables>(
+    ListUsersDocument,
+    options
+  );
+}
+export function useListUsersLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    ListUsersQuery,
+    ListUsersQueryVariables
+  >
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useLazyQuery<ListUsersQuery, ListUsersQueryVariables>(
+    ListUsersDocument,
+    options
+  );
+}
+export type ListUsersQueryHookResult = ReturnType<typeof useListUsersQuery>;
+export type ListUsersLazyQueryHookResult = ReturnType<
+  typeof useListUsersLazyQuery
+>;
+export type ListUsersQueryResult = Apollo.QueryResult<
+  ListUsersQuery,
+  ListUsersQueryVariables
+>;
 export const RefreshTokensDocument = gql`
   query RefreshTokens {
     refreshTokens {
@@ -1467,4 +1835,211 @@ export type VerifyMeLazyQueryHookResult = ReturnType<
 export type VerifyMeQueryResult = Apollo.QueryResult<
   VerifyMeQuery,
   VerifyMeQueryVariables
+>;
+export const ListQuerierCoursePostsDocument = gql`
+  query ListQuerierCoursePosts($ids: [String!]!) {
+    querier {
+      listCoursePosts(ids: $ids) {
+        id
+        slug
+        nanoId
+        lang
+        isPremium
+        type
+        visibility
+        author {
+          email
+          avatar
+          name {
+            first
+            last
+          }
+        }
+        tags {
+          id
+          name
+          imgSrc
+          description
+        }
+        postContents {
+          id
+          postImage
+          lang
+          body
+          contentPreview
+          readingTime
+          metaTags {
+            injectHeader
+            injectCssStyle
+            description
+          }
+          publishedAt
+          createdAt
+          updatedAt
+        }
+        nextPostId
+        prevPostId
+        createdAt
+        updatedAt
+      }
+    }
+  }
+`;
+
+/**
+ * __useListQuerierCoursePostsQuery__
+ *
+ * To run a query within a React component, call `useListQuerierCoursePostsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useListQuerierCoursePostsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useListQuerierCoursePostsQuery({
+ *   variables: {
+ *      ids: // value for 'ids'
+ *   },
+ * });
+ */
+export function useListQuerierCoursePostsQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    ListQuerierCoursePostsQuery,
+    ListQuerierCoursePostsQueryVariables
+  >
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useQuery<
+    ListQuerierCoursePostsQuery,
+    ListQuerierCoursePostsQueryVariables
+  >(ListQuerierCoursePostsDocument, options);
+}
+export function useListQuerierCoursePostsLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    ListQuerierCoursePostsQuery,
+    ListQuerierCoursePostsQueryVariables
+  >
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useLazyQuery<
+    ListQuerierCoursePostsQuery,
+    ListQuerierCoursePostsQueryVariables
+  >(ListQuerierCoursePostsDocument, options);
+}
+export type ListQuerierCoursePostsQueryHookResult = ReturnType<
+  typeof useListQuerierCoursePostsQuery
+>;
+export type ListQuerierCoursePostsLazyQueryHookResult = ReturnType<
+  typeof useListQuerierCoursePostsLazyQuery
+>;
+export type ListQuerierCoursePostsQueryResult = Apollo.QueryResult<
+  ListQuerierCoursePostsQuery,
+  ListQuerierCoursePostsQueryVariables
+>;
+export const ListQuerierPostsDocument = gql`
+  query ListQuerierPosts($input: ListPostCollateInput!) {
+    querier {
+      listPosts(input: $input) {
+        data {
+          id
+          slug
+          nanoId
+          lang
+          isPremium
+          type
+          visibility
+          author {
+            email
+            avatar
+            name {
+              first
+              last
+            }
+          }
+          tags {
+            id
+            name
+            imgSrc
+            description
+          }
+          postContents {
+            id
+            postImage
+            lang
+            body
+            contentPreview
+            readingTime
+            metaTags {
+              injectHeader
+              injectCssStyle
+              description
+            }
+            publishedAt
+            createdAt
+            updatedAt
+          }
+          nextPostId
+          prevPostId
+          createdAt
+          updatedAt
+        }
+        totalCount
+        page {
+          number
+          size
+        }
+      }
+    }
+  }
+`;
+
+/**
+ * __useListQuerierPostsQuery__
+ *
+ * To run a query within a React component, call `useListQuerierPostsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useListQuerierPostsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useListQuerierPostsQuery({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useListQuerierPostsQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    ListQuerierPostsQuery,
+    ListQuerierPostsQueryVariables
+  >
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useQuery<ListQuerierPostsQuery, ListQuerierPostsQueryVariables>(
+    ListQuerierPostsDocument,
+    options
+  );
+}
+export function useListQuerierPostsLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    ListQuerierPostsQuery,
+    ListQuerierPostsQueryVariables
+  >
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useLazyQuery<
+    ListQuerierPostsQuery,
+    ListQuerierPostsQueryVariables
+  >(ListQuerierPostsDocument, options);
+}
+export type ListQuerierPostsQueryHookResult = ReturnType<
+  typeof useListQuerierPostsQuery
+>;
+export type ListQuerierPostsLazyQueryHookResult = ReturnType<
+  typeof useListQuerierPostsLazyQuery
+>;
+export type ListQuerierPostsQueryResult = Apollo.QueryResult<
+  ListQuerierPostsQuery,
+  ListQuerierPostsQueryVariables
 >;

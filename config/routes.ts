@@ -21,6 +21,25 @@ const ROUTES = {
   resetPassword: {
     path: '/reset-password',
   },
+  // Dashboard section
+  dashboard: {
+    path: '/dashboard',
+  },
+  dashboardLogin: {
+    path: '/dashboard/login',
+  },
+  dashboardAuthorization: {
+    path: '/dashboard/authorizations',
+  },
+  dashboardUsers: {
+    path: '/dashboard/users',
+  },
+  dashboardCourses: {
+    path: '/dashboard/courses',
+  },
+  dashboardPosts: {
+    path: '/dashboard/posts',
+  },
 };
 
 export {ROUTES};

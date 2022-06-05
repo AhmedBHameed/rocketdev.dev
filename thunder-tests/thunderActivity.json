@@ -8,30 +8,17 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2022-04-24T20:26:07.792Z",
-    "modified": "2022-05-26T20:49:43.408Z",
-    "headers": [
-      {
-        "name": "Authorization",
-        "value": "",
-        "isDisabled": true
-      },
-      {
-        "name": "Cookie",
-        "value": "SL_G_WPT_TO=en; SL_GWPT_Show_Hide_tmp=undefined; SL_wptGlobTipTmp=undefined; ACCESS_TOKEN=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiMDFFR1hNRDgzNzhGNVRaOE5HUDlKOEozVFoiLCJpc0FjdGl2ZSI6dHJ1ZSwiaXNTdXBlciI6dHJ1ZSwidmVyaWZpY2F0aW9uSWQiOiIwMUVHWE1EODM3OEY1VFo4Tk1QOUo4SjNUWiIsImlzUmVmcmVzaFRva2VuIjpmYWxzZX0sImlhdCI6MTY1MzU5NzM5MywiZXhwIjoxNjUzNTk4NTkzLCJpc3MiOiJhaG1lZGhhbWVlZC5kZXYiLCJqdGkiOiIwMUc0MTFCTUE4REExQ0s4RUFYVjBXWE5UOSJ9.l1y66Dqysmzw4rl88eRCt8LJ75TJqtsOXU8gPunSsiDCDv4H8IMmA3iQNTTXCBBmC_g4AtRemuvSC2HMDZ3RDUwoanyD4YhT0yeqVAB-eEQoX4OC22k98A1DthWpTEHNIbPa7-a83aQAp7E3SccLklBZvbXPNy-2NtWZY7t21q6wOLDULlmrHZ2NIsKVolvwjBsbsv-ZyJulGqNvcaK2D472ANhljxfinN9pthGj6NkxBsTzDvZRIErnjV7X7fHdoPMWkG5lw-SlgeCanZLZgaRlppz5rs7zX9XQHPob-2nbae8iEvNskxudbIWNI993r7FffxIX0H4j6NvPrEvGxA; REFRESH_TOKEN=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiMDFFR1hNRDgzNzhGNVRaOE5HUDlKOEozVFoiLCJpc0FjdGl2ZSI6dHJ1ZSwiaXNTdXBlciI6dHJ1ZSwidmVyaWZpY2F0aW9uSWQiOiIwMUVHWE1EODM3OEY1VFo4Tk1QOUo4SjNUWiIsImlzUmVmcmVzaFRva2VuIjp0cnVlfSwiaWF0IjoxNjUzNTk3MzkzLCJleHAiOjE2NTQyMDIxOTMsImlzcyI6ImFobWVkaGFtZWVkLmRldiIsImp0aSI6IjAxRzQxMUJNQURDVkE3WEZROTBLUUg3QlpTIn0.cKfN8NM1ru3ppyD0-mEsqju9M9gPH-HzUSVg-3cSgf_t4MhEReWErncHVBx1JklVPGRkwBBm0dxiDSM904LyR4Xo-IQkaZbzfitXXovpfFpbo8hr-RbhcGReCgVwZlpWUCwh_0tkNMbGO3kydhSYcVOL40jbKDFc1RjMsyQHcz5YNQdG4aN562DaTGDFD1-ROl2jz5D0JQoQeyj3SPrZoR7-bjjazl2ouqIWW-YZmy68_vbDXP3wcbyVb0Rt-PJLeF6ii51oDCLAJfzBngD83i9_wAU-yEGPkZtCW5bsOKv7BstbQPmqBDdACD4KqoY9UbIYk_yO_lqIvnZDg_4wSA"
-      }
-    ],
+    "modified": "2022-06-05T00:46:45.629Z",
+    "headers": [],
     "params": [],
     "body": {
       "type": "graphql",
       "raw": "",
       "form": [],
       "graphql": {
-        "query": "mutation UpsertAuthorization($input: AuthorizationInput!){\n  upsertAuthorization(input: $input) {\n    id\n    userId\n    actions {\n      name\n      permissions\n    }\n  }\n}\n",
-        "variables": "{\n    \"input\": {\n        \"userId\": \"01G411CNG3KMAGCDBZ56B10TPZ\",\n        \"actions\": [{\n            \"name\": \"authorizations\",\n            \"permissions\": [\"read:own\"]\n        }]\n    }\n}"
+        "query": "  query GetPost($input: PostInput!, $lang: LanguageEnum) {\n    getPost(input: $input) {\n      id\n      slug\n      nanoId\n      authorId\n      isPremium\n      visibility\n      tagIds\n      postContents(lang: $lang) {\n        id\n        postImage\n        lang\n        body\n        contentPreview\n        readingTime\n        metaTags {\n          injectHeader\n          injectCssStyle\n          description\n        }\n        publishedAt\n        createdAt\n        updatedAt\n      }\n      tags {\n        id\n        imgSrc\n        name\n        description\n      }\n      author {\n        email\n        avatar\n        name {\n          first\n          last\n        }\n      }\n      prevPostId\n      nextPostId\n      createdAt\n      updatedAt\n    }\n  }",
+        "variables": "{\n    \"input\": {\n        \"nanoId\":\"Axt9Dhb67n\",\n        \"slug\": \"what-is-a-function\"\n    },\n    \"lang\": \"en\"\n}"
       }
-    },
-    "auth": {
-      "type": "basic"
     },
     "tests": []
   }

@@ -39,3 +39,8 @@ body {
 .Toastify__toast {
   @apply bg-zinc-300 dark:bg-neutral-700;
 }
+
+/* JSON Viewer */
+.react-json-view {
+  @apply p-5;
+}

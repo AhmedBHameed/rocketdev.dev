@@ -169,5 +169,120 @@
       "type": "basic"
     },
     "tests": []
+  },
+  {
+    "_id": "a799979a-5533-4f33-9f22-7ee6f787397b",
+    "colId": "d845b0d6-4b8b-4381-83f2-5ac7faebb483",
+    "containerId": "d6520ffc-2ed2-4338-82fc-70b27e329745",
+    "name": "list courses",
+    "url": "http://localhost:5000/graphql",
+    "method": "POST",
+    "sortNum": 20000,
+    "created": "2022-05-31T22:48:02.226Z",
+    "modified": "2022-06-04T16:50:52.689Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "graphql",
+      "raw": "",
+      "form": [],
+      "graphql": {
+        "query": "  query ListCourses($input: ListCourseCollateInput!) {\n    listCourses(input: $input) {\n      id\n      slug\n      authorId\n      author {\n        email\n        avatar\n        name {\n          first\n          last\n        }\n      }\n      tagIds\n      visibility\n      image\n      isPremium\n      lang\n      postIds\n      publishedAt\n      accessedByUserIds\n    }\n  }",
+        "variables": "{\n    \"input\": {\n        \"page\":{\n          \"number\": 1,\n          \"size\": 10\n        }\n    },\n    \"lang\": \"EN\"\n}"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "781cd0d7-c8c9-47ad-94b3-fec274148a8d",
+    "colId": "d845b0d6-4b8b-4381-83f2-5ac7faebb483",
+    "containerId": "2ea3b02f-fc76-4f05-8627-c821d94f1bc8",
+    "name": "getCourse",
+    "url": "http://localhost:5000/graphql",
+    "method": "POST",
+    "sortNum": 110000,
+    "created": "2022-06-04T16:32:48.100Z",
+    "modified": "2022-06-04T16:50:04.157Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "graphql",
+      "raw": "",
+      "form": [],
+      "graphql": {
+        "query": "  query GetCoursse($id: String!) {\n    querier {\n        getCourse(id: $id) {\n          id\n          slug\n          authorId\n          author {\n            email\n            avatar\n            name {\n              first\n              last\n            }\n          }\n          tagIds\n          visibility\n          image\n          isPremium\n          lang\n          postIds\n          publishedAt\n          accessedByUserIds\n        }\n    }\n  }",
+        "variables": "{\n    \"id\": \"01FKVMP2CGB0BM6GP455R1G590\"\n}"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "3ce8baf0-0af5-446c-8d9e-e91a0ad644cd",
+    "colId": "d845b0d6-4b8b-4381-83f2-5ac7faebb483",
+    "containerId": "2ea3b02f-fc76-4f05-8627-c821d94f1bc8",
+    "name": "listUsers",
+    "url": "http://localhost:5000/graphql",
+    "method": "POST",
+    "sortNum": 120000,
+    "created": "2022-06-04T16:47:32.920Z",
+    "modified": "2022-06-04T16:49:12.700Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "graphql",
+      "raw": "",
+      "form": [],
+      "graphql": {
+        "query": "query ListUsers($input: ListUsersCollateInput!) {\n    listUsers(input: $input) {\n      id\n      name {\n        first\n        last\n      }\n      email\n      avatar\n      gender\n      authorization {\n        id\n        userId\n        actions {\n          name\n          permissions\n        }\n        createdAt\n        updatedAt\n      }\n      about\n      githubUrl\n      isActive\n      isSuper\n      address {\n        state\n        city\n        street\n        subdivision\n        lane\n        house\n        zip\n      }\n      createdAt\n      updatedAt\n    }\n  }",
+        "variables": "{\n    \"input\": {\n        \"page\": {\n            \"number\": 1,\n            \"size\" : 10\n        }    \n    }\n}"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "bc6e3e40-ece1-4727-b6a9-6dc1b3307c3c",
+    "colId": "d845b0d6-4b8b-4381-83f2-5ac7faebb483",
+    "containerId": "2ea3b02f-fc76-4f05-8627-c821d94f1bc8",
+    "name": "listPosts",
+    "url": "http://localhost:5000/graphql",
+    "method": "POST",
+    "sortNum": 130000,
+    "created": "2022-06-05T00:09:28.944Z",
+    "modified": "2022-06-05T00:31:12.235Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "graphql",
+      "raw": "",
+      "form": [],
+      "graphql": {
+        "query": "query ListQuerierPosts($input: ListPostCollateInput!) {\n  querier {\n    listPosts(input: $input) {\n      data {\n        id\n        slug\n        nanoId\n        lang\n        isPremium\n        type\n        visibility\n        author {\n          email\n          avatar\n          name {\n            first\n            last\n          }\n        }\n        tags {\n          id\n          name\n          imgSrc\n          description\n        }\n        postContents {\n          id\n          postImage\n          lang\n          body\n          contentPreview\n          readingTime\n          metaTags {\n            injectHeader\n            injectCssStyle\n            description\n          }\n          publishedAt\n          createdAt\n          updatedAt\n        }\n        nextPostId\n        prevPostId\n        createdAt\n        updatedAt\n      }\n      totalCount\n      page {\n        number\n        size\n      }\n    }\n  }\n}\n",
+        "variables": "{\n    \"input\": {\n        \"page\": {\n            \"number\": 1,\n            \"size\" : 10\n        }    \n    },\n    \"lang\": \"en\"\n}"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "eb461b30-2ae4-4429-b095-fb5c3f0e814a",
+    "colId": "d845b0d6-4b8b-4381-83f2-5ac7faebb483",
+    "containerId": "d6520ffc-2ed2-4338-82fc-70b27e329745",
+    "name": "getPost",
+    "url": "http://localhost:5000/graphql",
+    "method": "POST",
+    "sortNum": 50000,
+    "created": "2022-06-05T00:40:50.660Z",
+    "modified": "2022-06-05T00:43:46.209Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "graphql",
+      "raw": "",
+      "form": [],
+      "graphql": {
+        "query": "  query GetPost($input: PostInput!, $lang: LanguageEnum) {\n    getPost(input: $input) {\n      id\n      slug\n      nanoId\n      authorId\n      isPremium\n      visibility\n      tagIds\n      postContents(lang: $lang) {\n        id\n        postImage\n        lang\n        body\n        contentPreview\n        readingTime\n        metaTags {\n          injectHeader\n          injectCssStyle\n          description\n        }\n        publishedAt\n        createdAt\n        updatedAt\n      }\n      tags {\n        id\n        imgSrc\n        name\n        description\n      }\n      author {\n        email\n        avatar\n        name {\n          first\n          last\n        }\n      }\n      prevPostId\n      nextPostId\n      createdAt\n      updatedAt\n    }\n  }",
+        "variables": "{\n    \"input\": {\n        \"nanoId\":\"Axt9Dhb67n\",\n        \"slug\": \"what-is-a-function\"\n    },\n    \"lang\": \"en\"\n}"
+      }
+    },
+    "tests": []
   }
 ]
