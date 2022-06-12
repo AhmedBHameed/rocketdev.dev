@@ -64,10 +64,8 @@ export const getServerSideProps: GetServerSideProps = async ({
     postQuery = await apolloClient.query<GetPostQuery, GetPostQueryVariables>({
       query: GET_POST_QUERY,
       variables: {
-        input: {
-          nanoId: params.nanoId as string,
-          slug: params.slug as string,
-        },
+        nanoId: params.nanoId as string,
+        slug: params.slug as string,
         lang: locale as LanguageEnum,
       },
     });

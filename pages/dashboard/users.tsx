@@ -7,18 +7,20 @@ import {
   User,
 } from '../../graphql/generated/graphql';
 import Table, {Column} from '../../components/Table/Table';
-import Link from '../../components/Buttons/Link';
 import Modal from '../../components/Modal/Modal';
 import Avatar from '../../components/Avatar/Avatar';
-import {InteractionProps} from 'react-json-view';
-import JsonView from '../../components/JsonView/JsonView';
 import getUserName from '../../utils/getUserName';
+import JsonViewContainer from '../../components/JsonView/JsonViewContainer';
+import EditUserButton from '../../components/Dashboard/Users/EditUserButton';
+import {omit} from 'lodash';
+import EditAuthorizationButton from '../../components/Dashboard/Users/EditAuthorizationButton';
 
 const users = () => {
-  const [openAuthModal, setOpenAuthModal] = useState(false);
   const [useAuthorization, setUseAuthorization] = useState<
     Authorization | undefined
   >();
+  const [openAuthModal, setOpenAuthModal] = useState(false);
+
   const [listUserQuery, {data, error}] = useListUsersLazyQuery();
 
   const paginateListUsers = useCallback(
@@ -37,8 +39,16 @@ const users = () => {
     []
   );
 
-  const handleAuthOnEdit = useCallback((edit: InteractionProps) => {
-    console.log(edit);
+  const handleAuthUpdate = useCallback((authorization: object) => {
+    console.log(authorization);
+    // upsertAuthorization({
+    //   variables: {
+    //     input: {
+    //       actions:
+    //     }
+    //   }
+    // })
+    setOpenAuthModal(false);
   }, []);
 
   const tableColumn = useMemo(() => {
@@ -66,14 +76,15 @@ const users = () => {
         dataIndex: 'authorization',
         key: 'authorization',
         render: (_, row) => (
-          <Link
-            onClick={() => {
-              setUseAuthorization(row.authorization);
-              setOpenAuthModal(true);
-            }}
-          >
-            Edit Authorization
-          </Link>
+          <EditAuthorizationButton authorization={row.authorization} />
+        ),
+      },
+      {
+        title: 'Action',
+        dataIndex: 'edit',
+        key: 'edit',
+        render: (_, row) => (
+          <EditUserButton user={omit(row, 'authorization')} />
         ),
       },
     ] as Column<User>[];
@@ -96,9 +107,6 @@ const users = () => {
         rowKey="id"
         dataSource={data?.listUsers || []}
         columns={tableColumn}
-        scroll={{
-          y: 250,
-        }}
       />
 
       <Modal
@@ -106,12 +114,11 @@ const users = () => {
         open={openAuthModal}
         onClose={() => setOpenAuthModal(false)}
       >
-        <JsonView
-          name="authorization"
+        <JsonViewContainer
+          name="Edit authorization"
+          onSubmit={handleAuthUpdate}
           src={useAuthorization}
-          onEdit={handleAuthOnEdit}
-          onAdd={handleAuthOnEdit}
-          onDelete={handleAuthOnEdit}
+          loading={false}
         />
       </Modal>
     </DashboardLayout>

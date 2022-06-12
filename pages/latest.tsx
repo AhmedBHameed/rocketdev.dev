@@ -13,10 +13,11 @@ import {
   LanguageEnum,
   ListPostsQuery,
   ListPostsQueryVariables,
+  PostTypeEnum,
 } from '../graphql/generated/graphql';
 import slugToTitle from '../utils/slugToTitle';
 import {ApolloQueryResult} from '@apollo/client';
-import LATEST_POSTS_QUERY from '../graphql/LATEST_POSTS_QUERY.gql';
+import LIST_POSTS_QUERY from '../graphql/LIST_POSTS_QUERY.gql';
 import AlertError from '../components/AlertError/AlertError';
 
 interface LatestProps {
@@ -61,14 +62,12 @@ const Latest: NextPage<LatestProps> = ({listPostsQuery, error, locale}) => {
         </Col>
 
         <Col className="col-end-6">
-          <BoldLabel>
-            {listPostsQuery.data?.listPosts.totalCount} posts
-          </BoldLabel>
+          <BoldLabel>{listPostsQuery.data?.totalFreeArticles} posts</BoldLabel>
         </Col>
       </Row>
 
       <Row xs={1} md={2} gap={4}>
-        {(listPostsQuery.data?.listPosts.data || []).map((post) => (
+        {(listPostsQuery.data?.listPosts || []).map((post) => (
           <Col key={post.nanoId}>
             <PostCard
               href={`${postPath}/${post.slug}/${post.nanoId}`}
@@ -97,11 +96,14 @@ export const getServerSideProps: GetServerSideProps = async ({locale}) => {
       ListPostsQuery,
       ListPostsQueryVariables
     >({
-      query: LATEST_POSTS_QUERY,
+      query: LIST_POSTS_QUERY,
+      fetchPolicy: 'network-only',
       variables: {
         input: {
           filter: {
             isPremium: false,
+            type: PostTypeEnum.Article,
+            visibility: true,
           },
         },
         lang: locale as LanguageEnum,

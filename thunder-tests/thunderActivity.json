@@ -8,7 +8,7 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2022-04-24T20:26:07.792Z",
-    "modified": "2022-06-05T00:46:45.629Z",
+    "modified": "2022-06-05T19:31:02.684Z",
     "headers": [],
     "params": [],
     "body": {
@@ -16,8 +16,8 @@
       "raw": "",
       "form": [],
       "graphql": {
-        "query": "  query GetPost($input: PostInput!, $lang: LanguageEnum) {\n    getPost(input: $input) {\n      id\n      slug\n      nanoId\n      authorId\n      isPremium\n      visibility\n      tagIds\n      postContents(lang: $lang) {\n        id\n        postImage\n        lang\n        body\n        contentPreview\n        readingTime\n        metaTags {\n          injectHeader\n          injectCssStyle\n          description\n        }\n        publishedAt\n        createdAt\n        updatedAt\n      }\n      tags {\n        id\n        imgSrc\n        name\n        description\n      }\n      author {\n        email\n        avatar\n        name {\n          first\n          last\n        }\n      }\n      prevPostId\n      nextPostId\n      createdAt\n      updatedAt\n    }\n  }",
-        "variables": "{\n    \"input\": {\n        \"nanoId\":\"Axt9Dhb67n\",\n        \"slug\": \"what-is-a-function\"\n    },\n    \"lang\": \"en\"\n}"
+        "query": "  query ListPosts($input: ListPostCollateInput, $lang: LanguageEnum) {\n    listPosts(input: $input) {\n      data {\n        id\n        slug\n        nanoId\n        authorId\n        isPremium\n        visibility\n        tagIds\n        postContents(lang: $lang) {\n          postImage\n          lang\n          contentPreview\n          readingTime\n          metaTags {\n            injectHeader\n            injectCssStyle\n            description\n          }\n          publishedAt\n          createdAt\n          updatedAt\n        }\n        tags {\n          id\n          imgSrc\n          name\n          description\n        }\n        author {\n          email\n          avatar\n          name {\n            first\n            last\n          }\n        }\n        prevPostId\n        nextPostId\n        createdAt\n        updatedAt\n      }\n\n      totalCount\n      page {\n        number\n        size\n      }\n    }\n  }",
+        "variables": "{\n    \"input\": {\n      \"filter\": {\n        \"isPremium\": false,\n        \"type\": \"ARTICLE\"\n      }\n    }\n}"
       }
     },
     "tests": []

@@ -1,26 +1,11 @@
 import {gql} from '@apollo/client';
+import COURSE_FRAGMENT from './fragments/COURSE_FRAGMENT.gql';
 
 const LIST_COURSES_QUERY = gql`
+  ${COURSE_FRAGMENT}
   query ListCourses($input: ListCourseCollateInput!) {
     listCourses(input: $input) {
-      id
-      slug
-      author {
-        email
-        avatar
-        name {
-          first
-          last
-        }
-      }
-      tagIds
-      visibility
-      image
-      isPremium
-      lang
-      postIds
-      publishedAt
-      accessedByUserIds
+      ...courseFragment
     }
   }
 `;

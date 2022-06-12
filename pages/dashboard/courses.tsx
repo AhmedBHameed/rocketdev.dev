@@ -1,21 +1,16 @@
 import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import AlertError from '../../components/AlertError/AlertError';
 import Link from '../../components/Buttons/Link';
+import EditCourseButton from '../../components/Dashboard/Courses/EditCourseButton';
 import PostsReorder from '../../components/Dashboard/Courses/PostsReorder';
+import ReorderPostsButton from '../../components/Dashboard/Courses/ReorderPostsButton';
 
 import DashboardLayout from '../../components/Dashboard/DashboardLayout';
-import Modal from '../../components/Modal/Modal';
 import Table, {Column} from '../../components/Table/Table';
-import {
-  Course,
-  Post,
-  useListCoursesLazyQuery,
-} from '../../graphql/generated/graphql';
+import {Course, useListCoursesLazyQuery} from '../../graphql/generated/graphql';
 import slugToTitle from '../../utils/slugToTitle';
 
 const Courses = () => {
-  const [openPostOrderModal, setPostOrderModal] = useState(false);
-  const [postIds, setPostIds] = useState<string[]>([]);
   const [listCoursesQuery, {data, error}] = useListCoursesLazyQuery();
 
   const paginateCourseList = useCallback(
@@ -34,11 +29,6 @@ const Courses = () => {
     []
   );
 
-  const handleReorderPosts = useCallback((course: Course) => {
-    setPostIds(course.postIds);
-    setPostOrderModal(true);
-  }, []);
-
   const tableColumn = useMemo(() => {
     return [
       {
@@ -48,27 +38,24 @@ const Courses = () => {
         render: (slug: string) => slugToTitle(slug),
       },
       {
-        title: 'Language',
-        dataIndex: 'lang',
-        key: 'lang',
+        title: 'Action',
+        dataIndex: 'action',
+        key: 'action',
+        render: (_, row) => <EditCourseButton course={row} />,
       },
       {
         title: 'Posts action',
-        dataIndex: 'action',
-        key: 'action',
+        dataIndex: 'postAction',
+        key: 'postAction',
         render: (_, row) => (
-          <Link onClick={() => handleReorderPosts(row)}>Reorder</Link>
+          <ReorderPostsButton courseId={row.id} postIds={row.postIds} />
         ),
       },
     ] as Column<Course>[];
-  }, [handleReorderPosts]);
-
-  const handleOnItemOrderChange = useCallback((posts: Post[]) => {
-    console.log(posts.map((post) => post.id));
   }, []);
 
   useEffect(() => {
-    paginateCourseList(1, 1);
+    paginateCourseList(1, 10);
   }, []);
 
   if (error)
@@ -84,21 +71,7 @@ const Courses = () => {
         rowKey="id"
         dataSource={(data?.listCourses || []) as Course[]}
         columns={tableColumn}
-        scroll={{
-          y: 250,
-        }}
       />
-
-      <Modal
-        title="Posts related"
-        open={openPostOrderModal}
-        onClose={() => setPostOrderModal(false)}
-      >
-        <PostsReorder
-          onItemOrderChange={handleOnItemOrderChange}
-          ids={postIds}
-        />
-      </Modal>
     </DashboardLayout>
   );
 };

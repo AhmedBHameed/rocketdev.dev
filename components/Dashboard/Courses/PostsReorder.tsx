@@ -5,9 +5,7 @@ import {HTML5Backend} from 'react-dnd-html5-backend';
 import PostItem from './PostItem';
 import {
   Post,
-  PostTypeEnum,
   useListQuerierCoursePostsQuery,
-  useListQuerierPostsQuery,
 } from '../../../graphql/generated/graphql';
 import {get} from 'lodash';
 
@@ -40,8 +38,6 @@ const PostsReorder = ({ids, onItemOrderChange}: PostsReorderProps) => {
       });
       onItemOrderChange(postOrder);
       setCoursePosts(postOrder);
-      // TODO: Update database
-      // TODO: localCache
     },
     [coursePosts]
   );

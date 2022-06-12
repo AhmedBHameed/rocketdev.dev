@@ -30,8 +30,8 @@ export type Scalars = {
 };
 
 export type ActionInput = {
-  name: Scalars['RequiredString'];
-  permissions: Array<Scalars['RequiredString']>;
+  name?: InputMaybe<Scalars['RequiredString']>;
+  permissions?: InputMaybe<Array<Scalars['RequiredString']>>;
 };
 
 /** Authentication data model */
@@ -237,13 +237,19 @@ export type MutationUpsertAuthorizationArgs = {
 export type Mutator = {
   __typename?: 'Mutator';
   about?: Maybe<Scalars['String']>;
+  deletePost?: Maybe<Post>;
   id: Scalars['ID'];
   isSuper?: Maybe<Scalars['Boolean']>;
   occupation?: Maybe<Scalars['String']>;
   upsertCourse?: Maybe<Course>;
   upsertPost?: Maybe<Post>;
+  upsertPostContent?: Maybe<PostContent>;
   upsertTag?: Maybe<Tag>;
   userActionsAsJson: Scalars['String'];
+};
+
+export type MutatorDeletePostArgs = {
+  id: Scalars['ID'];
 };
 
 export type MutatorUpsertCourseArgs = {
@@ -252,6 +258,11 @@ export type MutatorUpsertCourseArgs = {
 
 export type MutatorUpsertPostArgs = {
   input: UpsertPostInput;
+};
+
+export type MutatorUpsertPostContentArgs = {
+  input: UpsertPostContentInput;
+  postId: Scalars['ID'];
 };
 
 export type MutatorUpsertTagArgs = {
@@ -286,7 +297,6 @@ export type Post = {
   createdAt?: Maybe<Scalars['Date']>;
   id?: Maybe<Scalars['ID']>;
   isPremium?: Maybe<Scalars['Boolean']>;
-  lang?: Maybe<LanguageEnum>;
   nanoId?: Maybe<Scalars['String']>;
   nextPostId?: Maybe<Scalars['ID']>;
   postContentIds: Array<Maybe<Scalars['ID']>>;
@@ -352,19 +362,6 @@ export type PostFilterInput = {
   visibility?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** Get single post */
-export type PostInput = {
-  createdAt?: InputMaybe<Scalars['String']>;
-  id?: InputMaybe<Scalars['ID']>;
-  isPremium?: InputMaybe<Scalars['Boolean']>;
-  lang?: InputMaybe<LanguageEnum>;
-  nanoId?: InputMaybe<Scalars['ID']>;
-  slug?: InputMaybe<Scalars['String']>;
-  type?: InputMaybe<PostTypeEnum>;
-  updatedAt?: InputMaybe<Scalars['String']>;
-  visibility?: InputMaybe<Scalars['Boolean']>;
-};
-
 export type PostMetaTags = {
   __typename?: 'PostMetaTags';
   description?: Maybe<Scalars['String']>;
@@ -410,9 +407,11 @@ export type Querier = {
   isSuper?: Maybe<Scalars['Boolean']>;
   listCoursePosts?: Maybe<Array<Maybe<Post>>>;
   /** List all posts. */
-  listPosts?: Maybe<PostResponse>;
+  listPosts?: Maybe<Array<Maybe<Post>>>;
   listTags?: Maybe<Array<Maybe<Tag>>>;
   occupation?: Maybe<Scalars['String']>;
+  totalFreeArticles?: Maybe<Scalars['Int']>;
+  totalPosts?: Maybe<Scalars['Int']>;
   userActionsAsJson: Scalars['String'];
 };
 
@@ -442,10 +441,12 @@ export type Query = {
   githubLogin?: Maybe<Auth>;
   listCourses?: Maybe<Array<Maybe<Course>>>;
   /** List public posts with type of ARTICLE. Post with type of 'COURSE' will be excluded. */
-  listPosts?: Maybe<PostResponse>;
+  listPosts?: Maybe<Array<Maybe<Post>>>;
   listUsers?: Maybe<Array<Maybe<User>>>;
   querier?: Maybe<Querier>;
   refreshTokens?: Maybe<Auth>;
+  totalFreeArticles?: Maybe<Scalars['Int']>;
+  totalPosts?: Maybe<Scalars['Int']>;
   verifyMe?: Maybe<User>;
 };
 
@@ -454,7 +455,8 @@ export type QueryCreateTokensArgs = {
 };
 
 export type QueryGetPostArgs = {
-  input: PostInput;
+  nanoId: Scalars['ID'];
+  slug: Scalars['String'];
 };
 
 export type QueryGetUserArgs = {
@@ -551,15 +553,25 @@ export type UpsertCourseInput = {
   visibility?: InputMaybe<Scalars['Boolean']>;
 };
 
-export type UpsertPostInput = {
-  authorId?: InputMaybe<Scalars['String']>;
+export type UpsertPostContentInput = {
   body?: InputMaybe<Scalars['String']>;
   contentPreview?: InputMaybe<Scalars['String']>;
-  id: Scalars['ID'];
-  isPremium?: InputMaybe<Scalars['Boolean']>;
+  id?: InputMaybe<Scalars['ID']>;
   lang?: InputMaybe<LanguageEnum>;
   metaTags?: InputMaybe<PostMetaTagsInput>;
   postImage?: InputMaybe<Scalars['String']>;
+  publishedAt?: InputMaybe<Scalars['Date']>;
+  readingTime?: InputMaybe<Scalars['String']>;
+};
+
+export type UpsertPostInput = {
+  authorId?: InputMaybe<Scalars['String']>;
+  id: Scalars['ID'];
+  isPremium?: InputMaybe<Scalars['Boolean']>;
+  nanoId?: InputMaybe<Scalars['String']>;
+  nextPostId?: InputMaybe<Scalars['ID']>;
+  postContentIds?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  prevPostId?: InputMaybe<Scalars['ID']>;
   slug?: InputMaybe<Scalars['String']>;
   tagIds?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
   type?: InputMaybe<PostTypeEnum>;
@@ -676,7 +688,8 @@ export type ForgotPasswordMutation = {
 };
 
 export type GetPostQueryVariables = Exact<{
-  input: PostInput;
+  nanoId: Scalars['ID'];
+  slug: Scalars['String'];
   lang?: InputMaybe<LanguageEnum>;
 }>;
 
@@ -691,6 +704,7 @@ export type GetPostQuery = {
     isPremium?: boolean | null;
     visibility?: boolean | null;
     tagIds?: Array<string | null> | null;
+    type?: PostTypeEnum | null;
     prevPostId?: string | null;
     nextPostId?: string | null;
     createdAt?: Date | null;
@@ -748,71 +762,6 @@ export type GithubLoginQuery = {
   } | null;
 };
 
-export type ListPostsQueryVariables = Exact<{
-  input?: InputMaybe<ListPostCollateInput>;
-  lang?: InputMaybe<LanguageEnum>;
-}>;
-
-export type ListPostsQuery = {
-  __typename?: 'Query';
-  listPosts?: {
-    __typename?: 'PostResponse';
-    totalCount?: number | null;
-    data?: Array<{
-      __typename?: 'Post';
-      id?: string | null;
-      slug?: string | null;
-      nanoId?: string | null;
-      authorId?: string | null;
-      isPremium?: boolean | null;
-      visibility?: boolean | null;
-      tagIds?: Array<string | null> | null;
-      prevPostId?: string | null;
-      nextPostId?: string | null;
-      createdAt?: Date | null;
-      updatedAt?: Date | null;
-      postContents?: Array<{
-        __typename?: 'PostContent';
-        postImage?: string | null;
-        lang?: LanguageEnum | null;
-        contentPreview?: string | null;
-        readingTime?: string | null;
-        publishedAt?: Date | null;
-        createdAt?: Date | null;
-        updatedAt?: Date | null;
-        metaTags?: {
-          __typename?: 'PostMetaTags';
-          injectHeader?: string | null;
-          injectCssStyle?: string | null;
-          description?: string | null;
-        } | null;
-      } | null> | null;
-      tags?: Array<{
-        __typename?: 'Tag';
-        id?: string | null;
-        imgSrc?: string | null;
-        name?: string | null;
-        description?: string | null;
-      } | null> | null;
-      author?: {
-        __typename?: 'User';
-        email?: any | null;
-        avatar?: string | null;
-        name?: {
-          __typename?: 'Username';
-          first?: string | null;
-          last?: string | null;
-        } | null;
-      } | null;
-    } | null> | null;
-    page?: {
-      __typename?: 'Pagination';
-      number?: any | null;
-      size?: any | null;
-    } | null;
-  } | null;
-};
-
 export type ListCoursesQueryVariables = Exact<{
   input: ListCourseCollateInput;
 }>;
@@ -831,6 +780,66 @@ export type ListCoursesQuery = {
     postIds?: Array<string | null> | null;
     publishedAt?: Date | null;
     accessedByUserIds?: Array<string | null> | null;
+    author?: {
+      __typename?: 'User';
+      email?: any | null;
+      avatar?: string | null;
+      name?: {
+        __typename?: 'Username';
+        first?: string | null;
+        last?: string | null;
+      } | null;
+    } | null;
+  } | null> | null;
+};
+
+export type ListPostsQueryVariables = Exact<{
+  input?: InputMaybe<ListPostCollateInput>;
+  lang?: InputMaybe<LanguageEnum>;
+}>;
+
+export type ListPostsQuery = {
+  __typename?: 'Query';
+  totalFreeArticles?: number | null;
+  listPosts?: Array<{
+    __typename?: 'Post';
+    id?: string | null;
+    slug?: string | null;
+    nanoId?: string | null;
+    authorId?: string | null;
+    isPremium?: boolean | null;
+    visibility?: boolean | null;
+    tagIds?: Array<string | null> | null;
+    type?: PostTypeEnum | null;
+    prevPostId?: string | null;
+    nextPostId?: string | null;
+    createdAt?: Date | null;
+    updatedAt?: Date | null;
+    postContents?: Array<{
+      __typename?: 'PostContent';
+      id?: string | null;
+      postImage?: string | null;
+      lang?: LanguageEnum | null;
+      body?: string | null;
+      contentPreview?: string | null;
+      readingTime?: string | null;
+      publishedAt?: Date | null;
+      createdAt?: Date | null;
+      updatedAt?: Date | null;
+      metaTags?: {
+        __typename?: 'PostMetaTags';
+        injectHeader?: string | null;
+        injectCssStyle?: string | null;
+        description?: string | null;
+      } | null;
+    } | null> | null;
+    tags?: Array<{
+      __typename?: 'Tag';
+      id?: string | null;
+      imgSrc?: string | null;
+      name?: string | null;
+      description?: string | null;
+    } | null> | null;
     author?: {
       __typename?: 'User';
       email?: any | null;
@@ -942,27 +951,181 @@ export type VerifyMeQuery = {
   } | null;
 };
 
-export type ListQuerierCoursePostsQueryVariables = Exact<{
-  ids: Array<Scalars['String']> | Scalars['String'];
+export type CourseFragmentFragment = {
+  __typename?: 'Course';
+  id?: string | null;
+  slug?: string | null;
+  tagIds?: Array<string | null> | null;
+  visibility?: boolean | null;
+  image?: string | null;
+  isPremium?: boolean | null;
+  lang?: LanguageEnum | null;
+  postIds?: Array<string | null> | null;
+  publishedAt?: Date | null;
+  accessedByUserIds?: Array<string | null> | null;
+  author?: {
+    __typename?: 'User';
+    email?: any | null;
+    avatar?: string | null;
+    name?: {
+      __typename?: 'Username';
+      first?: string | null;
+      last?: string | null;
+    } | null;
+  } | null;
+};
+
+export type PostFragmentFragment = {
+  __typename?: 'Post';
+  id?: string | null;
+  slug?: string | null;
+  nanoId?: string | null;
+  authorId?: string | null;
+  isPremium?: boolean | null;
+  visibility?: boolean | null;
+  tagIds?: Array<string | null> | null;
+  type?: PostTypeEnum | null;
+  prevPostId?: string | null;
+  nextPostId?: string | null;
+  createdAt?: Date | null;
+  updatedAt?: Date | null;
+  postContents?: Array<{
+    __typename?: 'PostContent';
+    id?: string | null;
+    postImage?: string | null;
+    lang?: LanguageEnum | null;
+    body?: string | null;
+    contentPreview?: string | null;
+    readingTime?: string | null;
+    publishedAt?: Date | null;
+    createdAt?: Date | null;
+    updatedAt?: Date | null;
+    metaTags?: {
+      __typename?: 'PostMetaTags';
+      injectHeader?: string | null;
+      injectCssStyle?: string | null;
+      description?: string | null;
+    } | null;
+  } | null> | null;
+  tags?: Array<{
+    __typename?: 'Tag';
+    id?: string | null;
+    imgSrc?: string | null;
+    name?: string | null;
+    description?: string | null;
+  } | null> | null;
+  author?: {
+    __typename?: 'User';
+    email?: any | null;
+    avatar?: string | null;
+    name?: {
+      __typename?: 'Username';
+      first?: string | null;
+      last?: string | null;
+    } | null;
+  } | null;
+};
+
+export type DeletePostMutationVariables = Exact<{
+  id: Scalars['ID'];
 }>;
 
-export type ListQuerierCoursePostsQuery = {
-  __typename?: 'Query';
-  querier?: {
-    __typename?: 'Querier';
-    listCoursePosts?: Array<{
-      __typename?: 'Post';
+export type DeletePostMutation = {
+  __typename?: 'Mutation';
+  mutator?: {
+    __typename?: 'Mutator';
+    deletePost?: {__typename?: 'Post'; id?: string | null} | null;
+  } | null;
+};
+
+export type UpdateUserMutationVariables = Exact<{
+  input: UpdateUserInput;
+}>;
+
+export type UpdateUserMutation = {
+  __typename?: 'Mutation';
+  updateUser?: {
+    __typename?: 'User';
+    id: string;
+    email?: any | null;
+    avatar?: string | null;
+    gender?: string | null;
+    about?: string | null;
+    githubUrl?: string | null;
+    isActive?: boolean | null;
+    isSuper?: boolean | null;
+    createdAt?: Date | null;
+    updatedAt?: Date | null;
+    name?: {
+      __typename?: 'Username';
+      first?: string | null;
+      last?: string | null;
+    } | null;
+    authorization?: {
+      __typename?: 'Authorization';
       id?: string | null;
-      slug?: string | null;
-      nanoId?: string | null;
-      lang?: LanguageEnum | null;
-      isPremium?: boolean | null;
-      type?: PostTypeEnum | null;
-      visibility?: boolean | null;
-      nextPostId?: string | null;
-      prevPostId?: string | null;
+      userId?: string | null;
       createdAt?: Date | null;
       updatedAt?: Date | null;
+      actions?: Array<{
+        __typename?: 'UserAction';
+        name?: string | null;
+        permissions?: Array<string | null> | null;
+      } | null> | null;
+    } | null;
+    address?: {
+      __typename?: 'UserAddress';
+      state?: string | null;
+      city?: string | null;
+      street?: string | null;
+      subdivision?: string | null;
+      lane?: string | null;
+      house?: string | null;
+      zip?: string | null;
+    } | null;
+  } | null;
+};
+
+export type UpsertAuthorizationMutationVariables = Exact<{
+  input: AuthorizationInput;
+}>;
+
+export type UpsertAuthorizationMutation = {
+  __typename?: 'Mutation';
+  upsertAuthorization?: {
+    __typename?: 'Authorization';
+    id?: string | null;
+    userId?: string | null;
+    createdAt?: Date | null;
+    updatedAt?: Date | null;
+    actions?: Array<{
+      __typename?: 'UserAction';
+      name?: string | null;
+      permissions?: Array<string | null> | null;
+    } | null> | null;
+  } | null;
+};
+
+export type UpsertCourseMutationVariables = Exact<{
+  input: UpsertCourseInput;
+}>;
+
+export type UpsertCourseMutation = {
+  __typename?: 'Mutation';
+  mutator?: {
+    __typename?: 'Mutator';
+    upsertCourse?: {
+      __typename?: 'Course';
+      id?: string | null;
+      slug?: string | null;
+      tagIds?: Array<string | null> | null;
+      visibility?: boolean | null;
+      image?: string | null;
+      isPremium?: boolean | null;
+      lang?: LanguageEnum | null;
+      postIds?: Array<string | null> | null;
+      publishedAt?: Date | null;
+      accessedByUserIds?: Array<string | null> | null;
       author?: {
         __typename?: 'User';
         email?: any | null;
@@ -973,13 +1136,63 @@ export type ListQuerierCoursePostsQuery = {
           last?: string | null;
         } | null;
       } | null;
-      tags?: Array<{
-        __typename?: 'Tag';
-        id?: string | null;
-        name?: string | null;
-        imgSrc?: string | null;
+    } | null;
+  } | null;
+};
+
+export type UpsertPostContentMutationVariables = Exact<{
+  postId: Scalars['ID'];
+  input: UpsertPostContentInput;
+}>;
+
+export type UpsertPostContentMutation = {
+  __typename?: 'Mutation';
+  mutator?: {
+    __typename?: 'Mutator';
+    upsertPostContent?: {
+      __typename?: 'PostContent';
+      id?: string | null;
+      postImage?: string | null;
+      lang?: LanguageEnum | null;
+      body?: string | null;
+      contentPreview?: string | null;
+      readingTime?: string | null;
+      publishedAt?: Date | null;
+      createdAt?: Date | null;
+      updatedAt?: Date | null;
+      metaTags?: {
+        __typename?: 'PostMetaTags';
+        injectHeader?: string | null;
+        injectCssStyle?: string | null;
         description?: string | null;
-      } | null> | null;
+      } | null;
+    } | null;
+  } | null;
+};
+
+export type UpsertPostMutationVariables = Exact<{
+  input: UpsertPostInput;
+  lang?: InputMaybe<LanguageEnum>;
+}>;
+
+export type UpsertPostMutation = {
+  __typename?: 'Mutation';
+  mutator?: {
+    __typename?: 'Mutator';
+    upsertPost?: {
+      __typename?: 'Post';
+      id?: string | null;
+      slug?: string | null;
+      nanoId?: string | null;
+      authorId?: string | null;
+      isPremium?: boolean | null;
+      visibility?: boolean | null;
+      tagIds?: Array<string | null> | null;
+      type?: PostTypeEnum | null;
+      prevPostId?: string | null;
+      nextPostId?: string | null;
+      createdAt?: Date | null;
+      updatedAt?: Date | null;
       postContents?: Array<{
         __typename?: 'PostContent';
         id?: string | null;
@@ -998,79 +1211,220 @@ export type ListQuerierCoursePostsQuery = {
           description?: string | null;
         } | null;
       } | null> | null;
+      tags?: Array<{
+        __typename?: 'Tag';
+        id?: string | null;
+        imgSrc?: string | null;
+        name?: string | null;
+        description?: string | null;
+      } | null> | null;
+      author?: {
+        __typename?: 'User';
+        email?: any | null;
+        avatar?: string | null;
+        name?: {
+          __typename?: 'Username';
+          first?: string | null;
+          last?: string | null;
+        } | null;
+      } | null;
+    } | null;
+  } | null;
+};
+
+export type ListQuerierCoursePostsQueryVariables = Exact<{
+  ids: Array<Scalars['String']> | Scalars['String'];
+  lang?: InputMaybe<LanguageEnum>;
+}>;
+
+export type ListQuerierCoursePostsQuery = {
+  __typename?: 'Query';
+  querier?: {
+    __typename?: 'Querier';
+    listCoursePosts?: Array<{
+      __typename?: 'Post';
+      id?: string | null;
+      slug?: string | null;
+      nanoId?: string | null;
+      authorId?: string | null;
+      isPremium?: boolean | null;
+      visibility?: boolean | null;
+      tagIds?: Array<string | null> | null;
+      type?: PostTypeEnum | null;
+      prevPostId?: string | null;
+      nextPostId?: string | null;
+      createdAt?: Date | null;
+      updatedAt?: Date | null;
+      postContents?: Array<{
+        __typename?: 'PostContent';
+        id?: string | null;
+        postImage?: string | null;
+        lang?: LanguageEnum | null;
+        body?: string | null;
+        contentPreview?: string | null;
+        readingTime?: string | null;
+        publishedAt?: Date | null;
+        createdAt?: Date | null;
+        updatedAt?: Date | null;
+        metaTags?: {
+          __typename?: 'PostMetaTags';
+          injectHeader?: string | null;
+          injectCssStyle?: string | null;
+          description?: string | null;
+        } | null;
+      } | null> | null;
+      tags?: Array<{
+        __typename?: 'Tag';
+        id?: string | null;
+        imgSrc?: string | null;
+        name?: string | null;
+        description?: string | null;
+      } | null> | null;
+      author?: {
+        __typename?: 'User';
+        email?: any | null;
+        avatar?: string | null;
+        name?: {
+          __typename?: 'Username';
+          first?: string | null;
+          last?: string | null;
+        } | null;
+      } | null;
     } | null> | null;
   } | null;
 };
 
 export type ListQuerierPostsQueryVariables = Exact<{
   input: ListPostCollateInput;
+  lang?: InputMaybe<LanguageEnum>;
 }>;
 
 export type ListQuerierPostsQuery = {
   __typename?: 'Query';
   querier?: {
     __typename?: 'Querier';
-    listPosts?: {
-      __typename?: 'PostResponse';
-      totalCount?: number | null;
-      data?: Array<{
-        __typename?: 'Post';
+    totalPosts?: number | null;
+    listPosts?: Array<{
+      __typename?: 'Post';
+      id?: string | null;
+      slug?: string | null;
+      nanoId?: string | null;
+      authorId?: string | null;
+      isPremium?: boolean | null;
+      visibility?: boolean | null;
+      tagIds?: Array<string | null> | null;
+      type?: PostTypeEnum | null;
+      prevPostId?: string | null;
+      nextPostId?: string | null;
+      createdAt?: Date | null;
+      updatedAt?: Date | null;
+      postContents?: Array<{
+        __typename?: 'PostContent';
         id?: string | null;
-        slug?: string | null;
-        nanoId?: string | null;
+        postImage?: string | null;
         lang?: LanguageEnum | null;
-        isPremium?: boolean | null;
-        type?: PostTypeEnum | null;
-        visibility?: boolean | null;
-        nextPostId?: string | null;
-        prevPostId?: string | null;
+        body?: string | null;
+        contentPreview?: string | null;
+        readingTime?: string | null;
+        publishedAt?: Date | null;
         createdAt?: Date | null;
         updatedAt?: Date | null;
-        author?: {
-          __typename?: 'User';
-          email?: any | null;
-          avatar?: string | null;
-          name?: {
-            __typename?: 'Username';
-            first?: string | null;
-            last?: string | null;
-          } | null;
-        } | null;
-        tags?: Array<{
-          __typename?: 'Tag';
-          id?: string | null;
-          name?: string | null;
-          imgSrc?: string | null;
+        metaTags?: {
+          __typename?: 'PostMetaTags';
+          injectHeader?: string | null;
+          injectCssStyle?: string | null;
           description?: string | null;
-        } | null> | null;
-        postContents?: Array<{
-          __typename?: 'PostContent';
-          id?: string | null;
-          postImage?: string | null;
-          lang?: LanguageEnum | null;
-          body?: string | null;
-          contentPreview?: string | null;
-          readingTime?: string | null;
-          publishedAt?: Date | null;
-          createdAt?: Date | null;
-          updatedAt?: Date | null;
-          metaTags?: {
-            __typename?: 'PostMetaTags';
-            injectHeader?: string | null;
-            injectCssStyle?: string | null;
-            description?: string | null;
-          } | null;
-        } | null> | null;
+        } | null;
       } | null> | null;
-      page?: {
-        __typename?: 'Pagination';
-        number?: any | null;
-        size?: any | null;
+      tags?: Array<{
+        __typename?: 'Tag';
+        id?: string | null;
+        imgSrc?: string | null;
+        name?: string | null;
+        description?: string | null;
+      } | null> | null;
+      author?: {
+        __typename?: 'User';
+        email?: any | null;
+        avatar?: string | null;
+        name?: {
+          __typename?: 'Username';
+          first?: string | null;
+          last?: string | null;
+        } | null;
       } | null;
-    } | null;
+    } | null> | null;
   } | null;
 };
 
+export const CourseFragmentFragmentDoc = gql`
+  fragment courseFragment on Course {
+    id
+    slug
+    author {
+      email
+      avatar
+      name {
+        first
+        last
+      }
+    }
+    tagIds
+    visibility
+    image
+    isPremium
+    lang
+    postIds
+    publishedAt
+    accessedByUserIds
+  }
+`;
+export const PostFragmentFragmentDoc = gql`
+  fragment postFragment on Post {
+    id
+    slug
+    nanoId
+    authorId
+    isPremium
+    visibility
+    tagIds
+    type
+    postContents(lang: $lang) {
+      id
+      postImage
+      lang
+      body
+      contentPreview
+      readingTime
+      metaTags {
+        injectHeader
+        injectCssStyle
+        description
+      }
+      publishedAt
+      createdAt
+      updatedAt
+    }
+    tags {
+      id
+      imgSrc
+      name
+      description
+    }
+    author {
+      email
+      avatar
+      name {
+        first
+        last
+      }
+    }
+    prevPostId
+    nextPostId
+    createdAt
+    updatedAt
+  }
+`;
 export const ClearTokensDocument = gql`
   query ClearTokens {
     clearTokens {
@@ -1246,51 +1600,12 @@ export type ForgotPasswordMutationOptions = Apollo.BaseMutationOptions<
   ForgotPasswordMutationVariables
 >;
 export const GetPostDocument = gql`
-  query GetPost($input: PostInput!, $lang: LanguageEnum) {
-    getPost(input: $input) {
-      id
-      slug
-      nanoId
-      authorId
-      isPremium
-      visibility
-      tagIds
-      postContents(lang: $lang) {
-        id
-        postImage
-        lang
-        body
-        contentPreview
-        readingTime
-        metaTags {
-          injectHeader
-          injectCssStyle
-          description
-        }
-        publishedAt
-        createdAt
-        updatedAt
-      }
-      tags {
-        id
-        imgSrc
-        name
-        description
-      }
-      author {
-        email
-        avatar
-        name {
-          first
-          last
-        }
-      }
-      prevPostId
-      nextPostId
-      createdAt
-      updatedAt
+  query GetPost($nanoId: ID!, $slug: String!, $lang: LanguageEnum) {
+    getPost(nanoId: $nanoId, slug: $slug) {
+      ...postFragment
     }
   }
+  ${PostFragmentFragmentDoc}
 `;
 
 /**
@@ -1305,7 +1620,8 @@ export const GetPostDocument = gql`
  * @example
  * const { data, loading, error } = useGetPostQuery({
  *   variables: {
- *      input: // value for 'input'
+ *      nanoId: // value for 'nanoId'
+ *      slug: // value for 'slug'
  *      lang: // value for 'lang'
  *   },
  * });
@@ -1393,128 +1709,13 @@ export type GithubLoginQueryResult = Apollo.QueryResult<
   GithubLoginQuery,
   GithubLoginQueryVariables
 >;
-export const ListPostsDocument = gql`
-  query ListPosts($input: ListPostCollateInput, $lang: LanguageEnum) {
-    listPosts(input: $input) {
-      data {
-        id
-        slug
-        nanoId
-        authorId
-        isPremium
-        visibility
-        tagIds
-        postContents(lang: $lang) {
-          postImage
-          lang
-          contentPreview
-          readingTime
-          metaTags {
-            injectHeader
-            injectCssStyle
-            description
-          }
-          publishedAt
-          createdAt
-          updatedAt
-        }
-        tags {
-          id
-          imgSrc
-          name
-          description
-        }
-        author {
-          email
-          avatar
-          name {
-            first
-            last
-          }
-        }
-        prevPostId
-        nextPostId
-        createdAt
-        updatedAt
-      }
-      totalCount
-      page {
-        number
-        size
-      }
-    }
-  }
-`;
-
-/**
- * __useListPostsQuery__
- *
- * To run a query within a React component, call `useListPostsQuery` and pass it any options that fit your needs.
- * When your component renders, `useListPostsQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useListPostsQuery({
- *   variables: {
- *      input: // value for 'input'
- *      lang: // value for 'lang'
- *   },
- * });
- */
-export function useListPostsQuery(
-  baseOptions?: Apollo.QueryHookOptions<ListPostsQuery, ListPostsQueryVariables>
-) {
-  const options = {...defaultOptions, ...baseOptions};
-  return Apollo.useQuery<ListPostsQuery, ListPostsQueryVariables>(
-    ListPostsDocument,
-    options
-  );
-}
-export function useListPostsLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    ListPostsQuery,
-    ListPostsQueryVariables
-  >
-) {
-  const options = {...defaultOptions, ...baseOptions};
-  return Apollo.useLazyQuery<ListPostsQuery, ListPostsQueryVariables>(
-    ListPostsDocument,
-    options
-  );
-}
-export type ListPostsQueryHookResult = ReturnType<typeof useListPostsQuery>;
-export type ListPostsLazyQueryHookResult = ReturnType<
-  typeof useListPostsLazyQuery
->;
-export type ListPostsQueryResult = Apollo.QueryResult<
-  ListPostsQuery,
-  ListPostsQueryVariables
->;
 export const ListCoursesDocument = gql`
   query ListCourses($input: ListCourseCollateInput!) {
     listCourses(input: $input) {
-      id
-      slug
-      author {
-        email
-        avatar
-        name {
-          first
-          last
-        }
-      }
-      tagIds
-      visibility
-      image
-      isPremium
-      lang
-      postIds
-      publishedAt
-      accessedByUserIds
+      ...courseFragment
     }
   }
+  ${CourseFragmentFragmentDoc}
 `;
 
 /**
@@ -1564,6 +1765,62 @@ export type ListCoursesLazyQueryHookResult = ReturnType<
 export type ListCoursesQueryResult = Apollo.QueryResult<
   ListCoursesQuery,
   ListCoursesQueryVariables
+>;
+export const ListPostsDocument = gql`
+  query ListPosts($input: ListPostCollateInput, $lang: LanguageEnum) {
+    totalFreeArticles
+    listPosts(input: $input) {
+      ...postFragment
+    }
+  }
+  ${PostFragmentFragmentDoc}
+`;
+
+/**
+ * __useListPostsQuery__
+ *
+ * To run a query within a React component, call `useListPostsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useListPostsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useListPostsQuery({
+ *   variables: {
+ *      input: // value for 'input'
+ *      lang: // value for 'lang'
+ *   },
+ * });
+ */
+export function useListPostsQuery(
+  baseOptions?: Apollo.QueryHookOptions<ListPostsQuery, ListPostsQueryVariables>
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useQuery<ListPostsQuery, ListPostsQueryVariables>(
+    ListPostsDocument,
+    options
+  );
+}
+export function useListPostsLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    ListPostsQuery,
+    ListPostsQueryVariables
+  >
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useLazyQuery<ListPostsQuery, ListPostsQueryVariables>(
+    ListPostsDocument,
+    options
+  );
+}
+export type ListPostsQueryHookResult = ReturnType<typeof useListPostsQuery>;
+export type ListPostsLazyQueryHookResult = ReturnType<
+  typeof useListPostsLazyQuery
+>;
+export type ListPostsQueryResult = Apollo.QueryResult<
+  ListPostsQuery,
+  ListPostsQueryVariables
 >;
 export const ListUsersDocument = gql`
   query ListUsers($input: ListUsersCollateInput!) {
@@ -1836,54 +2093,379 @@ export type VerifyMeQueryResult = Apollo.QueryResult<
   VerifyMeQuery,
   VerifyMeQueryVariables
 >;
-export const ListQuerierCoursePostsDocument = gql`
-  query ListQuerierCoursePosts($ids: [String!]!) {
-    querier {
-      listCoursePosts(ids: $ids) {
+export const DeletePostDocument = gql`
+  mutation DeletePost($id: ID!) {
+    mutator {
+      deletePost(id: $id) {
         id
-        slug
-        nanoId
-        lang
-        isPremium
-        type
-        visibility
-        author {
-          email
-          avatar
-          name {
-            first
-            last
-          }
-        }
-        tags {
-          id
+      }
+    }
+  }
+`;
+export type DeletePostMutationFn = Apollo.MutationFunction<
+  DeletePostMutation,
+  DeletePostMutationVariables
+>;
+
+/**
+ * __useDeletePostMutation__
+ *
+ * To run a mutation, you first call `useDeletePostMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useDeletePostMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [deletePostMutation, { data, loading, error }] = useDeletePostMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useDeletePostMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    DeletePostMutation,
+    DeletePostMutationVariables
+  >
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useMutation<DeletePostMutation, DeletePostMutationVariables>(
+    DeletePostDocument,
+    options
+  );
+}
+export type DeletePostMutationHookResult = ReturnType<
+  typeof useDeletePostMutation
+>;
+export type DeletePostMutationResult =
+  Apollo.MutationResult<DeletePostMutation>;
+export type DeletePostMutationOptions = Apollo.BaseMutationOptions<
+  DeletePostMutation,
+  DeletePostMutationVariables
+>;
+export const UpdateUserDocument = gql`
+  mutation UpdateUser($input: UpdateUserInput!) {
+    updateUser(input: $input) {
+      id
+      name {
+        first
+        last
+      }
+      email
+      avatar
+      gender
+      authorization {
+        id
+        userId
+        actions {
           name
-          imgSrc
+          permissions
+        }
+        createdAt
+        updatedAt
+      }
+      about
+      githubUrl
+      isActive
+      isSuper
+      address {
+        state
+        city
+        street
+        subdivision
+        lane
+        house
+        zip
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export type UpdateUserMutationFn = Apollo.MutationFunction<
+  UpdateUserMutation,
+  UpdateUserMutationVariables
+>;
+
+/**
+ * __useUpdateUserMutation__
+ *
+ * To run a mutation, you first call `useUpdateUserMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateUserMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateUserMutation, { data, loading, error }] = useUpdateUserMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useUpdateUserMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    UpdateUserMutation,
+    UpdateUserMutationVariables
+  >
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useMutation<UpdateUserMutation, UpdateUserMutationVariables>(
+    UpdateUserDocument,
+    options
+  );
+}
+export type UpdateUserMutationHookResult = ReturnType<
+  typeof useUpdateUserMutation
+>;
+export type UpdateUserMutationResult =
+  Apollo.MutationResult<UpdateUserMutation>;
+export type UpdateUserMutationOptions = Apollo.BaseMutationOptions<
+  UpdateUserMutation,
+  UpdateUserMutationVariables
+>;
+export const UpsertAuthorizationDocument = gql`
+  mutation UpsertAuthorization($input: AuthorizationInput!) {
+    upsertAuthorization(input: $input) {
+      id
+      userId
+      actions {
+        name
+        permissions
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export type UpsertAuthorizationMutationFn = Apollo.MutationFunction<
+  UpsertAuthorizationMutation,
+  UpsertAuthorizationMutationVariables
+>;
+
+/**
+ * __useUpsertAuthorizationMutation__
+ *
+ * To run a mutation, you first call `useUpsertAuthorizationMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpsertAuthorizationMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [upsertAuthorizationMutation, { data, loading, error }] = useUpsertAuthorizationMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useUpsertAuthorizationMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    UpsertAuthorizationMutation,
+    UpsertAuthorizationMutationVariables
+  >
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useMutation<
+    UpsertAuthorizationMutation,
+    UpsertAuthorizationMutationVariables
+  >(UpsertAuthorizationDocument, options);
+}
+export type UpsertAuthorizationMutationHookResult = ReturnType<
+  typeof useUpsertAuthorizationMutation
+>;
+export type UpsertAuthorizationMutationResult =
+  Apollo.MutationResult<UpsertAuthorizationMutation>;
+export type UpsertAuthorizationMutationOptions = Apollo.BaseMutationOptions<
+  UpsertAuthorizationMutation,
+  UpsertAuthorizationMutationVariables
+>;
+export const UpsertCourseDocument = gql`
+  mutation UpsertCourse($input: UpsertCourseInput!) {
+    mutator {
+      upsertCourse(input: $input) {
+        ...courseFragment
+      }
+    }
+  }
+  ${CourseFragmentFragmentDoc}
+`;
+export type UpsertCourseMutationFn = Apollo.MutationFunction<
+  UpsertCourseMutation,
+  UpsertCourseMutationVariables
+>;
+
+/**
+ * __useUpsertCourseMutation__
+ *
+ * To run a mutation, you first call `useUpsertCourseMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpsertCourseMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [upsertCourseMutation, { data, loading, error }] = useUpsertCourseMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useUpsertCourseMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    UpsertCourseMutation,
+    UpsertCourseMutationVariables
+  >
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useMutation<
+    UpsertCourseMutation,
+    UpsertCourseMutationVariables
+  >(UpsertCourseDocument, options);
+}
+export type UpsertCourseMutationHookResult = ReturnType<
+  typeof useUpsertCourseMutation
+>;
+export type UpsertCourseMutationResult =
+  Apollo.MutationResult<UpsertCourseMutation>;
+export type UpsertCourseMutationOptions = Apollo.BaseMutationOptions<
+  UpsertCourseMutation,
+  UpsertCourseMutationVariables
+>;
+export const UpsertPostContentDocument = gql`
+  mutation UpsertPostContent($postId: ID!, $input: UpsertPostContentInput!) {
+    mutator {
+      upsertPostContent(postId: $postId, input: $input) {
+        id
+        postImage
+        lang
+        body
+        contentPreview
+        readingTime
+        metaTags {
+          injectHeader
+          injectCssStyle
           description
         }
-        postContents {
-          id
-          postImage
-          lang
-          body
-          contentPreview
-          readingTime
-          metaTags {
-            injectHeader
-            injectCssStyle
-            description
-          }
-          publishedAt
-          createdAt
-          updatedAt
-        }
-        nextPostId
-        prevPostId
+        publishedAt
         createdAt
         updatedAt
       }
     }
   }
+`;
+export type UpsertPostContentMutationFn = Apollo.MutationFunction<
+  UpsertPostContentMutation,
+  UpsertPostContentMutationVariables
+>;
+
+/**
+ * __useUpsertPostContentMutation__
+ *
+ * To run a mutation, you first call `useUpsertPostContentMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpsertPostContentMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [upsertPostContentMutation, { data, loading, error }] = useUpsertPostContentMutation({
+ *   variables: {
+ *      postId: // value for 'postId'
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useUpsertPostContentMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    UpsertPostContentMutation,
+    UpsertPostContentMutationVariables
+  >
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useMutation<
+    UpsertPostContentMutation,
+    UpsertPostContentMutationVariables
+  >(UpsertPostContentDocument, options);
+}
+export type UpsertPostContentMutationHookResult = ReturnType<
+  typeof useUpsertPostContentMutation
+>;
+export type UpsertPostContentMutationResult =
+  Apollo.MutationResult<UpsertPostContentMutation>;
+export type UpsertPostContentMutationOptions = Apollo.BaseMutationOptions<
+  UpsertPostContentMutation,
+  UpsertPostContentMutationVariables
+>;
+export const UpsertPostDocument = gql`
+  mutation UpsertPost($input: UpsertPostInput!, $lang: LanguageEnum) {
+    mutator {
+      upsertPost(input: $input) {
+        ...postFragment
+      }
+    }
+  }
+  ${PostFragmentFragmentDoc}
+`;
+export type UpsertPostMutationFn = Apollo.MutationFunction<
+  UpsertPostMutation,
+  UpsertPostMutationVariables
+>;
+
+/**
+ * __useUpsertPostMutation__
+ *
+ * To run a mutation, you first call `useUpsertPostMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpsertPostMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [upsertPostMutation, { data, loading, error }] = useUpsertPostMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *      lang: // value for 'lang'
+ *   },
+ * });
+ */
+export function useUpsertPostMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    UpsertPostMutation,
+    UpsertPostMutationVariables
+  >
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useMutation<UpsertPostMutation, UpsertPostMutationVariables>(
+    UpsertPostDocument,
+    options
+  );
+}
+export type UpsertPostMutationHookResult = ReturnType<
+  typeof useUpsertPostMutation
+>;
+export type UpsertPostMutationResult =
+  Apollo.MutationResult<UpsertPostMutation>;
+export type UpsertPostMutationOptions = Apollo.BaseMutationOptions<
+  UpsertPostMutation,
+  UpsertPostMutationVariables
+>;
+export const ListQuerierCoursePostsDocument = gql`
+  query ListQuerierCoursePosts($ids: [String!]!, $lang: LanguageEnum) {
+    querier {
+      listCoursePosts(ids: $ids) {
+        ...postFragment
+      }
+    }
+  }
+  ${PostFragmentFragmentDoc}
 `;
 
 /**
@@ -1899,6 +2481,7 @@ export const ListQuerierCoursePostsDocument = gql`
  * const { data, loading, error } = useListQuerierCoursePostsQuery({
  *   variables: {
  *      ids: // value for 'ids'
+ *      lang: // value for 'lang'
  *   },
  * });
  */
@@ -1937,60 +2520,15 @@ export type ListQuerierCoursePostsQueryResult = Apollo.QueryResult<
   ListQuerierCoursePostsQueryVariables
 >;
 export const ListQuerierPostsDocument = gql`
-  query ListQuerierPosts($input: ListPostCollateInput!) {
+  query ListQuerierPosts($input: ListPostCollateInput!, $lang: LanguageEnum) {
     querier {
+      totalPosts
       listPosts(input: $input) {
-        data {
-          id
-          slug
-          nanoId
-          lang
-          isPremium
-          type
-          visibility
-          author {
-            email
-            avatar
-            name {
-              first
-              last
-            }
-          }
-          tags {
-            id
-            name
-            imgSrc
-            description
-          }
-          postContents {
-            id
-            postImage
-            lang
-            body
-            contentPreview
-            readingTime
-            metaTags {
-              injectHeader
-              injectCssStyle
-              description
-            }
-            publishedAt
-            createdAt
-            updatedAt
-          }
-          nextPostId
-          prevPostId
-          createdAt
-          updatedAt
-        }
-        totalCount
-        page {
-          number
-          size
-        }
+        ...postFragment
       }
     }
   }
+  ${PostFragmentFragmentDoc}
 `;
 
 /**
@@ -2006,6 +2544,7 @@ export const ListQuerierPostsDocument = gql`
  * const { data, loading, error } = useListQuerierPostsQuery({
  *   variables: {
  *      input: // value for 'input'
+ *      lang: // value for 'lang'
  *   },
  * });
  */

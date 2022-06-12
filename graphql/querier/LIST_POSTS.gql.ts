@@ -1,57 +1,13 @@
 import {gql} from '@apollo/client';
+import POST_FRAGMENT from '../fragments/POST_FRAGMENT.gql';
 
 const LIST_QUERIER_POSTS_QUERY = gql`
-  query ListQuerierPosts($input: ListPostCollateInput!) {
+  ${POST_FRAGMENT}
+  query ListQuerierPosts($input: ListPostCollateInput!, $lang: LanguageEnum) {
     querier {
+      totalPosts
       listPosts(input: $input) {
-        data {
-          id
-          slug
-          nanoId
-          lang
-          isPremium
-          type
-          visibility
-          author {
-            email
-            avatar
-            name {
-              first
-              last
-            }
-          }
-          tags {
-            id
-            name
-            imgSrc
-            description
-          }
-          postContents {
-            id
-            postImage
-            lang
-            body
-            contentPreview
-            readingTime
-            metaTags {
-              injectHeader
-              injectCssStyle
-              description
-            }
-            publishedAt
-            createdAt
-            updatedAt
-          }
-          nextPostId
-          prevPostId
-          createdAt
-          updatedAt
-        }
-        totalCount
-        page {
-          number
-          size
-        }
+        ...postFragment
       }
     }
   }

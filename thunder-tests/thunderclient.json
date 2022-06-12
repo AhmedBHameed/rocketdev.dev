@@ -284,5 +284,28 @@
       }
     },
     "tests": []
+  },
+  {
+    "_id": "f5603d37-5be6-4661-8469-023f1a1e05df",
+    "colId": "d845b0d6-4b8b-4381-83f2-5ac7faebb483",
+    "containerId": "d6520ffc-2ed2-4338-82fc-70b27e329745",
+    "name": "listPosts",
+    "url": "http://localhost:5000/graphql",
+    "method": "POST",
+    "sortNum": 30000,
+    "created": "2022-06-05T19:27:39.660Z",
+    "modified": "2022-06-05T19:31:02.678Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "graphql",
+      "raw": "",
+      "form": [],
+      "graphql": {
+        "query": "  query ListPosts($input: ListPostCollateInput, $lang: LanguageEnum) {\n    listPosts(input: $input) {\n      data {\n        id\n        slug\n        nanoId\n        authorId\n        isPremium\n        visibility\n        tagIds\n        postContents(lang: $lang) {\n          postImage\n          lang\n          contentPreview\n          readingTime\n          metaTags {\n            injectHeader\n            injectCssStyle\n            description\n          }\n          publishedAt\n          createdAt\n          updatedAt\n        }\n        tags {\n          id\n          imgSrc\n          name\n          description\n        }\n        author {\n          email\n          avatar\n          name {\n            first\n            last\n          }\n        }\n        prevPostId\n        nextPostId\n        createdAt\n        updatedAt\n      }\n\n      totalCount\n      page {\n        number\n        size\n      }\n    }\n  }",
+        "variables": "{\n    \"input\": {\n      \"filter\": {\n        \"isPremium\": false,\n        \"type\": \"ARTICLE\"\n      }\n    }\n}"
+      }
+    },
+    "tests": []
   }
 ]
