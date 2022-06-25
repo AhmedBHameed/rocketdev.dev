@@ -15,7 +15,7 @@ services:
     command: ['yarn', 'start']
     build:
       context: .
-      dockerfile: ./docker/rocketdev.dev/Dockerfile
+      dockerfile: Dockerfile
     restart: always
     volumes:
       - ./rocketdev.dev/node_modules:/home/node/rocketdev.dev/node_modules
