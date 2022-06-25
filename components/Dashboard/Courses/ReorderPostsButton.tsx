@@ -10,10 +10,9 @@ import PostsReorder from './PostsReorder';
 
 interface ReorderPostsButtonProps {
   courseId: string;
-  postIds: string[];
 }
 
-const ReorderPostsButton = ({courseId, postIds}: ReorderPostsButtonProps) => {
+const ReorderPostsButton = ({courseId}: ReorderPostsButtonProps) => {
   const [open, setOpen] = useState(false);
   const [coursePostsIds, setCoursePostsIds] = useState<string[]>([]);
   const {notify} = useNotifications();
@@ -50,10 +49,9 @@ const ReorderPostsButton = ({courseId, postIds}: ReorderPostsButtonProps) => {
       <Modal title="Posts related" open={open} onClose={() => setOpen(false)}>
         <PostsReorder
           onItemOrderChange={(posts: Post[]) => {
-            console.log([...posts.map((post) => post.id)]);
             setCoursePostsIds([...posts.map((post) => post.id)]);
           }}
-          ids={postIds}
+          courseId={courseId}
         />
 
         <div className="flex mt-10 justify-end">

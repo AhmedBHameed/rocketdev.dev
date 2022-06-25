@@ -1,0 +1,19 @@
+{
+  "actionButton": "Send",
+  "error": {
+    "submitFeedbackFailed": {
+      "message": "Oops! Something went wrong. Please try again later.",
+      "title": "Feedback"
+    }
+  },
+  "messagePlaceholder": "In case you find issue, please write your message here",
+  "messageTitle": "Message",
+  "success": {
+    "submitFeedbackSuccessful": {
+      "message": "Your feedback has been submitted successfully.",
+      "title": "Feedback"
+    }
+  },
+  "titleLabel": "Title",
+  "titlePlaceholder": "Write your issue title here"
+}

@@ -1,0 +1,26 @@
+version: '3.4'
+
+volumes:
+  redis_data:
+    driver: local
+
+networks:
+  starlink:
+    driver: bridge
+
+services:
+  rocketdev.dev:
+    hostname: rocketdev.dev
+    container_name: rocketdev.dev
+    command: ['yarn', 'start']
+    build:
+      context: .
+      dockerfile: ./docker/rocketdev.dev/Dockerfile
+    restart: always
+    volumes:
+      - ./rocketdev.dev/node_modules:/home/node/rocketdev.dev/node_modules
+      - ./rocketdev.dev:/home/node/rocketdev.dev
+    ports:
+      - '5000:5000'
+    networks:
+      - starlink

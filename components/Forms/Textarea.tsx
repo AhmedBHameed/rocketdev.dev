@@ -2,21 +2,45 @@ import React, {forwardRef} from 'react';
 import clsx from '../../utils/clsx';
 
 interface TextareaProps {
+  id?: string;
   className?: string;
   error?: boolean;
   value: string;
   rows?: number;
+  ariaLabel?: string;
+  name?: string;
+  placeholder?: string;
+  testId?: string;
+  onChange?: React.ChangeEventHandler<HTMLTextAreaElement>;
   onInput?: (event: React.FormEvent<HTMLTextAreaElement>) => void;
 }
 
 const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
-  ({className, rows, error, value, onInput}, ref) => {
+  (
+    {
+      className,
+      id,
+      testId,
+      name,
+      placeholder,
+      ariaLabel,
+      rows,
+      error,
+      value,
+      onChange,
+      onInput,
+    },
+    ref
+  ) => {
     return (
       <textarea
-        id="about"
-        name="about"
+        id={id}
+        aria-label={ariaLabel}
+        name={name}
+        data-testid={testId}
         rows={rows}
         ref={ref}
+        placeholder={placeholder}
         className={clsx(
           'appearance-none',
           'block',
@@ -36,8 +60,8 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           className || '',
           error ? 'border-red-500' : ''
         )}
+        onChange={onChange}
         onInput={onInput}
-        placeholder="you@example.com"
         value={value}
       />
     );

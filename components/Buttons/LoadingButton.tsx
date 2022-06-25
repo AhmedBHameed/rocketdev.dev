@@ -38,7 +38,9 @@ const LoadingButton: React.FC<LoadingButtonProps> = ({
       'shadow-sm',
       'focus:outline-none',
       'focus:ring-2',
-      'focus:ring-offset-2'
+      'focus:ring-offset-2',
+      'disabled:bg-gray-400',
+      'disabled:text-gray-600'
     )}
     data-testid={testId}
     disabled={disabled}

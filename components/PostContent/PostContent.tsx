@@ -1,19 +1,14 @@
 import {get} from 'lodash';
 import React from 'react';
-import {GetPostQuery} from '../../graphql/generated/graphql';
+import {Post} from '../../graphql/generated/graphql';
 import slugToTitle from '../../utils/slugToTitle';
 import MDPreviewClient from '../MDPreview/MDPreviewClient';
 
 interface PostContentProps {
-  getPostQuery?: GetPostQuery;
+  post?: Post;
 }
 
-const PostContent: React.FC<PostContentProps> = ({getPostQuery}) => {
-  const post = getPostQuery.getPost;
-  console.log(
-    '🚀 ~ file: PostContent.tsx ~ line 13 ~ post',
-    get(post, 'postContents[0].body', '')
-  );
+const PostContent: React.FC<PostContentProps> = ({post}) => {
   return (
     <div className="relative py-24 overflow-hidden">
       {/* <div className="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full">
@@ -126,7 +121,7 @@ const PostContent: React.FC<PostContentProps> = ({getPostQuery}) => {
               Introducing
             </span>
             <span className="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-800 dark:text-gray-200 sm:text-4xl">
-              {slugToTitle(post.slug)}
+              {slugToTitle(post?.slug || '')}
             </span>
           </h1>
           <p className="mt-8 mb-24 text-xl italic font-bold text-gray-700 dark:text-gray-300 leading-8">

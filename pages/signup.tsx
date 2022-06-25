@@ -11,18 +11,17 @@ import clsx from '../utils/clsx';
 import Link from 'next/link';
 import {SignupInput, useSignupMutation} from '../graphql/generated/graphql';
 import {useRouter} from 'next/router';
-import {ROUTES} from '../config/routes';
+import ROUTES from '../config/routes';
 import signupSchema from '../components/Signup/signupSchema';
 import {GetStaticProps} from 'next';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import LoadingButton from '../components/Buttons/LoadingButton';
 
 const Signup = () => {
-  const signupTrans = useTranslation('signup');
+  const {t, i18n} = useTranslation(['common', 'signup']);
   // const commonTrans = useTranslation('common');
 
   const router = useRouter();
-  const commonLocale = useTranslation('common');
   const [signup, {loading}] = useSignupMutation();
 
   const handleLogin = useCallback(async (data: SignupInput) => {
@@ -61,7 +60,7 @@ const Signup = () => {
   const emailError = errors.email?.message;
   const passwordError = errors.password?.message;
 
-  const rtl = commonLocale.i18n.language === 'ar';
+  const rtl = i18n.language === 'ar';
 
   return (
     <div
@@ -82,7 +81,10 @@ const Signup = () => {
         </div>
 
         <h2 className="mt-2 text-center text-3xl font-extrabold text-gray-900 dark:text-gray-100">
-          {signupTrans.t('headTitle')}
+          {t('headTitle', {
+            ns: 'signup',
+            defaultValue: 'Sign up',
+          })}
         </h2>
       </div>
 
@@ -100,8 +102,16 @@ const Signup = () => {
         >
           <form onSubmit={handleSubmit(handleLogin)} className="space-y-2">
             <FormControl
-              label={signupTrans.t('firstNameLabel')}
-              error={firstNameError && commonLocale.t(firstNameError)}
+              label={t('firstNameLabel', {
+                ns: 'signup',
+                defaultValue: 'First name',
+              })}
+              error={
+                firstNameError &&
+                t(firstNameError, {
+                  ns: 'signup',
+                })
+              }
               // hideErrorPlaceholder?: boolean;
               htmlFor="firstName"
               helperTextId="firstName"
@@ -116,7 +126,10 @@ const Signup = () => {
                     error={!!firstNameError}
                     name="firstName"
                     onChange={onChange}
-                    placeholder={signupTrans.t('firstNamePlaceholder')}
+                    placeholder={t('firstNamePlaceholder', {
+                      ns: 'signup',
+                      defaultValue: 'First name',
+                    })}
                     testId="first-name-input"
                     value={value}
                   />
@@ -125,8 +138,16 @@ const Signup = () => {
             </FormControl>
 
             <FormControl
-              label={signupTrans.t('lastNameLabel')}
-              error={lastNameError && commonLocale.t(lastNameError)}
+              label={t('lastNameLabel', {
+                ns: 'signup',
+                defaultValue: 'Last name',
+              })}
+              error={
+                lastNameError &&
+                t(lastNameError, {
+                  ns: 'signup',
+                })
+              }
               // hideErrorPlaceholder?: boolean;
               htmlFor="lastName"
               helperTextId="lastName"
@@ -141,7 +162,10 @@ const Signup = () => {
                     error={!!lastNameError}
                     name="lastName"
                     onChange={onChange}
-                    placeholder={signupTrans.t('lastNamePlaceholder')}
+                    placeholder={t('lastNamePlaceholder', {
+                      ns: 'signup',
+                      defaultValue: 'Last name',
+                    })}
                     testId="last-name-input"
                     value={value}
                   />
@@ -150,8 +174,16 @@ const Signup = () => {
             </FormControl>
 
             <FormControl
-              label={commonLocale.t('emailLabel')}
-              error={emailError && commonLocale.t(emailError)}
+              label={t('emailLabel', {
+                ns: 'common',
+                defaultValue: 'Email',
+              })}
+              error={
+                emailError &&
+                t(emailError as string, {
+                  ns: 'signup',
+                })
+              }
               // hideErrorPlaceholder?: boolean;
               htmlFor="email"
               helperTextId="email"
@@ -166,7 +198,10 @@ const Signup = () => {
                     error={!!emailError}
                     name="email"
                     onChange={onChange}
-                    placeholder={commonLocale.t('emailPlaceholder')}
+                    placeholder={t('emailPlaceholder', {
+                      ns: 'common',
+                      defaultValue: 'Email',
+                    })}
                     testId="email-input"
                     value={value}
                   />
@@ -175,8 +210,16 @@ const Signup = () => {
             </FormControl>
 
             <FormControl
-              label={commonLocale.t('passwordLabel')}
-              error={passwordError && commonLocale.t(passwordError)}
+              label={t('passwordLabel', {
+                ns: 'common',
+                defaultValue: 'Password',
+              })}
+              error={
+                passwordError &&
+                t(passwordError as string, {
+                  ns: 'common',
+                })
+              }
               // hideErrorPlaceholder?: boolean;
               htmlFor="password"
               helperTextId="password"
@@ -191,7 +234,10 @@ const Signup = () => {
                     error={!!passwordError}
                     name="password"
                     onChange={onChange}
-                    placeholder={commonLocale.t('passwordPlaceholder')}
+                    placeholder={t('passwordPlaceholder', {
+                      ns: 'common',
+                      defaultValue: 'Password',
+                    })}
                     testId="password-input"
                     value={value}
                     rtl={rtl}
@@ -209,7 +255,10 @@ const Signup = () => {
                     href={ROUTES.login.path}
                     className="font-medium text-red-500 hover:text-red-400"
                   >
-                    {signupTrans.t('youHaveAccount')}
+                    {t('youHaveAccount', {
+                      ns: 'signup',
+                      defaultValue: 'You have an account?',
+                    })}
                   </Link>
                 </div>
               </div>
@@ -241,7 +290,10 @@ const Signup = () => {
                     'focus:ring-red-500'
                   )}
                 >
-                  {signupTrans.t('actionButton')}
+                  {t('actionButton', {
+                    ns: 'signup',
+                    defaultValue: 'Send',
+                  })}
                 </LoadingButton>
               </div>
             </div>

@@ -22,7 +22,7 @@ const PostCard: React.FC<PostCardProps> = ({
   href,
   onClick,
 }) => {
-  const {t} = useTranslation('latest');
+  const {t} = useTranslation('common');
 
   return (
     <div

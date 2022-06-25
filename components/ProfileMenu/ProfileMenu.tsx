@@ -1,12 +1,16 @@
-import {Fragment} from 'react';
+import {Fragment, useCallback} from 'react';
 import {Menu, Transition} from '@headlessui/react';
 import clsx from '../../utils/clsx';
-import Link from '../Buttons/Link';
+import LinkButton from '../Buttons/Link';
 import {STATIC_ASSETS_PATH} from '../../config/environments';
+import Link from 'next/link';
+import {useRouter} from 'next/router';
+import {useClearTokensLazyQuery} from '../../graphql/generated/graphql';
+import ROUTES from '../../config/routes';
 
 interface MenuProps {
   name: string;
-  href: string;
+  href?: string;
   onClick?: () => void;
 }
 
@@ -16,13 +20,24 @@ interface ProfileMenuProps {
 }
 
 const ProfileMenu = ({menu, avatar}: ProfileMenuProps) => {
+  const router = useRouter();
+
+  const [logout] = useClearTokensLazyQuery();
+
+  const handleLogout = useCallback(async () => {
+    await logout();
+    router.push(ROUTES.login.path);
+  }, []);
+
   const isAvatarLink = avatar.includes('http');
+
   return (
     <Menu as="div" className="ml-3 relative">
       <div>
         <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
           <span className="sr-only">Open user menu</span>
           <img
+            crossOrigin="anonymous"
             className="h-8 w-8 rounded-full"
             src={isAvatarLink ? avatar : `${STATIC_ASSETS_PATH}${avatar}`}
             alt="profile menu"
@@ -41,17 +56,9 @@ const ProfileMenu = ({menu, avatar}: ProfileMenuProps) => {
         <Menu.Items className="origin-top-right absolute z-50 right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
           {menu.map((item) => (
             <Menu.Item key={item.name}>
-              {({active}) =>
-                item.onClick ? (
-                  <Link
-                    className={clsx(active && 'bg-gray-100', 'text-gray-700')}
-                    onClick={item.onClick}
-                  >
-                    {item.name}
-                  </Link>
-                ) : (
+              {({active}) => (
+                <Link href={item.href}>
                   <a
-                    href={item.href}
                     className={clsx(
                       active ? 'bg-gray-100' : '',
                       'block px-4 py-2 text-sm text-gray-700'
@@ -59,10 +66,18 @@ const ProfileMenu = ({menu, avatar}: ProfileMenuProps) => {
                   >
                     {item.name}
                   </a>
-                )
-              }
+                </Link>
+              )}
             </Menu.Item>
           ))}
+          <Menu.Item>
+            <LinkButton
+              className={clsx('text-gray-700', 'py-2 px-4')}
+              onClick={handleLogout}
+            >
+              Log out
+            </LinkButton>
+          </Menu.Item>
         </Menu.Items>
       </Transition>
     </Menu>

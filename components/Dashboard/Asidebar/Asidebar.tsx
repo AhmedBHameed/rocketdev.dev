@@ -8,7 +8,7 @@ import {
   XIcon,
 } from '@heroicons/react/outline';
 import BrandLink from '../../BrandLink/BrandLink';
-import {ROUTES} from '../../../config/routes';
+import ROUTES from '../../../config/routes';
 import NavItem from './NavItem';
 
 interface AsidebarProps {

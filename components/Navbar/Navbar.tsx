@@ -4,7 +4,7 @@ import {Disclosure} from '@headlessui/react';
 import {MenuIcon, XIcon} from '@heroicons/react/outline';
 import clsx from '../../utils/clsx';
 import RocketDevsSvg from '../SVG/ReactDevsSvg';
-import {ROUTES} from '../../config/routes';
+import ROUTES from '../../config/routes';
 import ThemeButton from './ThemeButton';
 import {useRouter} from 'next/router';
 import {useClearTokensLazyQuery} from '../../graphql/generated/graphql';
@@ -17,13 +17,6 @@ const Navbar = () => {
   const router = useRouter();
   const {t} = useTranslation('navbar');
   const {userProfile} = useVerifyMe();
-
-  const [logout] = useClearTokensLazyQuery();
-
-  const handleLogout = useCallback(async () => {
-    await logout();
-    router.push(ROUTES.login.path);
-  }, []);
 
   const avatar = get(userProfile, 'verifyMe.avatar');
 
@@ -46,7 +39,7 @@ const Navbar = () => {
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center">
                   <Link href={ROUTES.home.path}>
-                    <a href="#" aria-current="home page">
+                    <a href="#">
                       <RocketDevsSvg />
                     </a>
                   </Link>
@@ -62,9 +55,22 @@ const Navbar = () => {
                             : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                           'px-3 py-2 rounded-md text-sm font-medium'
                         )}
-                        aria-current="latest page"
                       >
-                        {t<string>('latest')}
+                        {t('latest')}
+                      </a>
+                    </Link>
+
+                    <Link href={ROUTES.courses.path}>
+                      <a
+                        href="#"
+                        className={clsx(
+                          router.asPath.indexOf(ROUTES.courses.path) > -1
+                            ? 'bg-gray-600 dark:bg-gray-700 text-white'
+                            : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                          'px-3 py-2 rounded-md text-sm font-medium'
+                        )}
+                      >
+                        {t('courses', {defaultValue: 'Courses'})}
                       </a>
                     </Link>
                   </div>
@@ -92,9 +98,8 @@ const Navbar = () => {
                       href: '#',
                     },
                     {
-                      name: 'Sign out',
-                      href: '#',
-                      onClick: handleLogout,
+                      name: 'Feedback',
+                      href: ROUTES.feedback.path,
                     },
                   ]}
                 />

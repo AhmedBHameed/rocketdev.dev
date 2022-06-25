@@ -73,10 +73,12 @@ export type Course = {
   image?: Maybe<Scalars['String']>;
   isPremium?: Maybe<Scalars['Boolean']>;
   lang?: Maybe<LanguageEnum>;
+  nanoId?: Maybe<Scalars['String']>;
   postIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
   publishedAt?: Maybe<Scalars['Date']>;
   slug?: Maybe<Scalars['String']>;
   tagIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  tags?: Maybe<Array<Maybe<Tag>>>;
   updatedAt?: Maybe<Scalars['Date']>;
   visibility?: Maybe<Scalars['Boolean']>;
 };
@@ -123,6 +125,46 @@ export type CreateUserInput = {
   password: Scalars['Password'];
 };
 
+export type Feedback = {
+  __typename?: 'Feedback';
+  author?: Maybe<User>;
+  authorId?: Maybe<Scalars['ID']>;
+  createdAt?: Maybe<Scalars['Date']>;
+  id?: Maybe<Scalars['ID']>;
+  message?: Maybe<Scalars['String']>;
+  resolved?: Maybe<Scalars['Boolean']>;
+  title?: Maybe<Scalars['String']>;
+  updatedAt?: Maybe<Scalars['Date']>;
+};
+
+/** Filtering configuration by fields. */
+export type FeedbackFilterInput = {
+  _and?: InputMaybe<Array<InputMaybe<FeedbackFilterInput>>>;
+  _eq?: InputMaybe<FeedbackFilterInput>;
+  _gt?: InputMaybe<FeedbackFilterInput>;
+  _gte?: InputMaybe<FeedbackFilterInput>;
+  _in?: InputMaybe<Array<InputMaybe<FeedbackFilterInput>>>;
+  _lt?: InputMaybe<FeedbackFilterInput>;
+  _lte?: InputMaybe<FeedbackFilterInput>;
+  _neq?: InputMaybe<FeedbackFilterInput>;
+  _nin?: InputMaybe<Array<InputMaybe<FeedbackFilterInput>>>;
+  _or?: InputMaybe<Array<InputMaybe<FeedbackFilterInput>>>;
+  authorId?: InputMaybe<Scalars['ID']>;
+  createdAt?: InputMaybe<Scalars['Date']>;
+  id?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  message?: InputMaybe<Scalars['String']>;
+  resolved?: InputMaybe<Scalars['Boolean']>;
+  title?: InputMaybe<Scalars['String']>;
+  updatedAt?: InputMaybe<Scalars['Date']>;
+};
+
+export type FeedbackInput = {
+  id: Scalars['ID'];
+  message: Scalars['String'];
+  resolved?: InputMaybe<Scalars['Boolean']>;
+  title: Scalars['String'];
+};
+
 /** Filtering configuration by fields. */
 export type FilterTagInput = {
   _and?: InputMaybe<Array<InputMaybe<FilterTagInput>>>;
@@ -156,6 +198,16 @@ export type ListCourseCollateInput = {
   filter?: InputMaybe<CourseFilterInput>;
   page?: InputMaybe<PaginationInput>;
   sort?: InputMaybe<CourseSortingByFieldInput>;
+};
+
+/**
+ * Input configuration to gather or arrange a list in their proper sequence. You can set filtering,sorting,paginating arguments for more specification.
+ * This configuration applied on queries with a prefixed name of `list*`
+ */
+export type ListFeedbackCollateInput = {
+  filter?: InputMaybe<FeedbackFilterInput>;
+  page?: InputMaybe<PaginationInput>;
+  sort?: InputMaybe<PostSortingByFieldInput>;
 };
 
 /**
@@ -242,6 +294,7 @@ export type Mutator = {
   isSuper?: Maybe<Scalars['Boolean']>;
   occupation?: Maybe<Scalars['String']>;
   upsertCourse?: Maybe<Course>;
+  upsertFeedback?: Maybe<Feedback>;
   upsertPost?: Maybe<Post>;
   upsertPostContent?: Maybe<PostContent>;
   upsertTag?: Maybe<Tag>;
@@ -254,6 +307,10 @@ export type MutatorDeletePostArgs = {
 
 export type MutatorUpsertCourseArgs = {
   input: UpsertCourseInput;
+};
+
+export type MutatorUpsertFeedbackArgs = {
+  input: FeedbackInput;
 };
 
 export type MutatorUpsertPostArgs = {
@@ -406,6 +463,7 @@ export type Querier = {
   id: Scalars['ID'];
   isSuper?: Maybe<Scalars['Boolean']>;
   listCoursePosts?: Maybe<Array<Maybe<Post>>>;
+  listFeedback?: Maybe<Array<Maybe<Feedback>>>;
   /** List all posts. */
   listPosts?: Maybe<Array<Maybe<Post>>>;
   listTags?: Maybe<Array<Maybe<Tag>>>;
@@ -420,7 +478,11 @@ export type QuerierGetCourseArgs = {
 };
 
 export type QuerierListCoursePostsArgs = {
-  ids: Array<Scalars['String']>;
+  courseId: Scalars['ID'];
+};
+
+export type QuerierListFeedbackArgs = {
+  input?: InputMaybe<ListFeedbackCollateInput>;
 };
 
 export type QuerierListPostsArgs = {
@@ -445,6 +507,7 @@ export type Query = {
   listUsers?: Maybe<Array<Maybe<User>>>;
   querier?: Maybe<Querier>;
   refreshTokens?: Maybe<Auth>;
+  totalCourses?: Maybe<Scalars['Int']>;
   totalFreeArticles?: Maybe<Scalars['Int']>;
   totalPosts?: Maybe<Scalars['Int']>;
   verifyMe?: Maybe<User>;
@@ -484,9 +547,8 @@ export type QueryListUsersArgs = {
 };
 
 export type ResetPasswordInput = {
+  hash: Scalars['String'];
   newPassword: Scalars['Password'];
-  userId: Scalars['ID'];
-  verificationId: Scalars['ID'];
 };
 
 export type SignupInput = {
@@ -768,11 +830,12 @@ export type ListCoursesQueryVariables = Exact<{
 
 export type ListCoursesQuery = {
   __typename?: 'Query';
+  totalCourses?: number | null;
   listCourses?: Array<{
     __typename?: 'Course';
     id?: string | null;
     slug?: string | null;
-    tagIds?: Array<string | null> | null;
+    nanoId?: string | null;
     visibility?: boolean | null;
     image?: string | null;
     isPremium?: boolean | null;
@@ -790,6 +853,13 @@ export type ListCoursesQuery = {
         last?: string | null;
       } | null;
     } | null;
+    tags?: Array<{
+      __typename?: 'Tag';
+      id?: string | null;
+      imgSrc?: string | null;
+      name?: string | null;
+      description?: string | null;
+    } | null> | null;
   } | null> | null;
 };
 
@@ -914,6 +984,15 @@ export type RefreshTokensQuery = {
   } | null;
 };
 
+export type ResetPasswordMutationVariables = Exact<{
+  input: ResetPasswordInput;
+}>;
+
+export type ResetPasswordMutation = {
+  __typename?: 'Mutation';
+  resetPassword?: {__typename?: 'Message'; message?: string | null} | null;
+};
+
 export type SignupMutationVariables = Exact<{
   firstName: Scalars['String'];
   lastName: Scalars['String'];
@@ -955,7 +1034,7 @@ export type CourseFragmentFragment = {
   __typename?: 'Course';
   id?: string | null;
   slug?: string | null;
-  tagIds?: Array<string | null> | null;
+  nanoId?: string | null;
   visibility?: boolean | null;
   image?: string | null;
   isPremium?: boolean | null;
@@ -963,6 +1042,59 @@ export type CourseFragmentFragment = {
   postIds?: Array<string | null> | null;
   publishedAt?: Date | null;
   accessedByUserIds?: Array<string | null> | null;
+  author?: {
+    __typename?: 'User';
+    email?: any | null;
+    avatar?: string | null;
+    name?: {
+      __typename?: 'Username';
+      first?: string | null;
+      last?: string | null;
+    } | null;
+  } | null;
+  tags?: Array<{
+    __typename?: 'Tag';
+    id?: string | null;
+    imgSrc?: string | null;
+    name?: string | null;
+    description?: string | null;
+  } | null> | null;
+};
+
+export type QuerierPostFragmentFragment = {
+  __typename?: 'Post';
+  id?: string | null;
+  slug?: string | null;
+  isPremium?: boolean | null;
+  prevPostId?: string | null;
+  nextPostId?: string | null;
+  createdAt?: Date | null;
+  updatedAt?: Date | null;
+  postContents?: Array<{
+    __typename?: 'PostContent';
+    id?: string | null;
+    postImage?: string | null;
+    lang?: LanguageEnum | null;
+    body?: string | null;
+    contentPreview?: string | null;
+    readingTime?: string | null;
+    publishedAt?: Date | null;
+    createdAt?: Date | null;
+    updatedAt?: Date | null;
+    metaTags?: {
+      __typename?: 'PostMetaTags';
+      injectHeader?: string | null;
+      injectCssStyle?: string | null;
+      description?: string | null;
+    } | null;
+  } | null> | null;
+  tags?: Array<{
+    __typename?: 'Tag';
+    id?: string | null;
+    imgSrc?: string | null;
+    name?: string | null;
+    description?: string | null;
+  } | null> | null;
   author?: {
     __typename?: 'User';
     email?: any | null;
@@ -1026,6 +1158,14 @@ export type PostFragmentFragment = {
   } | null;
 };
 
+export type TagFragmentFragment = {
+  __typename?: 'Tag';
+  id?: string | null;
+  imgSrc?: string | null;
+  name?: string | null;
+  description?: string | null;
+};
+
 export type DeletePostMutationVariables = Exact<{
   id: Scalars['ID'];
 }>;
@@ -1035,6 +1175,36 @@ export type DeletePostMutation = {
   mutator?: {
     __typename?: 'Mutator';
     deletePost?: {__typename?: 'Post'; id?: string | null} | null;
+  } | null;
+};
+
+export type UpsertFeedbackMutationVariables = Exact<{
+  input: FeedbackInput;
+}>;
+
+export type UpsertFeedbackMutation = {
+  __typename?: 'Mutation';
+  mutator?: {
+    __typename?: 'Mutator';
+    upsertFeedback?: {
+      __typename?: 'Feedback';
+      id?: string | null;
+      title?: string | null;
+      message?: string | null;
+      resolved?: boolean | null;
+      createdAt?: Date | null;
+      updatedAt?: Date | null;
+      author?: {
+        __typename?: 'User';
+        email?: any | null;
+        avatar?: string | null;
+        name?: {
+          __typename?: 'Username';
+          first?: string | null;
+          last?: string | null;
+        } | null;
+      } | null;
+    } | null;
   } | null;
 };
 
@@ -1118,7 +1288,7 @@ export type UpsertCourseMutation = {
       __typename?: 'Course';
       id?: string | null;
       slug?: string | null;
-      tagIds?: Array<string | null> | null;
+      nanoId?: string | null;
       visibility?: boolean | null;
       image?: string | null;
       isPremium?: boolean | null;
@@ -1136,6 +1306,13 @@ export type UpsertCourseMutation = {
           last?: string | null;
         } | null;
       } | null;
+      tags?: Array<{
+        __typename?: 'Tag';
+        id?: string | null;
+        imgSrc?: string | null;
+        name?: string | null;
+        description?: string | null;
+      } | null> | null;
     } | null;
   } | null;
 };
@@ -1233,7 +1410,7 @@ export type UpsertPostMutation = {
 };
 
 export type ListQuerierCoursePostsQueryVariables = Exact<{
-  ids: Array<Scalars['String']> | Scalars['String'];
+  courseId: Scalars['ID'];
   lang?: InputMaybe<LanguageEnum>;
 }>;
 
@@ -1245,12 +1422,7 @@ export type ListQuerierCoursePostsQuery = {
       __typename?: 'Post';
       id?: string | null;
       slug?: string | null;
-      nanoId?: string | null;
-      authorId?: string | null;
       isPremium?: boolean | null;
-      visibility?: boolean | null;
-      tagIds?: Array<string | null> | null;
-      type?: PostTypeEnum | null;
       prevPostId?: string | null;
       nextPostId?: string | null;
       createdAt?: Date | null;
@@ -1357,10 +1529,19 @@ export type ListQuerierPostsQuery = {
   } | null;
 };
 
+export const TagFragmentFragmentDoc = gql`
+  fragment tagFragment on Tag {
+    id
+    imgSrc
+    name
+    description
+  }
+`;
 export const CourseFragmentFragmentDoc = gql`
   fragment courseFragment on Course {
     id
     slug
+    nanoId
     author {
       email
       avatar
@@ -1369,7 +1550,9 @@ export const CourseFragmentFragmentDoc = gql`
         last
       }
     }
-    tagIds
+    tags {
+      ...tagFragment
+    }
     visibility
     image
     isPremium
@@ -1378,6 +1561,46 @@ export const CourseFragmentFragmentDoc = gql`
     publishedAt
     accessedByUserIds
   }
+  ${TagFragmentFragmentDoc}
+`;
+export const QuerierPostFragmentFragmentDoc = gql`
+  fragment querierPostFragment on Post {
+    id
+    slug
+    isPremium
+    postContents(lang: $lang) {
+      id
+      postImage
+      lang
+      body
+      contentPreview
+      readingTime
+      metaTags {
+        injectHeader
+        injectCssStyle
+        description
+      }
+      publishedAt
+      createdAt
+      updatedAt
+    }
+    tags {
+      ...tagFragment
+    }
+    author {
+      email
+      avatar
+      name {
+        first
+        last
+      }
+    }
+    prevPostId
+    nextPostId
+    createdAt
+    updatedAt
+  }
+  ${TagFragmentFragmentDoc}
 `;
 export const PostFragmentFragmentDoc = gql`
   fragment postFragment on Post {
@@ -1406,10 +1629,7 @@ export const PostFragmentFragmentDoc = gql`
       updatedAt
     }
     tags {
-      id
-      imgSrc
-      name
-      description
+      ...tagFragment
     }
     author {
       email
@@ -1424,6 +1644,7 @@ export const PostFragmentFragmentDoc = gql`
     createdAt
     updatedAt
   }
+  ${TagFragmentFragmentDoc}
 `;
 export const ClearTokensDocument = gql`
   query ClearTokens {
@@ -1711,6 +1932,7 @@ export type GithubLoginQueryResult = Apollo.QueryResult<
 >;
 export const ListCoursesDocument = gql`
   query ListCourses($input: ListCourseCollateInput!) {
+    totalCourses
     listCourses(input: $input) {
       ...courseFragment
     }
@@ -1967,6 +2189,56 @@ export type RefreshTokensQueryResult = Apollo.QueryResult<
   RefreshTokensQuery,
   RefreshTokensQueryVariables
 >;
+export const ResetPasswordDocument = gql`
+  mutation ResetPassword($input: ResetPasswordInput!) {
+    resetPassword(input: $input) {
+      message
+    }
+  }
+`;
+export type ResetPasswordMutationFn = Apollo.MutationFunction<
+  ResetPasswordMutation,
+  ResetPasswordMutationVariables
+>;
+
+/**
+ * __useResetPasswordMutation__
+ *
+ * To run a mutation, you first call `useResetPasswordMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useResetPasswordMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [resetPasswordMutation, { data, loading, error }] = useResetPasswordMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useResetPasswordMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    ResetPasswordMutation,
+    ResetPasswordMutationVariables
+  >
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useMutation<
+    ResetPasswordMutation,
+    ResetPasswordMutationVariables
+  >(ResetPasswordDocument, options);
+}
+export type ResetPasswordMutationHookResult = ReturnType<
+  typeof useResetPasswordMutation
+>;
+export type ResetPasswordMutationResult =
+  Apollo.MutationResult<ResetPasswordMutation>;
+export type ResetPasswordMutationOptions = Apollo.BaseMutationOptions<
+  ResetPasswordMutation,
+  ResetPasswordMutationVariables
+>;
 export const SignupDocument = gql`
   mutation Signup(
     $firstName: String!
@@ -2144,6 +2416,71 @@ export type DeletePostMutationResult =
 export type DeletePostMutationOptions = Apollo.BaseMutationOptions<
   DeletePostMutation,
   DeletePostMutationVariables
+>;
+export const UpsertFeedbackDocument = gql`
+  mutation UpsertFeedback($input: FeedbackInput!) {
+    mutator {
+      upsertFeedback(input: $input) {
+        id
+        title
+        message
+        author {
+          email
+          avatar
+          name {
+            first
+            last
+          }
+        }
+        resolved
+        createdAt
+        updatedAt
+      }
+    }
+  }
+`;
+export type UpsertFeedbackMutationFn = Apollo.MutationFunction<
+  UpsertFeedbackMutation,
+  UpsertFeedbackMutationVariables
+>;
+
+/**
+ * __useUpsertFeedbackMutation__
+ *
+ * To run a mutation, you first call `useUpsertFeedbackMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpsertFeedbackMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [upsertFeedbackMutation, { data, loading, error }] = useUpsertFeedbackMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useUpsertFeedbackMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    UpsertFeedbackMutation,
+    UpsertFeedbackMutationVariables
+  >
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useMutation<
+    UpsertFeedbackMutation,
+    UpsertFeedbackMutationVariables
+  >(UpsertFeedbackDocument, options);
+}
+export type UpsertFeedbackMutationHookResult = ReturnType<
+  typeof useUpsertFeedbackMutation
+>;
+export type UpsertFeedbackMutationResult =
+  Apollo.MutationResult<UpsertFeedbackMutation>;
+export type UpsertFeedbackMutationOptions = Apollo.BaseMutationOptions<
+  UpsertFeedbackMutation,
+  UpsertFeedbackMutationVariables
 >;
 export const UpdateUserDocument = gql`
   mutation UpdateUser($input: UpdateUserInput!) {
@@ -2458,14 +2795,14 @@ export type UpsertPostMutationOptions = Apollo.BaseMutationOptions<
   UpsertPostMutationVariables
 >;
 export const ListQuerierCoursePostsDocument = gql`
-  query ListQuerierCoursePosts($ids: [String!]!, $lang: LanguageEnum) {
+  query ListQuerierCoursePosts($courseId: ID!, $lang: LanguageEnum) {
     querier {
-      listCoursePosts(ids: $ids) {
-        ...postFragment
+      listCoursePosts(courseId: $courseId) {
+        ...querierPostFragment
       }
     }
   }
-  ${PostFragmentFragmentDoc}
+  ${QuerierPostFragmentFragmentDoc}
 `;
 
 /**
@@ -2480,7 +2817,7 @@ export const ListQuerierCoursePostsDocument = gql`
  * @example
  * const { data, loading, error } = useListQuerierCoursePostsQuery({
  *   variables: {
- *      ids: // value for 'ids'
+ *      courseId: // value for 'courseId'
  *      lang: // value for 'lang'
  *   },
  * });

@@ -1,4 +1,5 @@
 import {ApolloQueryResult} from '@apollo/client';
+import {get} from 'lodash';
 import {GetServerSideProps, NextPage} from 'next';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import React from 'react';
@@ -9,20 +10,21 @@ import {
   GetPostQuery,
   GetPostQueryVariables,
   LanguageEnum,
+  Post,
 } from '../../../graphql/generated/graphql';
 import GET_POST_QUERY from '../../../graphql/GET_POST_QUERY.gql';
 import apolloClient from '../../../utils/apolloClient';
 
 // TODO: Make error interface extendable.
 interface PostProps {
-  postQuery: ApolloQueryResult<GetPostQuery>;
+  post: Post;
   error: {
     status: number;
     message: string;
   };
 }
 
-const Post: NextPage<PostProps> = ({postQuery, error}) => {
+const Post: NextPage<PostProps> = ({post, error}) => {
   if (error)
     return (
       <Layout>
@@ -30,7 +32,7 @@ const Post: NextPage<PostProps> = ({postQuery, error}) => {
       </Layout>
     );
 
-  if (!postQuery.data?.getPost)
+  if (!post)
     return (
       <Layout>
         <AlertError
@@ -42,7 +44,7 @@ const Post: NextPage<PostProps> = ({postQuery, error}) => {
 
   return (
     <Layout>
-      <PostContent getPostQuery={postQuery.data} />
+      <PostContent post={post} />
     </Layout>
   );
 };
@@ -57,7 +59,7 @@ export const getServerSideProps: GetServerSideProps = async ({
     'latest',
   ]);
 
-  let postQuery = {};
+  let postQuery: ApolloQueryResult<GetPostQuery>;
   let httpError = null;
 
   try {
@@ -80,7 +82,7 @@ export const getServerSideProps: GetServerSideProps = async ({
 
   return {
     props: {
-      postQuery,
+      post: get(postQuery, 'data.getPost'),
       error: httpError,
       ...translations,
     },

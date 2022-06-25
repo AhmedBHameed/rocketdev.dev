@@ -7,12 +7,13 @@ import PostCard from '../components/Latest/PostCard';
 import {GetServerSideProps, NextPage} from 'next';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import {useTranslation} from 'next-i18next';
-import {ROUTES} from '../config/routes';
+import ROUTES from '../config/routes';
 import apolloClient from '../utils/apolloClient';
 import {
   LanguageEnum,
   ListPostsQuery,
   ListPostsQueryVariables,
+  Post,
   PostTypeEnum,
 } from '../graphql/generated/graphql';
 import slugToTitle from '../utils/slugToTitle';
@@ -22,14 +23,20 @@ import AlertError from '../components/AlertError/AlertError';
 
 interface LatestProps {
   locale: string;
-  listPostsQuery: ApolloQueryResult<ListPostsQuery>;
+  posts: Post[];
+  totalFreeArticles: number;
   error: {
     status: number;
     message: string;
   } | null;
 }
 
-const Latest: NextPage<LatestProps> = ({listPostsQuery, error, locale}) => {
+const Latest: NextPage<LatestProps> = ({
+  posts,
+  totalFreeArticles,
+  error,
+  locale,
+}) => {
   const {t} = useTranslation('latest');
   // const {notify} = useNotifications();
   // const triggerToastMessage = () => {
@@ -62,12 +69,12 @@ const Latest: NextPage<LatestProps> = ({listPostsQuery, error, locale}) => {
         </Col>
 
         <Col className="col-end-6">
-          <BoldLabel>{listPostsQuery.data?.totalFreeArticles} posts</BoldLabel>
+          <BoldLabel>{totalFreeArticles} posts</BoldLabel>
         </Col>
       </Row>
 
       <Row xs={1} md={2} gap={4}>
-        {(listPostsQuery.data?.listPosts || []).map((post) => (
+        {(posts || []).map((post) => (
           <Col key={post.nanoId}>
             <PostCard
               href={`${postPath}/${post.slug}/${post.nanoId}`}
@@ -88,7 +95,7 @@ export const getServerSideProps: GetServerSideProps = async ({locale}) => {
     'navbar',
     'latest',
   ]);
-  let listPostsQuery = {};
+  let listPostsQuery: ApolloQueryResult<ListPostsQuery>;
   let httpError = null;
 
   try {
@@ -122,7 +129,8 @@ export const getServerSideProps: GetServerSideProps = async ({locale}) => {
   return {
     props: {
       locale,
-      listPostsQuery,
+      posts: listPostsQuery.data.listPosts,
+      totalFreeArticles: listPostsQuery.data.totalFreeArticles,
       error: httpError,
       ...translations,
     },

@@ -7,7 +7,7 @@ import {FormControl, InputField} from '../components/Forms';
 import {useTranslation} from 'next-i18next';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import RocketDevsSvg from '../components/SVG/ReactDevsSvg';
-import {ROUTES} from '../config/routes';
+import ROUTES from '../config/routes';
 import clsx from '../utils/clsx';
 import {GetStaticProps} from 'next';
 import Link from 'next/link';
@@ -17,11 +17,12 @@ import forgotPasswordSchema from '../components/ForgotPassword/models/forgotPass
 import LoadingButton from '../components/Buttons/LoadingButton';
 
 const ForgotPasswordPage: React.FC = () => {
-  const forgotPasswordLocale = useTranslation('forgotPassword');
-  const commonLocale = useTranslation('common');
+  const {t} = useTranslation(['common', 'forgotPassword']);
   const router = useRouter();
 
-  const [forgotPassword, {loading}] = useForgotPasswordMutation();
+  const [forgotPassword, {loading}] = useForgotPasswordMutation({
+    fetchPolicy: 'network-only',
+  });
 
   const handleForgotPassword = useCallback(
     async (data: ForgotPasswordInput) => {
@@ -72,7 +73,10 @@ const ForgotPasswordPage: React.FC = () => {
         </div>
 
         <h2 className="mt-2 text-center text-3xl font-extrabold text-gray-900 dark:text-gray-100">
-          {forgotPasswordLocale.t('headTitle')}
+          {t('headTitle', {
+            ns: 'forgotPassword',
+            defaultValue: 'Forgot password?',
+          })}
         </h2>
       </div>
 
@@ -93,8 +97,8 @@ const ForgotPasswordPage: React.FC = () => {
             className="space-y-2"
           >
             <FormControl
-              label={commonLocale.t('emailLabel')}
-              error={emailError && commonLocale.t(emailError)}
+              label={t('emailLabel')}
+              error={emailError && t(emailError)}
               // hideErrorPlaceholder?: boolean;
               htmlFor="email"
               helperTextId="email"
@@ -109,7 +113,7 @@ const ForgotPasswordPage: React.FC = () => {
                     error={!!emailError}
                     name="email"
                     onChange={onChange}
-                    placeholder={commonLocale.t('emailPlaceholder')}
+                    placeholder={t('emailPlaceholder')}
                     testId="email-input"
                     value={value}
                   />
@@ -122,11 +126,13 @@ const ForgotPasswordPage: React.FC = () => {
                 className={clsx('mt-7', 'flex', 'items-center', 'justify-end')}
               >
                 <div className="text-sm mb-3">
-                  <Link
-                    href={ROUTES.login.path}
-                    className="font-medium text-red-500 hover:text-red-400"
-                  >
-                    {forgotPasswordLocale.t('returnToLogin')}
+                  <Link href={ROUTES.login.path}>
+                    <a className="font-medium text-red-500 hover:text-red-400">
+                      {t('returnToLogin', {
+                        ns: 'forgotPassword',
+                        defaultValue: 'Return to login',
+                      })}
+                    </a>
                   </Link>
                 </div>
               </div>
@@ -158,7 +164,10 @@ const ForgotPasswordPage: React.FC = () => {
                     'focus:ring-red-500'
                   )}
                 >
-                  {forgotPasswordLocale.t('actionButton')}
+                  {t('actionButton', {
+                    ns: 'forgotPassword',
+                    defaultValue: 'Send',
+                  })}
                 </LoadingButton>
               </div>
             </div>

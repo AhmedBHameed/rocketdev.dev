@@ -1,6 +1,6 @@
 import {useRouter} from 'next/router';
 import {useCallback} from 'react';
-import {ROUTES} from '../../../config/routes';
+import ROUTES from '../../../config/routes';
 
 const useNavigateToDashboard = () => {
   const router = useRouter();

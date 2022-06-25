@@ -1,9 +1,12 @@
 import {gql} from '@apollo/client';
+import TAG_FRAGMENT from './TAG_FRAGMENT.gql';
 
 const COURSE_FRAGMENT = gql`
+  ${TAG_FRAGMENT}
   fragment courseFragment on Course {
     id
     slug
+    nanoId
     author {
       email
       avatar
@@ -12,7 +15,9 @@ const COURSE_FRAGMENT = gql`
         last
       }
     }
-    tagIds
+    tags {
+      ...tagFragment
+    }
     visibility
     image
     isPremium

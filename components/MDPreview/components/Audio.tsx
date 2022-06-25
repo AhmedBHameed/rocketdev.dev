@@ -4,9 +4,9 @@ interface AudioProps {
   src: string;
 }
 
-const Audio: React.FC<AudioProps> = ({src}) => {
+const Audio = ({src, ...reset}: AudioProps) => {
   return (
-    <audio controls className="audioplayer">
+    <audio controls className="audioplayer" {...reset}>
       <source type="audio/mp3" src={src}></source>
     </audio>
   );

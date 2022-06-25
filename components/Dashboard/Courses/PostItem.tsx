@@ -103,8 +103,6 @@ const PostItem = ({
   drag(drop(ref));
 
   return (
-    // <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-
     <div
       ref={ref}
       key={'person.email'}
@@ -123,8 +121,6 @@ const PostItem = ({
         <p className="text-sm truncate">{description}</p>
       </div>
     </div>
-
-    // </div>
   );
 };
 

@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Navbar from './Navbar/Navbar';
 import {includes} from 'lodash';
 import {useRouter} from 'next/router';
-import {ROUTES} from '../config/routes';
+import ROUTES from '../config/routes';
 
 type Props = {
   children?: ReactNode;

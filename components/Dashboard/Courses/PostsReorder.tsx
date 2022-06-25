@@ -15,16 +15,16 @@ export interface Item {
 }
 
 interface PostsReorderProps {
-  ids: string[];
+  courseId: string;
   onItemOrderChange: (ids: Post[]) => void;
 }
 
-const PostsReorder = ({ids, onItemOrderChange}: PostsReorderProps) => {
+const PostsReorder = ({courseId, onItemOrderChange}: PostsReorderProps) => {
   const [coursePosts, setCoursePosts] = useState<Post[]>([]);
 
   const {data, error} = useListQuerierCoursePostsQuery({
     variables: {
-      ids,
+      courseId,
     },
   });
 

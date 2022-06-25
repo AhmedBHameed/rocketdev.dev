@@ -1,6 +1,8 @@
 import {gql} from '@apollo/client';
+import TAG_FRAGMENT from './TAG_FRAGMENT.gql';
 
 const POST_FRAGMENT = gql`
+  ${TAG_FRAGMENT}
   fragment postFragment on Post {
     id
     slug
@@ -27,10 +29,7 @@ const POST_FRAGMENT = gql`
       updatedAt
     }
     tags {
-      id
-      imgSrc
-      name
-      description
+      ...tagFragment
     }
     author {
       email

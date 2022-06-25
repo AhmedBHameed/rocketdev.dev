@@ -1,11 +1,12 @@
 import Markdown from 'markdown-to-jsx';
 import React from 'react';
 
-import {components} from './components';
+import Audio from './components/Audio';
 import Code from './components/Code';
 import Head1 from './components/Head1';
 import Head2 from './components/Head2';
 import Head3 from './components/Head3';
+import Link from './components/Link';
 import ListItem from './components/ListItem';
 import OrderList from './components/OrderList';
 import Paragraph from './components/Paragraph';
@@ -17,8 +18,6 @@ import TableHead from './components/TableHead';
 import TableHeaderCell from './components/TableHeaderCell';
 import TableRow from './components/TableRow';
 
-const {Audio, p} = components;
-
 interface MDPreviewClientProps {
   markdown: string;
 }
@@ -29,6 +28,9 @@ const MDPreviewClient: React.FC<MDPreviewClientProps> = ({markdown}) => {
       children={markdown}
       options={{
         overrides: {
+          a: {
+            component: Link,
+          },
           Audio: {
             component: Audio,
           },

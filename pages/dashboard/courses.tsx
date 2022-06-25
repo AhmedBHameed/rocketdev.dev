@@ -47,9 +47,7 @@ const Courses = () => {
         title: 'Posts action',
         dataIndex: 'postAction',
         key: 'postAction',
-        render: (_, row) => (
-          <ReorderPostsButton courseId={row.id} postIds={row.postIds} />
-        ),
+        render: (_, row) => <ReorderPostsButton courseId={row.id} />,
       },
     ] as Column<Course>[];
   }, []);

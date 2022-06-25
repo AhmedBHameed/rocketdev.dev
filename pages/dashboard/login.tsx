@@ -17,7 +17,7 @@ import {useTranslation} from 'next-i18next';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 
 import {GITHUB_CLIENT_ID} from '../../config/environments';
-import {ROUTES} from '../../config/routes';
+import ROUTES from '../../config/routes';
 import clsx from '../../utils/clsx';
 import {GetStaticProps, NextPage} from 'next';
 import useGithubLoginHook from '../../components/hooks/githubLoginHook';

@@ -5,6 +5,9 @@ const ROUTES = {
   latest: {
     path: '/latest',
   },
+  courses: {
+    path: '/courses',
+  },
   post: {
     path: '/post',
     params: '/:slug/:nanoId',
@@ -20,6 +23,9 @@ const ROUTES = {
   },
   resetPassword: {
     path: '/reset-password',
+  },
+  feedback: {
+    path: '/feedback',
   },
   // Dashboard section
   dashboard: {
@@ -42,4 +48,4 @@ const ROUTES = {
   },
 };
 
-export {ROUTES};
+export default ROUTES;

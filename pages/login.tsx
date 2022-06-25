@@ -16,7 +16,7 @@ import {useTranslation} from 'next-i18next';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import RocketDevsSvg from '../components/SVG/ReactDevsSvg';
 import {GITHUB_CLIENT_ID} from '../config/environments';
-import {ROUTES} from '../config/routes';
+import ROUTES from '../config/routes';
 import clsx from '../utils/clsx';
 import {
   GetStaticProps,
@@ -31,8 +31,7 @@ import LoadingButton from '../components/Buttons/LoadingButton';
 
 const Login: NextPage = () => {
   const router = useRouter();
-  const loginTrans = useTranslation('login');
-  const commonTrans = useTranslation('common');
+  const {t, i18n} = useTranslation(['common', 'login']);
 
   const createTokensQuery = useCreateTokens();
 
@@ -46,7 +45,7 @@ const Login: NextPage = () => {
         rememberMe: loginData.rememberMe,
       });
       router.push(ROUTES.latest.path, undefined, {
-        locale: loginTrans.i18n.language,
+        locale: i18n.language,
       });
     } catch (e) {
       console.log(e);
@@ -93,7 +92,7 @@ const Login: NextPage = () => {
     }
   }, []);
 
-  const currentLocale = loginTrans.i18n.language;
+  const currentLocale = i18n.language;
 
   const emailError = errors.email?.message;
   const passwordError = errors.password?.message;
@@ -119,7 +118,7 @@ const Login: NextPage = () => {
         </div>
 
         <h2 className="mt-2 text-center text-3xl font-extrabold text-gray-900 dark:text-gray-100">
-          {loginTrans.t<string>('headTitle')}
+          {t('headTitle', {ns: 'login', defaultValue: 'Login'})}
         </h2>
       </div>
 
@@ -164,13 +163,16 @@ const Login: NextPage = () => {
                 'focus:ring-gray-500'
               )}
             >
-              {loginTrans.t<string>('githubLogin')}
+              {t('githubLogin', {
+                ns: 'login',
+                defaultValue: 'Log in with Github',
+              })}
             </LoadingButton>
           </div>
           <form onSubmit={handleSubmit(handleLogin)} className="space-y-2">
             <FormControl
               label="Email"
-              error={commonTrans.t<string>(emailError)}
+              error={t(emailError)}
               // hideErrorPlaceholder?: boolean;
               htmlFor="email"
               helperTextId="email"
@@ -185,7 +187,10 @@ const Login: NextPage = () => {
                     error={!!emailError}
                     name="email"
                     onChange={onChange}
-                    placeholder={loginTrans.t<string>('emailPlaceholder')}
+                    placeholder={t('emailPlaceholder', {
+                      ns: 'common',
+                      defaultValue: 'Email',
+                    })}
                     testId="email-input"
                     value={value}
                   />
@@ -194,8 +199,11 @@ const Login: NextPage = () => {
             </FormControl>
 
             <FormControl
-              label={loginTrans.t<string>('passwordLabel')}
-              error={commonTrans.t<string>(passwordError)}
+              label={t('passwordLabel', {
+                ns: 'common',
+                defaultValue: 'Password',
+              })}
+              error={t(passwordError)}
               // hideErrorPlaceholder?: boolean;
               htmlFor="password"
               helperTextId="password"
@@ -210,7 +218,10 @@ const Login: NextPage = () => {
                     error={!!passwordError}
                     name="password"
                     onChange={onChange}
-                    placeholder={commonTrans.t('passwordPlaceholder')}
+                    placeholder={t('passwordPlaceholder', {
+                      ns: 'common',
+                      defaultValue: 'Password',
+                    })}
                     testId="password-input"
                     value={value}
                   />
@@ -236,7 +247,10 @@ const Login: NextPage = () => {
                         id="remember_me"
                         value={value}
                         labelClassName="text-gray-50 mx-3"
-                        label={loginTrans.t<string>('rememberMeLabel')}
+                        label={t('rememberMeLabel', {
+                          ns: 'login',
+                          defaultValue: 'Remember me',
+                        })}
                         ariaLabel="remember me"
                         testId="remember-me-checkbox"
                         onChange={onChange}
@@ -252,7 +266,10 @@ const Login: NextPage = () => {
                     locale={currentLocale}
                   >
                     <a className="font-medium text-red-500 hover:text-red-400">
-                      {loginTrans.t<string>('forgotPassword')}
+                      {t('forgotPassword', {
+                        ns: 'login',
+                        defaultValue: 'Forgot password?',
+                      })}
                     </a>
                   </Link>
                 </div>
@@ -298,7 +315,10 @@ const Login: NextPage = () => {
                     'mt-2'
                   )}
                 >
-                  {loginTrans.t<string>('youDontHaveAccount')}
+                  {t('youDontHaveAccount', {
+                    ns: 'login',
+                    defaultValue: "You don't have account?",
+                  })}
                 </a>
               </Link>
             </div>

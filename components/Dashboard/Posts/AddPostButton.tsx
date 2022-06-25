@@ -6,8 +6,7 @@ import {
 } from '../../../graphql/generated/graphql';
 import LoadingButton from '../../Buttons/LoadingButton';
 import {ulid} from 'ulid';
-import {nanoid} from 'nanoid';
-
+import {randomUUID} from 'crypto';
 import titleToSlug from '../../../utils/titleToSlug';
 import useVerifyMe from '../../hooks/verifyMeHook';
 import LIST_QUERIER_POSTS_QUERY from '../../../graphql/querier/LIST_POSTS.gql';
@@ -68,7 +67,7 @@ const AddPostButton = ({page, perPage}: AddPostButtonProps) => {
       variables: {
         input: {
           id: ulid(),
-          nanoId: nanoid(10),
+          nanoId: randomUUID().slice(-10),
           isPremium: false,
           slug: titleToSlug('New Post'),
           authorId: userProfile.verifyMe.id,
