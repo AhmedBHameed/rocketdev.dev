@@ -6,7 +6,7 @@ import {
   InMemoryCache,
 } from '@apollo/client';
 import {onError} from '@apollo/client/link/error';
-import {DOMAIN, IS_PROD} from '../config/environments';
+import {DOMAIN} from '../config/environments';
 import {httpClient} from './httpClient';
 
 const uri = `${DOMAIN}/graphql`;
