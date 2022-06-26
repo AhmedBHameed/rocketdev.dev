@@ -4,13 +4,11 @@ FROM node:14-alpine as builder
 USER node
 
 # Workdir
-RUN mkdir -p /home/node/rocketdev.dev && chown -R node:node /home/node/rocketdev.dev
-RUN mkdir -p /home/node/rocketdev.dev/build && chown -R node:node /home/node/rocketdev.dev/build
-WORKDIR /home/node/rocketdev.dev
+WORKDIR /home/node
 
-COPY ./rocketdev.dev/package*.json ./
+COPY ./package*.json ./
 
-RUN yarn install
-COPY --chown=node:node ./rocketdev.dev ./
+RUN npm install
+COPY --chown=node:node ./ ./
 
-COPY ./rocketdev.dev .
+COPY ./ .

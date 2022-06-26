@@ -12,14 +12,14 @@ services:
   rocketdev.dev:
     hostname: rocketdev.dev
     container_name: rocketdev.dev
-    command: ['yarn', 'start']
+    command: ['npm', 'run', 'start']
     build:
       context: .
       dockerfile: Dockerfile
     restart: always
     volumes:
-      - ./rocketdev.dev/node_modules:/home/node/rocketdev.dev/node_modules
-      - ./rocketdev.dev:/home/node/rocketdev.dev
+      - ./rocketdev.dev/node_modules:/home/node/node_modules
+      - ./rocketdev.dev:/home/node
     ports:
       - '5000:5000'
     networks:
