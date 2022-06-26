@@ -9,7 +9,7 @@ import {onError} from '@apollo/client/link/error';
 import {DOMAIN, IS_PROD} from '../config/environments';
 import {httpClient} from './httpClient';
 
-const uri = IS_PROD ? `${DOMAIN}/graphql` : 'http://localhost:5000/graphql';
+const uri = `${DOMAIN}/graphql`;
 
 const httpLink = new HttpLink({uri, credentials: 'include'});
 

@@ -1,14 +1,9 @@
 FROM node:14-alpine as builder
 
-# Switch to rootless user node (included in the node image)
-USER node
+COPY ./package.json ./
+RUN npm i -s
+COPY . .
 
-# Workdir
-WORKDIR /home/node
+EXPOSE 5000
 
-COPY ./package*.json ./
-
-RUN npm install
-COPY --chown=node:node ./ ./
-
-COPY ./ .
+CMD npm start

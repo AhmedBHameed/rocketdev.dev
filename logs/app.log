@@ -891,3 +891,51 @@
   level: 'error',
   timestamp: '2022-06-25 15:37:06'
 }
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 39 } ],
+      path: [ 'querier' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-26 12:08:03'
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-26 12:08:04'
+}
+{
+  message: 'Permission denied! It is sad that you are not among premium members',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'FORBIDDEN',
+    serviceName: 'coding_school',
+    exception: {
+      message: 'Permission denied! It is sad that you are not among premium members',
+      locations: [ { line: 1, column: 164 } ],
+      path: [ '_entities', 0, 'listCoursePosts' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-26 12:08:19'
+}

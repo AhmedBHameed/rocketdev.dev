@@ -19,8 +19,10 @@ const SERVER_ALLOWED_ORIGIN =
 /**
  * Database configuration
  * */
-const AUTH_SERVICE_BASE_URL = 'localhost';
-const CODING_SCHOOL_SERVICE_BASE_URL = 'localhost';
+const AUTH_SERVICE_BASE_URL = IS_PRODUCTION ? '49.12.244.50' : 'localhost';
+const CODING_SCHOOL_SERVICE_BASE_URL = IS_PRODUCTION
+  ? '49.12.244.50'
+  : 'localhost';
 
 /**
  * * Winston configuration.

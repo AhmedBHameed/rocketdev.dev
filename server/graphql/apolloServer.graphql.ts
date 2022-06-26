@@ -3,6 +3,7 @@ import {ApolloServerPluginLandingPageGraphQLPlayground} from 'apollo-server-core
 import environment from '../config/environment';
 import executeSchema from './schema.graphql';
 import {logger} from '../services';
+import {InMemoryLRUCache} from '@apollo/utils.keyvaluecache';
 
 const {IS_PRODUCTION} = environment;
 
@@ -10,6 +11,7 @@ const initApolloServer = async () =>
   new ApolloServer({
     debug: !IS_PRODUCTION,
     introspection: true,
+    cache: new InMemoryLRUCache(),
     formatError: (graphqlError) => {
       logger.error(graphqlError);
       return graphqlError;
