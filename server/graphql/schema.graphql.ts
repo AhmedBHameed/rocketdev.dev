@@ -9,10 +9,10 @@ const executeSchema = async () => {
   const gateway = new ApolloGateway({
     supergraphSdl: new IntrospectAndCompose({
       subgraphs: [
-        {name: 'auth', url: `${AUTH_SERVICE_BASE_URL}:5001/graphql`},
+        {name: 'auth', url: `${AUTH_SERVICE_BASE_URL}/graphql`},
         {
           name: 'coding_school',
-          url: `${CODING_SCHOOL_SERVICE_BASE_URL}:5002/graphql`,
+          url: `${CODING_SCHOOL_SERVICE_BASE_URL}/graphql`,
         },
       ],
     }),
