@@ -31,9 +31,6 @@ const ROUTES = {
   dashboard: {
     path: '/dashboard',
   },
-  dashboardLogin: {
-    path: '/dashboard/login',
-  },
   dashboardAuthorization: {
     path: '/dashboard/authorizations',
   },

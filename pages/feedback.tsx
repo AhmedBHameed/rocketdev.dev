@@ -21,9 +21,16 @@ import {useNotifications} from '../components/ToastMessage/Hooks/NotificationsHo
 import MDPreviewClient from '../components/MDPreview/MDPreviewClient';
 import {Tab} from '@headlessui/react';
 import theme from '../styles/theme';
-import {AtSymbolIcon, CodeIcon, LinkIcon} from '@heroicons/react/solid';
+import useVerifyMe from '../components/hooks/verifyMeHook';
+import Loader from '../components/Loader/Loader';
+import AlertError from '../components/AlertError/AlertError';
 
 const Feedback: NextPage = () => {
+  const {loading: verifyMeLoading, error: verifyMeError} = useVerifyMe();
+  console.log(
+    '🚀 ~ file: feedback.tsx ~ line 30 ~ verifyMeError',
+    verifyMeError
+  );
   const {t, i18n} = useTranslation(['validation', 'feedback']);
   const {notify} = useNotifications();
   const [upsertFeedback, {loading}] = useUpsertFeedbackMutation();
@@ -79,6 +86,29 @@ const Feedback: NextPage = () => {
   );
 
   const message = watch('message');
+
+  if (verifyMeLoading)
+    return (
+      <Layout>
+        <div
+          className={clsx(
+            'flex',
+            'justify-center',
+            'items-center',
+            'h-[calc(100vh-64px)]'
+          )}
+        >
+          <Loader />
+        </div>
+      </Layout>
+    );
+
+  if (verifyMeError)
+    return (
+      <Layout>
+        <AlertError message={verifyMeError.message} httpStatusCode={401} />
+      </Layout>
+    );
 
   const titleError = errors.title?.message;
   const messageError = errors.message?.message;

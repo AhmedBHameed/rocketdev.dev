@@ -11,6 +11,10 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+#__next {
+  @apply h-full;
+}
+
 @layer base {
   body {
     @apply transition-colors bg-slate-200 text-gray-900 dark:bg-neutral-900 dark:text-neutral-100;

@@ -11,6 +11,7 @@ import {BellIcon, MenuAlt2Icon, XIcon} from '@heroicons/react/outline';
 import {SearchIcon} from '@heroicons/react/solid';
 import clsx from '../../utils/clsx';
 import Asidebar from './Asidebar/Asidebar';
+import ROUTES from '../../config/routes';
 
 interface DashboardLayoutProps {
   title?: string;

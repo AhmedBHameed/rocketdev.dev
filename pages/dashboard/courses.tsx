@@ -1,17 +1,19 @@
-import React, {useCallback, useEffect, useMemo, useState} from 'react';
+import React, {useCallback, useEffect, useMemo} from 'react';
 import AlertError from '../../components/AlertError/AlertError';
-import Link from '../../components/Buttons/Link';
+
+import AddCourseButton from '../../components/Dashboard/Courses/AddCourseButton';
 import EditCourseButton from '../../components/Dashboard/Courses/EditCourseButton';
-import PostsReorder from '../../components/Dashboard/Courses/PostsReorder';
 import ReorderPostsButton from '../../components/Dashboard/Courses/ReorderPostsButton';
 
 import DashboardLayout from '../../components/Dashboard/DashboardLayout';
+import usePagination from '../../components/Table/hooks/paginationHook';
 import Table, {Column} from '../../components/Table/Table';
 import {Course, useListCoursesLazyQuery} from '../../graphql/generated/graphql';
 import slugToTitle from '../../utils/slugToTitle';
 
 const Courses = () => {
   const [listCoursesQuery, {data, error}] = useListCoursesLazyQuery();
+  const {page, perPage} = usePagination();
 
   const paginateCourseList = useCallback(
     async (pageNumber = 1, pageSize = 10) => {
@@ -53,8 +55,8 @@ const Courses = () => {
   }, []);
 
   useEffect(() => {
-    paginateCourseList(1, 10);
-  }, []);
+    paginateCourseList(page, perPage);
+  }, [page, perPage]);
 
   if (error)
     return (
@@ -65,6 +67,9 @@ const Courses = () => {
 
   return (
     <DashboardLayout>
+      <div className="flex justify-end px-4">
+        <AddCourseButton page={page} perPage={perPage} />
+      </div>
       <Table
         rowKey="id"
         dataSource={(data?.listCourses || []) as Course[]}

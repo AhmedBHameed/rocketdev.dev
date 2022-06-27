@@ -5,6 +5,7 @@ const VERIFY_ME_QUERY = gql`
     verifyMe {
       id
       avatar
+      isSuper
       name {
         first
         last

@@ -10,7 +10,12 @@ const Avatar = ({src, firstName, lastName}: AvatarProps) => {
   if (src)
     return (
       <div className="h-12 w-12 flex-shrink-0">
-        <img className="h-12 w-12 rounded-full" src={src} alt="avatar" />
+        <img
+          crossOrigin="anonymous"
+          className="h-12 w-12 rounded-full"
+          src={src}
+          alt="avatar"
+        />
       </div>
     );
 

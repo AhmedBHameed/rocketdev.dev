@@ -31,26 +31,8 @@ interface LatestProps {
   } | null;
 }
 
-const Latest: NextPage<LatestProps> = ({
-  posts,
-  totalFreeArticles,
-  error,
-  locale,
-}) => {
+const Latest: NextPage<LatestProps> = ({posts, totalFreeArticles, error}) => {
   const {t} = useTranslation('latest');
-  // const {notify} = useNotifications();
-  // const triggerToastMessage = () => {
-  //   notify(
-  //     {
-  //       type: 'success',
-  //       title: 'Hey',
-  //       message: 'Welcome to our hi.health services',
-  //     },
-  //     {
-  //       autoClose: 15000,
-  //     }
-  //   );
-  // };
 
   if (error)
     return (

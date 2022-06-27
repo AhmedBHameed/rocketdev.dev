@@ -939,3 +939,1179 @@
   level: 'error',
   timestamp: '2022-06-26 12:08:19'
 }
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ],
+      stacktrace: [
+        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
+        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
+        '    at Array.map (<anonymous>)',
+        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-27 22:34:46',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ],
+      stacktrace: [
+        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
+        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
+        '    at Array.map (<anonymous>)',
+        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-27 23:00:41',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 2 } ],
+      path: [ 'refreshTokens' ],
+      stacktrace: [
+        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
+        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
+        '    at Array.map (<anonymous>)',
+        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-27 23:00:41',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ],
+      stacktrace: [
+        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
+        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
+        '    at Array.map (<anonymous>)',
+        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-27 23:00:42',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ],
+      stacktrace: [
+        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
+        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
+        '    at Array.map (<anonymous>)',
+        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28',
+        '    at async execute (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/apollo-server-core/src/requestPipeline.ts:498:14)'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-27 23:01:58',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 2 } ],
+      path: [ 'refreshTokens' ],
+      stacktrace: [
+        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
+        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
+        '    at Array.map (<anonymous>)',
+        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28',
+        '    at async execute (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/apollo-server-core/src/requestPipeline.ts:498:14)'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-27 23:01:58',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ],
+      stacktrace: [
+        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
+        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
+        '    at Array.map (<anonymous>)',
+        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28',
+        '    at async execute (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/apollo-server-core/src/requestPipeline.ts:498:14)'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-27 23:01:58',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ],
+      stacktrace: [
+        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
+        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
+        '    at Array.map (<anonymous>)',
+        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-27 23:02:12',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 2 } ],
+      path: [ 'refreshTokens' ],
+      stacktrace: [
+        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
+        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
+        '    at Array.map (<anonymous>)',
+        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-27 23:02:12',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ],
+      stacktrace: [
+        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
+        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
+        '    at Array.map (<anonymous>)',
+        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-27 23:02:12',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ],
+      stacktrace: [
+        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
+        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
+        '    at Array.map (<anonymous>)',
+        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-27 23:02:14',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 2 } ],
+      path: [ 'refreshTokens' ],
+      stacktrace: [
+        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
+        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
+        '    at Array.map (<anonymous>)',
+        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-27 23:02:14',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ],
+      stacktrace: [
+        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
+        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
+        '    at Array.map (<anonymous>)',
+        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-27 23:02:14',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ],
+      stacktrace: [
+        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
+        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
+        '    at Array.map (<anonymous>)',
+        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-27 23:02:15',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 2 } ],
+      path: [ 'refreshTokens' ],
+      stacktrace: [
+        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
+        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
+        '    at Array.map (<anonymous>)',
+        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-27 23:02:15',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ],
+      stacktrace: [
+        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
+        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
+        '    at Array.map (<anonymous>)',
+        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-27 23:02:15',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ],
+      stacktrace: [
+        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
+        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
+        '    at Array.map (<anonymous>)',
+        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-27 23:02:16',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 2 } ],
+      path: [ 'refreshTokens' ],
+      stacktrace: [
+        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
+        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
+        '    at Array.map (<anonymous>)',
+        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-27 23:02:16',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ],
+      stacktrace: [
+        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
+        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
+        '    at Array.map (<anonymous>)',
+        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-27 23:02:16',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ],
+      stacktrace: [
+        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
+        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
+        '    at Array.map (<anonymous>)',
+        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-27 23:02:17',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 2 } ],
+      path: [ 'refreshTokens' ],
+      stacktrace: [
+        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
+        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
+        '    at Array.map (<anonymous>)',
+        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-27 23:02:17',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ],
+      stacktrace: [
+        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
+        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
+        '    at Array.map (<anonymous>)',
+        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-27 23:02:17',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ],
+      stacktrace: [
+        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
+        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
+        '    at Array.map (<anonymous>)',
+        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28',
+        '    at async execute (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/apollo-server-core/src/requestPipeline.ts:498:14)'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-27 23:07:44',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 2 } ],
+      path: [ 'refreshTokens' ],
+      stacktrace: [
+        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
+        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
+        '    at Array.map (<anonymous>)',
+        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28',
+        '    at async execute (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/apollo-server-core/src/requestPipeline.ts:498:14)'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-27 23:07:44',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ],
+      stacktrace: [
+        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
+        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
+        '    at Array.map (<anonymous>)',
+        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28',
+        '    at async execute (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/apollo-server-core/src/requestPipeline.ts:498:14)'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-27 23:07:45',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ],
+      stacktrace: [
+        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
+        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
+        '    at Array.map (<anonymous>)',
+        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-27 23:08:02',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 2 } ],
+      path: [ 'refreshTokens' ],
+      stacktrace: [
+        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
+        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
+        '    at Array.map (<anonymous>)',
+        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-27 23:08:02',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ],
+      stacktrace: [
+        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
+        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
+        '    at Array.map (<anonymous>)',
+        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-27 23:08:02',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ],
+      stacktrace: [
+        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
+        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
+        '    at Array.map (<anonymous>)',
+        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-27 23:09:20',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 2 } ],
+      path: [ 'refreshTokens' ],
+      stacktrace: [
+        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
+        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
+        '    at Array.map (<anonymous>)',
+        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-27 23:09:20',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ],
+      stacktrace: [
+        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
+        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
+        '    at Array.map (<anonymous>)',
+        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-27 23:09:20',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ],
+      stacktrace: [
+        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
+        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
+        '    at Array.map (<anonymous>)',
+        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28',
+        '    at async execute (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/apollo-server-core/src/requestPipeline.ts:498:14)'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-27 23:18:22',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 2 } ],
+      path: [ 'refreshTokens' ],
+      stacktrace: [
+        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
+        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
+        '    at Array.map (<anonymous>)',
+        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28',
+        '    at async execute (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/apollo-server-core/src/requestPipeline.ts:498:14)'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-27 23:18:22',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ],
+      stacktrace: [
+        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
+        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
+        '    at Array.map (<anonymous>)',
+        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28',
+        '    at async execute (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/apollo-server-core/src/requestPipeline.ts:498:14)'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-27 23:18:22',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 32 } ],
+      path: [ 'mutator' ],
+      stacktrace: [
+        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
+        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
+        '    at Array.map (<anonymous>)',
+        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:193:32)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-27 23:47:39',
+  stack: undefined
+}
+{
+  message: 'Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: blogdb.courses index: slug_1 dup key: { slug: "new_course" }',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'INTERNAL_SERVER_ERROR',
+    serviceName: 'coding_school',
+    ok: 0,
+    codeName: 'DuplicateKey',
+    keyPattern: { slug: 1 },
+    keyValue: { slug: 'new_course' },
+    exception: {
+      message: 'Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: blogdb.courses index: slug_1 dup key: { slug: "new_course" }',
+      locations: [ { line: 1, column: 148 } ],
+      path: [ '_entities', 0, 'upsertCourse' ],
+      stacktrace: [
+        'GraphQLError: Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: blogdb.courses index: slug_1 dup key: { slug: "new_course" }',
+        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
+        '    at Array.map (<anonymous>)',
+        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:333:41',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:225:17)',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:193:32)'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-27 23:48:45',
+  stack: undefined
+}
+{
+  message: 'Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: blogdb.courses index: nanoId_1 dup key: { nanoId: null }',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'INTERNAL_SERVER_ERROR',
+    serviceName: 'coding_school',
+    ok: 0,
+    codeName: 'DuplicateKey',
+    keyPattern: { nanoId: 1 },
+    keyValue: { nanoId: null },
+    exception: {
+      message: 'Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: blogdb.courses index: nanoId_1 dup key: { nanoId: null }',
+      locations: [ { line: 1, column: 148 } ],
+      path: [ '_entities', 0, 'upsertCourse' ],
+      stacktrace: [
+        'GraphQLError: Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: blogdb.courses index: nanoId_1 dup key: { nanoId: null }',
+        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
+        '    at Array.map (<anonymous>)',
+        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:333:41',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:225:17)',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:193:32)'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-27 23:54:09',
+  stack: undefined
+}
+{
+  message: 'Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: blogdb.courses index: nanoId_1 dup key: { nanoId: null }',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'INTERNAL_SERVER_ERROR',
+    serviceName: 'coding_school',
+    ok: 0,
+    codeName: 'DuplicateKey',
+    keyPattern: { nanoId: 1 },
+    keyValue: { nanoId: null },
+    exception: {
+      message: 'Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: blogdb.courses index: nanoId_1 dup key: { nanoId: null }',
+      locations: [ { line: 1, column: 148 } ],
+      path: [ '_entities', 0, 'upsertCourse' ],
+      stacktrace: [
+        'GraphQLError: Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: blogdb.courses index: nanoId_1 dup key: { nanoId: null }',
+        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
+        '    at Array.map (<anonymous>)',
+        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
+        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:333:41',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:225:17)',
+        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:193:32)'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-27 23:59:05',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-06-28 00:08:02',
+  stack: undefined
+}

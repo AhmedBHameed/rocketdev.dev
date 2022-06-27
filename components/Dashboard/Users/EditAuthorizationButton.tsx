@@ -4,6 +4,7 @@ import {
   Authorization,
   useUpsertAuthorizationMutation,
 } from '../../../graphql/generated/graphql';
+import omitDeepLodash from '../../../utils/omitDeepLodash';
 
 import LoadingButton from '../../Buttons/LoadingButton';
 import JsonViewContainer from '../../JsonView/JsonViewContainer';
@@ -26,11 +27,12 @@ const EditAuthorizationButton = ({
   const [upsertAuthorization, {loading}] = useUpsertAuthorizationMutation();
 
   const handleOnSubmit = useCallback(async (updatedUser: Authorization) => {
+    const userAuth = omitDeepLodash(updatedUser, ['_id', '__typename']);
     await upsertAuthorization({
       variables: {
         input: {
-          userId: updatedUser.userId,
-          actions: (updatedUser.actions || []) as ActionInput[],
+          userId: userAuth.userId,
+          actions: (userAuth.actions || []) as ActionInput[],
         },
       },
     });

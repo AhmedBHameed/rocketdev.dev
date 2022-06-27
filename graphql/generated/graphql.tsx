@@ -17,15 +17,10 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
-  /** `ISO 8601` date format. E.g: 2021-08-09T09:45:16.696Z */
   Date: Date;
-  /** A field whose value conforms to the standard internet email address format as specified in RFC822: https://www.w3.org/Protocols/rfc822/. */
   EmailAddress: any;
-  /** Password scalar custom type */
   Password: any;
-  /** Integers that will have a value greater than 0. */
   PositiveInt: any;
-  /** Required string scalar custom type */
   RequiredString: any;
 };
 
@@ -608,6 +603,7 @@ export type UpsertCourseInput = {
   image?: InputMaybe<Scalars['String']>;
   isPremium?: InputMaybe<Scalars['Boolean']>;
   lang?: InputMaybe<LanguageEnum>;
+  nanoId?: InputMaybe<Scalars['String']>;
   postIds?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
   publishedAt?: InputMaybe<Scalars['Date']>;
   slug?: InputMaybe<Scalars['String']>;
@@ -1013,6 +1009,7 @@ export type VerifyMeQuery = {
     __typename?: 'User';
     id: string;
     avatar?: string | null;
+    isSuper?: boolean | null;
     name?: {
       __typename?: 'Username';
       first?: string | null;
@@ -2306,6 +2303,7 @@ export const VerifyMeDocument = gql`
     verifyMe {
       id
       avatar
+      isSuper
       name {
         first
         last

@@ -1,4 +1,4 @@
-import {useCallback} from 'react';
+import {useMemo} from 'react';
 import Link from 'next/link';
 import {Disclosure} from '@headlessui/react';
 import {MenuIcon, XIcon} from '@heroicons/react/outline';
@@ -7,7 +7,6 @@ import RocketDevsSvg from '../SVG/ReactDevsSvg';
 import ROUTES from '../../config/routes';
 import ThemeButton from './ThemeButton';
 import {useRouter} from 'next/router';
-import {useClearTokensLazyQuery} from '../../graphql/generated/graphql';
 import {useTranslation} from 'next-i18next';
 import useVerifyMe from '../hooks/verifyMeHook';
 import {get} from 'lodash';
@@ -19,6 +18,24 @@ const Navbar = () => {
   const {userProfile} = useVerifyMe();
 
   const avatar = get(userProfile, 'verifyMe.avatar');
+  const isAdmin = get(userProfile, 'verifyMe.isSuper');
+
+  const menu = useMemo(() => {
+    const menuList = [
+      {
+        name: 'Feedback',
+        href: ROUTES.feedback.path,
+      },
+    ];
+
+    if (isAdmin)
+      menuList.unshift({
+        name: 'Dashboard',
+        href: ROUTES.dashboard.path,
+      });
+
+    return menuList;
+  }, [isAdmin]);
 
   return (
     <Disclosure as="nav">
@@ -92,16 +109,7 @@ const Navbar = () => {
                     avatar ||
                     'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
                   }
-                  menu={[
-                    {
-                      name: 'Your Profile',
-                      href: '#',
-                    },
-                    {
-                      name: 'Feedback',
-                      href: ROUTES.feedback.path,
-                    },
-                  ]}
+                  menu={menu}
                 />
               </div>
             </div>
