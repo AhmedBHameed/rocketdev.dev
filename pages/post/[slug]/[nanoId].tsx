@@ -65,6 +65,7 @@ export const getServerSideProps: GetServerSideProps = async ({
   try {
     postQuery = await apolloClient.query<GetPostQuery, GetPostQueryVariables>({
       query: GET_POST_QUERY,
+      fetchPolicy: 'network-only',
       variables: {
         nanoId: params.nanoId as string,
         slug: params.slug as string,

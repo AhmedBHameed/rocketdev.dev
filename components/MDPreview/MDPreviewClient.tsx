@@ -2,6 +2,7 @@ import Markdown from 'markdown-to-jsx';
 import React from 'react';
 
 import Audio from './components/Audio';
+import Blockquote from './components/Blockquote';
 import Code from './components/Code';
 import Head1 from './components/Head1';
 import Head2 from './components/Head2';
@@ -17,6 +18,7 @@ import TableData from './components/TableData';
 import TableHead from './components/TableHead';
 import TableHeaderCell from './components/TableHeaderCell';
 import TableRow from './components/TableRow';
+import parseEmojis from './utils/parseEmojis';
 
 interface MDPreviewClientProps {
   markdown: string;
@@ -25,9 +27,12 @@ interface MDPreviewClientProps {
 const MDPreviewClient: React.FC<MDPreviewClientProps> = ({markdown}) => {
   return (
     <Markdown
-      children={markdown}
+      children={parseEmojis(markdown)}
       options={{
         overrides: {
+          blockquote: {
+            component: Blockquote,
+          },
           a: {
             component: Link,
           },

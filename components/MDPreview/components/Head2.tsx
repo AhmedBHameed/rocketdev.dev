@@ -11,7 +11,7 @@ const Head2: React.FC<Head2Props> = (props) => {
   return (
     <h2 {...props} className={clsx(props.className || '')}>
       <a
-        href={`#/${props.id}`}
+        href={`#${props.id}`}
         className={clsx('text-gray-800', 'dark:text-gray-200', 'no-underline')}
       >
         <span>{props.children}</span>

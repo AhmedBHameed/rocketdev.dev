@@ -1,8 +1,5 @@
-import 'react-toastify/dist/ReactToastify.css';
-
 import React from 'react';
 import {ToastContainer, Slide} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.min.css';
 
 /**
  * How to style with styled-components @see https://fkhadra.github.io/react-toastify/how-to-style/#how-to-style-with-styled-components
@@ -38,7 +35,10 @@ import 'react-toastify/dist/ReactToastify.min.css';
 
 const ToastMessage: React.FC = () => (
   <ToastContainer
+    className="impct-toast"
     position="bottom-left"
+    autoClose={3000}
+    hideProgressBar
     newestOnTop
     closeOnClick
     rtl={false}

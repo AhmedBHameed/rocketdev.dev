@@ -9,6 +9,7 @@
 html,
 body {
   font-family: 'Roboto', sans-serif;
+  scroll-behavior: smooth;
 }
 
 #__next {
@@ -39,6 +40,28 @@ body {
   @apply transition-transform transform translate-x-1;
 }
 
+.prose
+  :where(blockquote p:first-of-type):not(:where([class~='not-prose']
+      *))::before {
+  content: none;
+}
+
+blockquote {
+  @apply text-sm not-italic text-gray-900 dark:text-zinc-300 !important;
+}
+
+blockquote a {
+  @apply text-gray-900 dark:text-zinc-300;
+}
+
+/* blockquote .emoji {
+  @apply text-xl;
+} */
+
+.emoji {
+  @apply text-2xl;
+}
+
 /* Toast message */
 .Toastify__toast {
   @apply bg-zinc-300 dark:bg-neutral-700;
@@ -47,4 +70,21 @@ body {
 /* JSON Viewer */
 .react-json-view {
   @apply p-5;
+}
+
+/* Rocket dev SVG */
+.radial-transparent {
+  background: radial-gradient(
+    transparent 0%,
+    transparent 30%,
+    rgba(23, 23, 23, var(--tw-bg-opacity)) 70%
+  );
+}
+
+.light .radial-transparent {
+  background: radial-gradient(
+    transparent 0%,
+    transparent 30%,
+    rgba(226, 232, 240, var(--tw-bg-opacity)) 70%
+  );
 }

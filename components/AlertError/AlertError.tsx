@@ -1,6 +1,6 @@
 import React, {useCallback} from 'react';
 import {HTTP_CODE_STATUSES} from '../../config/HTTP_CODE_STATUS';
-import RocketDevsSvg from '../SVG/ReactDevsSvg';
+import RocketDevSvg from '../SVG/LogoSvg';
 
 interface AlertErrorProps {
   message?: string;
@@ -20,7 +20,7 @@ const AlertError: React.FC<AlertErrorProps> = ({message, httpStatusCode}) => {
     <div className="min-h-full pt-16 pb-12 flex flex-col">
       <main className="flex-grow flex flex-col justify-center max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex-shrink-0 flex justify-center">
-          <RocketDevsSvg className="w-32 h-w-32" />
+          <RocketDevSvg className="w-32 h-w-32" />
         </div>
         <div className="py-16">
           <div className="text-center">

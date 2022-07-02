@@ -27,10 +27,7 @@ import AlertError from '../components/AlertError/AlertError';
 
 const Feedback: NextPage = () => {
   const {loading: verifyMeLoading, error: verifyMeError} = useVerifyMe();
-  console.log(
-    '🚀 ~ file: feedback.tsx ~ line 30 ~ verifyMeError',
-    verifyMeError
-  );
+
   const {t, i18n} = useTranslation(['validation', 'feedback']);
   const {notify} = useNotifications();
   const [upsertFeedback, {loading}] = useUpsertFeedbackMutation();

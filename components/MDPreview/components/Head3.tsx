@@ -11,7 +11,7 @@ const Head3: React.FC<Head3Props> = (props) => {
   return (
     <h3 {...props} className={clsx(props.className || '')}>
       <a
-        href={`#/${props.id}`}
+        href={`#${props.id}`}
         className={clsx('text-gray-800', 'dark:text-gray-200', 'no-underline')}
       >
         <span>{props.children}</span>

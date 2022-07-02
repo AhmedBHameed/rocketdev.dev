@@ -3,7 +3,7 @@ import Link from 'next/link';
 import {Disclosure} from '@headlessui/react';
 import {MenuIcon, XIcon} from '@heroicons/react/outline';
 import clsx from '../../utils/clsx';
-import RocketDevsSvg from '../SVG/ReactDevsSvg';
+import RocketDevSvg from '../SVG/LogoSvg';
 import ROUTES from '../../config/routes';
 import ThemeButton from './ThemeButton';
 import {useRouter} from 'next/router';
@@ -11,6 +11,7 @@ import {useTranslation} from 'next-i18next';
 import useVerifyMe from '../hooks/verifyMeHook';
 import {get} from 'lodash';
 import ProfileMenu from '../ProfileMenu/ProfileMenu';
+import theme from '../../styles/theme';
 
 const Navbar = () => {
   const router = useRouter();
@@ -57,19 +58,19 @@ const Navbar = () => {
                 <div className="flex-shrink-0 flex items-center">
                   <Link href={ROUTES.home.path}>
                     <a href="#">
-                      <RocketDevsSvg />
+                      <RocketDevSvg />
                     </a>
                   </Link>
                 </div>
                 <div className="hidden sm:flex sm:ml-6 items-center">
-                  <div className="flex space-x-4">
+                  <div className={clsx(theme.text, 'flex space-x-4')}>
                     <Link href={ROUTES.latest.path}>
                       <a
                         href="#"
                         className={clsx(
                           router.asPath.indexOf(ROUTES.latest.path) > -1
-                            ? 'bg-gray-600 dark:bg-gray-700 text-white'
-                            : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                            ? 'bg-gray-100 dark:bg-gray-700'
+                            : 'hover:bg-gray-500',
                           'px-3 py-2 rounded-md text-sm font-medium'
                         )}
                       >
@@ -82,8 +83,8 @@ const Navbar = () => {
                         href="#"
                         className={clsx(
                           router.asPath.indexOf(ROUTES.courses.path) > -1
-                            ? 'bg-gray-600 dark:bg-gray-700 text-white'
-                            : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                            ? 'bg-gray-100 dark:bg-gray-700'
+                            : 'hover:bg-gray-500',
                           'px-3 py-2 rounded-md text-sm font-medium'
                         )}
                       >

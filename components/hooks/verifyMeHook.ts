@@ -1,4 +1,4 @@
-import {useCallback, useLayoutEffect, useState} from 'react';
+import {useCallback, useEffect, useState} from 'react';
 import {VerifyMeQuery} from '../../graphql/generated/graphql';
 import VERIFY_ME_QUERY from '../../graphql/VERIFY_ME.gql';
 import apolloClient from '../../utils/apolloClient';
@@ -26,7 +26,7 @@ const useVerifyMe = () => {
     }
   }, [goToLogin]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     verifyMe();
   }, []);
 

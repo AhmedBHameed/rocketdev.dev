@@ -5,7 +5,7 @@ interface RocketDevsSvgProps {
   className?: string;
 }
 
-const RocketDevsSvg: React.FC<RocketDevsSvgProps> = ({className}) => (
+const RocketDevSvg: React.FC<RocketDevsSvgProps> = ({className}) => (
   <div className={clsx(className ?? 'w-14 h-14')}>
     <svg
       viewBox="0 0 101 97"
@@ -211,4 +211,4 @@ const RocketDevsSvg: React.FC<RocketDevsSvgProps> = ({className}) => (
   </div>
 );
 
-export default RocketDevsSvg;
+export default RocketDevSvg;

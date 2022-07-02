@@ -6,7 +6,7 @@ import {Controller, useForm} from 'react-hook-form';
 import {FormControl, InputField, PasswordField} from '../components/Forms';
 
 import {useTranslation} from 'next-i18next';
-import RocketDevsSvg from '../components/SVG/ReactDevsSvg';
+import RocketDevSvg from '../components/SVG/LogoSvg';
 import clsx from '../utils/clsx';
 import Link from 'next/link';
 import {SignupInput, useSignupMutation} from '../graphql/generated/graphql';
@@ -77,7 +77,7 @@ const Signup = () => {
     >
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className={clsx('flex', 'justify-center')}>
-          <RocketDevsSvg className={clsx('h-20', 'w-20')} />
+          <RocketDevSvg className={clsx('h-20', 'w-20')} />
         </div>
 
         <h2 className="mt-2 text-center text-3xl font-extrabold text-gray-900 dark:text-gray-100">

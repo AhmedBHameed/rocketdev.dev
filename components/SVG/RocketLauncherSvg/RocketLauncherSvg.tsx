@@ -1,10 +1,14 @@
 import React from 'react';
+import theme from '../../../styles/theme';
+import clsx from '../../../utils/clsx';
 
-import './RocketLauncherSvg.css';
+interface RocketLauncherSvgProps {
+  className?: string;
+}
 
-const RocketLauncherSvg: React.FC = () => (
-  <div className="relative">
-    <div className="radial-transparent w-full h-full absolute" />
+const RocketLauncherSvg: React.FC = ({className}: RocketLauncherSvgProps) => (
+  <div className={clsx('relative')}>
+    <div className={clsx('radial-transparent w-full h-full absolute')} />
     <svg viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect width="800" height="763.312" fill="url(#paint0_linear_8_9)" />
       <path

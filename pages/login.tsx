@@ -14,7 +14,7 @@ import loginSchema from '../components/Login/loginSchema';
 import {LoginInput} from '../components/Login/models/LoginInput';
 import {useTranslation} from 'next-i18next';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
-import RocketDevsSvg from '../components/SVG/ReactDevsSvg';
+import RocketDevSvg from '../components/SVG/LogoSvg';
 import {GITHUB_CLIENT_ID} from '../config/environments';
 import ROUTES from '../config/routes';
 import clsx from '../utils/clsx';
@@ -114,7 +114,7 @@ const Login: NextPage = () => {
     >
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className={clsx('flex', 'justify-center')}>
-          <RocketDevsSvg className={clsx('h-20', 'w-20')} />
+          <RocketDevSvg className={clsx('h-20', 'w-20')} />
         </div>
 
         <h2 className="mt-2 text-center text-3xl font-extrabold text-gray-900 dark:text-gray-100">
