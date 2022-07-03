@@ -61,12 +61,12 @@ jobs:
       - name: Display status from deploy
         run: echo "${{ steps.deploy.outputs.status }}"
 
-      - name: Deploy to server
+      - name: Rebuild and run docker container
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
           proxy_username: ${{ secrets.SSH_USER }}
-          proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          password: ${{ secrets.SSH_PASS }}
           script: |
             cd ${{ secrets.PROJECT_PATH }}
             echo "🔄 Shutdown docker container ..."
