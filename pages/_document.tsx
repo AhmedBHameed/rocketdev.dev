@@ -10,7 +10,7 @@ function Document() {
           rel="stylesheet"
         />
         <link rel="shortcut icon" href="/favicon.ico" />
-        <link rel="stylesheet" href="./vendor/ReactToastify.min.css" />
+        <link rel="stylesheet" href="/vendor/ReactToastify.min.css" />
       </Head>
 
       <body>

@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic';
 import React, {useCallback, useState} from 'react';
 import {
   Post,
@@ -6,7 +7,7 @@ import {
 import LoadingButton from '../../Buttons/LoadingButton';
 import Modal from '../../Modal/Modal';
 import {useNotifications} from '../../ToastMessage/Hooks/NotificationsHook';
-import PostsReorder from './PostsReorder';
+const PostsReorder = dynamic(() => import('./PostsReorder'), {ssr: false});
 
 interface ReorderPostsButtonProps {
   courseId: string;

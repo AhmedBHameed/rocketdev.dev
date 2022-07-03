@@ -1,3 +1,5 @@
+import {GetStaticProps} from 'next';
+import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import React, {useCallback, useEffect, useMemo} from 'react';
 import AlertError from '../../components/AlertError/AlertError';
 
@@ -77,6 +79,19 @@ const Courses = () => {
       />
     </DashboardLayout>
   );
+};
+
+export const getStaticProps: GetStaticProps = async ({locale}) => {
+  const translations = await serverSideTranslations(locale, [
+    'common',
+    'courses',
+  ]);
+
+  return {
+    props: {
+      ...translations,
+    },
+  };
 };
 
 export default Courses;

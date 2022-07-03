@@ -6,7 +6,6 @@ import {ApolloQueryResult} from '@apollo/client';
 import {
   ListCoursesQuery,
   ListCoursesQueryVariables,
-  ListPostsQuery,
 } from '../../graphql/generated/graphql';
 import Layout from '../../components/Layout';
 import AlertError from '../../components/AlertError/AlertError';
@@ -18,6 +17,7 @@ import slugToTitle from '../../utils/slugToTitle';
 import CourseCard from '../../components/Courses/CourseCard';
 import LIST_COURSES_QUERY from '../../graphql/LIST_COURSES_QUERY.gql';
 import apolloClient from '../../utils/apolloClient';
+import titleToSlug from '../../utils/titleToSlug';
 
 interface CoursesProps {
   locale: string;
@@ -38,8 +38,7 @@ const Courses: NextPage<CoursesProps> = ({listCoursesQuery, error, locale}) => {
       </Layout>
     );
 
-  const coursesPath = ROUTES.courses.path;
-  const coursesText = t('headTitle', {defaultValue: 'Courses'});
+  const coursesText = t('headTitle', {ns: 'courses', defaultValue: 'Courses'});
 
   return (
     <Layout>
@@ -59,10 +58,11 @@ const Courses: NextPage<CoursesProps> = ({listCoursesQuery, error, locale}) => {
         {(listCoursesQuery.data?.listCourses || []).map((course, index) => (
           <Col key={course.nanoId}>
             <CourseCard
-              href={`${coursesPath}/${course.slug}/${course.id}`}
+              href={`${ROUTES.courses.path}/${titleToSlug(course.slug)}/${
+                course.id
+              }${ROUTES.contents.path}`}
               title={slugToTitle(course.slug)}
-              subTitle={'course.[0].metaTags.description'}
-              contentPreview={'course.postContents?.[0].contentPreview'}
+              contentPreview={course.description}
             />
           </Col>
         ))}

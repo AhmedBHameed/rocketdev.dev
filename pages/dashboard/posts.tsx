@@ -16,6 +16,8 @@ import usePagination from '../../components/Table/hooks/paginationHook';
 import DeletePostButton from '../../components/Dashboard/Posts/DeletePostButton';
 import EditPostContentButton from '../../components/Dashboard/Posts/EditPostContentButton';
 import LIST_QUERIER_POSTS_QUERY from '../../graphql/querier/LIST_POSTS.gql';
+import {GetStaticProps} from 'next';
+import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 
 const DashboardPosts = () => {
   const [openPostModel, setPostModal] = useState(false);
@@ -169,6 +171,19 @@ const DashboardPosts = () => {
       </Modal>
     </DashboardLayout>
   );
+};
+
+export const getStaticProps: GetStaticProps = async ({locale}) => {
+  const translations = await serverSideTranslations(locale, [
+    'common',
+    'posts',
+  ]);
+
+  return {
+    props: {
+      ...translations,
+    },
+  };
 };
 
 export default DashboardPosts;

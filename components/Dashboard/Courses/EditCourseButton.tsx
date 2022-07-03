@@ -23,22 +23,14 @@ const EditCourseButton = ({course}: EditCourseButtonProps) => {
   const [upsertCourse, {loading}] = useUpsertCourseMutation();
 
   const handleOnSubmit = useCallback(async (updatedUserData: Course) => {
-    const updatedCourse = omitDeepLodash(updatedUserData, ['__typename']);
+    const updatedCourse = omitDeepLodash(updatedUserData, [
+      '__typename',
+      'tags',
+      'author',
+    ]);
     await upsertCourse({
       variables: {
-        input: {
-          id: updatedCourse.id,
-          accessedByUserIds: updatedCourse.accessedByUserIds,
-          authorId: updatedCourse.authorId,
-          image: updatedCourse.image,
-          isPremium: updatedCourse.isPremium,
-          lang: updatedCourse.lang,
-          postIds: updatedCourse.postIds,
-          publishedAt: updatedCourse.publishedAt,
-          slug: updatedCourse.slug,
-          tagIds: updatedCourse.tagIds,
-          visibility: updatedCourse.visibility,
-        },
+        input: updatedCourse,
       },
     });
     setUser(updatedUserData);

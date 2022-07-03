@@ -6,6 +6,7 @@ const COURSE_FRAGMENT = gql`
   fragment courseFragment on Course {
     id
     slug
+    description
     nanoId
     author {
       email

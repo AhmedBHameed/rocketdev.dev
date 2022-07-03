@@ -1,594 +1,4 @@
 {
-  error: Error: Could not find a production build in the '/home/ahmed/Desktop/WWW/rocket_devs/.next' directory. Try building your app with 'next build' before starting the production server. https://nextjs.org/docs/messages/production-start-no-build-id
-      at NextNodeServer.getBuildId (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/next/dist/server/next-server.js:137:23)
-      at new Server (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/next/dist/server/base-server.js:93:29)
-      at new NextNodeServer (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/next/dist/server/next-server.js:86:9)
-      at NextServer.createServer (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/next/dist/server/next.js:109:16)
-      at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/next/dist/server/next.js:121:31,
-  level: 'error',
-  message: "uncaughtException: Could not find a production build in the '/home/ahmed/Desktop/WWW/rocket_devs/.next' directory. Try building your app with 'next build' before starting the production server. https://nextjs.org/docs/messages/production-start-no-build-id\n" +
-    "Error: Could not find a production build in the '/home/ahmed/Desktop/WWW/rocket_devs/.next' directory. Try building your app with 'next build' before starting the production server. https://nextjs.org/docs/messages/production-start-no-build-id\n" +
-    '    at NextNodeServer.getBuildId (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/next/dist/server/next-server.js:137:23)\n' +
-    '    at new Server (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/next/dist/server/base-server.js:93:29)\n' +
-    '    at new NextNodeServer (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/next/dist/server/next-server.js:86:9)\n' +
-    '    at NextServer.createServer (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/next/dist/server/next.js:109:16)\n' +
-    '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/next/dist/server/next.js:121:31',
-  stack: "Error: Could not find a production build in the '/home/ahmed/Desktop/WWW/rocket_devs/.next' directory. Try building your app with 'next build' before starting the production server. https://nextjs.org/docs/messages/production-start-no-build-id\n" +
-    '    at NextNodeServer.getBuildId (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/next/dist/server/next-server.js:137:23)\n' +
-    '    at new Server (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/next/dist/server/base-server.js:93:29)\n' +
-    '    at new NextNodeServer (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/next/dist/server/next-server.js:86:9)\n' +
-    '    at NextServer.createServer (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/next/dist/server/next.js:109:16)\n' +
-    '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/next/dist/server/next.js:121:31',
-  exception: true,
-  date: 'Sat Jun 25 2022 14:17:28 GMT+0200 (Central European Summer Time)',
-  process: {
-    pid: 1685629,
-    uid: 1000,
-    gid: 1000,
-    cwd: '/home/ahmed/Desktop/WWW/rocket_devs',
-    execPath: '/home/ahmed/.nvm/versions/node/v16.14.0/bin/node',
-    version: 'v16.14.0',
-    argv: [
-      '/home/ahmed/.nvm/versions/node/v16.14.0/bin/node',
-      '/home/ahmed/Desktop/WWW/rocket_devs/dist/server/index.js'
-    ],
-    memoryUsage: {
-      rss: 127504384,
-      heapTotal: 75624448,
-      heapUsed: 47051552,
-      external: 11394440,
-      arrayBuffers: 237491
-    }
-  },
-  os: { loadavg: [ 1.63, 1.7, 1.87 ], uptime: 1265446.23 },
-  trace: [
-    {
-      column: 23,
-      file: '/home/ahmed/Desktop/WWW/rocket_devs/node_modules/next/dist/server/next-server.js',
-      function: 'NextNodeServer.getBuildId',
-      line: 137,
-      method: 'getBuildId',
-      native: false
-    },
-    {
-      column: 29,
-      file: '/home/ahmed/Desktop/WWW/rocket_devs/node_modules/next/dist/server/base-server.js',
-      function: 'new Server',
-      line: 93,
-      method: null,
-      native: false
-    },
-    {
-      column: 9,
-      file: '/home/ahmed/Desktop/WWW/rocket_devs/node_modules/next/dist/server/next-server.js',
-      function: 'new NextNodeServer',
-      line: 86,
-      method: null,
-      native: false
-    },
-    {
-      column: 16,
-      file: '/home/ahmed/Desktop/WWW/rocket_devs/node_modules/next/dist/server/next.js',
-      function: 'NextServer.createServer',
-      line: 109,
-      method: 'createServer',
-      native: false
-    },
-    {
-      column: 31,
-      file: 'async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/next/dist/server/next.js',
-      function: null,
-      line: 121,
-      method: null,
-      native: false
-    }
-  ],
-  timestamp: '2022-06-25 14:17:28'
-}
-{
-  error: Error: Could not find a production build in the '/home/ahmed/Desktop/WWW/rocket_devs/.next' directory. Try building your app with 'next build' before starting the production server. https://nextjs.org/docs/messages/production-start-no-build-id
-      at NextNodeServer.getBuildId (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/next/dist/server/next-server.js:137:23)
-      at new Server (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/next/dist/server/base-server.js:93:29)
-      at new NextNodeServer (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/next/dist/server/next-server.js:86:9)
-      at NextServer.createServer (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/next/dist/server/next.js:109:16)
-      at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/next/dist/server/next.js:121:31,
-  level: 'error',
-  message: "uncaughtException: Could not find a production build in the '/home/ahmed/Desktop/WWW/rocket_devs/.next' directory. Try building your app with 'next build' before starting the production server. https://nextjs.org/docs/messages/production-start-no-build-id\n" +
-    "Error: Could not find a production build in the '/home/ahmed/Desktop/WWW/rocket_devs/.next' directory. Try building your app with 'next build' before starting the production server. https://nextjs.org/docs/messages/production-start-no-build-id\n" +
-    '    at NextNodeServer.getBuildId (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/next/dist/server/next-server.js:137:23)\n' +
-    '    at new Server (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/next/dist/server/base-server.js:93:29)\n' +
-    '    at new NextNodeServer (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/next/dist/server/next-server.js:86:9)\n' +
-    '    at NextServer.createServer (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/next/dist/server/next.js:109:16)\n' +
-    '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/next/dist/server/next.js:121:31',
-  stack: "Error: Could not find a production build in the '/home/ahmed/Desktop/WWW/rocket_devs/.next' directory. Try building your app with 'next build' before starting the production server. https://nextjs.org/docs/messages/production-start-no-build-id\n" +
-    '    at NextNodeServer.getBuildId (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/next/dist/server/next-server.js:137:23)\n' +
-    '    at new Server (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/next/dist/server/base-server.js:93:29)\n' +
-    '    at new NextNodeServer (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/next/dist/server/next-server.js:86:9)\n' +
-    '    at NextServer.createServer (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/next/dist/server/next.js:109:16)\n' +
-    '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/next/dist/server/next.js:121:31',
-  exception: true,
-  date: 'Sat Jun 25 2022 14:24:52 GMT+0200 (Central European Summer Time)',
-  process: {
-    pid: 1686510,
-    uid: 1000,
-    gid: 1000,
-    cwd: '/home/ahmed/Desktop/WWW/rocket_devs',
-    execPath: '/home/ahmed/.nvm/versions/node/v16.14.0/bin/node',
-    version: 'v16.14.0',
-    argv: [
-      '/home/ahmed/.nvm/versions/node/v16.14.0/bin/node',
-      '/home/ahmed/Desktop/WWW/rocket_devs/dist/server/index.js'
-    ],
-    memoryUsage: {
-      rss: 127721472,
-      heapTotal: 75886592,
-      heapUsed: 47320704,
-      external: 11421364,
-      arrayBuffers: 202369
-    }
-  },
-  os: { loadavg: [ 3.92, 2.16, 1.92 ], uptime: 1265890.62 },
-  trace: [
-    {
-      column: 23,
-      file: '/home/ahmed/Desktop/WWW/rocket_devs/node_modules/next/dist/server/next-server.js',
-      function: 'NextNodeServer.getBuildId',
-      line: 137,
-      method: 'getBuildId',
-      native: false
-    },
-    {
-      column: 29,
-      file: '/home/ahmed/Desktop/WWW/rocket_devs/node_modules/next/dist/server/base-server.js',
-      function: 'new Server',
-      line: 93,
-      method: null,
-      native: false
-    },
-    {
-      column: 9,
-      file: '/home/ahmed/Desktop/WWW/rocket_devs/node_modules/next/dist/server/next-server.js',
-      function: 'new NextNodeServer',
-      line: 86,
-      method: null,
-      native: false
-    },
-    {
-      column: 16,
-      file: '/home/ahmed/Desktop/WWW/rocket_devs/node_modules/next/dist/server/next.js',
-      function: 'NextServer.createServer',
-      line: 109,
-      method: 'createServer',
-      native: false
-    },
-    {
-      column: 31,
-      file: 'async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/next/dist/server/next.js',
-      function: null,
-      line: 121,
-      method: null,
-      native: false
-    }
-  ],
-  timestamp: '2022-06-25 14:24:52'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:43:08'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:44:50'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:44:56'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:45:02'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:45:07'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:47:01'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:47:16'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:47:18'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:47:24'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:47:30'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:47:36'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:47:44'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:47:50'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:47:56'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:48:01'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:48:11'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:48:23'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:48:29'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:48:35'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:48:42'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:48:53'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:48:59'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:49:09'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:49:14'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:49:27'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:49:32'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:49:33'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:49:39'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:49:44'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:49:45'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:49:54'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:50:01'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:50:07'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:50:13'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:50:19'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:50:25'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:50:36'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:50:42'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:51:06'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:51:12'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:51:18'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:51:24'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:51:30'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:51:36'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:51:43'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:51:49'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:51:55'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:52:04'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:52:11'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:52:40'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:52:54'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:53:54'
-}
-{
   message: 'Unauthorized token! Invalid or empty tokens.',
   locations: undefined,
   path: undefined,
@@ -609,319 +19,8 @@
     }
   },
   level: 'error',
-  timestamp: '2022-06-25 14:53:55'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:54:00'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:54:09'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:54:15'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:54:25'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:54:32'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:54:37'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:54:42'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:54:51'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:54:57'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:55:02'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:55:11'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:55:17'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:55:23'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:55:29'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:55:35'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:55:40'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:55:50'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:55:55'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:56:01'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:56:07'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:56:12'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:56:19'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:56:25'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:56:34'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:56:45'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:56:56'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:57:03'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:57:09'
-}
-{
-  message: 'GraphQL introspection is not allowed by Apollo Server, but the query contained __schema or __type. To enable introspection, pass introspection: true to ApolloServer in production',
-  locations: [ { line: 2, column: 3 } ],
-  path: undefined,
-  extensions: { code: 'GRAPHQL_VALIDATION_FAILED' },
-  level: 'error',
-  timestamp: '2022-06-25 14:57:22'
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      stacktrace: [
-        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
-        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-25 15:14:45'
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      stacktrace: [
-        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
-        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-25 15:37:06'
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 39 } ],
-      path: [ 'querier' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-26 12:08:03'
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-26 12:08:04'
+  timestamp: '2022-07-03 15:36:51',
+  stack: undefined
 }
 {
   message: 'Permission denied! It is sad that you are not among premium members',
@@ -931,1212 +30,44 @@
     code: 'FORBIDDEN',
     serviceName: 'coding_school',
     exception: {
+      stacktrace: [
+        'ForbiddenError: Permission denied! It is sad that you are not among premium members',
+        '    at CourseDataSource.eval (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:39:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:5:58)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
       message: 'Permission denied! It is sad that you are not among premium members',
-      locations: [ { line: 1, column: 164 } ],
-      path: [ '_entities', 0, 'listCoursePosts' ]
+      locations: [ { line: 1, column: 90 } ],
+      path: [ 'getCourseContents' ]
     }
   },
   level: 'error',
-  timestamp: '2022-06-26 12:08:19'
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ],
-      stacktrace: [
-        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
-        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
-        '    at Array.map (<anonymous>)',
-        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-27 22:34:46',
+  timestamp: '2022-07-03 15:49:53',
   stack: undefined
 }
 {
-  message: 'Unauthorized token! Invalid or empty tokens.',
+  message: 'Permission denied! It is sad that you are not among premium members',
   locations: undefined,
   path: undefined,
   extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ],
-      stacktrace: [
-        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
-        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
-        '    at Array.map (<anonymous>)',
-        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-27 23:00:41',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 2 } ],
-      path: [ 'refreshTokens' ],
-      stacktrace: [
-        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
-        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
-        '    at Array.map (<anonymous>)',
-        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-27 23:00:41',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ],
-      stacktrace: [
-        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
-        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
-        '    at Array.map (<anonymous>)',
-        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-27 23:00:42',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ],
-      stacktrace: [
-        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
-        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
-        '    at Array.map (<anonymous>)',
-        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28',
-        '    at async execute (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/apollo-server-core/src/requestPipeline.ts:498:14)'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-27 23:01:58',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 2 } ],
-      path: [ 'refreshTokens' ],
-      stacktrace: [
-        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
-        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
-        '    at Array.map (<anonymous>)',
-        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28',
-        '    at async execute (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/apollo-server-core/src/requestPipeline.ts:498:14)'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-27 23:01:58',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ],
-      stacktrace: [
-        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
-        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
-        '    at Array.map (<anonymous>)',
-        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28',
-        '    at async execute (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/apollo-server-core/src/requestPipeline.ts:498:14)'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-27 23:01:58',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ],
-      stacktrace: [
-        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
-        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
-        '    at Array.map (<anonymous>)',
-        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-27 23:02:12',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 2 } ],
-      path: [ 'refreshTokens' ],
-      stacktrace: [
-        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
-        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
-        '    at Array.map (<anonymous>)',
-        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-27 23:02:12',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ],
-      stacktrace: [
-        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
-        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
-        '    at Array.map (<anonymous>)',
-        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-27 23:02:12',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ],
-      stacktrace: [
-        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
-        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
-        '    at Array.map (<anonymous>)',
-        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-27 23:02:14',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 2 } ],
-      path: [ 'refreshTokens' ],
-      stacktrace: [
-        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
-        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
-        '    at Array.map (<anonymous>)',
-        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-27 23:02:14',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ],
-      stacktrace: [
-        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
-        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
-        '    at Array.map (<anonymous>)',
-        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-27 23:02:14',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ],
-      stacktrace: [
-        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
-        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
-        '    at Array.map (<anonymous>)',
-        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-27 23:02:15',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 2 } ],
-      path: [ 'refreshTokens' ],
-      stacktrace: [
-        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
-        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
-        '    at Array.map (<anonymous>)',
-        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-27 23:02:15',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ],
-      stacktrace: [
-        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
-        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
-        '    at Array.map (<anonymous>)',
-        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-27 23:02:15',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ],
-      stacktrace: [
-        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
-        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
-        '    at Array.map (<anonymous>)',
-        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-27 23:02:16',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 2 } ],
-      path: [ 'refreshTokens' ],
-      stacktrace: [
-        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
-        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
-        '    at Array.map (<anonymous>)',
-        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-27 23:02:16',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ],
-      stacktrace: [
-        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
-        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
-        '    at Array.map (<anonymous>)',
-        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-27 23:02:16',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ],
-      stacktrace: [
-        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
-        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
-        '    at Array.map (<anonymous>)',
-        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-27 23:02:17',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 2 } ],
-      path: [ 'refreshTokens' ],
-      stacktrace: [
-        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
-        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
-        '    at Array.map (<anonymous>)',
-        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-27 23:02:17',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ],
-      stacktrace: [
-        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
-        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
-        '    at Array.map (<anonymous>)',
-        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-27 23:02:17',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ],
-      stacktrace: [
-        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
-        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
-        '    at Array.map (<anonymous>)',
-        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28',
-        '    at async execute (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/apollo-server-core/src/requestPipeline.ts:498:14)'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-27 23:07:44',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 2 } ],
-      path: [ 'refreshTokens' ],
-      stacktrace: [
-        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
-        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
-        '    at Array.map (<anonymous>)',
-        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28',
-        '    at async execute (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/apollo-server-core/src/requestPipeline.ts:498:14)'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-27 23:07:44',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ],
-      stacktrace: [
-        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
-        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
-        '    at Array.map (<anonymous>)',
-        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28',
-        '    at async execute (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/apollo-server-core/src/requestPipeline.ts:498:14)'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-27 23:07:45',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ],
-      stacktrace: [
-        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
-        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
-        '    at Array.map (<anonymous>)',
-        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-27 23:08:02',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 2 } ],
-      path: [ 'refreshTokens' ],
-      stacktrace: [
-        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
-        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
-        '    at Array.map (<anonymous>)',
-        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-27 23:08:02',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ],
-      stacktrace: [
-        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
-        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
-        '    at Array.map (<anonymous>)',
-        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-27 23:08:02',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ],
-      stacktrace: [
-        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
-        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
-        '    at Array.map (<anonymous>)',
-        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-27 23:09:20',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 2 } ],
-      path: [ 'refreshTokens' ],
-      stacktrace: [
-        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
-        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
-        '    at Array.map (<anonymous>)',
-        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-27 23:09:20',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ],
-      stacktrace: [
-        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
-        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
-        '    at Array.map (<anonymous>)',
-        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-27 23:09:20',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ],
-      stacktrace: [
-        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
-        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
-        '    at Array.map (<anonymous>)',
-        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28',
-        '    at async execute (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/apollo-server-core/src/requestPipeline.ts:498:14)'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-27 23:18:22',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 2 } ],
-      path: [ 'refreshTokens' ],
-      stacktrace: [
-        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
-        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
-        '    at Array.map (<anonymous>)',
-        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28',
-        '    at async execute (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/apollo-server-core/src/requestPipeline.ts:498:14)'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-27 23:18:22',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ],
-      stacktrace: [
-        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
-        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
-        '    at Array.map (<anonymous>)',
-        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:901:28',
-        '    at async execute (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/apollo-server-core/src/requestPipeline.ts:498:14)'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-27 23:18:22',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 32 } ],
-      path: [ 'mutator' ],
-      stacktrace: [
-        'GraphQLError: Unauthorized token! Invalid or empty tokens.',
-        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
-        '    at Array.map (<anonymous>)',
-        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:297:41',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:193:32)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:78:27'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-27 23:47:39',
-  stack: undefined
-}
-{
-  message: 'Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: blogdb.courses index: slug_1 dup key: { slug: "new_course" }',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'INTERNAL_SERVER_ERROR',
+    code: 'FORBIDDEN',
     serviceName: 'coding_school',
-    ok: 0,
-    codeName: 'DuplicateKey',
-    keyPattern: { slug: 1 },
-    keyValue: { slug: 'new_course' },
-    exception: {
-      message: 'Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: blogdb.courses index: slug_1 dup key: { slug: "new_course" }',
-      locations: [ { line: 1, column: 148 } ],
-      path: [ '_entities', 0, 'upsertCourse' ],
-      stacktrace: [
-        'GraphQLError: Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: blogdb.courses index: slug_1 dup key: { slug: "new_course" }',
-        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
-        '    at Array.map (<anonymous>)',
-        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:333:41',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:225:17)',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:193:32)'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-27 23:48:45',
-  stack: undefined
-}
-{
-  message: 'Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: blogdb.courses index: nanoId_1 dup key: { nanoId: null }',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'INTERNAL_SERVER_ERROR',
-    serviceName: 'coding_school',
-    ok: 0,
-    codeName: 'DuplicateKey',
-    keyPattern: { nanoId: 1 },
-    keyValue: { nanoId: null },
-    exception: {
-      message: 'Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: blogdb.courses index: nanoId_1 dup key: { nanoId: null }',
-      locations: [ { line: 1, column: 148 } ],
-      path: [ '_entities', 0, 'upsertCourse' ],
-      stacktrace: [
-        'GraphQLError: Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: blogdb.courses index: nanoId_1 dup key: { nanoId: null }',
-        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
-        '    at Array.map (<anonymous>)',
-        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:333:41',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:225:17)',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:193:32)'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-27 23:54:09',
-  stack: undefined
-}
-{
-  message: 'Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: blogdb.courses index: nanoId_1 dup key: { nanoId: null }',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'INTERNAL_SERVER_ERROR',
-    serviceName: 'coding_school',
-    ok: 0,
-    codeName: 'DuplicateKey',
-    keyPattern: { nanoId: 1 },
-    keyValue: { nanoId: null },
-    exception: {
-      message: 'Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: blogdb.courses index: nanoId_1 dup key: { nanoId: null }',
-      locations: [ { line: 1, column: 148 } ],
-      path: [ '_entities', 0, 'upsertCourse' ],
-      stacktrace: [
-        'GraphQLError: Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: blogdb.courses index: nanoId_1 dup key: { nanoId: null }',
-        '    at downstreamServiceError (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:603:10)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:421:9',
-        '    at Array.map (<anonymous>)',
-        '    at sendOperation (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:420:38)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
-        '    at async /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:333:41',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:241:9)',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:225:17)',
-        '    at async executeNode (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/executeQueryPlan.ts:193:32)'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-27 23:59:05',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
     exception: {
       stacktrace: [
-        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
-        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        'ForbiddenError: Permission denied! It is sad that you are not among premium members',
+        '    at CourseDataSource.eval (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:39:23)',
         '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:5:58)',
         '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
       ],
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ]
+      message: 'Permission denied! It is sad that you are not among premium members',
+      locations: [ { line: 1, column: 90 } ],
+      path: [ 'getCourseContents' ]
     }
   },
   level: 'error',
-  timestamp: '2022-06-28 00:08:02',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      stacktrace: [
-        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
-        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-29 21:20:52',
+  timestamp: '2022-07-03 15:49:53',
   stack: undefined
 }
 {
@@ -2161,340 +92,43 @@
     }
   },
   level: 'error',
-  timestamp: '2022-06-29 22:10:50',
+  timestamp: '2022-07-03 15:52:54',
   stack: undefined
 }
 {
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      stacktrace: [
-        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
-        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-29 22:25:54',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      stacktrace: [
-        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
-        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 37 } ],
-      path: [ 'mutator' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-29 22:41:45',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      stacktrace: [
-        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
-        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-29 22:58:59',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      stacktrace: [
-        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
-        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-29 23:19:11',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      stacktrace: [
-        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
-        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-29 23:40:34',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      stacktrace: [
-        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
-        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 37 } ],
-      path: [ 'mutator' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-30 00:03:03',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      stacktrace: [
-        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
-        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-30 00:18:28',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      stacktrace: [
-        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
-        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 37 } ],
-      path: [ 'mutator' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-06-30 00:34:10',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      stacktrace: [
-        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
-        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-02 20:49:53',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      stacktrace: [
-        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
-        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 2 } ],
-      path: [ 'refreshTokens' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-02 20:49:53',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      stacktrace: [
-        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
-        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-02 20:49:53',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      stacktrace: [
-        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
-        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-02 22:38:40',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      stacktrace: [
-        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
-        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-02 22:54:05',
-  stack: undefined
-}
-{
-  message: 'request to http://localhost:5001/graphql failed, reason: socket hang up',
+  message: 'request to http://localhost:5002/graphql failed, reason: read ECONNRESET',
   locations: undefined,
   path: undefined,
   extensions: {
     code: 'INTERNAL_SERVER_ERROR',
     exception: {
       stacktrace: [
-        'FetchError: request to http://localhost:5001/graphql failed, reason: socket hang up',
+        'FetchError: request to http://localhost:5002/graphql failed, reason: read ECONNRESET',
+        '    at ClientRequest.<anonymous> (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/minipass-fetch/lib/index.js:130:14)',
+        '    at ClientRequest.emit (node:events:520:28)',
+        '    at ClientRequest.emit (node:domain:475:12)',
+        '    at Socket.socketErrorListener (node:_http_client:442:9)',
+        '    at Socket.emit (node:events:532:35)',
+        '    at Socket.emit (node:domain:475:12)',
+        '    at emitErrorNT (node:internal/streams/destroy:157:8)',
+        '    at emitErrorCloseNT (node:internal/streams/destroy:122:3)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:83:21)'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-03 15:52:58',
+  stack: undefined
+}
+{
+  message: 'request to http://localhost:5002/graphql failed, reason: socket hang up',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'INTERNAL_SERVER_ERROR',
+    exception: {
+      stacktrace: [
+        'FetchError: request to http://localhost:5002/graphql failed, reason: socket hang up',
         '    at ClientRequest.<anonymous> (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/minipass-fetch/lib/index.js:130:14)',
         '    at ClientRequest.emit (node:events:520:28)',
         '    at ClientRequest.emit (node:domain:475:12)',
@@ -2507,7 +141,31 @@
     }
   },
   level: 'error',
-  timestamp: '2022-07-02 23:12:10',
+  timestamp: '2022-07-03 15:53:40',
+  stack: undefined
+}
+{
+  message: 'request to http://localhost:5002/graphql failed, reason: socket hang up',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'INTERNAL_SERVER_ERROR',
+    exception: {
+      stacktrace: [
+        'FetchError: request to http://localhost:5002/graphql failed, reason: socket hang up',
+        '    at ClientRequest.<anonymous> (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/minipass-fetch/lib/index.js:130:14)',
+        '    at ClientRequest.emit (node:events:520:28)',
+        '    at ClientRequest.emit (node:domain:475:12)',
+        '    at Socket.socketOnEnd (node:_http_client:466:9)',
+        '    at Socket.emit (node:events:532:35)',
+        '    at Socket.emit (node:domain:475:12)',
+        '    at endReadableNT (node:internal/streams/readable:1346:12)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:83:21)'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-03 16:18:16',
   stack: undefined
 }
 {
@@ -2532,7 +190,219 @@
     }
   },
   level: 'error',
-  timestamp: '2022-07-02 23:12:13',
+  timestamp: '2022-07-03 16:18:19',
+  stack: undefined
+}
+{
+  message: 'Parameter "filter" to find() must be an object, got [object Object],[object Object]',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'INTERNAL_SERVER_ERROR',
+    serviceName: 'coding_school',
+    exception: {
+      stacktrace: [
+        'Error: Parameter "filter" to find() must be an object, got [object Object],[object Object]',
+        '    at PostContentDataSource.unknownError (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:70:16)',
+        '    at PostContentDataSource.eval (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:48:28)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:5:58)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Parameter "filter" to find() must be an object, got [object Object],[object Object]',
+      locations: [ { line: 1, column: 158 } ],
+      path: [ 'getCourseContents', 0, 'postContents' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-03 16:18:27',
+  stack: undefined
+}
+{
+  message: 'Parameter "filter" to find() must be an object, got [object Object],[object Object]',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'INTERNAL_SERVER_ERROR',
+    serviceName: 'coding_school',
+    exception: {
+      stacktrace: [
+        'Error: Parameter "filter" to find() must be an object, got [object Object],[object Object]',
+        '    at PostContentDataSource.unknownError (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:70:16)',
+        '    at PostContentDataSource.eval (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:48:28)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:5:58)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Parameter "filter" to find() must be an object, got [object Object],[object Object]',
+      locations: [ { line: 1, column: 158 } ],
+      path: [ 'getCourseContents', 1, 'postContents' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-03 16:18:27',
+  stack: undefined
+}
+{
+  message: 'PlanExecutor error during aggregation :: caused by :: $trunc only supports numeric types, not string',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'INTERNAL_SERVER_ERROR',
+    serviceName: 'coding_school',
+    ok: 0,
+    codeName: 'Location51081',
+    exception: {
+      stacktrace: [
+        'Error: PlanExecutor error during aggregation :: caused by :: $trunc only supports numeric types, not string',
+        '    at PostContentDataSource.unknownError (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:70:16)',
+        '    at PostContentDataSource.eval (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:48:28)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:5:58)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'PlanExecutor error during aggregation :: caused by :: $trunc only supports numeric types, not string',
+      locations: [ { line: 1, column: 158 } ],
+      path: [ 'getCourseContents', 0, 'postContents' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-03 16:18:56',
+  stack: undefined
+}
+{
+  message: 'PlanExecutor error during aggregation :: caused by :: $trunc only supports numeric types, not string',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'INTERNAL_SERVER_ERROR',
+    serviceName: 'coding_school',
+    ok: 0,
+    codeName: 'Location51081',
+    exception: {
+      stacktrace: [
+        'Error: PlanExecutor error during aggregation :: caused by :: $trunc only supports numeric types, not string',
+        '    at PostContentDataSource.unknownError (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:70:16)',
+        '    at PostContentDataSource.eval (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:48:28)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:5:58)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'PlanExecutor error during aggregation :: caused by :: $trunc only supports numeric types, not string',
+      locations: [ { line: 1, column: 158 } ],
+      path: [ 'getCourseContents', 1, 'postContents' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-03 16:18:56',
+  stack: undefined
+}
+{
+  message: 'PlanExecutor error during aggregation :: caused by :: $trunc only supports numeric types, not string',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'INTERNAL_SERVER_ERROR',
+    serviceName: 'coding_school',
+    ok: 0,
+    codeName: 'Location51081',
+    exception: {
+      stacktrace: [
+        'Error: PlanExecutor error during aggregation :: caused by :: $trunc only supports numeric types, not string',
+        '    at PostContentDataSource.unknownError (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:70:16)',
+        '    at PostContentDataSource.eval (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:48:28)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:5:58)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'PlanExecutor error during aggregation :: caused by :: $trunc only supports numeric types, not string',
+      locations: [ { line: 1, column: 158 } ],
+      path: [ 'getCourseContents', 1, 'postContents' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-03 16:19:05',
+  stack: undefined
+}
+{
+  message: 'PlanExecutor error during aggregation :: caused by :: $trunc only supports numeric types, not string',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'INTERNAL_SERVER_ERROR',
+    serviceName: 'coding_school',
+    ok: 0,
+    codeName: 'Location51081',
+    exception: {
+      stacktrace: [
+        'Error: PlanExecutor error during aggregation :: caused by :: $trunc only supports numeric types, not string',
+        '    at PostContentDataSource.unknownError (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:70:16)',
+        '    at PostContentDataSource.eval (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:48:28)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:5:58)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'PlanExecutor error during aggregation :: caused by :: $trunc only supports numeric types, not string',
+      locations: [ { line: 1, column: 158 } ],
+      path: [ 'getCourseContents', 0, 'postContents' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-03 16:19:05',
+  stack: undefined
+}
+{
+  message: 'PlanExecutor error during aggregation :: caused by :: $trunc only supports numeric types, not string',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'INTERNAL_SERVER_ERROR',
+    serviceName: 'coding_school',
+    ok: 0,
+    codeName: 'Location51081',
+    exception: {
+      stacktrace: [
+        'Error: PlanExecutor error during aggregation :: caused by :: $trunc only supports numeric types, not string',
+        '    at PostContentDataSource.unknownError (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:70:16)',
+        '    at PostContentDataSource.eval (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:48:28)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:5:58)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'PlanExecutor error during aggregation :: caused by :: $trunc only supports numeric types, not string',
+      locations: [ { line: 1, column: 158 } ],
+      path: [ 'getCourseContents', 0, 'postContents' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-03 16:19:10',
+  stack: undefined
+}
+{
+  message: 'PlanExecutor error during aggregation :: caused by :: $trunc only supports numeric types, not string',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'INTERNAL_SERVER_ERROR',
+    serviceName: 'coding_school',
+    ok: 0,
+    codeName: 'Location51081',
+    exception: {
+      stacktrace: [
+        'Error: PlanExecutor error during aggregation :: caused by :: $trunc only supports numeric types, not string',
+        '    at PostContentDataSource.unknownError (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:70:16)',
+        '    at PostContentDataSource.eval (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:48:28)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:5:58)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'PlanExecutor error during aggregation :: caused by :: $trunc only supports numeric types, not string',
+      locations: [ { line: 1, column: 158 } ],
+      path: [ 'getCourseContents', 1, 'postContents' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-03 16:19:10',
   stack: undefined
 }
 {
@@ -2557,6 +427,1135 @@
     }
   },
   level: 'error',
-  timestamp: '2022-07-02 23:41:57',
+  timestamp: '2022-07-03 20:59:04',
+  stack: undefined
+}
+{
+  message: 'Variable "$courseId" of required type "ID!" was not provided.',
+  locations: [ { line: 53, column: 30 } ],
+  path: undefined,
+  extensions: {
+    code: 'BAD_USER_INPUT',
+    exception: {
+      stacktrace: [
+        'GraphQLError: Variable "$courseId" of required type "ID!" was not provided.',
+        '    at coerceVariableValues (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/graphql/execution/values.js:105:11)',
+        '    at getVariableValues (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/graphql/execution/values.js:45:21)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:970:45',
+        '    at NoopContextManager.with (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@opentelemetry/api/src/context/NoopContextManager.ts:31:19)',
+        '    at ContextAPI.with (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@opentelemetry/api/src/api/context.ts:77:42)',
+        '    at NoopTracer.startActiveSpan (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@opentelemetry/api/src/trace/NoopTracer.ts:94:24)',
+        '    at ProxyTracer.startActiveSpan (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@opentelemetry/api/src/trace/ProxyTracer.ts:51:20)',
+        '    at ApolloGateway.validateIncomingRequest (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:962:19)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:826:41',
+        '    at NoopContextManager.with (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@opentelemetry/api/src/context/NoopContextManager.ts:31:19)'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-03 20:59:43',
+  stack: undefined
+}
+{
+  message: 'Variable "$courseId" of required type "ID!" was not provided.',
+  locations: [ { line: 53, column: 30 } ],
+  path: undefined,
+  extensions: {
+    code: 'BAD_USER_INPUT',
+    exception: {
+      stacktrace: [
+        'GraphQLError: Variable "$courseId" of required type "ID!" was not provided.',
+        '    at coerceVariableValues (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/graphql/execution/values.js:105:11)',
+        '    at getVariableValues (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/graphql/execution/values.js:45:21)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:970:45',
+        '    at NoopContextManager.with (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@opentelemetry/api/src/context/NoopContextManager.ts:31:19)',
+        '    at ContextAPI.with (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@opentelemetry/api/src/api/context.ts:77:42)',
+        '    at NoopTracer.startActiveSpan (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@opentelemetry/api/src/trace/NoopTracer.ts:94:24)',
+        '    at ProxyTracer.startActiveSpan (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@opentelemetry/api/src/trace/ProxyTracer.ts:51:20)',
+        '    at ApolloGateway.validateIncomingRequest (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:962:19)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:826:41',
+        '    at NoopContextManager.with (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@opentelemetry/api/src/context/NoopContextManager.ts:31:19)'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-03 21:00:54',
+  stack: undefined
+}
+{
+  message: 'Variable "$courseId" of required type "ID!" was not provided.',
+  locations: [ { line: 53, column: 30 } ],
+  path: undefined,
+  extensions: {
+    code: 'BAD_USER_INPUT',
+    exception: {
+      stacktrace: [
+        'GraphQLError: Variable "$courseId" of required type "ID!" was not provided.',
+        '    at coerceVariableValues (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/graphql/execution/values.js:105:11)',
+        '    at getVariableValues (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/graphql/execution/values.js:45:21)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:970:45',
+        '    at NoopContextManager.with (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@opentelemetry/api/src/context/NoopContextManager.ts:31:19)',
+        '    at ContextAPI.with (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@opentelemetry/api/src/api/context.ts:77:42)',
+        '    at NoopTracer.startActiveSpan (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@opentelemetry/api/src/trace/NoopTracer.ts:94:24)',
+        '    at ProxyTracer.startActiveSpan (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@opentelemetry/api/src/trace/ProxyTracer.ts:51:20)',
+        '    at ApolloGateway.validateIncomingRequest (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:962:19)',
+        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:826:41',
+        '    at NoopContextManager.with (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@opentelemetry/api/src/context/NoopContextManager.ts:31:19)'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-03 21:00:54',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-03 21:14:29',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-03 21:47:58',
+  stack: undefined
+}
+{
+  level: 'error',
+  message: " A valid schema couldn't be composed. The following composition errors were found:\n" +
+    '\tThe following supergraph API query:\n' +
+    'mutation {\n' +
+    '  mutator {\n' +
+    '    email\n' +
+    '  }\n' +
+    '}\n' +
+    'cannot be satisfied by the subgraphs because:\n' +
+    '- from subgraph "auth":\n' +
+    '  - cannot find field "Mutator.email".\n' +
+    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Mutator", the key field(s) cannot be resolved from subgraph "auth".\n' +
+    '\tThe following supergraph API query:\n' +
+    'mutation {\n' +
+    '  mutator {\n' +
+    '    upsertCourse(input: {id: "<any id>"}) {\n' +
+    '      ...\n' +
+    '    }\n' +
+    '  }\n' +
+    '}\n' +
+    'cannot be satisfied by the subgraphs because:\n' +
+    '- from subgraph "auth":\n' +
+    '  - cannot find field "Mutator.upsertCourse".\n' +
+    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Mutator", the key field(s) cannot be resolved from subgraph "auth".\n' +
+    '\tThe following supergraph API query:\n' +
+    'mutation {\n' +
+    '  mutator {\n' +
+    '    upsertTag(input: {id: "<any id>"}) {\n' +
+    '      ...\n' +
+    '    }\n' +
+    '  }\n' +
+    '}\n' +
+    'cannot be satisfied by the subgraphs because:\n' +
+    '- from subgraph "auth":\n' +
+    '  - cannot find field "Mutator.upsertTag".\n' +
+    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Mutator", the key field(s) cannot be resolved from subgraph "auth".\n' +
+    '\tThe following supergraph API query:\n' +
+    'mutation {\n' +
+    '  mutator {\n' +
+    '    upsertPost(input: {id: "<any id>"}) {\n' +
+    '      ...\n' +
+    '    }\n' +
+    '  }\n' +
+    '}\n' +
+    'cannot be satisfied by the subgraphs because:\n' +
+    '- from subgraph "auth":\n' +
+    '  - cannot find field "Mutator.upsertPost".\n' +
+    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Mutator", the key field(s) cannot be resolved from subgraph "auth".\n' +
+    '\tThe following supergraph API query:\n' +
+    'mutation {\n' +
+    '  mutator {\n' +
+    '    deletePost(id: "<any id>") {\n' +
+    '      ...\n' +
+    '    }\n' +
+    '  }\n' +
+    '}\n' +
+    'cannot be satisfied by the subgraphs because:\n' +
+    '- from subgraph "auth":\n' +
+    '  - cannot find field "Mutator.deletePost".\n' +
+    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Mutator", the key field(s) cannot be resolved from subgraph "auth".\n' +
+    '\tThe following supergraph API query:\n' +
+    'mutation {\n' +
+    '  mutator {\n' +
+    '    upsertPostContent(postId: "<any id>", input: {}) {\n' +
+    '      ...\n' +
+    '    }\n' +
+    '  }\n' +
+    '}\n' +
+    'cannot be satisfied by the subgraphs because:\n' +
+    '- from subgraph "auth":\n' +
+    '  - cannot find field "Mutator.upsertPostContent".\n' +
+    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Mutator", the key field(s) cannot be resolved from subgraph "auth".\n' +
+    '\tThe following supergraph API query:\n' +
+    'mutation {\n' +
+    '  mutator {\n' +
+    '    upsertFeedback(\n' +
+    '      input: {id: "<any id>", title: "A string value", message: "A string value"}\n' +
+    '    ) {\n' +
+    '      ...\n' +
+    '    }\n' +
+    '  }\n' +
+    '}\n' +
+    'cannot be satisfied by the subgraphs because:\n' +
+    '- from subgraph "auth":\n' +
+    '  - cannot find field "Mutator.upsertFeedback".\n' +
+    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Mutator", the key field(s) cannot be resolved from subgraph "auth".\n' +
+    '\tThe following supergraph API query:\n' +
+    '{\n' +
+    '  querier {\n' +
+    '    email\n' +
+    '  }\n' +
+    '}\n' +
+    'cannot be satisfied by the subgraphs because:\n' +
+    '- from subgraph "auth":\n' +
+    '  - cannot find field "Querier.email".\n' +
+    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Querier", the key field(s) cannot be resolved from subgraph "auth".\n' +
+    '\tThe following supergraph API query:\n' +
+    '{\n' +
+    '  querier {\n' +
+    '    listCoursePosts(courseId: "<any id>") {\n' +
+    '      ...\n' +
+    '    }\n' +
+    '  }\n' +
+    '}\n' +
+    'cannot be satisfied by the subgraphs because:\n' +
+    '- from subgraph "auth":\n' +
+    '  - cannot find field "Querier.listCoursePosts".\n' +
+    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Querier", the key field(s) cannot be resolved from subgraph "auth".\n' +
+    '\tThe following supergraph API query:\n' +
+    '{\n' +
+    '  querier {\n' +
+    '    totalPosts\n' +
+    '  }\n' +
+    '}\n' +
+    'cannot be satisfied by the subgraphs because:\n' +
+    '- from subgraph "auth":\n' +
+    '  - cannot find field "Querier.totalPosts".\n' +
+    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Querier", the key field(s) cannot be resolved from subgraph "auth".\n' +
+    '\tThe following supergraph API query:\n' +
+    '{\n' +
+    '  querier {\n' +
+    '    totalFreeArticles\n' +
+    '  }\n' +
+    '}\n' +
+    'cannot be satisfied by the subgraphs because:\n' +
+    '- from subgraph "auth":\n' +
+    '  - cannot find field "Querier.totalFreeArticles".\n' +
+    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Querier", the key field(s) cannot be resolved from subgraph "auth".\n' +
+    '\tThe following supergraph API query:\n' +
+    '{\n' +
+    '  querier {\n' +
+    '    listPosts(input: {}) {\n' +
+    '      ...\n' +
+    '    }\n' +
+    '  }\n' +
+    '}\n' +
+    'cannot be satisfied by the subgraphs because:\n' +
+    '- from subgraph "auth":\n' +
+    '  - cannot find field "Querier.listPosts".\n' +
+    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Querier", the key field(s) cannot be resolved from subgraph "auth".\n' +
+    '\tThe following supergraph API query:\n' +
+    '{\n' +
+    '  querier {\n' +
+    '    listTags(input: {}) {\n' +
+    '      ...\n' +
+    '    }\n' +
+    '  }\n' +
+    '}\n' +
+    'cannot be satisfied by the subgraphs because:\n' +
+    '- from subgraph "auth":\n' +
+    '  - cannot find field "Querier.listTags".\n' +
+    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Querier", the key field(s) cannot be resolved from subgraph "auth".\n' +
+    '\tThe following supergraph API query:\n' +
+    '{\n' +
+    '  querier {\n' +
+    '    listFeedback(input: {}) {\n' +
+    '      ...\n' +
+    '    }\n' +
+    '  }\n' +
+    '}\n' +
+    'cannot be satisfied by the subgraphs because:\n' +
+    '- from subgraph "auth":\n' +
+    '  - cannot find field "Querier.listFeedback".\n' +
+    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Querier", the key field(s) cannot be resolved from subgraph "auth".\n' +
+    '\tThe following supergraph API query:\n' +
+    '{\n' +
+    '  querier {\n' +
+    '    getPremiumPost(\n' +
+    '      input: {userId: "<any id>", courseId: "<any id>", postNanoId: "<any id>", postSlug: "A string value"}\n' +
+    '    ) {\n' +
+    '      ...\n' +
+    '    }\n' +
+    '  }\n' +
+    '}\n' +
+    'cannot be satisfied by the subgraphs because:\n' +
+    '- from subgraph "auth":\n' +
+    '  - cannot find field "Querier.getPremiumPost".\n' +
+    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Querier", the key field(s) cannot be resolved from subgraph "auth".',
+  stack: "Error: A valid schema couldn't be composed. The following composition errors were found:\n" +
+    '\tThe following supergraph API query:\n' +
+    'mutation {\n' +
+    '  mutator {\n' +
+    '    email\n' +
+    '  }\n' +
+    '}\n' +
+    'cannot be satisfied by the subgraphs because:\n' +
+    '- from subgraph "auth":\n' +
+    '  - cannot find field "Mutator.email".\n' +
+    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Mutator", the key field(s) cannot be resolved from subgraph "auth".\n' +
+    '\tThe following supergraph API query:\n' +
+    'mutation {\n' +
+    '  mutator {\n' +
+    '    upsertCourse(input: {id: "<any id>"}) {\n' +
+    '      ...\n' +
+    '    }\n' +
+    '  }\n' +
+    '}\n' +
+    'cannot be satisfied by the subgraphs because:\n' +
+    '- from subgraph "auth":\n' +
+    '  - cannot find field "Mutator.upsertCourse".\n' +
+    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Mutator", the key field(s) cannot be resolved from subgraph "auth".\n' +
+    '\tThe following supergraph API query:\n' +
+    'mutation {\n' +
+    '  mutator {\n' +
+    '    upsertTag(input: {id: "<any id>"}) {\n' +
+    '      ...\n' +
+    '    }\n' +
+    '  }\n' +
+    '}\n' +
+    'cannot be satisfied by the subgraphs because:\n' +
+    '- from subgraph "auth":\n' +
+    '  - cannot find field "Mutator.upsertTag".\n' +
+    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Mutator", the key field(s) cannot be resolved from subgraph "auth".\n' +
+    '\tThe following supergraph API query:\n' +
+    'mutation {\n' +
+    '  mutator {\n' +
+    '    upsertPost(input: {id: "<any id>"}) {\n' +
+    '      ...\n' +
+    '    }\n' +
+    '  }\n' +
+    '}\n' +
+    'cannot be satisfied by the subgraphs because:\n' +
+    '- from subgraph "auth":\n' +
+    '  - cannot find field "Mutator.upsertPost".\n' +
+    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Mutator", the key field(s) cannot be resolved from subgraph "auth".\n' +
+    '\tThe following supergraph API query:\n' +
+    'mutation {\n' +
+    '  mutator {\n' +
+    '    deletePost(id: "<any id>") {\n' +
+    '      ...\n' +
+    '    }\n' +
+    '  }\n' +
+    '}\n' +
+    'cannot be satisfied by the subgraphs because:\n' +
+    '- from subgraph "auth":\n' +
+    '  - cannot find field "Mutator.deletePost".\n' +
+    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Mutator", the key field(s) cannot be resolved from subgraph "auth".\n' +
+    '\tThe following supergraph API query:\n' +
+    'mutation {\n' +
+    '  mutator {\n' +
+    '    upsertPostContent(postId: "<any id>", input: {}) {\n' +
+    '      ...\n' +
+    '    }\n' +
+    '  }\n' +
+    '}\n' +
+    'cannot be satisfied by the subgraphs because:\n' +
+    '- from subgraph "auth":\n' +
+    '  - cannot find field "Mutator.upsertPostContent".\n' +
+    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Mutator", the key field(s) cannot be resolved from subgraph "auth".\n' +
+    '\tThe following supergraph API query:\n' +
+    'mutation {\n' +
+    '  mutator {\n' +
+    '    upsertFeedback(\n' +
+    '      input: {id: "<any id>", title: "A string value", message: "A string value"}\n' +
+    '    ) {\n' +
+    '      ...\n' +
+    '    }\n' +
+    '  }\n' +
+    '}\n' +
+    'cannot be satisfied by the subgraphs because:\n' +
+    '- from subgraph "auth":\n' +
+    '  - cannot find field "Mutator.upsertFeedback".\n' +
+    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Mutator", the key field(s) cannot be resolved from subgraph "auth".\n' +
+    '\tThe following supergraph API query:\n' +
+    '{\n' +
+    '  querier {\n' +
+    '    email\n' +
+    '  }\n' +
+    '}\n' +
+    'cannot be satisfied by the subgraphs because:\n' +
+    '- from subgraph "auth":\n' +
+    '  - cannot find field "Querier.email".\n' +
+    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Querier", the key field(s) cannot be resolved from subgraph "auth".\n' +
+    '\tThe following supergraph API query:\n' +
+    '{\n' +
+    '  querier {\n' +
+    '    listCoursePosts(courseId: "<any id>") {\n' +
+    '      ...\n' +
+    '    }\n' +
+    '  }\n' +
+    '}\n' +
+    'cannot be satisfied by the subgraphs because:\n' +
+    '- from subgraph "auth":\n' +
+    '  - cannot find field "Querier.listCoursePosts".\n' +
+    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Querier", the key field(s) cannot be resolved from subgraph "auth".\n' +
+    '\tThe following supergraph API query:\n' +
+    '{\n' +
+    '  querier {\n' +
+    '    totalPosts\n' +
+    '  }\n' +
+    '}\n' +
+    'cannot be satisfied by the subgraphs because:\n' +
+    '- from subgraph "auth":\n' +
+    '  - cannot find field "Querier.totalPosts".\n' +
+    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Querier", the key field(s) cannot be resolved from subgraph "auth".\n' +
+    '\tThe following supergraph API query:\n' +
+    '{\n' +
+    '  querier {\n' +
+    '    totalFreeArticles\n' +
+    '  }\n' +
+    '}\n' +
+    'cannot be satisfied by the subgraphs because:\n' +
+    '- from subgraph "auth":\n' +
+    '  - cannot find field "Querier.totalFreeArticles".\n' +
+    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Querier", the key field(s) cannot be resolved from subgraph "auth".\n' +
+    '\tThe following supergraph API query:\n' +
+    '{\n' +
+    '  querier {\n' +
+    '    listPosts(input: {}) {\n' +
+    '      ...\n' +
+    '    }\n' +
+    '  }\n' +
+    '}\n' +
+    'cannot be satisfied by the subgraphs because:\n' +
+    '- from subgraph "auth":\n' +
+    '  - cannot find field "Querier.listPosts".\n' +
+    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Querier", the key field(s) cannot be resolved from subgraph "auth".\n' +
+    '\tThe following supergraph API query:\n' +
+    '{\n' +
+    '  querier {\n' +
+    '    listTags(input: {}) {\n' +
+    '      ...\n' +
+    '    }\n' +
+    '  }\n' +
+    '}\n' +
+    'cannot be satisfied by the subgraphs because:\n' +
+    '- from subgraph "auth":\n' +
+    '  - cannot find field "Querier.listTags".\n' +
+    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Querier", the key field(s) cannot be resolved from subgraph "auth".\n' +
+    '\tThe following supergraph API query:\n' +
+    '{\n' +
+    '  querier {\n' +
+    '    listFeedback(input: {}) {\n' +
+    '      ...\n' +
+    '    }\n' +
+    '  }\n' +
+    '}\n' +
+    'cannot be satisfied by the subgraphs because:\n' +
+    '- from subgraph "auth":\n' +
+    '  - cannot find field "Querier.listFeedback".\n' +
+    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Querier", the key field(s) cannot be resolved from subgraph "auth".\n' +
+    '\tThe following supergraph API query:\n' +
+    '{\n' +
+    '  querier {\n' +
+    '    getPremiumPost(\n' +
+    '      input: {userId: "<any id>", courseId: "<any id>", postNanoId: "<any id>", postSlug: "A string value"}\n' +
+    '    ) {\n' +
+    '      ...\n' +
+    '    }\n' +
+    '  }\n' +
+    '}\n' +
+    'cannot be satisfied by the subgraphs because:\n' +
+    '- from subgraph "auth":\n' +
+    '  - cannot find field "Querier.getPremiumPost".\n' +
+    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Querier", the key field(s) cannot be resolved from subgraph "auth".\n' +
+    '    at IntrospectAndCompose.createSupergraphFromSubgraphList (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/supergraphManagers/IntrospectAndCompose/index.ts:118:13)\n' +
+    '    at IntrospectAndCompose.updateSupergraphSdl (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/supergraphManagers/IntrospectAndCompose/index.ts:106:32)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n' +
+    '    at async IntrospectAndCompose.initialize (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/supergraphManagers/IntrospectAndCompose/index.ts:62:30)\n' +
+    '    at async ApolloGateway.initializeSupergraphManager (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:449:22)\n' +
+    '    at async ApolloGateway.load (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:339:7)',
+  timestamp: '2022-07-03 23:47:18'
+}
+{
+  level: 'error',
+  message: ` Couldn't load service definitions for "auth" at http://localhost:5001/graphql: request to http://localhost:5001/graphql failed, reason: socket hang up`,
+  stack: `Error: Couldn't load service definitions for "auth" at http://localhost:5001/graphql: request to http://localhost:5001/graphql failed, reason: socket hang up\n` +
+    '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/supergraphManagers/IntrospectAndCompose/loadServicesFromRemoteEndpoint.ts:77:15\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n' +
+    '    at async Promise.all (index 0)\n' +
+    '    at async loadServicesFromRemoteEndpoint (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/supergraphManagers/IntrospectAndCompose/loadServicesFromRemoteEndpoint.ts:81:30)\n' +
+    '    at async IntrospectAndCompose.updateSupergraphSdl (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/supergraphManagers/IntrospectAndCompose/index.ts:92:20)\n' +
+    '    at async IntrospectAndCompose.initialize (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/supergraphManagers/IntrospectAndCompose/index.ts:62:30)\n' +
+    '    at async ApolloGateway.initializeSupergraphManager (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:449:22)\n' +
+    '    at async ApolloGateway.load (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:339:7)',
+  timestamp: '2022-07-03 23:49:39'
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-03 23:50:10',
+  stack: undefined
+}
+{
+  message: "We coudn't find the course you are looking for!",
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'NOT_FOUND',
+    serviceName: 'coding_school',
+    exception: {
+      stacktrace: [
+        "NotFoundError: We coudn't find the course you are looking for!",
+        '    at CourseDataSource.eval (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:40:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:5:58)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: "We coudn't find the course you are looking for!",
+      locations: [ { line: 1, column: 90 } ],
+      path: [ 'getCourseContents' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-03 23:50:17',
+  stack: undefined
+}
+{
+  message: "We coudn't find the course you are looking for!",
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'NOT_FOUND',
+    serviceName: 'coding_school',
+    exception: {
+      stacktrace: [
+        "NotFoundError: We coudn't find the course you are looking for!",
+        '    at CourseDataSource.eval (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:40:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:5:58)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: "We coudn't find the course you are looking for!",
+      locations: [ { line: 1, column: 90 } ],
+      path: [ 'getCourseContents' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-03 23:58:22',
+  stack: undefined
+}
+{
+  message: "We coudn't find the course you are looking for!",
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'NOT_FOUND',
+    serviceName: 'coding_school',
+    exception: {
+      stacktrace: [
+        "NotFoundError: We coudn't find the course you are looking for!",
+        '    at CourseDataSource.eval (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:40:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:5:58)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: "We coudn't find the course you are looking for!",
+      locations: [ { line: 1, column: 90 } ],
+      path: [ 'getCourseContents' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-03 23:58:23',
+  stack: undefined
+}
+{
+  message: "We coudn't find the course you are looking for!",
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'NOT_FOUND',
+    serviceName: 'coding_school',
+    exception: {
+      stacktrace: [
+        "NotFoundError: We coudn't find the course you are looking for!",
+        '    at CourseDataSource.eval (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:40:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:5:58)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: "We coudn't find the course you are looking for!",
+      locations: [ { line: 1, column: 90 } ],
+      path: [ 'getCourseContents' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-03 23:58:23',
+  stack: undefined
+}
+{
+  message: "We coudn't find the course you are looking for!",
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'NOT_FOUND',
+    serviceName: 'coding_school',
+    exception: {
+      stacktrace: [
+        "NotFoundError: We coudn't find the course you are looking for!",
+        '    at CourseDataSource.eval (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:40:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:5:58)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: "We coudn't find the course you are looking for!",
+      locations: [ { line: 1, column: 90 } ],
+      path: [ 'getCourseContents' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-03 23:59:32',
+  stack: undefined
+}
+{
+  message: "We coudn't find the course you are looking for!",
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'NOT_FOUND',
+    serviceName: 'coding_school',
+    exception: {
+      stacktrace: [
+        "NotFoundError: We coudn't find the course you are looking for!",
+        '    at CourseDataSource.eval (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:40:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:5:58)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: "We coudn't find the course you are looking for!",
+      locations: [ { line: 1, column: 90 } ],
+      path: [ 'getCourseContents' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-03 23:59:51',
+  stack: undefined
+}
+{
+  message: "We coudn't find the course you are looking for!",
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'NOT_FOUND',
+    serviceName: 'coding_school',
+    exception: {
+      stacktrace: [
+        "NotFoundError: We coudn't find the course you are looking for!",
+        '    at CourseDataSource.eval (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:40:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:5:58)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: "We coudn't find the course you are looking for!",
+      locations: [ { line: 1, column: 90 } ],
+      path: [ 'getCourseContents' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-04 00:00:02',
+  stack: undefined
+}
+{
+  message: "We coudn't find the course you are looking for!",
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'NOT_FOUND',
+    serviceName: 'coding_school',
+    exception: {
+      stacktrace: [
+        "NotFoundError: We coudn't find the course you are looking for!",
+        '    at CourseDataSource.eval (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:40:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:5:58)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: "We coudn't find the course you are looking for!",
+      locations: [ { line: 1, column: 90 } ],
+      path: [ 'getCourseContents' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-04 00:00:27',
+  stack: undefined
+}
+{
+  message: "We coudn't find the course you are looking for!",
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'NOT_FOUND',
+    serviceName: 'coding_school',
+    exception: {
+      stacktrace: [
+        "NotFoundError: We coudn't find the course you are looking for!",
+        '    at CourseDataSource.eval (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:40:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:5:58)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: "We coudn't find the course you are looking for!",
+      locations: [ { line: 1, column: 90 } ],
+      path: [ 'getCourseContents' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-04 00:00:35',
+  stack: undefined
+}
+{
+  message: "We coudn't find the course you are looking for!",
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'NOT_FOUND',
+    serviceName: 'coding_school',
+    exception: {
+      stacktrace: [
+        "NotFoundError: We coudn't find the course you are looking for!",
+        '    at CourseDataSource.eval (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:40:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:5:58)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: "We coudn't find the course you are looking for!",
+      locations: [ { line: 1, column: 90 } ],
+      path: [ 'getCourseContents' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-04 00:01:07',
+  stack: undefined
+}
+{
+  message: "We coudn't find the course you are looking for!",
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'NOT_FOUND',
+    serviceName: 'coding_school',
+    exception: {
+      stacktrace: [
+        "NotFoundError: We coudn't find the course you are looking for!",
+        '    at CourseDataSource.eval (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:40:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:5:58)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: "We coudn't find the course you are looking for!",
+      locations: [ { line: 1, column: 90 } ],
+      path: [ 'getCourseContents' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-04 00:02:03',
+  stack: undefined
+}
+{
+  message: "We coudn't find the course you are looking for!",
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'NOT_FOUND',
+    serviceName: 'coding_school',
+    exception: {
+      stacktrace: [
+        "NotFoundError: We coudn't find the course you are looking for!",
+        '    at CourseDataSource.eval (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:40:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:5:58)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: "We coudn't find the course you are looking for!",
+      locations: [ { line: 1, column: 90 } ],
+      path: [ 'getCourseContents' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-04 00:02:11',
+  stack: undefined
+}
+{
+  message: "We coudn't find the course you are looking for!",
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'NOT_FOUND',
+    serviceName: 'coding_school',
+    exception: {
+      stacktrace: [
+        "NotFoundError: We coudn't find the course you are looking for!",
+        '    at CourseDataSource.eval (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:40:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:5:58)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: "We coudn't find the course you are looking for!",
+      locations: [ { line: 1, column: 90 } ],
+      path: [ 'getCourseContents' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-04 00:02:30',
+  stack: undefined
+}
+{
+  message: "We coudn't find the course you are looking for!",
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'NOT_FOUND',
+    serviceName: 'coding_school',
+    exception: {
+      stacktrace: [
+        "NotFoundError: We coudn't find the course you are looking for!",
+        '    at CourseDataSource.eval (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:40:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:5:58)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: "We coudn't find the course you are looking for!",
+      locations: [ { line: 1, column: 90 } ],
+      path: [ 'getCourseContents' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-04 00:03:08',
+  stack: undefined
+}
+{
+  message: "We coudn't find the course you are looking for!",
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'NOT_FOUND',
+    serviceName: 'coding_school',
+    exception: {
+      stacktrace: [
+        "NotFoundError: We coudn't find the course you are looking for!",
+        '    at CourseDataSource.eval (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:40:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:5:58)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: "We coudn't find the course you are looking for!",
+      locations: [ { line: 1, column: 90 } ],
+      path: [ 'getCourseContents' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-04 00:03:31',
+  stack: undefined
+}
+{
+  message: "We coudn't find the course you are looking for!",
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'NOT_FOUND',
+    serviceName: 'coding_school',
+    exception: {
+      stacktrace: [
+        "NotFoundError: We coudn't find the course you are looking for!",
+        '    at CourseDataSource.eval (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:40:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:5:58)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: "We coudn't find the course you are looking for!",
+      locations: [ { line: 1, column: 90 } ],
+      path: [ 'getCourseContents' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-04 00:04:12',
+  stack: undefined
+}
+{
+  message: "We coudn't find the course you are looking for!",
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'NOT_FOUND',
+    serviceName: 'coding_school',
+    exception: {
+      stacktrace: [
+        "NotFoundError: We coudn't find the course you are looking for!",
+        '    at CourseDataSource.eval (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:40:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:5:58)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: "We coudn't find the course you are looking for!",
+      locations: [ { line: 1, column: 90 } ],
+      path: [ 'getCourseContents' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-04 00:04:12',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 31 } ],
+      path: [ 'querier' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-04 00:05:21',
+  stack: undefined
+}
+{
+  message: "Cannot read property 'getUserById' of undefined",
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'INTERNAL_SERVER_ERROR',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        "TypeError: Cannot read property 'getUserById' of undefined",
+        '    at eval (webpack-internal:///./src/graphql/resolvers/user/user.datasource.ts:199:44)',
+        '    at Generator.next (<anonymous>)',
+        '    at eval (webpack-internal:///./src/graphql/resolvers/user/user.datasource.ts:8:71)',
+        '    at new Promise (<anonymous>)',
+        '    at __awaiter (webpack-internal:///./src/graphql/resolvers/user/user.datasource.ts:4:12)',
+        '    at checkUserVerificationId (webpack-internal:///./src/graphql/resolvers/user/user.datasource.ts:198:16)',
+        '    at eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.resolver.ts:35:30)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.resolver.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: "Cannot read property 'getUserById' of undefined",
+      locations: [ { line: 1, column: 31 } ],
+      path: [ 'querier' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-04 00:05:21',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-04 00:05:23',
+  stack: undefined
+}
+{
+  message: "Cannot read property 'getUserById' of undefined",
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'INTERNAL_SERVER_ERROR',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        "TypeError: Cannot read property 'getUserById' of undefined",
+        '    at eval (webpack-internal:///./src/graphql/resolvers/user/user.datasource.ts:199:44)',
+        '    at Generator.next (<anonymous>)',
+        '    at eval (webpack-internal:///./src/graphql/resolvers/user/user.datasource.ts:8:71)',
+        '    at new Promise (<anonymous>)',
+        '    at __awaiter (webpack-internal:///./src/graphql/resolvers/user/user.datasource.ts:4:12)',
+        '    at checkUserVerificationId (webpack-internal:///./src/graphql/resolvers/user/user.datasource.ts:198:16)',
+        '    at eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.resolver.ts:35:30)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.resolver.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: "Cannot read property 'getUserById' of undefined",
+      locations: [ { line: 1, column: 31 } ],
+      path: [ 'querier' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-04 00:05:39',
+  stack: undefined
+}
+{
+  message: "Cannot read property 'getUserById' of undefined",
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'INTERNAL_SERVER_ERROR',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        "TypeError: Cannot read property 'getUserById' of undefined",
+        '    at eval (webpack-internal:///./src/graphql/resolvers/user/user.datasource.ts:199:44)',
+        '    at Generator.next (<anonymous>)',
+        '    at eval (webpack-internal:///./src/graphql/resolvers/user/user.datasource.ts:8:71)',
+        '    at new Promise (<anonymous>)',
+        '    at __awaiter (webpack-internal:///./src/graphql/resolvers/user/user.datasource.ts:4:12)',
+        '    at checkUserVerificationId (webpack-internal:///./src/graphql/resolvers/user/user.datasource.ts:198:16)',
+        '    at eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.resolver.ts:35:30)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.resolver.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: "Cannot read property 'getUserById' of undefined",
+      locations: [ { line: 1, column: 31 } ],
+      path: [ 'querier' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-04 00:05:43',
+  stack: undefined
+}
+{
+  message: 'Permission denied! It is sad that you are not among premium members',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'FORBIDDEN',
+    serviceName: 'coding_school',
+    exception: {
+      stacktrace: [
+        'ForbiddenError: Permission denied! It is sad that you are not among premium members',
+        '    at PostDataSource.eval (webpack-internal:///./src/graphql/resolvers/post/post.datasource.ts:57:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/post/post.datasource.ts:5:58)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Permission denied! It is sad that you are not among premium members',
+      locations: [ { line: 1, column: 170 } ],
+      path: [ '_entities', 0, 'getPremiumPost' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-04 00:16:01',
+  stack: undefined
+}
+{
+  message: 'Permission denied! It is sad that you are not among premium members',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'FORBIDDEN',
+    serviceName: 'coding_school',
+    exception: {
+      stacktrace: [
+        'ForbiddenError: Permission denied! It is sad that you are not among premium members',
+        '    at PostDataSource.eval (webpack-internal:///./src/graphql/resolvers/post/post.datasource.ts:57:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/post/post.datasource.ts:5:58)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Permission denied! It is sad that you are not among premium members',
+      locations: [ { line: 1, column: 170 } ],
+      path: [ '_entities', 0, 'getPremiumPost' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-04 00:16:22',
   stack: undefined
 }

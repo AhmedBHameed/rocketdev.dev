@@ -8,6 +8,9 @@ const ROUTES = {
   courses: {
     path: '/courses',
   },
+  contents: {
+    path: '/contents',
+  },
   post: {
     path: '/post',
     params: '/:slug/:nanoId',

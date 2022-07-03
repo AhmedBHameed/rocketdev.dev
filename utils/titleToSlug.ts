@@ -1,6 +1,6 @@
 const titleToSlug = (title: string): string => {
   const slug = title.replace(/\s/g, '-');
-  return slug.toLowerCase();
+  return encodeURIComponent(slug.toLowerCase());
 };
 
 export default titleToSlug;

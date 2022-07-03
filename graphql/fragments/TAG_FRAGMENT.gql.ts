@@ -6,6 +6,7 @@ const TAG_FRAGMENT = gql`
     imgSrc
     name
     description
+    color
   }
 `;
 

@@ -1,3 +1,5 @@
+import {GetStaticProps} from 'next';
+import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import AlertError from '../../components/AlertError/AlertError';
 import DashboardLayout from '../../components/Dashboard/DashboardLayout';
 import useVerifyMe from '../../components/hooks/verifyMeHook';
@@ -37,6 +39,19 @@ const Dashboard = () => {
       </div>
     </DashboardLayout>
   );
+};
+
+export const getStaticProps: GetStaticProps = async ({locale}) => {
+  const translations = await serverSideTranslations(locale, [
+    'common',
+    'courses',
+  ]);
+
+  return {
+    props: {
+      ...translations,
+    },
+  };
 };
 
 export default Dashboard;

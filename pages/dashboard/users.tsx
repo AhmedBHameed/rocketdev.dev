@@ -14,6 +14,8 @@ import JsonViewContainer from '../../components/JsonView/JsonViewContainer';
 import EditUserButton from '../../components/Dashboard/Users/EditUserButton';
 import {omit} from 'lodash';
 import EditAuthorizationButton from '../../components/Dashboard/Users/EditAuthorizationButton';
+import {GetStaticProps} from 'next';
+import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 
 const users = () => {
   const [useAuthorization, setUseAuthorization] = useState<
@@ -123,6 +125,19 @@ const users = () => {
       </Modal>
     </DashboardLayout>
   );
+};
+
+export const getStaticProps: GetStaticProps = async ({locale}) => {
+  const translations = await serverSideTranslations(locale, [
+    'common',
+    'users',
+  ]);
+
+  return {
+    props: {
+      ...translations,
+    },
+  };
 };
 
 export default users;

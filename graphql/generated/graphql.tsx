@@ -64,18 +64,24 @@ export type Course = {
   author?: Maybe<User>;
   authorId?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['Date']>;
+  description?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['ID']>;
   image?: Maybe<Scalars['String']>;
   isPremium?: Maybe<Scalars['Boolean']>;
   lang?: Maybe<LanguageEnum>;
   nanoId?: Maybe<Scalars['String']>;
-  postIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  postIds: Array<Maybe<Scalars['ID']>>;
   publishedAt?: Maybe<Scalars['Date']>;
   slug?: Maybe<Scalars['String']>;
   tagIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
   tags?: Maybe<Array<Maybe<Tag>>>;
   updatedAt?: Maybe<Scalars['Date']>;
   visibility?: Maybe<Scalars['Boolean']>;
+};
+
+export type CourseContentsInput = {
+  courseId: Scalars['String'];
+  slug: Scalars['String'];
 };
 
 /** Filtering configuration by fields. */
@@ -178,6 +184,12 @@ export type FilterTagInput = {
   name?: InputMaybe<Scalars['String']>;
   updatedAt?: InputMaybe<Scalars['String']>;
   visibility?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type GetPremiumPostInput = {
+  courseId: Scalars['ID'];
+  postNanoId: Scalars['ID'];
+  postSlug: Scalars['String'];
 };
 
 export enum LanguageEnum {
@@ -380,6 +392,10 @@ export type PostContent = {
   updatedAt?: Maybe<Scalars['Date']>;
 };
 
+export type PostContentBodyArgs = {
+  stringLen?: InputMaybe<Scalars['Int']>;
+};
+
 export type PostContentInput = {
   body?: InputMaybe<Scalars['String']>;
   contentPreview?: InputMaybe<Scalars['String']>;
@@ -454,7 +470,7 @@ export enum PostTypeEnum {
 export type Querier = {
   __typename?: 'Querier';
   about?: Maybe<Scalars['String']>;
-  getCourse?: Maybe<Course>;
+  getPremiumPost?: Maybe<Post>;
   id: Scalars['ID'];
   isSuper?: Maybe<Scalars['Boolean']>;
   listCoursePosts?: Maybe<Array<Maybe<Post>>>;
@@ -468,8 +484,8 @@ export type Querier = {
   userActionsAsJson: Scalars['String'];
 };
 
-export type QuerierGetCourseArgs = {
-  id: Scalars['String'];
+export type QuerierGetPremiumPostArgs = {
+  input: GetPremiumPostInput;
 };
 
 export type QuerierListCoursePostsArgs = {
@@ -492,6 +508,8 @@ export type Query = {
   __typename?: 'Query';
   clearTokens?: Maybe<Message>;
   createTokens?: Maybe<Auth>;
+  getCourse?: Maybe<Course>;
+  getCourseContents?: Maybe<Array<Maybe<Post>>>;
   getPost?: Maybe<Post>;
   getUser?: Maybe<User>;
   getUserAuthorization?: Maybe<Authorization>;
@@ -510,6 +528,14 @@ export type Query = {
 
 export type QueryCreateTokensArgs = {
   input: AuthInput;
+};
+
+export type QueryGetCourseArgs = {
+  courseId: Scalars['String'];
+};
+
+export type QueryGetCourseContentsArgs = {
+  input: CourseContentsInput;
 };
 
 export type QueryGetPostArgs = {
@@ -580,6 +606,7 @@ export enum SortingEnum {
 
 export type Tag = {
   __typename?: 'Tag';
+  color?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['Date']>;
   description?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['ID']>;
@@ -599,6 +626,7 @@ export type UpdateUserInput = {
 export type UpsertCourseInput = {
   accessedByUserIds?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
   authorId?: InputMaybe<Scalars['String']>;
+  description?: InputMaybe<Scalars['String']>;
   id: Scalars['ID'];
   image?: InputMaybe<Scalars['String']>;
   isPremium?: InputMaybe<Scalars['Boolean']>;
@@ -637,6 +665,7 @@ export type UpsertPostInput = {
 };
 
 export type UpsertTagInput = {
+  color?: InputMaybe<Scalars['String']>;
   description?: InputMaybe<Scalars['String']>;
   id: Scalars['ID'];
   imgSrc?: InputMaybe<Scalars['String']>;
@@ -745,6 +774,30 @@ export type ForgotPasswordMutation = {
   forgotPassword?: {__typename?: 'Message'; message?: string | null} | null;
 };
 
+export type GetCourseContentsQueryVariables = Exact<{
+  input: CourseContentsInput;
+  lang?: InputMaybe<LanguageEnum>;
+}>;
+
+export type GetCourseContentsQuery = {
+  __typename?: 'Query';
+  getCourseContents?: Array<{
+    __typename?: 'Post';
+    id?: string | null;
+    slug?: string | null;
+    nanoId?: string | null;
+    isPremium?: boolean | null;
+    postContents?: Array<{
+      __typename?: 'PostContent';
+      id?: string | null;
+      postImage?: string | null;
+      lang?: LanguageEnum | null;
+      contentPreview?: string | null;
+      readingTime?: string | null;
+    } | null> | null;
+  } | null> | null;
+};
+
 export type GetPostQueryVariables = Exact<{
   nanoId: Scalars['ID'];
   slug: Scalars['String'];
@@ -791,6 +844,7 @@ export type GetPostQuery = {
       imgSrc?: string | null;
       name?: string | null;
       description?: string | null;
+      color?: string | null;
     } | null> | null;
     author?: {
       __typename?: 'User';
@@ -831,12 +885,13 @@ export type ListCoursesQuery = {
     __typename?: 'Course';
     id?: string | null;
     slug?: string | null;
+    description?: string | null;
     nanoId?: string | null;
     visibility?: boolean | null;
     image?: string | null;
     isPremium?: boolean | null;
     lang?: LanguageEnum | null;
-    postIds?: Array<string | null> | null;
+    postIds: Array<string | null>;
     publishedAt?: Date | null;
     accessedByUserIds?: Array<string | null> | null;
     author?: {
@@ -855,6 +910,7 @@ export type ListCoursesQuery = {
       imgSrc?: string | null;
       name?: string | null;
       description?: string | null;
+      color?: string | null;
     } | null> | null;
   } | null> | null;
 };
@@ -905,6 +961,7 @@ export type ListPostsQuery = {
       imgSrc?: string | null;
       name?: string | null;
       description?: string | null;
+      color?: string | null;
     } | null> | null;
     author?: {
       __typename?: 'User';
@@ -1031,12 +1088,13 @@ export type CourseFragmentFragment = {
   __typename?: 'Course';
   id?: string | null;
   slug?: string | null;
+  description?: string | null;
   nanoId?: string | null;
   visibility?: boolean | null;
   image?: string | null;
   isPremium?: boolean | null;
   lang?: LanguageEnum | null;
-  postIds?: Array<string | null> | null;
+  postIds: Array<string | null>;
   publishedAt?: Date | null;
   accessedByUserIds?: Array<string | null> | null;
   author?: {
@@ -1055,6 +1113,7 @@ export type CourseFragmentFragment = {
     imgSrc?: string | null;
     name?: string | null;
     description?: string | null;
+    color?: string | null;
   } | null> | null;
 };
 
@@ -1091,6 +1150,7 @@ export type QuerierPostFragmentFragment = {
     imgSrc?: string | null;
     name?: string | null;
     description?: string | null;
+    color?: string | null;
   } | null> | null;
   author?: {
     __typename?: 'User';
@@ -1142,6 +1202,7 @@ export type PostFragmentFragment = {
     imgSrc?: string | null;
     name?: string | null;
     description?: string | null;
+    color?: string | null;
   } | null> | null;
   author?: {
     __typename?: 'User';
@@ -1161,6 +1222,7 @@ export type TagFragmentFragment = {
   imgSrc?: string | null;
   name?: string | null;
   description?: string | null;
+  color?: string | null;
 };
 
 export type DeletePostMutationVariables = Exact<{
@@ -1285,12 +1347,13 @@ export type UpsertCourseMutation = {
       __typename?: 'Course';
       id?: string | null;
       slug?: string | null;
+      description?: string | null;
       nanoId?: string | null;
       visibility?: boolean | null;
       image?: string | null;
       isPremium?: boolean | null;
       lang?: LanguageEnum | null;
-      postIds?: Array<string | null> | null;
+      postIds: Array<string | null>;
       publishedAt?: Date | null;
       accessedByUserIds?: Array<string | null> | null;
       author?: {
@@ -1309,6 +1372,7 @@ export type UpsertCourseMutation = {
         imgSrc?: string | null;
         name?: string | null;
         description?: string | null;
+        color?: string | null;
       } | null> | null;
     } | null;
   } | null;
@@ -1391,6 +1455,70 @@ export type UpsertPostMutation = {
         imgSrc?: string | null;
         name?: string | null;
         description?: string | null;
+        color?: string | null;
+      } | null> | null;
+      author?: {
+        __typename?: 'User';
+        email?: any | null;
+        avatar?: string | null;
+        name?: {
+          __typename?: 'Username';
+          first?: string | null;
+          last?: string | null;
+        } | null;
+      } | null;
+    } | null;
+  } | null;
+};
+
+export type GetPremiumPostQueryVariables = Exact<{
+  input: GetPremiumPostInput;
+  lang?: InputMaybe<LanguageEnum>;
+}>;
+
+export type GetPremiumPostQuery = {
+  __typename?: 'Query';
+  querier?: {
+    __typename?: 'Querier';
+    getPremiumPost?: {
+      __typename?: 'Post';
+      id?: string | null;
+      slug?: string | null;
+      nanoId?: string | null;
+      authorId?: string | null;
+      isPremium?: boolean | null;
+      visibility?: boolean | null;
+      tagIds?: Array<string | null> | null;
+      type?: PostTypeEnum | null;
+      prevPostId?: string | null;
+      nextPostId?: string | null;
+      createdAt?: Date | null;
+      updatedAt?: Date | null;
+      postContents?: Array<{
+        __typename?: 'PostContent';
+        id?: string | null;
+        postImage?: string | null;
+        lang?: LanguageEnum | null;
+        body?: string | null;
+        contentPreview?: string | null;
+        readingTime?: string | null;
+        publishedAt?: Date | null;
+        createdAt?: Date | null;
+        updatedAt?: Date | null;
+        metaTags?: {
+          __typename?: 'PostMetaTags';
+          injectHeader?: string | null;
+          injectCssStyle?: string | null;
+          description?: string | null;
+        } | null;
+      } | null> | null;
+      tags?: Array<{
+        __typename?: 'Tag';
+        id?: string | null;
+        imgSrc?: string | null;
+        name?: string | null;
+        description?: string | null;
+        color?: string | null;
       } | null> | null;
       author?: {
         __typename?: 'User';
@@ -1448,6 +1576,7 @@ export type ListQuerierCoursePostsQuery = {
         imgSrc?: string | null;
         name?: string | null;
         description?: string | null;
+        color?: string | null;
       } | null> | null;
       author?: {
         __typename?: 'User';
@@ -1511,6 +1640,7 @@ export type ListQuerierPostsQuery = {
         imgSrc?: string | null;
         name?: string | null;
         description?: string | null;
+        color?: string | null;
       } | null> | null;
       author?: {
         __typename?: 'User';
@@ -1532,12 +1662,14 @@ export const TagFragmentFragmentDoc = gql`
     imgSrc
     name
     description
+    color
   }
 `;
 export const CourseFragmentFragmentDoc = gql`
   fragment courseFragment on Course {
     id
     slug
+    description
     nanoId
     author {
       email
@@ -1816,6 +1948,75 @@ export type ForgotPasswordMutationResult =
 export type ForgotPasswordMutationOptions = Apollo.BaseMutationOptions<
   ForgotPasswordMutation,
   ForgotPasswordMutationVariables
+>;
+export const GetCourseContentsDocument = gql`
+  query GetCourseContents($input: CourseContentsInput!, $lang: LanguageEnum) {
+    getCourseContents(input: $input) {
+      id
+      slug
+      nanoId
+      isPremium
+      postContents(lang: $lang) {
+        id
+        postImage
+        lang
+        contentPreview
+        readingTime
+      }
+    }
+  }
+`;
+
+/**
+ * __useGetCourseContentsQuery__
+ *
+ * To run a query within a React component, call `useGetCourseContentsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetCourseContentsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetCourseContentsQuery({
+ *   variables: {
+ *      input: // value for 'input'
+ *      lang: // value for 'lang'
+ *   },
+ * });
+ */
+export function useGetCourseContentsQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    GetCourseContentsQuery,
+    GetCourseContentsQueryVariables
+  >
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useQuery<
+    GetCourseContentsQuery,
+    GetCourseContentsQueryVariables
+  >(GetCourseContentsDocument, options);
+}
+export function useGetCourseContentsLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetCourseContentsQuery,
+    GetCourseContentsQueryVariables
+  >
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useLazyQuery<
+    GetCourseContentsQuery,
+    GetCourseContentsQueryVariables
+  >(GetCourseContentsDocument, options);
+}
+export type GetCourseContentsQueryHookResult = ReturnType<
+  typeof useGetCourseContentsQuery
+>;
+export type GetCourseContentsLazyQueryHookResult = ReturnType<
+  typeof useGetCourseContentsLazyQuery
+>;
+export type GetCourseContentsQueryResult = Apollo.QueryResult<
+  GetCourseContentsQuery,
+  GetCourseContentsQueryVariables
 >;
 export const GetPostDocument = gql`
   query GetPost($nanoId: ID!, $slug: String!, $lang: LanguageEnum) {
@@ -2791,6 +2992,68 @@ export type UpsertPostMutationResult =
 export type UpsertPostMutationOptions = Apollo.BaseMutationOptions<
   UpsertPostMutation,
   UpsertPostMutationVariables
+>;
+export const GetPremiumPostDocument = gql`
+  query GetPremiumPost($input: GetPremiumPostInput!, $lang: LanguageEnum) {
+    querier {
+      getPremiumPost(input: $input) {
+        ...postFragment
+      }
+    }
+  }
+  ${PostFragmentFragmentDoc}
+`;
+
+/**
+ * __useGetPremiumPostQuery__
+ *
+ * To run a query within a React component, call `useGetPremiumPostQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetPremiumPostQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetPremiumPostQuery({
+ *   variables: {
+ *      input: // value for 'input'
+ *      lang: // value for 'lang'
+ *   },
+ * });
+ */
+export function useGetPremiumPostQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    GetPremiumPostQuery,
+    GetPremiumPostQueryVariables
+  >
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useQuery<GetPremiumPostQuery, GetPremiumPostQueryVariables>(
+    GetPremiumPostDocument,
+    options
+  );
+}
+export function useGetPremiumPostLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetPremiumPostQuery,
+    GetPremiumPostQueryVariables
+  >
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useLazyQuery<GetPremiumPostQuery, GetPremiumPostQueryVariables>(
+    GetPremiumPostDocument,
+    options
+  );
+}
+export type GetPremiumPostQueryHookResult = ReturnType<
+  typeof useGetPremiumPostQuery
+>;
+export type GetPremiumPostLazyQueryHookResult = ReturnType<
+  typeof useGetPremiumPostLazyQuery
+>;
+export type GetPremiumPostQueryResult = Apollo.QueryResult<
+  GetPremiumPostQuery,
+  GetPremiumPostQueryVariables
 >;
 export const ListQuerierCoursePostsDocument = gql`
   query ListQuerierCoursePosts($courseId: ID!, $lang: LanguageEnum) {

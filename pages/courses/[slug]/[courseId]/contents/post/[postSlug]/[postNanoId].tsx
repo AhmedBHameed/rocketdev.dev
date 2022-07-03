@@ -1,31 +1,31 @@
 import {ApolloQueryResult} from '@apollo/client';
 import {GraphQLErrors} from '@apollo/client/errors';
+import {get} from 'lodash';
 
 import {GetServerSideProps, NextPage} from 'next';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
-import React, {useState} from 'react';
-import AlertError from '../../../components/AlertError/AlertError';
-import Layout from '../../../components/Layout';
-import PostContent from '../../../components/PostContent/PostContent';
+import React from 'react';
+import AlertError from '../../../../../../../components/AlertError/AlertError';
+import Layout from '../../../../../../../components/Layout';
+import PostContent from '../../../../../../../components/PostContent/PostContent';
 import {
-  ListQuerierCoursePostsQuery,
-  ListQuerierCoursePostsQueryVariables,
+  GetPremiumPostQuery,
+  GetPremiumPostQueryVariables,
+  LanguageEnum,
   Post,
-} from '../../../graphql/generated/graphql';
-import LIST_QUERIER_COURSE_POSTS_QUERY from '../../../graphql/querier/LIST_COURSE_POSTS.gql';
-import apolloClient from '../../../utils/apolloClient';
+} from '../../../../../../../graphql/generated/graphql';
+import GET_PREMIUM_POST from '../../../../../../../graphql/querier/GET_PREMIUM_POST.gql';
+import apolloClient from '../../../../../../../utils/apolloClient';
 
-// TODO: Make error interface extendable.
 interface CoursePost {
-  coursePostsQuery: ApolloQueryResult<ListQuerierCoursePostsQuery>;
-  error: {
+  post: Post;
+  error?: {
     status: number;
     message: string;
   };
 }
 
-const CoursePost: NextPage<CoursePost> = ({coursePostsQuery, error}) => {
-  const [postIndex, setPostIndex] = useState(0);
+const CoursePost: NextPage<CoursePost> = ({post, error}) => {
   if (error)
     return (
       <Layout>
@@ -33,21 +33,9 @@ const CoursePost: NextPage<CoursePost> = ({coursePostsQuery, error}) => {
       </Layout>
     );
 
-  // if (!coursePostsQuery.data?.querier.listCoursePosts)
-  //   return (
-  //     <Layout>
-  //       <AlertError
-  //         message={'Please check the URL in the address bar and try again.'}
-  //         httpStatusCode={404}
-  //       />
-  //     </Layout>
-  //   );
-
   return (
     <Layout>
-      <PostContent
-        post={coursePostsQuery.data.querier.listCoursePosts[postIndex] as Post}
-      />
+      <PostContent post={post} />
     </Layout>
   );
 };
@@ -57,7 +45,6 @@ export const getServerSideProps: GetServerSideProps = async ({
   params,
   req,
 }) => {
-  const cookie = req.headers.cookie;
   const translations = await serverSideTranslations(locale, [
     'common',
     'navbar',
@@ -65,15 +52,16 @@ export const getServerSideProps: GetServerSideProps = async ({
     'courses',
   ]);
 
-  let coursePostsQuery = {};
+  let postQuery: ApolloQueryResult<GetPremiumPostQuery>;
   let httpError = null;
 
+  const cookie = get(req, 'headers.cookie');
   try {
-    coursePostsQuery = await apolloClient.query<
-      ListQuerierCoursePostsQuery,
-      ListQuerierCoursePostsQueryVariables
+    postQuery = await apolloClient.query<
+      GetPremiumPostQuery,
+      GetPremiumPostQueryVariables
     >({
-      query: LIST_QUERIER_COURSE_POSTS_QUERY,
+      query: GET_PREMIUM_POST,
       fetchPolicy: 'network-only',
       context: {
         headers: {
@@ -81,7 +69,12 @@ export const getServerSideProps: GetServerSideProps = async ({
         },
       },
       variables: {
-        courseId: params.courseId as string,
+        input: {
+          courseId: params.courseId as string,
+          postNanoId: params.postNanoId as string,
+          postSlug: params.postSlug as string,
+        },
+        lang: LanguageEnum.En,
       },
     });
   } catch (e) {
@@ -94,17 +87,18 @@ export const getServerSideProps: GetServerSideProps = async ({
       httpError.message =
         "Oh no! We couldn't connect to the server. Please refresh the page.";
       httpError.status = 500;
-    }
-
-    if (errorCode === 'FORBIDDEN') {
+    } else if (errorCode === 'FORBIDDEN') {
       httpError.message = errorMessage;
       httpError.status = 402;
+    } else {
+      httpError.message = errorMessage;
+      httpError.status = 500;
     }
   }
 
   return {
     props: {
-      coursePostsQuery,
+      post: get(postQuery, 'data.querier.getPremiumPost', {}),
       error: httpError,
       ...translations,
     },
