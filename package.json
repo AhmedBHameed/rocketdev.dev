@@ -7,7 +7,8 @@
     "build:next": "next build",
     "build:server": "tsc --project tsconfig.server.json",
     "build": "npm run build:next && NODE_ENV=production npm run build:server",
-    "start": "NODE_ENV=production node .next/server/server/index.js"
+    "start": "NODE_ENV=production node .next/server/server/index.js",
+    "postinstall": "node ./scripts/copy_assets_to_public.js"
   },
   "dependencies": {
     "@apollo/client": "^3.6.9",

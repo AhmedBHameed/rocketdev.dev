@@ -5,7 +5,6 @@ import {ApolloProvider} from '@apollo/client';
 import apolloClient from '../utils/apolloClient';
 import {appWithTranslation} from 'next-i18next';
 import ToastMessage from '../components/ToastMessage/ToastMessage';
-import 'react-toastify/dist/ReactToastify.min.css';
 
 const App = ({Component, pageProps}: AppProps) => {
   return (

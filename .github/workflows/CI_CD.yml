@@ -60,3 +60,16 @@ jobs:
 
       - name: Display status from deploy
         run: echo "${{ steps.deploy.outputs.status }}"
+
+      - name: Deploy to server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          proxy_username: ${{ secrets.SSH_USER }}
+          proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd ${{ secrets.PROJECT_PATH }}
+            echo "🔄 Shutdown docker container ..."
+            sudo docker-compose -f docker-compose.prod.yml stop
+            echo "🛠️🚀 Building project ..."
+            sudo docker-compose -f docker-auth.build.yml up -d --build --force-recreate --build

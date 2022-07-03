@@ -5,9 +5,20 @@ import useVerifyMe from '../components/hooks/verifyMeHook';
 import RocketLauncherSvg from '../components/SVG/RocketLauncherSvg/RocketLauncherSvg';
 import clsx from '../utils/clsx';
 import theme from '../styles/theme';
+import {useNotifications} from '../components/ToastMessage/Hooks/NotificationsHook';
+import {useEffect} from 'react';
 
 const IndexPage = () => {
+  const {notify} = useNotifications();
   const {userProfile, error} = useVerifyMe();
+
+  useEffect(() => {
+    notify({
+      message: 'Welcome to the Rocket Devs website!',
+      title: 'Welcome!',
+      type: 'success',
+    });
+  }, []);
 
   return (
     <Layout>
