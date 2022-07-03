@@ -70,4 +70,4 @@ jobs:
           script: |
             cd ${{ secrets.PROJECT_PATH }}
             echo "🔄🛠️🚀 Building project ..."
-            sudo docker-compose -f docker-auth.build.yml up --build -d
+            sudo docker-compose -f docker-compose.yml up --build -d
