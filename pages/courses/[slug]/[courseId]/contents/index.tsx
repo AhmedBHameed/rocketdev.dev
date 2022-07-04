@@ -90,7 +90,7 @@ const CourseContent = ({courseContents, courseSlug}: CourseContent) => {
                         as="span"
                         className={clsx('font-medium', theme.text)}
                       >
-                        CH-{index}&nbsp;&nbsp;&nbsp;{slugToTitle(post.slug)}
+                        {index}&nbsp;&nbsp;&nbsp;{slugToTitle(post.slug)}
                       </RadioGroup.Label>
                       <RadioGroup.Description
                         as="span"

@@ -7,6 +7,7 @@ import Code from './components/Code';
 import Head1 from './components/Head1';
 import Head2 from './components/Head2';
 import Head3 from './components/Head3';
+import Img from './components/Img';
 import Link from './components/Link';
 import ListItem from './components/ListItem';
 import OrderList from './components/OrderList';
@@ -59,6 +60,9 @@ const MDPreviewClient: React.FC<MDPreviewClientProps> = ({markdown}) => {
           },
           strong: {
             component: Strong,
+          },
+          img: {
+            component: Img,
           },
           ol: {
             component: OrderList,
