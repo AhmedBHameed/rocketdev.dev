@@ -9,6 +9,7 @@ const GET_COURSE_CONTENTS_QUERY = gql`
       isPremium
       postContents(lang: $lang) {
         id
+        headLines
         postImage
         lang
         contentPreview

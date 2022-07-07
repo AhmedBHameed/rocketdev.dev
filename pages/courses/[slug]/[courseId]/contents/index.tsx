@@ -21,7 +21,7 @@ import GET_COURSE_CONTENTS_QUERY from '../../../../../graphql/GET_COURSE_CONTENT
 import theme from '../../../../../styles/theme';
 import apolloClient from '../../../../../utils/apolloClient';
 import clsx from '../../../../../utils/clsx';
-import getPathWithoutLastSlash from '../../../../../utils/getPathWithoutLastSlash';
+import {getPathWithoutStartSlash} from '../../../../../utils/getPathWithoutLastSlash';
 import slugToTitle from '../../../../../utils/slugToTitle';
 import titleToSlug from '../../../../../utils/titleToSlug';
 
@@ -30,19 +30,21 @@ interface CourseContent {
   courseSlug: string;
 }
 
-// remove the last back slash from the path
-
 const CourseContent = ({courseContents, courseSlug}: CourseContent) => {
   const router = useRouter();
   const [selectedPostUri, setSelectedPostUri] = useState('');
 
-  const onSelectedPost = useCallback((postUri: string) => {
-    setSelectedPostUri(postUri);
-    window.open(
-      `${getPathWithoutLastSlash(router.asPath)}${ROUTES.post.path}/${postUri}`,
-      '_blank'
-    );
-  }, []);
+  const onSelectedPost = useCallback(
+    (postUri: string) => {
+      setSelectedPostUri(postUri);
+      router.push(
+        `${getPathWithoutStartSlash(router.asPath)}${
+          ROUTES.post.path
+        }/${postUri}`
+      );
+    },
+    [router]
+  );
 
   return (
     <Layout>
@@ -90,7 +92,8 @@ const CourseContent = ({courseContents, courseSlug}: CourseContent) => {
                         as="span"
                         className={clsx('font-medium', theme.text)}
                       >
-                        {index}&nbsp;&nbsp;&nbsp;{slugToTitle(post.slug)}
+                        {index.toString().padStart(3, '0')}&nbsp;&nbsp;&nbsp;
+                        {slugToTitle(post.slug)}
                       </RadioGroup.Label>
                       <RadioGroup.Description
                         as="span"
@@ -99,12 +102,26 @@ const CourseContent = ({courseContents, courseSlug}: CourseContent) => {
                         <span className="block sm:inline">
                           {post.postContents[0].contentPreview}
                         </span>
-                        <span
-                          className="hidden sm:inline sm:mx-1"
-                          aria-hidden="true"
-                        >
-                          &middot;
-                        </span>
+
+                        <div className="flow-root">
+                          <ul role="list" className="ml-6 mt-4 divide-gray-200">
+                            {post.postContents[0].headLines.map((headLine) => (
+                              <li key={headLine}>
+                                <div className="focus-within:ring-2 focus-within:ring-indigo-500">
+                                  <h3
+                                    className={clsx(
+                                      'text-sm',
+                                      'font-semibold',
+                                      theme.text
+                                    )}
+                                  >
+                                    <small>{headLine.replace(/#/g, '')}</small>
+                                  </h3>
+                                </div>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       </RadioGroup.Description>
                     </span>
                   </span>

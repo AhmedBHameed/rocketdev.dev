@@ -1,8 +1,8 @@
-const getPathWithoutLastSlash = (path: string) => {
-  if (path.endsWith('/')) {
+const getPathWithoutStartSlash = (path: string) => {
+  if (path.startsWith('/')) {
     return path.slice(0, -1);
   }
   return path;
 };
 
-export default getPathWithoutLastSlash;
+export {getPathWithoutStartSlash};

@@ -1,17 +1,20 @@
-import React, {useCallback} from 'react';
+import React from 'react';
 import {HTTP_CODE_STATUSES} from '../../config/HTTP_CODE_STATUS';
 import RocketDevSvg from '../SVG/LogoSvg';
 
 interface AlertErrorProps {
   message?: string;
   httpStatusCode?: number;
+  onActionClicked?: () => void;
+  actionLabel?: string;
 }
 
-const AlertError: React.FC<AlertErrorProps> = ({message, httpStatusCode}) => {
-  const refreshPage = useCallback(() => {
-    window.location.reload();
-  }, []);
-
+const AlertError: React.FC<AlertErrorProps> = ({
+  message,
+  actionLabel,
+  httpStatusCode,
+  onActionClicked,
+}) => {
   const httpError = HTTP_CODE_STATUSES.find(
     (status) => status.code == (httpStatusCode || '')
   );
@@ -31,14 +34,16 @@ const AlertError: React.FC<AlertErrorProps> = ({message, httpStatusCode}) => {
               {httpError?.phrase}
             </h1>
             <p className="mt-2 text-base text-gray-500">{message}</p>
-            <div className="mt-6">
-              <button
-                onClick={refreshPage}
-                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-              >
-                Refresh the page
-              </button>
-            </div>
+            {onActionClicked && (
+              <div className="mt-6">
+                <button
+                  onClick={onActionClicked}
+                  className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                >
+                  {actionLabel}
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </main>

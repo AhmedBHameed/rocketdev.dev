@@ -7,6 +7,7 @@ import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import React from 'react';
 import AlertError from '../../../../../../../components/AlertError/AlertError';
 import Layout from '../../../../../../../components/Layout';
+import useNavigateToLogin from '../../../../../../../components/Login/hooks/navigateToLoginHook';
 import PostContent from '../../../../../../../components/PostContent/PostContent';
 import {
   GetPremiumPostQuery,
@@ -26,10 +27,29 @@ interface CoursePost {
 }
 
 const CoursePost: NextPage<CoursePost> = ({post, error}) => {
+  const {goToLogin} = useNavigateToLogin();
+
+  let alertErrorAction;
+  let alertErrorActionLabel = '';
+  switch (error?.status) {
+    case 401:
+      alertErrorAction = goToLogin;
+      alertErrorActionLabel = 'Go to login';
+      break;
+    default:
+      alertErrorAction = undefined;
+      alertErrorActionLabel = '';
+  }
+
   if (error)
     return (
       <Layout>
-        <AlertError message={error.message} httpStatusCode={error.status} />
+        <AlertError
+          onActionClicked={alertErrorAction}
+          message={error.message}
+          httpStatusCode={error.status}
+          actionLabel={alertErrorActionLabel}
+        />
       </Layout>
     );
 
@@ -90,6 +110,9 @@ export const getServerSideProps: GetServerSideProps = async ({
     } else if (errorCode === 'FORBIDDEN') {
       httpError.message = errorMessage;
       httpError.status = 402;
+    } else if (errorCode === 'UNAUTHENTICATED') {
+      httpError.message = 'Unauthenticated Access';
+      httpError.status = 401;
     } else {
       httpError.message = errorMessage;
       httpError.status = 500;

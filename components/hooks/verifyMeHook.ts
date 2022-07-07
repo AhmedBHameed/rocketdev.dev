@@ -22,7 +22,6 @@ const useVerifyMe = () => {
       console.error('<VerifyMeHook />', error);
       setError(error);
       setLoading(false);
-      goToLogin();
     }
   }, [goToLogin]);
 

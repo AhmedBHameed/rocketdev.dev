@@ -11,63 +11,16 @@
         '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
         '    at Generator.next (<anonymous>)',
         '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
         '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
       ],
       message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ]
+      locations: [ { line: 1, column: 31 } ],
+      path: [ 'querier' ]
     }
   },
   level: 'error',
-  timestamp: '2022-07-03 15:36:51',
-  stack: undefined
-}
-{
-  message: 'Permission denied! It is sad that you are not among premium members',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'FORBIDDEN',
-    serviceName: 'coding_school',
-    exception: {
-      stacktrace: [
-        'ForbiddenError: Permission denied! It is sad that you are not among premium members',
-        '    at CourseDataSource.eval (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:39:23)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:5:58)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: 'Permission denied! It is sad that you are not among premium members',
-      locations: [ { line: 1, column: 90 } ],
-      path: [ 'getCourseContents' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-03 15:49:53',
-  stack: undefined
-}
-{
-  message: 'Permission denied! It is sad that you are not among premium members',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'FORBIDDEN',
-    serviceName: 'coding_school',
-    exception: {
-      stacktrace: [
-        'ForbiddenError: Permission denied! It is sad that you are not among premium members',
-        '    at CourseDataSource.eval (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:39:23)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:5:58)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: 'Permission denied! It is sad that you are not among premium members',
-      locations: [ { line: 1, column: 90 } ],
-      path: [ 'getCourseContents' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-03 15:49:53',
+  timestamp: '2022-07-07 21:01:08',
   stack: undefined
 }
 {
@@ -87,1285 +40,12 @@
         '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
       ],
       message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ]
+      locations: [ { line: 1, column: 2 } ],
+      path: [ 'refreshTokens' ]
     }
   },
   level: 'error',
-  timestamp: '2022-07-03 15:52:54',
-  stack: undefined
-}
-{
-  message: 'request to http://localhost:5002/graphql failed, reason: read ECONNRESET',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'INTERNAL_SERVER_ERROR',
-    exception: {
-      stacktrace: [
-        'FetchError: request to http://localhost:5002/graphql failed, reason: read ECONNRESET',
-        '    at ClientRequest.<anonymous> (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/minipass-fetch/lib/index.js:130:14)',
-        '    at ClientRequest.emit (node:events:520:28)',
-        '    at ClientRequest.emit (node:domain:475:12)',
-        '    at Socket.socketErrorListener (node:_http_client:442:9)',
-        '    at Socket.emit (node:events:532:35)',
-        '    at Socket.emit (node:domain:475:12)',
-        '    at emitErrorNT (node:internal/streams/destroy:157:8)',
-        '    at emitErrorCloseNT (node:internal/streams/destroy:122:3)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:83:21)'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-03 15:52:58',
-  stack: undefined
-}
-{
-  message: 'request to http://localhost:5002/graphql failed, reason: socket hang up',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'INTERNAL_SERVER_ERROR',
-    exception: {
-      stacktrace: [
-        'FetchError: request to http://localhost:5002/graphql failed, reason: socket hang up',
-        '    at ClientRequest.<anonymous> (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/minipass-fetch/lib/index.js:130:14)',
-        '    at ClientRequest.emit (node:events:520:28)',
-        '    at ClientRequest.emit (node:domain:475:12)',
-        '    at Socket.socketOnEnd (node:_http_client:466:9)',
-        '    at Socket.emit (node:events:532:35)',
-        '    at Socket.emit (node:domain:475:12)',
-        '    at endReadableNT (node:internal/streams/readable:1346:12)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:83:21)'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-03 15:53:40',
-  stack: undefined
-}
-{
-  message: 'request to http://localhost:5002/graphql failed, reason: socket hang up',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'INTERNAL_SERVER_ERROR',
-    exception: {
-      stacktrace: [
-        'FetchError: request to http://localhost:5002/graphql failed, reason: socket hang up',
-        '    at ClientRequest.<anonymous> (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/minipass-fetch/lib/index.js:130:14)',
-        '    at ClientRequest.emit (node:events:520:28)',
-        '    at ClientRequest.emit (node:domain:475:12)',
-        '    at Socket.socketOnEnd (node:_http_client:466:9)',
-        '    at Socket.emit (node:events:532:35)',
-        '    at Socket.emit (node:domain:475:12)',
-        '    at endReadableNT (node:internal/streams/readable:1346:12)',
-        '    at processTicksAndRejections (node:internal/process/task_queues:83:21)'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-03 16:18:16',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      stacktrace: [
-        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
-        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-03 16:18:19',
-  stack: undefined
-}
-{
-  message: 'Parameter "filter" to find() must be an object, got [object Object],[object Object]',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'INTERNAL_SERVER_ERROR',
-    serviceName: 'coding_school',
-    exception: {
-      stacktrace: [
-        'Error: Parameter "filter" to find() must be an object, got [object Object],[object Object]',
-        '    at PostContentDataSource.unknownError (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:70:16)',
-        '    at PostContentDataSource.eval (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:48:28)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:5:58)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: 'Parameter "filter" to find() must be an object, got [object Object],[object Object]',
-      locations: [ { line: 1, column: 158 } ],
-      path: [ 'getCourseContents', 0, 'postContents' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-03 16:18:27',
-  stack: undefined
-}
-{
-  message: 'Parameter "filter" to find() must be an object, got [object Object],[object Object]',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'INTERNAL_SERVER_ERROR',
-    serviceName: 'coding_school',
-    exception: {
-      stacktrace: [
-        'Error: Parameter "filter" to find() must be an object, got [object Object],[object Object]',
-        '    at PostContentDataSource.unknownError (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:70:16)',
-        '    at PostContentDataSource.eval (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:48:28)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:5:58)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: 'Parameter "filter" to find() must be an object, got [object Object],[object Object]',
-      locations: [ { line: 1, column: 158 } ],
-      path: [ 'getCourseContents', 1, 'postContents' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-03 16:18:27',
-  stack: undefined
-}
-{
-  message: 'PlanExecutor error during aggregation :: caused by :: $trunc only supports numeric types, not string',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'INTERNAL_SERVER_ERROR',
-    serviceName: 'coding_school',
-    ok: 0,
-    codeName: 'Location51081',
-    exception: {
-      stacktrace: [
-        'Error: PlanExecutor error during aggregation :: caused by :: $trunc only supports numeric types, not string',
-        '    at PostContentDataSource.unknownError (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:70:16)',
-        '    at PostContentDataSource.eval (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:48:28)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:5:58)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: 'PlanExecutor error during aggregation :: caused by :: $trunc only supports numeric types, not string',
-      locations: [ { line: 1, column: 158 } ],
-      path: [ 'getCourseContents', 0, 'postContents' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-03 16:18:56',
-  stack: undefined
-}
-{
-  message: 'PlanExecutor error during aggregation :: caused by :: $trunc only supports numeric types, not string',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'INTERNAL_SERVER_ERROR',
-    serviceName: 'coding_school',
-    ok: 0,
-    codeName: 'Location51081',
-    exception: {
-      stacktrace: [
-        'Error: PlanExecutor error during aggregation :: caused by :: $trunc only supports numeric types, not string',
-        '    at PostContentDataSource.unknownError (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:70:16)',
-        '    at PostContentDataSource.eval (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:48:28)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:5:58)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: 'PlanExecutor error during aggregation :: caused by :: $trunc only supports numeric types, not string',
-      locations: [ { line: 1, column: 158 } ],
-      path: [ 'getCourseContents', 1, 'postContents' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-03 16:18:56',
-  stack: undefined
-}
-{
-  message: 'PlanExecutor error during aggregation :: caused by :: $trunc only supports numeric types, not string',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'INTERNAL_SERVER_ERROR',
-    serviceName: 'coding_school',
-    ok: 0,
-    codeName: 'Location51081',
-    exception: {
-      stacktrace: [
-        'Error: PlanExecutor error during aggregation :: caused by :: $trunc only supports numeric types, not string',
-        '    at PostContentDataSource.unknownError (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:70:16)',
-        '    at PostContentDataSource.eval (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:48:28)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:5:58)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: 'PlanExecutor error during aggregation :: caused by :: $trunc only supports numeric types, not string',
-      locations: [ { line: 1, column: 158 } ],
-      path: [ 'getCourseContents', 1, 'postContents' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-03 16:19:05',
-  stack: undefined
-}
-{
-  message: 'PlanExecutor error during aggregation :: caused by :: $trunc only supports numeric types, not string',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'INTERNAL_SERVER_ERROR',
-    serviceName: 'coding_school',
-    ok: 0,
-    codeName: 'Location51081',
-    exception: {
-      stacktrace: [
-        'Error: PlanExecutor error during aggregation :: caused by :: $trunc only supports numeric types, not string',
-        '    at PostContentDataSource.unknownError (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:70:16)',
-        '    at PostContentDataSource.eval (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:48:28)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:5:58)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: 'PlanExecutor error during aggregation :: caused by :: $trunc only supports numeric types, not string',
-      locations: [ { line: 1, column: 158 } ],
-      path: [ 'getCourseContents', 0, 'postContents' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-03 16:19:05',
-  stack: undefined
-}
-{
-  message: 'PlanExecutor error during aggregation :: caused by :: $trunc only supports numeric types, not string',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'INTERNAL_SERVER_ERROR',
-    serviceName: 'coding_school',
-    ok: 0,
-    codeName: 'Location51081',
-    exception: {
-      stacktrace: [
-        'Error: PlanExecutor error during aggregation :: caused by :: $trunc only supports numeric types, not string',
-        '    at PostContentDataSource.unknownError (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:70:16)',
-        '    at PostContentDataSource.eval (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:48:28)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:5:58)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: 'PlanExecutor error during aggregation :: caused by :: $trunc only supports numeric types, not string',
-      locations: [ { line: 1, column: 158 } ],
-      path: [ 'getCourseContents', 0, 'postContents' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-03 16:19:10',
-  stack: undefined
-}
-{
-  message: 'PlanExecutor error during aggregation :: caused by :: $trunc only supports numeric types, not string',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'INTERNAL_SERVER_ERROR',
-    serviceName: 'coding_school',
-    ok: 0,
-    codeName: 'Location51081',
-    exception: {
-      stacktrace: [
-        'Error: PlanExecutor error during aggregation :: caused by :: $trunc only supports numeric types, not string',
-        '    at PostContentDataSource.unknownError (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:70:16)',
-        '    at PostContentDataSource.eval (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:48:28)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:5:58)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: 'PlanExecutor error during aggregation :: caused by :: $trunc only supports numeric types, not string',
-      locations: [ { line: 1, column: 158 } ],
-      path: [ 'getCourseContents', 1, 'postContents' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-03 16:19:10',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      stacktrace: [
-        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
-        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-03 20:59:04',
-  stack: undefined
-}
-{
-  message: 'Variable "$courseId" of required type "ID!" was not provided.',
-  locations: [ { line: 53, column: 30 } ],
-  path: undefined,
-  extensions: {
-    code: 'BAD_USER_INPUT',
-    exception: {
-      stacktrace: [
-        'GraphQLError: Variable "$courseId" of required type "ID!" was not provided.',
-        '    at coerceVariableValues (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/graphql/execution/values.js:105:11)',
-        '    at getVariableValues (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/graphql/execution/values.js:45:21)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:970:45',
-        '    at NoopContextManager.with (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@opentelemetry/api/src/context/NoopContextManager.ts:31:19)',
-        '    at ContextAPI.with (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@opentelemetry/api/src/api/context.ts:77:42)',
-        '    at NoopTracer.startActiveSpan (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@opentelemetry/api/src/trace/NoopTracer.ts:94:24)',
-        '    at ProxyTracer.startActiveSpan (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@opentelemetry/api/src/trace/ProxyTracer.ts:51:20)',
-        '    at ApolloGateway.validateIncomingRequest (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:962:19)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:826:41',
-        '    at NoopContextManager.with (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@opentelemetry/api/src/context/NoopContextManager.ts:31:19)'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-03 20:59:43',
-  stack: undefined
-}
-{
-  message: 'Variable "$courseId" of required type "ID!" was not provided.',
-  locations: [ { line: 53, column: 30 } ],
-  path: undefined,
-  extensions: {
-    code: 'BAD_USER_INPUT',
-    exception: {
-      stacktrace: [
-        'GraphQLError: Variable "$courseId" of required type "ID!" was not provided.',
-        '    at coerceVariableValues (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/graphql/execution/values.js:105:11)',
-        '    at getVariableValues (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/graphql/execution/values.js:45:21)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:970:45',
-        '    at NoopContextManager.with (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@opentelemetry/api/src/context/NoopContextManager.ts:31:19)',
-        '    at ContextAPI.with (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@opentelemetry/api/src/api/context.ts:77:42)',
-        '    at NoopTracer.startActiveSpan (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@opentelemetry/api/src/trace/NoopTracer.ts:94:24)',
-        '    at ProxyTracer.startActiveSpan (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@opentelemetry/api/src/trace/ProxyTracer.ts:51:20)',
-        '    at ApolloGateway.validateIncomingRequest (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:962:19)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:826:41',
-        '    at NoopContextManager.with (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@opentelemetry/api/src/context/NoopContextManager.ts:31:19)'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-03 21:00:54',
-  stack: undefined
-}
-{
-  message: 'Variable "$courseId" of required type "ID!" was not provided.',
-  locations: [ { line: 53, column: 30 } ],
-  path: undefined,
-  extensions: {
-    code: 'BAD_USER_INPUT',
-    exception: {
-      stacktrace: [
-        'GraphQLError: Variable "$courseId" of required type "ID!" was not provided.',
-        '    at coerceVariableValues (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/graphql/execution/values.js:105:11)',
-        '    at getVariableValues (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/graphql/execution/values.js:45:21)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:970:45',
-        '    at NoopContextManager.with (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@opentelemetry/api/src/context/NoopContextManager.ts:31:19)',
-        '    at ContextAPI.with (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@opentelemetry/api/src/api/context.ts:77:42)',
-        '    at NoopTracer.startActiveSpan (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@opentelemetry/api/src/trace/NoopTracer.ts:94:24)',
-        '    at ProxyTracer.startActiveSpan (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@opentelemetry/api/src/trace/ProxyTracer.ts:51:20)',
-        '    at ApolloGateway.validateIncomingRequest (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:962:19)',
-        '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:826:41',
-        '    at NoopContextManager.with (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@opentelemetry/api/src/context/NoopContextManager.ts:31:19)'
-      ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-03 21:00:54',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      stacktrace: [
-        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
-        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-03 21:14:29',
-  stack: undefined
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      stacktrace: [
-        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
-        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-03 21:47:58',
-  stack: undefined
-}
-{
-  level: 'error',
-  message: " A valid schema couldn't be composed. The following composition errors were found:\n" +
-    '\tThe following supergraph API query:\n' +
-    'mutation {\n' +
-    '  mutator {\n' +
-    '    email\n' +
-    '  }\n' +
-    '}\n' +
-    'cannot be satisfied by the subgraphs because:\n' +
-    '- from subgraph "auth":\n' +
-    '  - cannot find field "Mutator.email".\n' +
-    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Mutator", the key field(s) cannot be resolved from subgraph "auth".\n' +
-    '\tThe following supergraph API query:\n' +
-    'mutation {\n' +
-    '  mutator {\n' +
-    '    upsertCourse(input: {id: "<any id>"}) {\n' +
-    '      ...\n' +
-    '    }\n' +
-    '  }\n' +
-    '}\n' +
-    'cannot be satisfied by the subgraphs because:\n' +
-    '- from subgraph "auth":\n' +
-    '  - cannot find field "Mutator.upsertCourse".\n' +
-    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Mutator", the key field(s) cannot be resolved from subgraph "auth".\n' +
-    '\tThe following supergraph API query:\n' +
-    'mutation {\n' +
-    '  mutator {\n' +
-    '    upsertTag(input: {id: "<any id>"}) {\n' +
-    '      ...\n' +
-    '    }\n' +
-    '  }\n' +
-    '}\n' +
-    'cannot be satisfied by the subgraphs because:\n' +
-    '- from subgraph "auth":\n' +
-    '  - cannot find field "Mutator.upsertTag".\n' +
-    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Mutator", the key field(s) cannot be resolved from subgraph "auth".\n' +
-    '\tThe following supergraph API query:\n' +
-    'mutation {\n' +
-    '  mutator {\n' +
-    '    upsertPost(input: {id: "<any id>"}) {\n' +
-    '      ...\n' +
-    '    }\n' +
-    '  }\n' +
-    '}\n' +
-    'cannot be satisfied by the subgraphs because:\n' +
-    '- from subgraph "auth":\n' +
-    '  - cannot find field "Mutator.upsertPost".\n' +
-    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Mutator", the key field(s) cannot be resolved from subgraph "auth".\n' +
-    '\tThe following supergraph API query:\n' +
-    'mutation {\n' +
-    '  mutator {\n' +
-    '    deletePost(id: "<any id>") {\n' +
-    '      ...\n' +
-    '    }\n' +
-    '  }\n' +
-    '}\n' +
-    'cannot be satisfied by the subgraphs because:\n' +
-    '- from subgraph "auth":\n' +
-    '  - cannot find field "Mutator.deletePost".\n' +
-    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Mutator", the key field(s) cannot be resolved from subgraph "auth".\n' +
-    '\tThe following supergraph API query:\n' +
-    'mutation {\n' +
-    '  mutator {\n' +
-    '    upsertPostContent(postId: "<any id>", input: {}) {\n' +
-    '      ...\n' +
-    '    }\n' +
-    '  }\n' +
-    '}\n' +
-    'cannot be satisfied by the subgraphs because:\n' +
-    '- from subgraph "auth":\n' +
-    '  - cannot find field "Mutator.upsertPostContent".\n' +
-    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Mutator", the key field(s) cannot be resolved from subgraph "auth".\n' +
-    '\tThe following supergraph API query:\n' +
-    'mutation {\n' +
-    '  mutator {\n' +
-    '    upsertFeedback(\n' +
-    '      input: {id: "<any id>", title: "A string value", message: "A string value"}\n' +
-    '    ) {\n' +
-    '      ...\n' +
-    '    }\n' +
-    '  }\n' +
-    '}\n' +
-    'cannot be satisfied by the subgraphs because:\n' +
-    '- from subgraph "auth":\n' +
-    '  - cannot find field "Mutator.upsertFeedback".\n' +
-    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Mutator", the key field(s) cannot be resolved from subgraph "auth".\n' +
-    '\tThe following supergraph API query:\n' +
-    '{\n' +
-    '  querier {\n' +
-    '    email\n' +
-    '  }\n' +
-    '}\n' +
-    'cannot be satisfied by the subgraphs because:\n' +
-    '- from subgraph "auth":\n' +
-    '  - cannot find field "Querier.email".\n' +
-    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Querier", the key field(s) cannot be resolved from subgraph "auth".\n' +
-    '\tThe following supergraph API query:\n' +
-    '{\n' +
-    '  querier {\n' +
-    '    listCoursePosts(courseId: "<any id>") {\n' +
-    '      ...\n' +
-    '    }\n' +
-    '  }\n' +
-    '}\n' +
-    'cannot be satisfied by the subgraphs because:\n' +
-    '- from subgraph "auth":\n' +
-    '  - cannot find field "Querier.listCoursePosts".\n' +
-    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Querier", the key field(s) cannot be resolved from subgraph "auth".\n' +
-    '\tThe following supergraph API query:\n' +
-    '{\n' +
-    '  querier {\n' +
-    '    totalPosts\n' +
-    '  }\n' +
-    '}\n' +
-    'cannot be satisfied by the subgraphs because:\n' +
-    '- from subgraph "auth":\n' +
-    '  - cannot find field "Querier.totalPosts".\n' +
-    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Querier", the key field(s) cannot be resolved from subgraph "auth".\n' +
-    '\tThe following supergraph API query:\n' +
-    '{\n' +
-    '  querier {\n' +
-    '    totalFreeArticles\n' +
-    '  }\n' +
-    '}\n' +
-    'cannot be satisfied by the subgraphs because:\n' +
-    '- from subgraph "auth":\n' +
-    '  - cannot find field "Querier.totalFreeArticles".\n' +
-    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Querier", the key field(s) cannot be resolved from subgraph "auth".\n' +
-    '\tThe following supergraph API query:\n' +
-    '{\n' +
-    '  querier {\n' +
-    '    listPosts(input: {}) {\n' +
-    '      ...\n' +
-    '    }\n' +
-    '  }\n' +
-    '}\n' +
-    'cannot be satisfied by the subgraphs because:\n' +
-    '- from subgraph "auth":\n' +
-    '  - cannot find field "Querier.listPosts".\n' +
-    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Querier", the key field(s) cannot be resolved from subgraph "auth".\n' +
-    '\tThe following supergraph API query:\n' +
-    '{\n' +
-    '  querier {\n' +
-    '    listTags(input: {}) {\n' +
-    '      ...\n' +
-    '    }\n' +
-    '  }\n' +
-    '}\n' +
-    'cannot be satisfied by the subgraphs because:\n' +
-    '- from subgraph "auth":\n' +
-    '  - cannot find field "Querier.listTags".\n' +
-    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Querier", the key field(s) cannot be resolved from subgraph "auth".\n' +
-    '\tThe following supergraph API query:\n' +
-    '{\n' +
-    '  querier {\n' +
-    '    listFeedback(input: {}) {\n' +
-    '      ...\n' +
-    '    }\n' +
-    '  }\n' +
-    '}\n' +
-    'cannot be satisfied by the subgraphs because:\n' +
-    '- from subgraph "auth":\n' +
-    '  - cannot find field "Querier.listFeedback".\n' +
-    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Querier", the key field(s) cannot be resolved from subgraph "auth".\n' +
-    '\tThe following supergraph API query:\n' +
-    '{\n' +
-    '  querier {\n' +
-    '    getPremiumPost(\n' +
-    '      input: {userId: "<any id>", courseId: "<any id>", postNanoId: "<any id>", postSlug: "A string value"}\n' +
-    '    ) {\n' +
-    '      ...\n' +
-    '    }\n' +
-    '  }\n' +
-    '}\n' +
-    'cannot be satisfied by the subgraphs because:\n' +
-    '- from subgraph "auth":\n' +
-    '  - cannot find field "Querier.getPremiumPost".\n' +
-    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Querier", the key field(s) cannot be resolved from subgraph "auth".',
-  stack: "Error: A valid schema couldn't be composed. The following composition errors were found:\n" +
-    '\tThe following supergraph API query:\n' +
-    'mutation {\n' +
-    '  mutator {\n' +
-    '    email\n' +
-    '  }\n' +
-    '}\n' +
-    'cannot be satisfied by the subgraphs because:\n' +
-    '- from subgraph "auth":\n' +
-    '  - cannot find field "Mutator.email".\n' +
-    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Mutator", the key field(s) cannot be resolved from subgraph "auth".\n' +
-    '\tThe following supergraph API query:\n' +
-    'mutation {\n' +
-    '  mutator {\n' +
-    '    upsertCourse(input: {id: "<any id>"}) {\n' +
-    '      ...\n' +
-    '    }\n' +
-    '  }\n' +
-    '}\n' +
-    'cannot be satisfied by the subgraphs because:\n' +
-    '- from subgraph "auth":\n' +
-    '  - cannot find field "Mutator.upsertCourse".\n' +
-    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Mutator", the key field(s) cannot be resolved from subgraph "auth".\n' +
-    '\tThe following supergraph API query:\n' +
-    'mutation {\n' +
-    '  mutator {\n' +
-    '    upsertTag(input: {id: "<any id>"}) {\n' +
-    '      ...\n' +
-    '    }\n' +
-    '  }\n' +
-    '}\n' +
-    'cannot be satisfied by the subgraphs because:\n' +
-    '- from subgraph "auth":\n' +
-    '  - cannot find field "Mutator.upsertTag".\n' +
-    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Mutator", the key field(s) cannot be resolved from subgraph "auth".\n' +
-    '\tThe following supergraph API query:\n' +
-    'mutation {\n' +
-    '  mutator {\n' +
-    '    upsertPost(input: {id: "<any id>"}) {\n' +
-    '      ...\n' +
-    '    }\n' +
-    '  }\n' +
-    '}\n' +
-    'cannot be satisfied by the subgraphs because:\n' +
-    '- from subgraph "auth":\n' +
-    '  - cannot find field "Mutator.upsertPost".\n' +
-    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Mutator", the key field(s) cannot be resolved from subgraph "auth".\n' +
-    '\tThe following supergraph API query:\n' +
-    'mutation {\n' +
-    '  mutator {\n' +
-    '    deletePost(id: "<any id>") {\n' +
-    '      ...\n' +
-    '    }\n' +
-    '  }\n' +
-    '}\n' +
-    'cannot be satisfied by the subgraphs because:\n' +
-    '- from subgraph "auth":\n' +
-    '  - cannot find field "Mutator.deletePost".\n' +
-    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Mutator", the key field(s) cannot be resolved from subgraph "auth".\n' +
-    '\tThe following supergraph API query:\n' +
-    'mutation {\n' +
-    '  mutator {\n' +
-    '    upsertPostContent(postId: "<any id>", input: {}) {\n' +
-    '      ...\n' +
-    '    }\n' +
-    '  }\n' +
-    '}\n' +
-    'cannot be satisfied by the subgraphs because:\n' +
-    '- from subgraph "auth":\n' +
-    '  - cannot find field "Mutator.upsertPostContent".\n' +
-    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Mutator", the key field(s) cannot be resolved from subgraph "auth".\n' +
-    '\tThe following supergraph API query:\n' +
-    'mutation {\n' +
-    '  mutator {\n' +
-    '    upsertFeedback(\n' +
-    '      input: {id: "<any id>", title: "A string value", message: "A string value"}\n' +
-    '    ) {\n' +
-    '      ...\n' +
-    '    }\n' +
-    '  }\n' +
-    '}\n' +
-    'cannot be satisfied by the subgraphs because:\n' +
-    '- from subgraph "auth":\n' +
-    '  - cannot find field "Mutator.upsertFeedback".\n' +
-    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Mutator", the key field(s) cannot be resolved from subgraph "auth".\n' +
-    '\tThe following supergraph API query:\n' +
-    '{\n' +
-    '  querier {\n' +
-    '    email\n' +
-    '  }\n' +
-    '}\n' +
-    'cannot be satisfied by the subgraphs because:\n' +
-    '- from subgraph "auth":\n' +
-    '  - cannot find field "Querier.email".\n' +
-    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Querier", the key field(s) cannot be resolved from subgraph "auth".\n' +
-    '\tThe following supergraph API query:\n' +
-    '{\n' +
-    '  querier {\n' +
-    '    listCoursePosts(courseId: "<any id>") {\n' +
-    '      ...\n' +
-    '    }\n' +
-    '  }\n' +
-    '}\n' +
-    'cannot be satisfied by the subgraphs because:\n' +
-    '- from subgraph "auth":\n' +
-    '  - cannot find field "Querier.listCoursePosts".\n' +
-    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Querier", the key field(s) cannot be resolved from subgraph "auth".\n' +
-    '\tThe following supergraph API query:\n' +
-    '{\n' +
-    '  querier {\n' +
-    '    totalPosts\n' +
-    '  }\n' +
-    '}\n' +
-    'cannot be satisfied by the subgraphs because:\n' +
-    '- from subgraph "auth":\n' +
-    '  - cannot find field "Querier.totalPosts".\n' +
-    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Querier", the key field(s) cannot be resolved from subgraph "auth".\n' +
-    '\tThe following supergraph API query:\n' +
-    '{\n' +
-    '  querier {\n' +
-    '    totalFreeArticles\n' +
-    '  }\n' +
-    '}\n' +
-    'cannot be satisfied by the subgraphs because:\n' +
-    '- from subgraph "auth":\n' +
-    '  - cannot find field "Querier.totalFreeArticles".\n' +
-    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Querier", the key field(s) cannot be resolved from subgraph "auth".\n' +
-    '\tThe following supergraph API query:\n' +
-    '{\n' +
-    '  querier {\n' +
-    '    listPosts(input: {}) {\n' +
-    '      ...\n' +
-    '    }\n' +
-    '  }\n' +
-    '}\n' +
-    'cannot be satisfied by the subgraphs because:\n' +
-    '- from subgraph "auth":\n' +
-    '  - cannot find field "Querier.listPosts".\n' +
-    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Querier", the key field(s) cannot be resolved from subgraph "auth".\n' +
-    '\tThe following supergraph API query:\n' +
-    '{\n' +
-    '  querier {\n' +
-    '    listTags(input: {}) {\n' +
-    '      ...\n' +
-    '    }\n' +
-    '  }\n' +
-    '}\n' +
-    'cannot be satisfied by the subgraphs because:\n' +
-    '- from subgraph "auth":\n' +
-    '  - cannot find field "Querier.listTags".\n' +
-    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Querier", the key field(s) cannot be resolved from subgraph "auth".\n' +
-    '\tThe following supergraph API query:\n' +
-    '{\n' +
-    '  querier {\n' +
-    '    listFeedback(input: {}) {\n' +
-    '      ...\n' +
-    '    }\n' +
-    '  }\n' +
-    '}\n' +
-    'cannot be satisfied by the subgraphs because:\n' +
-    '- from subgraph "auth":\n' +
-    '  - cannot find field "Querier.listFeedback".\n' +
-    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Querier", the key field(s) cannot be resolved from subgraph "auth".\n' +
-    '\tThe following supergraph API query:\n' +
-    '{\n' +
-    '  querier {\n' +
-    '    getPremiumPost(\n' +
-    '      input: {userId: "<any id>", courseId: "<any id>", postNanoId: "<any id>", postSlug: "A string value"}\n' +
-    '    ) {\n' +
-    '      ...\n' +
-    '    }\n' +
-    '  }\n' +
-    '}\n' +
-    'cannot be satisfied by the subgraphs because:\n' +
-    '- from subgraph "auth":\n' +
-    '  - cannot find field "Querier.getPremiumPost".\n' +
-    '  - cannot move to subgraph "coding_school" using @key(fields: "id email userActionsAsJson") of "Querier", the key field(s) cannot be resolved from subgraph "auth".\n' +
-    '    at IntrospectAndCompose.createSupergraphFromSubgraphList (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/supergraphManagers/IntrospectAndCompose/index.ts:118:13)\n' +
-    '    at IntrospectAndCompose.updateSupergraphSdl (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/supergraphManagers/IntrospectAndCompose/index.ts:106:32)\n' +
-    '    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n' +
-    '    at async IntrospectAndCompose.initialize (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/supergraphManagers/IntrospectAndCompose/index.ts:62:30)\n' +
-    '    at async ApolloGateway.initializeSupergraphManager (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:449:22)\n' +
-    '    at async ApolloGateway.load (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:339:7)',
-  timestamp: '2022-07-03 23:47:18'
-}
-{
-  level: 'error',
-  message: ` Couldn't load service definitions for "auth" at http://localhost:5001/graphql: request to http://localhost:5001/graphql failed, reason: socket hang up`,
-  stack: `Error: Couldn't load service definitions for "auth" at http://localhost:5001/graphql: request to http://localhost:5001/graphql failed, reason: socket hang up\n` +
-    '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/supergraphManagers/IntrospectAndCompose/loadServicesFromRemoteEndpoint.ts:77:15\n' +
-    '    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n' +
-    '    at async Promise.all (index 0)\n' +
-    '    at async loadServicesFromRemoteEndpoint (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/supergraphManagers/IntrospectAndCompose/loadServicesFromRemoteEndpoint.ts:81:30)\n' +
-    '    at async IntrospectAndCompose.updateSupergraphSdl (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/supergraphManagers/IntrospectAndCompose/index.ts:92:20)\n' +
-    '    at async IntrospectAndCompose.initialize (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/supergraphManagers/IntrospectAndCompose/index.ts:62:30)\n' +
-    '    at async ApolloGateway.initializeSupergraphManager (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:449:22)\n' +
-    '    at async ApolloGateway.load (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:339:7)',
-  timestamp: '2022-07-03 23:49:39'
-}
-{
-  message: 'Unauthorized token! Invalid or empty tokens.',
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'UNAUTHENTICATED',
-    serviceName: 'auth',
-    exception: {
-      stacktrace: [
-        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
-        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: 'Unauthorized token! Invalid or empty tokens.',
-      locations: [ { line: 1, column: 25 } ],
-      path: [ 'verifyMe' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-03 23:50:10',
-  stack: undefined
-}
-{
-  message: "We coudn't find the course you are looking for!",
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'NOT_FOUND',
-    serviceName: 'coding_school',
-    exception: {
-      stacktrace: [
-        "NotFoundError: We coudn't find the course you are looking for!",
-        '    at CourseDataSource.eval (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:40:23)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:5:58)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: "We coudn't find the course you are looking for!",
-      locations: [ { line: 1, column: 90 } ],
-      path: [ 'getCourseContents' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-03 23:50:17',
-  stack: undefined
-}
-{
-  message: "We coudn't find the course you are looking for!",
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'NOT_FOUND',
-    serviceName: 'coding_school',
-    exception: {
-      stacktrace: [
-        "NotFoundError: We coudn't find the course you are looking for!",
-        '    at CourseDataSource.eval (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:40:23)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:5:58)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: "We coudn't find the course you are looking for!",
-      locations: [ { line: 1, column: 90 } ],
-      path: [ 'getCourseContents' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-03 23:58:22',
-  stack: undefined
-}
-{
-  message: "We coudn't find the course you are looking for!",
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'NOT_FOUND',
-    serviceName: 'coding_school',
-    exception: {
-      stacktrace: [
-        "NotFoundError: We coudn't find the course you are looking for!",
-        '    at CourseDataSource.eval (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:40:23)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:5:58)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: "We coudn't find the course you are looking for!",
-      locations: [ { line: 1, column: 90 } ],
-      path: [ 'getCourseContents' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-03 23:58:23',
-  stack: undefined
-}
-{
-  message: "We coudn't find the course you are looking for!",
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'NOT_FOUND',
-    serviceName: 'coding_school',
-    exception: {
-      stacktrace: [
-        "NotFoundError: We coudn't find the course you are looking for!",
-        '    at CourseDataSource.eval (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:40:23)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:5:58)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: "We coudn't find the course you are looking for!",
-      locations: [ { line: 1, column: 90 } ],
-      path: [ 'getCourseContents' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-03 23:58:23',
-  stack: undefined
-}
-{
-  message: "We coudn't find the course you are looking for!",
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'NOT_FOUND',
-    serviceName: 'coding_school',
-    exception: {
-      stacktrace: [
-        "NotFoundError: We coudn't find the course you are looking for!",
-        '    at CourseDataSource.eval (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:40:23)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:5:58)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: "We coudn't find the course you are looking for!",
-      locations: [ { line: 1, column: 90 } ],
-      path: [ 'getCourseContents' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-03 23:59:32',
-  stack: undefined
-}
-{
-  message: "We coudn't find the course you are looking for!",
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'NOT_FOUND',
-    serviceName: 'coding_school',
-    exception: {
-      stacktrace: [
-        "NotFoundError: We coudn't find the course you are looking for!",
-        '    at CourseDataSource.eval (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:40:23)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:5:58)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: "We coudn't find the course you are looking for!",
-      locations: [ { line: 1, column: 90 } ],
-      path: [ 'getCourseContents' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-03 23:59:51',
-  stack: undefined
-}
-{
-  message: "We coudn't find the course you are looking for!",
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'NOT_FOUND',
-    serviceName: 'coding_school',
-    exception: {
-      stacktrace: [
-        "NotFoundError: We coudn't find the course you are looking for!",
-        '    at CourseDataSource.eval (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:40:23)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:5:58)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: "We coudn't find the course you are looking for!",
-      locations: [ { line: 1, column: 90 } ],
-      path: [ 'getCourseContents' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-04 00:00:02',
-  stack: undefined
-}
-{
-  message: "We coudn't find the course you are looking for!",
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'NOT_FOUND',
-    serviceName: 'coding_school',
-    exception: {
-      stacktrace: [
-        "NotFoundError: We coudn't find the course you are looking for!",
-        '    at CourseDataSource.eval (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:40:23)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:5:58)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: "We coudn't find the course you are looking for!",
-      locations: [ { line: 1, column: 90 } ],
-      path: [ 'getCourseContents' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-04 00:00:27',
-  stack: undefined
-}
-{
-  message: "We coudn't find the course you are looking for!",
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'NOT_FOUND',
-    serviceName: 'coding_school',
-    exception: {
-      stacktrace: [
-        "NotFoundError: We coudn't find the course you are looking for!",
-        '    at CourseDataSource.eval (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:40:23)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:5:58)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: "We coudn't find the course you are looking for!",
-      locations: [ { line: 1, column: 90 } ],
-      path: [ 'getCourseContents' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-04 00:00:35',
-  stack: undefined
-}
-{
-  message: "We coudn't find the course you are looking for!",
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'NOT_FOUND',
-    serviceName: 'coding_school',
-    exception: {
-      stacktrace: [
-        "NotFoundError: We coudn't find the course you are looking for!",
-        '    at CourseDataSource.eval (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:40:23)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:5:58)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: "We coudn't find the course you are looking for!",
-      locations: [ { line: 1, column: 90 } ],
-      path: [ 'getCourseContents' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-04 00:01:07',
-  stack: undefined
-}
-{
-  message: "We coudn't find the course you are looking for!",
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'NOT_FOUND',
-    serviceName: 'coding_school',
-    exception: {
-      stacktrace: [
-        "NotFoundError: We coudn't find the course you are looking for!",
-        '    at CourseDataSource.eval (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:40:23)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:5:58)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: "We coudn't find the course you are looking for!",
-      locations: [ { line: 1, column: 90 } ],
-      path: [ 'getCourseContents' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-04 00:02:03',
-  stack: undefined
-}
-{
-  message: "We coudn't find the course you are looking for!",
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'NOT_FOUND',
-    serviceName: 'coding_school',
-    exception: {
-      stacktrace: [
-        "NotFoundError: We coudn't find the course you are looking for!",
-        '    at CourseDataSource.eval (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:40:23)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:5:58)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: "We coudn't find the course you are looking for!",
-      locations: [ { line: 1, column: 90 } ],
-      path: [ 'getCourseContents' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-04 00:02:11',
-  stack: undefined
-}
-{
-  message: "We coudn't find the course you are looking for!",
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'NOT_FOUND',
-    serviceName: 'coding_school',
-    exception: {
-      stacktrace: [
-        "NotFoundError: We coudn't find the course you are looking for!",
-        '    at CourseDataSource.eval (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:40:23)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:5:58)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: "We coudn't find the course you are looking for!",
-      locations: [ { line: 1, column: 90 } ],
-      path: [ 'getCourseContents' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-04 00:02:30',
-  stack: undefined
-}
-{
-  message: "We coudn't find the course you are looking for!",
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'NOT_FOUND',
-    serviceName: 'coding_school',
-    exception: {
-      stacktrace: [
-        "NotFoundError: We coudn't find the course you are looking for!",
-        '    at CourseDataSource.eval (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:40:23)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:5:58)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: "We coudn't find the course you are looking for!",
-      locations: [ { line: 1, column: 90 } ],
-      path: [ 'getCourseContents' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-04 00:03:08',
-  stack: undefined
-}
-{
-  message: "We coudn't find the course you are looking for!",
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'NOT_FOUND',
-    serviceName: 'coding_school',
-    exception: {
-      stacktrace: [
-        "NotFoundError: We coudn't find the course you are looking for!",
-        '    at CourseDataSource.eval (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:40:23)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:5:58)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: "We coudn't find the course you are looking for!",
-      locations: [ { line: 1, column: 90 } ],
-      path: [ 'getCourseContents' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-04 00:03:31',
-  stack: undefined
-}
-{
-  message: "We coudn't find the course you are looking for!",
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'NOT_FOUND',
-    serviceName: 'coding_school',
-    exception: {
-      stacktrace: [
-        "NotFoundError: We coudn't find the course you are looking for!",
-        '    at CourseDataSource.eval (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:40:23)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:5:58)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: "We coudn't find the course you are looking for!",
-      locations: [ { line: 1, column: 90 } ],
-      path: [ 'getCourseContents' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-04 00:04:12',
-  stack: undefined
-}
-{
-  message: "We coudn't find the course you are looking for!",
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'NOT_FOUND',
-    serviceName: 'coding_school',
-    exception: {
-      stacktrace: [
-        "NotFoundError: We coudn't find the course you are looking for!",
-        '    at CourseDataSource.eval (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:40:23)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/course/course.datasource.ts:5:58)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: "We coudn't find the course you are looking for!",
-      locations: [ { line: 1, column: 90 } ],
-      path: [ 'getCourseContents' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-04 00:04:12',
+  timestamp: '2022-07-07 21:01:08',
   stack: undefined
 }
 {
@@ -1390,38 +70,7 @@
     }
   },
   level: 'error',
-  timestamp: '2022-07-04 00:05:21',
-  stack: undefined
-}
-{
-  message: "Cannot read property 'getUserById' of undefined",
-  locations: undefined,
-  path: undefined,
-  extensions: {
-    code: 'INTERNAL_SERVER_ERROR',
-    serviceName: 'auth',
-    exception: {
-      stacktrace: [
-        "TypeError: Cannot read property 'getUserById' of undefined",
-        '    at eval (webpack-internal:///./src/graphql/resolvers/user/user.datasource.ts:199:44)',
-        '    at Generator.next (<anonymous>)',
-        '    at eval (webpack-internal:///./src/graphql/resolvers/user/user.datasource.ts:8:71)',
-        '    at new Promise (<anonymous>)',
-        '    at __awaiter (webpack-internal:///./src/graphql/resolvers/user/user.datasource.ts:4:12)',
-        '    at checkUserVerificationId (webpack-internal:///./src/graphql/resolvers/user/user.datasource.ts:198:16)',
-        '    at eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.resolver.ts:35:30)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.resolver.ts:5:58)',
-        '    at runMicrotasks (<anonymous>)',
-        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
-      ],
-      message: "Cannot read property 'getUserById' of undefined",
-      locations: [ { line: 1, column: 31 } ],
-      path: [ 'querier' ]
-    }
-  },
-  level: 'error',
-  timestamp: '2022-07-04 00:05:21',
+  timestamp: '2022-07-07 21:01:08',
   stack: undefined
 }
 {
@@ -1446,116 +95,1702 @@
     }
   },
   level: 'error',
-  timestamp: '2022-07-04 00:05:23',
+  timestamp: '2022-07-07 21:01:10',
   stack: undefined
 }
 {
-  message: "Cannot read property 'getUserById' of undefined",
+  message: 'Unauthorized token! Invalid or empty tokens.',
   locations: undefined,
   path: undefined,
   extensions: {
-    code: 'INTERNAL_SERVER_ERROR',
+    code: 'UNAUTHENTICATED',
     serviceName: 'auth',
     exception: {
       stacktrace: [
-        "TypeError: Cannot read property 'getUserById' of undefined",
-        '    at eval (webpack-internal:///./src/graphql/resolvers/user/user.datasource.ts:199:44)',
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
         '    at Generator.next (<anonymous>)',
-        '    at eval (webpack-internal:///./src/graphql/resolvers/user/user.datasource.ts:8:71)',
-        '    at new Promise (<anonymous>)',
-        '    at __awaiter (webpack-internal:///./src/graphql/resolvers/user/user.datasource.ts:4:12)',
-        '    at checkUserVerificationId (webpack-internal:///./src/graphql/resolvers/user/user.datasource.ts:198:16)',
-        '    at eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.resolver.ts:35:30)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.resolver.ts:5:58)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
         '    at runMicrotasks (<anonymous>)',
         '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
       ],
-      message: "Cannot read property 'getUserById' of undefined",
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 2 } ],
+      path: [ 'refreshTokens' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:01:10',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:01:10',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
       locations: [ { line: 1, column: 31 } ],
       path: [ 'querier' ]
     }
   },
   level: 'error',
-  timestamp: '2022-07-04 00:05:39',
+  timestamp: '2022-07-07 21:01:56',
   stack: undefined
 }
 {
-  message: "Cannot read property 'getUserById' of undefined",
+  message: 'Unauthorized token! Invalid or empty tokens.',
   locations: undefined,
   path: undefined,
   extensions: {
-    code: 'INTERNAL_SERVER_ERROR',
+    code: 'UNAUTHENTICATED',
     serviceName: 'auth',
     exception: {
       stacktrace: [
-        "TypeError: Cannot read property 'getUserById' of undefined",
-        '    at eval (webpack-internal:///./src/graphql/resolvers/user/user.datasource.ts:199:44)',
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
         '    at Generator.next (<anonymous>)',
-        '    at eval (webpack-internal:///./src/graphql/resolvers/user/user.datasource.ts:8:71)',
-        '    at new Promise (<anonymous>)',
-        '    at __awaiter (webpack-internal:///./src/graphql/resolvers/user/user.datasource.ts:4:12)',
-        '    at checkUserVerificationId (webpack-internal:///./src/graphql/resolvers/user/user.datasource.ts:198:16)',
-        '    at eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.resolver.ts:35:30)',
-        '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.resolver.ts:5:58)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
         '    at runMicrotasks (<anonymous>)',
         '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
       ],
-      message: "Cannot read property 'getUserById' of undefined",
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 2 } ],
+      path: [ 'refreshTokens' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:01:56',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
       locations: [ { line: 1, column: 31 } ],
       path: [ 'querier' ]
     }
   },
   level: 'error',
-  timestamp: '2022-07-04 00:05:43',
+  timestamp: '2022-07-07 21:01:56',
   stack: undefined
 }
 {
-  message: 'Permission denied! It is sad that you are not among premium members',
+  message: 'Unauthorized token! Invalid or empty tokens.',
   locations: undefined,
   path: undefined,
   extensions: {
-    code: 'FORBIDDEN',
-    serviceName: 'coding_school',
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
     exception: {
       stacktrace: [
-        'ForbiddenError: Permission denied! It is sad that you are not among premium members',
-        '    at PostDataSource.eval (webpack-internal:///./src/graphql/resolvers/post/post.datasource.ts:57:23)',
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
         '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/post/post.datasource.ts:5:58)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
         '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
       ],
-      message: 'Permission denied! It is sad that you are not among premium members',
-      locations: [ { line: 1, column: 170 } ],
-      path: [ '_entities', 0, 'getPremiumPost' ]
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
     }
   },
   level: 'error',
-  timestamp: '2022-07-04 00:16:01',
+  timestamp: '2022-07-07 21:01:58',
   stack: undefined
 }
 {
-  message: 'Permission denied! It is sad that you are not among premium members',
+  message: 'Unauthorized token! Invalid or empty tokens.',
   locations: undefined,
   path: undefined,
   extensions: {
-    code: 'FORBIDDEN',
-    serviceName: 'coding_school',
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
     exception: {
       stacktrace: [
-        'ForbiddenError: Permission denied! It is sad that you are not among premium members',
-        '    at PostDataSource.eval (webpack-internal:///./src/graphql/resolvers/post/post.datasource.ts:57:23)',
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
         '    at Generator.next (<anonymous>)',
-        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/post/post.datasource.ts:5:58)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
         '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
       ],
-      message: 'Permission denied! It is sad that you are not among premium members',
-      locations: [ { line: 1, column: 170 } ],
-      path: [ '_entities', 0, 'getPremiumPost' ]
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 2 } ],
+      path: [ 'refreshTokens' ]
     }
   },
   level: 'error',
-  timestamp: '2022-07-04 00:16:22',
+  timestamp: '2022-07-07 21:01:58',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:01:58',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 31 } ],
+      path: [ 'querier' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:02:06',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 2 } ],
+      path: [ 'refreshTokens' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:02:06',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 31 } ],
+      path: [ 'querier' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:02:06',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 31 } ],
+      path: [ 'querier' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:02:35',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 2 } ],
+      path: [ 'refreshTokens' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:02:35',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 31 } ],
+      path: [ 'querier' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:02:35',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:02:37',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 2 } ],
+      path: [ 'refreshTokens' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:02:37',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:02:37',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:07:29',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 2 } ],
+      path: [ 'refreshTokens' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:07:29',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:07:29',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 31 } ],
+      path: [ 'querier' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:08:18',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 2 } ],
+      path: [ 'refreshTokens' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:08:18',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 31 } ],
+      path: [ 'querier' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:08:18',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:08:19',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 2 } ],
+      path: [ 'refreshTokens' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:08:19',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:08:19',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:08:32',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 2 } ],
+      path: [ 'refreshTokens' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:08:32',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:08:32',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:08:34',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 2 } ],
+      path: [ 'refreshTokens' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:08:35',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:08:35',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:09:00',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 2 } ],
+      path: [ 'refreshTokens' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:09:00',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:09:00',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:09:03',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 2 } ],
+      path: [ 'refreshTokens' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:09:04',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:09:04',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:09:07',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 2 } ],
+      path: [ 'refreshTokens' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:09:07',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:09:07',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 31 } ],
+      path: [ 'querier' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:09:09',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 2 } ],
+      path: [ 'refreshTokens' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:09:09',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 31 } ],
+      path: [ 'querier' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:09:09',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:09:11',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 2 } ],
+      path: [ 'refreshTokens' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:09:11',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:09:11',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:09:24',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 2 } ],
+      path: [ 'refreshTokens' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:09:24',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:09:24',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:09:27',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 2 } ],
+      path: [ 'refreshTokens' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:09:27',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:09:27',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 31 } ],
+      path: [ 'querier' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:10:51',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 2 } ],
+      path: [ 'refreshTokens' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:10:51',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 31 } ],
+      path: [ 'querier' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:10:51',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:10:52',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 2 } ],
+      path: [ 'refreshTokens' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:10:53',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:10:53',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Token expired.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Token expired.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:84:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Token expired.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:47:10',
+  stack: undefined
+}
+{
+  message: 'get is not defined',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'INTERNAL_SERVER_ERROR',
+    serviceName: 'coding_school',
+    exception: {
+      stacktrace: [
+        'ReferenceError: get is not defined',
+        '    at PostContentDataSource.eval (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:50:21)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:5:58)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'get is not defined',
+      locations: [ { line: 1, column: 158 } ],
+      path: [ 'getCourseContents', 0, 'postContents' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:54:30',
+  stack: undefined
+}
+{
+  message: 'get is not defined',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'INTERNAL_SERVER_ERROR',
+    serviceName: 'coding_school',
+    exception: {
+      stacktrace: [
+        'ReferenceError: get is not defined',
+        '    at PostContentDataSource.eval (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:50:21)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:5:58)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'get is not defined',
+      locations: [ { line: 1, column: 158 } ],
+      path: [ 'getCourseContents', 1, 'postContents' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 21:54:30',
+  stack: undefined
+}
+{
+  message: '(0 , lodash_1.get)(...).match is not a function',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'INTERNAL_SERVER_ERROR',
+    serviceName: 'coding_school',
+    exception: {
+      stacktrace: [
+        'TypeError: (0 , lodash_1.get)(...).match is not a function',
+        '    at PostContentDataSource.eval (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:49:97)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:5:58)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: '(0 , lodash_1.get)(...).match is not a function',
+      locations: [ { line: 1, column: 158 } ],
+      path: [ 'getCourseContents', 0, 'postContents' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 22:09:08',
+  stack: undefined
+}
+{
+  message: '(0 , lodash_1.get)(...).match is not a function',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'INTERNAL_SERVER_ERROR',
+    serviceName: 'coding_school',
+    exception: {
+      stacktrace: [
+        'TypeError: (0 , lodash_1.get)(...).match is not a function',
+        '    at PostContentDataSource.eval (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:49:97)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/postContent/postContent.datasource.ts:5:58)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: '(0 , lodash_1.get)(...).match is not a function',
+      locations: [ { line: 1, column: 158 } ],
+      path: [ 'getCourseContents', 1, 'postContents' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 22:09:08',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 22:09:10',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 22:27:39',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 22:47:54',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-07 23:04:25',
   stack: undefined
 }

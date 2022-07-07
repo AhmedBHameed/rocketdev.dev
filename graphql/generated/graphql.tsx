@@ -383,6 +383,7 @@ export type PostContent = {
   body?: Maybe<Scalars['String']>;
   contentPreview?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['Date']>;
+  headLines?: Maybe<Array<Maybe<Scalars['String']>>>;
   id?: Maybe<Scalars['ID']>;
   lang?: Maybe<LanguageEnum>;
   metaTags?: Maybe<PostMetaTags>;
@@ -390,10 +391,6 @@ export type PostContent = {
   publishedAt?: Maybe<Scalars['Date']>;
   readingTime?: Maybe<Scalars['String']>;
   updatedAt?: Maybe<Scalars['Date']>;
-};
-
-export type PostContentBodyArgs = {
-  stringLen?: InputMaybe<Scalars['Int']>;
 };
 
 export type PostContentInput = {
@@ -790,6 +787,7 @@ export type GetCourseContentsQuery = {
     postContents?: Array<{
       __typename?: 'PostContent';
       id?: string | null;
+      headLines?: Array<string | null> | null;
       postImage?: string | null;
       lang?: LanguageEnum | null;
       contentPreview?: string | null;
@@ -1958,6 +1956,7 @@ export const GetCourseContentsDocument = gql`
       isPremium
       postContents(lang: $lang) {
         id
+        headLines
         postImage
         lang
         contentPreview
