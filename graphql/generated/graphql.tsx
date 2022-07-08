@@ -359,6 +359,7 @@ export type Post = {
   author?: Maybe<User>;
   authorId?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['Date']>;
+  groupName?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['ID']>;
   isPremium?: Maybe<Scalars['Boolean']>;
   nanoId?: Maybe<Scalars['String']>;
@@ -418,6 +419,7 @@ export type PostFilterInput = {
   _or?: InputMaybe<Array<InputMaybe<PostFilterInput>>>;
   authorId?: InputMaybe<Scalars['ID']>;
   createdAt?: InputMaybe<Scalars['String']>;
+  groupName?: InputMaybe<Scalars['String']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
   isPremium?: InputMaybe<Scalars['Boolean']>;
   nanoId?: InputMaybe<Scalars['ID']>;
@@ -649,6 +651,7 @@ export type UpsertPostContentInput = {
 
 export type UpsertPostInput = {
   authorId?: InputMaybe<Scalars['String']>;
+  groupName?: InputMaybe<Scalars['String']>;
   id: Scalars['ID'];
   isPremium?: InputMaybe<Scalars['Boolean']>;
   nanoId?: InputMaybe<Scalars['String']>;
@@ -782,6 +785,7 @@ export type GetCourseContentsQuery = {
     __typename?: 'Post';
     id?: string | null;
     slug?: string | null;
+    groupName?: string | null;
     nanoId?: string | null;
     isPremium?: boolean | null;
     postContents?: Array<{
@@ -809,6 +813,7 @@ export type GetPostQuery = {
     id?: string | null;
     slug?: string | null;
     nanoId?: string | null;
+    groupName?: string | null;
     authorId?: string | null;
     isPremium?: boolean | null;
     visibility?: boolean | null;
@@ -926,6 +931,7 @@ export type ListPostsQuery = {
     id?: string | null;
     slug?: string | null;
     nanoId?: string | null;
+    groupName?: string | null;
     authorId?: string | null;
     isPremium?: boolean | null;
     visibility?: boolean | null;
@@ -1167,6 +1173,7 @@ export type PostFragmentFragment = {
   id?: string | null;
   slug?: string | null;
   nanoId?: string | null;
+  groupName?: string | null;
   authorId?: string | null;
   isPremium?: boolean | null;
   visibility?: boolean | null;
@@ -1420,6 +1427,7 @@ export type UpsertPostMutation = {
       id?: string | null;
       slug?: string | null;
       nanoId?: string | null;
+      groupName?: string | null;
       authorId?: string | null;
       isPremium?: boolean | null;
       visibility?: boolean | null;
@@ -1483,6 +1491,7 @@ export type GetPremiumPostQuery = {
       id?: string | null;
       slug?: string | null;
       nanoId?: string | null;
+      groupName?: string | null;
       authorId?: string | null;
       isPremium?: boolean | null;
       visibility?: boolean | null;
@@ -1605,6 +1614,7 @@ export type ListQuerierPostsQuery = {
       id?: string | null;
       slug?: string | null;
       nanoId?: string | null;
+      groupName?: string | null;
       authorId?: string | null;
       isPremium?: boolean | null;
       visibility?: boolean | null;
@@ -1734,6 +1744,7 @@ export const PostFragmentFragmentDoc = gql`
     id
     slug
     nanoId
+    groupName
     authorId
     isPremium
     visibility
@@ -1952,6 +1963,7 @@ export const GetCourseContentsDocument = gql`
     getCourseContents(input: $input) {
       id
       slug
+      groupName
       nanoId
       isPremium
       postContents(lang: $lang) {

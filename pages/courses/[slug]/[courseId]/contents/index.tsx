@@ -1,6 +1,6 @@
 import {ApolloQueryResult} from '@apollo/client';
 import {RadioGroup} from '@headlessui/react';
-import {get} from 'lodash';
+import {get, startCase, toLower} from 'lodash';
 import {GetServerSideProps} from 'next';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import {useRouter} from 'next/router';
@@ -90,10 +90,10 @@ const CourseContent = ({courseContents, courseSlug}: CourseContent) => {
                     <span className="text-sm flex flex-col">
                       <RadioGroup.Label
                         as="span"
-                        className={clsx('font-medium', theme.text)}
+                        className={clsx("text-lg", 'font-medium',"mb-2", theme.text)}
                       >
-                        {index.toString().padStart(3, '0')}&nbsp;&nbsp;&nbsp;
-                        {slugToTitle(post.slug)}
+                        {post.groupName}&nbsp;=>&nbsp;&nbsp;&nbsp;&nbsp;
+                        {index.toString().padStart(3, '0')}-{slugToTitle(post.slug)}
                       </RadioGroup.Label>
                       <RadioGroup.Description
                         as="span"
@@ -104,18 +104,18 @@ const CourseContent = ({courseContents, courseSlug}: CourseContent) => {
                         </span>
 
                         <div className="flow-root">
-                          <ul role="list" className="ml-6 mt-4 divide-gray-200">
+                          <ul role="list" className={clsx('ml-6', 'mt-4')}>
                             {post.postContents[0].headLines.map((headLine) => (
-                              <li key={headLine}>
+                              <li key={headLine} className={clsx('my-1')}>
                                 <div className="focus-within:ring-2 focus-within:ring-indigo-500">
                                   <h3
                                     className={clsx(
                                       'text-sm',
                                       'font-semibold',
-                                      theme.text
+                                      'text-gray-400'
                                     )}
                                   >
-                                    <small>{headLine.replace(/#/g, '')}</small>
+                                    <span>{startCase(toLower(headLine.replace(/#/g, '')))}</span>
                                   </h3>
                                 </div>
                               </li>

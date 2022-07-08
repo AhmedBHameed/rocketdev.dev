@@ -5,6 +5,7 @@ const GET_COURSE_CONTENTS_QUERY = gql`
     getCourseContents(input: $input) {
       id
       slug
+      groupName
       nanoId
       isPremium
       postContents(lang: $lang) {

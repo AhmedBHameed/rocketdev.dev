@@ -7,6 +7,7 @@ const POST_FRAGMENT = gql`
     id
     slug
     nanoId
+    groupName
     authorId
     isPremium
     visibility

@@ -24,8 +24,8 @@ const DashboardPosts = () => {
   const [post, setPost] = useState<Post | undefined>();
   const {page, perPage} = usePagination();
 
-  const [fetchQuerierPosts, {data, error}] = useListQuerierPostsLazyQuery();
-  const [upsertPost, upsertPostQuery] = useUpsertPostMutation();
+  const [fetchQuerierPosts, {data}] = useListQuerierPostsLazyQuery();
+  const [upsertPost] = useUpsertPostMutation();
 
   const paginatedPostList = useCallback(
     async (number: number, size: number) => {
@@ -52,6 +52,36 @@ const DashboardPosts = () => {
         render: (slug: string) => slugToTitle(slug),
       },
       {
+        title: 'Is premium?',
+        dataIndex: 'isPremium',
+        key: 'isPremium',
+        render: (isPremium: boolean) => (isPremium ? 'Yes' : 'No'),
+      },
+      {
+        title: 'Type',
+        dataIndex: 'type',
+        key: 'type',
+      },
+      {
+        title: 'Grouped name',
+        dataIndex: 'groupName',
+        key: 'groupName',
+        render: (groupName: string) => slugToTitle(groupName),
+      },
+      {
+        title: 'Post content action',
+        dataIndex: 'editPostContent',
+        key: 'editPostContent',
+        render: (_, row) => (
+          <EditPostContentButton
+            postId={row.id}
+            postContents={row.postContents}
+            page={page}
+            perPage={perPage}
+          />
+        ),
+      },
+      {
         title: 'Action',
         dataIndex: 'edit',
         key: 'edit',
@@ -75,19 +105,6 @@ const DashboardPosts = () => {
           <DeletePostButton page={page} perPage={perPage} id={row.id} />
         ),
       },
-      {
-        title: 'Post content action',
-        dataIndex: 'editPostContent',
-        key: 'editPostContent',
-        render: (_, row) => (
-          <EditPostContentButton
-            postId={row.id}
-            postContents={row.postContents}
-            page={page}
-            perPage={perPage}
-          />
-        ),
-      },
     ] as Column<Post>[];
   }, [page, perPage]);
 
@@ -101,6 +118,7 @@ const DashboardPosts = () => {
           prevPostId: post.prevPostId,
           postContentIds: post.postContentIds,
           slug: post.slug,
+          groupName: post.groupName,
           type: post.type,
           visibility: post.visibility,
           tagIds: post.tagIds,
