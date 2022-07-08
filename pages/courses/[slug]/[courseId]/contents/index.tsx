@@ -90,10 +90,16 @@ const CourseContent = ({courseContents, courseSlug}: CourseContent) => {
                     <span className="text-sm flex flex-col">
                       <RadioGroup.Label
                         as="span"
-                        className={clsx("text-lg", 'font-medium',"mb-2", theme.text)}
+                        className={clsx(
+                          'text-lg',
+                          'font-medium',
+                          'mb-2',
+                          theme.text
+                        )}
                       >
-                        {post.groupName}&nbsp;=>&nbsp;&nbsp;&nbsp;&nbsp;
-                        {index.toString().padStart(3, '0')}-{slugToTitle(post.slug)}
+                        {post.groupName}&nbsp;{'=>'}&nbsp;&nbsp;&nbsp;&nbsp;
+                        {index.toString().padStart(3, '0')}-
+                        {slugToTitle(post.slug)}
                       </RadioGroup.Label>
                       <RadioGroup.Description
                         as="span"
@@ -115,7 +121,11 @@ const CourseContent = ({courseContents, courseSlug}: CourseContent) => {
                                       'text-gray-400'
                                     )}
                                   >
-                                    <span>{startCase(toLower(headLine.replace(/#/g, '')))}</span>
+                                    <span>
+                                      {startCase(
+                                        toLower(headLine.replace(/#/g, ''))
+                                      )}
+                                    </span>
                                   </h3>
                                 </div>
                               </li>
