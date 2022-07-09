@@ -80,7 +80,8 @@ const CourseContent = ({courseContents, courseSlug}: CourseContent) => {
                   'cursor-pointer',
                   'sm:flex',
                   'sm:justify-between',
-                  'focus:outline-none'
+                  'focus:outline-none',
+                  'title-hover'
                 )
               }
             >
@@ -94,7 +95,7 @@ const CourseContent = ({courseContents, courseSlug}: CourseContent) => {
                           'text-lg',
                           'font-medium',
                           'mb-2',
-                          theme.text
+                          'title-hover--title'
                         )}
                       >
                         {post.groupName}&nbsp;{'=>'}&nbsp;&nbsp;&nbsp;&nbsp;
@@ -139,7 +140,13 @@ const CourseContent = ({courseContents, courseSlug}: CourseContent) => {
                     as="span"
                     className="mt-2 flex text-sm sm:mt-0 sm:flex-col sm:ml-4 sm:text-right"
                   >
-                    <span className={clsx('font-medium', theme.text)}>
+                    <span
+                      className={clsx(
+                        'font-medium',
+                        'title-hover--title',
+                        theme.text
+                      )}
+                    >
                       {post.postContents[0].readingTime}
                     </span>
                   </RadioGroup.Description>

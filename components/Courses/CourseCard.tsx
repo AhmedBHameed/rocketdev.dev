@@ -37,7 +37,7 @@ const CourseCard: React.FC<CourseCardProps> = ({
     >
       <article
         className={clsx(
-          'post-card',
+          'title-hover',
           'h-full',
           'light:text-zinc-800',
           'dark:text-gray-200'
@@ -47,7 +47,7 @@ const CourseCard: React.FC<CourseCardProps> = ({
         <Link href={href}>
           <a className={clsx('flex', 'flex-col', 'justify-between', 'h-full')}>
             <div>
-              <h3 className={clsx('post-card--title', 'text-xl')}>
+              <h3 className={clsx('title-hover--title', 'text-xl')}>
                 <BoldLabel>{slugToTitle(title)}</BoldLabel>
               </h3>
               <h3 className={clsx('text-base', 'mb-4', 'text-gray-400')}>
@@ -59,7 +59,7 @@ const CourseCard: React.FC<CourseCardProps> = ({
             <p className={clsx('text-sm', 'flex', 'gap-2', 'mt-5')}>
               {t('readMore', {defaultValue: 'Read more'})}{' '}
               <ChevronDoubleRightIcon
-                className={clsx('post-card--readme_icon', 'w-4')}
+                className={clsx('title-hover--readme_icon', 'w-4')}
               />
             </p>
           </a>

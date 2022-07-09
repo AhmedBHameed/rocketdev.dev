@@ -129,7 +129,12 @@ const PostContent: React.FC<PostContentProps> = ({post}) => {
           </p>
         </div>
         <div className="mt-6 prose prose-indigo prose-lg mx-auto">
-          <MDPreviewClient markdown={get(post, 'postContents[0].body', '')} />
+          <MDPreviewClient
+            markdown={get(post, 'postContents[0].body', '').replace(
+              /^\> (.*$)/gim,
+              '<blockquote>$1</blockquote>'
+            )}
+          />
           {/* <p>
             Faucibus commodo massa rhoncus, volutpat. <strong>Dignissim</strong>{' '}
             sed <strong>eget risus enim</strong>. Mattis mauris semper sed amet

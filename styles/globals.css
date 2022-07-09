@@ -28,15 +28,15 @@ body {
 }
 
 /* Latest page */
-.post-card:hover .post-card--title,
-.post-card:hover .post-card--readme_icon {
+.title-hover:hover .title-hover--title,
+.title-hover:hover .title-hover--readme_icon {
   @apply text-indigo-500 transition-colors;
 }
 
-.post-card .post-card--readme_icon {
+.title-hover .title-hover--readme_icon {
   @apply transition-transform transform translate-x-0;
 }
-.post-card:hover .post-card--readme_icon {
+.title-hover:hover .title-hover--readme_icon {
   @apply transition-transform transform translate-x-1;
 }
 

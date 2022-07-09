@@ -2076,3 +2076,126 @@
   timestamp: '2022-07-08 21:46:03',
   stack: undefined
 }
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-08 22:04:37',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-09 23:41:27',
+  stack: undefined
+}
+{
+  message: 'request to http://localhost:5001/graphql failed, reason: socket hang up',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'INTERNAL_SERVER_ERROR',
+    exception: {
+      stacktrace: [
+        'FetchError: request to http://localhost:5001/graphql failed, reason: socket hang up',
+        '    at ClientRequest.<anonymous> (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/minipass-fetch/lib/index.js:130:14)',
+        '    at ClientRequest.emit (node:events:520:28)',
+        '    at ClientRequest.emit (node:domain:475:12)',
+        '    at Socket.socketCloseListener (node:_http_client:415:11)',
+        '    at Socket.emit (node:events:532:35)',
+        '    at Socket.emit (node:domain:475:12)',
+        '    at TCP.<anonymous> (node:net:687:12)'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-09 23:41:39',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 31 } ],
+      path: [ 'querier' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-09 23:59:06',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-09 23:59:09',
+  stack: undefined
+}
