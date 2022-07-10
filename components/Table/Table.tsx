@@ -1,6 +1,7 @@
 import React from 'react';
 import theme from '../../styles/theme';
 import clsx from '../../utils/clsx';
+import Pagination from './Pagination';
 
 export interface Column<TItem> {
   title: React.ReactNode;
@@ -16,8 +17,8 @@ interface TableProps<TItem extends object> {
   loading?: boolean;
   rowKey?: keyof TItem;
   pagination?: {
-    onChange?: (pageNumber: number, pageSize: number) => void;
-    position?: 'bottomCenter' | 'bottomRight';
+    totalItems?: number;
+    onChange?: (selectedPAge: number) => void;
   };
   scroll?: {
     y: number;
@@ -81,6 +82,11 @@ const Table = <TItem extends object>({
                   })}
                 </tbody>
               </table>
+              <Pagination
+                totalItems={pagination?.totalItems}
+                itemsPerPage={10}
+                onPagination={pagination?.onChange}
+              />
             </div>
           </div>
         </div>

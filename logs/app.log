@@ -2199,3 +2199,142 @@
   timestamp: '2022-07-09 23:59:09',
   stack: undefined
 }
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-10 00:14:37',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 33 } ],
+      path: [ 'querier' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-10 00:14:37',
+  stack: undefined
+}
+{
+  level: 'error',
+  message: ` Couldn't load service definitions for "auth" at http://localhost:5001/graphql: request to http://localhost:5001/graphql failed, reason: socket hang up`,
+  stack: `Error: Couldn't load service definitions for "auth" at http://localhost:5001/graphql: request to http://localhost:5001/graphql failed, reason: socket hang up\n` +
+    '    at /home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/supergraphManagers/IntrospectAndCompose/loadServicesFromRemoteEndpoint.ts:77:15\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n' +
+    '    at async Promise.all (index 0)\n' +
+    '    at async loadServicesFromRemoteEndpoint (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/supergraphManagers/IntrospectAndCompose/loadServicesFromRemoteEndpoint.ts:81:30)\n' +
+    '    at async IntrospectAndCompose.updateSupergraphSdl (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/supergraphManagers/IntrospectAndCompose/index.ts:92:20)\n' +
+    '    at async IntrospectAndCompose.initialize (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/supergraphManagers/IntrospectAndCompose/index.ts:62:30)\n' +
+    '    at async ApolloGateway.initializeSupergraphManager (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:449:22)\n' +
+    '    at async ApolloGateway.load (/home/ahmed/Desktop/WWW/rocket_devs/node_modules/@apollo/gateway/src/index.ts:339:7)',
+  timestamp: '2022-07-10 00:52:30'
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-10 01:29:10',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-10 01:53:47',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:86:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 33 } ],
+      path: [ 'querier' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-10 01:53:47',
+  stack: undefined
+}

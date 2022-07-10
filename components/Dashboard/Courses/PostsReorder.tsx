@@ -22,10 +22,11 @@ interface PostsReorderProps {
 const PostsReorder = ({courseId, onItemOrderChange}: PostsReorderProps) => {
   const [coursePosts, setCoursePosts] = useState<Post[]>([]);
 
-  const {data, error} = useListQuerierCoursePostsQuery({
+  const {data} = useListQuerierCoursePostsQuery({
     variables: {
       courseId,
     },
+    onError: console.log,
   });
 
   const moveCard = useCallback(
@@ -56,6 +57,7 @@ const PostsReorder = ({courseId, onItemOrderChange}: PostsReorderProps) => {
           <PostItem
             key={post.id}
             slug={post.slug}
+            groupName={post.groupName}
             description={post.postContents[0].contentPreview}
             index={index}
             id={post.id}

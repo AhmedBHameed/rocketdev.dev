@@ -15,6 +15,7 @@ interface PostReorderProps {
   id: string;
   index: number;
   slug: string;
+  groupName?: string;
   description: string;
   moveCard: (dragIndex: number, hoverIndex: number) => void;
 }
@@ -24,6 +25,7 @@ const PostItem = ({
   index,
   description,
   slug,
+  groupName,
   moveCard,
 }: PostReorderProps) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -99,7 +101,6 @@ const PostItem = ({
     }),
   });
 
-  const opacity = isDragging ? 0 : 1;
   drag(drop(ref));
 
   return (
@@ -115,7 +116,10 @@ const PostItem = ({
       <div className="flex-1 min-w-0">
         <span className="absolute inset-0" aria-hidden="true" />
         <div className="flex justify-between items-center mb-3">
-          <p className="text-sm font-medi text-lg">{slugToTitle(slug)}</p>
+          <p className="text-sm font-medi text-lg">
+            {groupName || ''}
+            {slugToTitle(slug)}
+          </p>
           <span className="text-gray-400 text-xs">{id.slice(-6)}</span>
         </div>
         <p className="text-sm truncate">{description}</p>

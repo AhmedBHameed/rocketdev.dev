@@ -160,6 +160,13 @@ const DashboardPosts = () => {
     setPostModal(false);
   }, []);
 
+  const handleOnPaginationChange = useCallback(
+    (selectedPage: number) => {
+      paginatedPostList(selectedPage, perPage);
+    },
+    [perPage]
+  );
+
   useEffect(() => {
     paginatedPostList(page, perPage);
   }, []);
@@ -173,6 +180,10 @@ const DashboardPosts = () => {
         rowKey="id"
         dataSource={(data?.querier?.listPosts || []) as Post[]}
         columns={tableColumn}
+        pagination={{
+          totalItems: 11 || data?.querier?.totalPosts || 0,
+          onChange: handleOnPaginationChange,
+        }}
       />
 
       <Modal
