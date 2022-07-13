@@ -34,6 +34,9 @@ const ROUTES = {
   dashboard: {
     path: '/dashboard',
   },
+  dashboardFeedback: {
+    path: '/dashboard/feedback',
+  },
   dashboardAuthorization: {
     path: '/dashboard/authorizations',
   },

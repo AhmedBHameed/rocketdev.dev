@@ -1,8 +1,10 @@
 import {gql} from '@apollo/client';
+import AUTHOR_FRAGMENT from './AUTHOR_FRAGMENT.gql';
 import TAG_FRAGMENT from './TAG_FRAGMENT.gql';
 
 const POST_FRAGMENT = gql`
   ${TAG_FRAGMENT}
+  ${AUTHOR_FRAGMENT}
   fragment postFragment on Post {
     id
     slug
@@ -33,12 +35,7 @@ const POST_FRAGMENT = gql`
       ...tagFragment
     }
     author {
-      email
-      avatar
-      name {
-        first
-        last
-      }
+      ...authorFragment
     }
     prevPostId
     nextPostId

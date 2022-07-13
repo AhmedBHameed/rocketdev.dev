@@ -1,8 +1,10 @@
 import {gql} from '@apollo/client';
 import TAG_FRAGMENT from './TAG_FRAGMENT.gql';
+import AUTHOR_FRAGMENT from './AUTHOR_FRAGMENT.gql';
 
 const COURSE_POST_FRAGMENT = gql`
   ${TAG_FRAGMENT}
+  ${AUTHOR_FRAGMENT}
   fragment querierPostFragment on Post {
     id
     slug
@@ -27,12 +29,7 @@ const COURSE_POST_FRAGMENT = gql`
       ...tagFragment
     }
     author {
-      email
-      avatar
-      name {
-        first
-        last
-      }
+      ...authorFragment
     }
     prevPostId
     nextPostId

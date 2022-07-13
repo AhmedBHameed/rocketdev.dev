@@ -3594,6 +3594,18 @@
             "deprecationReason": null
           },
           {
+            "name": "message",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "SortingEnum",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "publishedAt",
             "description": null,
             "type": {
@@ -3606,7 +3618,31 @@
             "deprecationReason": null
           },
           {
+            "name": "resolved",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "SortingEnum",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "slug",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "SortingEnum",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "title",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -3870,6 +3906,18 @@
             "type": {
               "kind": "SCALAR",
               "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "totalFeedback",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Int",
               "ofType": null
             },
             "isDeprecated": false,

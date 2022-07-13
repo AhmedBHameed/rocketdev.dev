@@ -1,11 +1,12 @@
 import {gql} from '@apollo/client';
 import AUTHOR_FRAGMENT from '../fragments/AUTHOR_FRAGMENT.gql';
 
-const FEEDBACK_MUTATION = gql`
+const LIST_QUERIER_FEEDBACK_QUERY = gql`
   ${AUTHOR_FRAGMENT}
-  mutation UpsertFeedback($input: FeedbackInput!) {
-    mutator {
-      upsertFeedback(input: $input) {
+  query ListQuerierFeedback($input: ListFeedbackCollateInput!) {
+    querier {
+      totalFeedback
+      listFeedback(input: $input) {
         id
         title
         message
@@ -20,4 +21,4 @@ const FEEDBACK_MUTATION = gql`
   }
 `;
 
-export default FEEDBACK_MUTATION;
+export default LIST_QUERIER_FEEDBACK_QUERY;

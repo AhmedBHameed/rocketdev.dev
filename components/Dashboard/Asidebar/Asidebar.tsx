@@ -6,6 +6,7 @@ import {
   HomeIcon,
   UsersIcon,
   XIcon,
+  DocumentReportIcon,
 } from '@heroicons/react/outline';
 import BrandLink from '../../BrandLink/BrandLink';
 import ROUTES from '../../../config/routes';
@@ -19,6 +20,11 @@ interface AsidebarProps {
 const Asidebar = ({sidebarOpen, onToggleSidebar}: AsidebarProps) => {
   const navigation = useMemo(() => {
     return [
+      {
+        label: 'Feedback',
+        href: ROUTES.dashboardFeedback.path,
+        LinkIcon: DocumentReportIcon,
+      },
       {label: 'Dashboard', href: '#', LinkIcon: HomeIcon},
       {
         label: 'Users',

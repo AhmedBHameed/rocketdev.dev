@@ -455,8 +455,11 @@ export type PostSortingByFieldInput = {
   id?: InputMaybe<SortingEnum>;
   isPremium?: InputMaybe<SortingEnum>;
   lang?: InputMaybe<SortingEnum>;
+  message?: InputMaybe<SortingEnum>;
   publishedAt?: InputMaybe<SortingEnum>;
+  resolved?: InputMaybe<SortingEnum>;
   slug?: InputMaybe<SortingEnum>;
+  title?: InputMaybe<SortingEnum>;
   updatedAt?: InputMaybe<SortingEnum>;
   visibility?: InputMaybe<SortingEnum>;
 };
@@ -478,6 +481,7 @@ export type Querier = {
   listPosts?: Maybe<Array<Maybe<Post>>>;
   listTags?: Maybe<Array<Maybe<Tag>>>;
   occupation?: Maybe<Scalars['String']>;
+  totalFeedback?: Maybe<Scalars['Int']>;
   totalFreeArticles?: Maybe<Scalars['Int']>;
   totalPosts?: Maybe<Scalars['Int']>;
   userActionsAsJson: Scalars['String'];
@@ -1088,6 +1092,17 @@ export type VerifyMeQuery = {
   } | null;
 };
 
+export type AuthorFragmentFragment = {
+  __typename?: 'User';
+  email?: any | null;
+  avatar?: string | null;
+  name?: {
+    __typename?: 'Username';
+    first?: string | null;
+    last?: string | null;
+  } | null;
+};
+
 export type CourseFragmentFragment = {
   __typename?: 'Course';
   id?: string | null;
@@ -1599,6 +1614,37 @@ export type ListQuerierCoursePostsQuery = {
   } | null;
 };
 
+export type ListQuerierFeedbackQueryVariables = Exact<{
+  input: ListFeedbackCollateInput;
+}>;
+
+export type ListQuerierFeedbackQuery = {
+  __typename?: 'Query';
+  querier?: {
+    __typename?: 'Querier';
+    totalFeedback?: number | null;
+    listFeedback?: Array<{
+      __typename?: 'Feedback';
+      id?: string | null;
+      title?: string | null;
+      message?: string | null;
+      resolved?: boolean | null;
+      createdAt?: Date | null;
+      updatedAt?: Date | null;
+      author?: {
+        __typename?: 'User';
+        email?: any | null;
+        avatar?: string | null;
+        name?: {
+          __typename?: 'Username';
+          first?: string | null;
+          last?: string | null;
+        } | null;
+      } | null;
+    } | null> | null;
+  } | null;
+};
+
 export type ListQuerierPostsQueryVariables = Exact<{
   input: ListPostCollateInput;
   lang?: InputMaybe<LanguageEnum>;
@@ -1664,6 +1710,16 @@ export type ListQuerierPostsQuery = {
   } | null;
 };
 
+export const AuthorFragmentFragmentDoc = gql`
+  fragment authorFragment on User {
+    email
+    avatar
+    name {
+      first
+      last
+    }
+  }
+`;
 export const TagFragmentFragmentDoc = gql`
   fragment tagFragment on Tag {
     id
@@ -1680,12 +1736,7 @@ export const CourseFragmentFragmentDoc = gql`
     description
     nanoId
     author {
-      email
-      avatar
-      name {
-        first
-        last
-      }
+      ...authorFragment
     }
     tags {
       ...tagFragment
@@ -1698,6 +1749,7 @@ export const CourseFragmentFragmentDoc = gql`
     publishedAt
     accessedByUserIds
   }
+  ${AuthorFragmentFragmentDoc}
   ${TagFragmentFragmentDoc}
 `;
 export const QuerierPostFragmentFragmentDoc = gql`
@@ -1725,12 +1777,7 @@ export const QuerierPostFragmentFragmentDoc = gql`
       ...tagFragment
     }
     author {
-      email
-      avatar
-      name {
-        first
-        last
-      }
+      ...authorFragment
     }
     prevPostId
     nextPostId
@@ -1738,6 +1785,7 @@ export const QuerierPostFragmentFragmentDoc = gql`
     updatedAt
   }
   ${TagFragmentFragmentDoc}
+  ${AuthorFragmentFragmentDoc}
 `;
 export const PostFragmentFragmentDoc = gql`
   fragment postFragment on Post {
@@ -1770,12 +1818,7 @@ export const PostFragmentFragmentDoc = gql`
       ...tagFragment
     }
     author {
-      email
-      avatar
-      name {
-        first
-        last
-      }
+      ...authorFragment
     }
     prevPostId
     nextPostId
@@ -1783,6 +1826,7 @@ export const PostFragmentFragmentDoc = gql`
     updatedAt
   }
   ${TagFragmentFragmentDoc}
+  ${AuthorFragmentFragmentDoc}
 `;
 export const ClearTokensDocument = gql`
   query ClearTokens {
@@ -2635,12 +2679,7 @@ export const UpsertFeedbackDocument = gql`
         title
         message
         author {
-          email
-          avatar
-          name {
-            first
-            last
-          }
+          ...authorFragment
         }
         resolved
         createdAt
@@ -2648,6 +2687,7 @@ export const UpsertFeedbackDocument = gql`
       }
     }
   }
+  ${AuthorFragmentFragmentDoc}
 `;
 export type UpsertFeedbackMutationFn = Apollo.MutationFunction<
   UpsertFeedbackMutation,
@@ -3127,6 +3167,76 @@ export type ListQuerierCoursePostsLazyQueryHookResult = ReturnType<
 export type ListQuerierCoursePostsQueryResult = Apollo.QueryResult<
   ListQuerierCoursePostsQuery,
   ListQuerierCoursePostsQueryVariables
+>;
+export const ListQuerierFeedbackDocument = gql`
+  query ListQuerierFeedback($input: ListFeedbackCollateInput!) {
+    querier {
+      totalFeedback
+      listFeedback(input: $input) {
+        id
+        title
+        message
+        author {
+          ...authorFragment
+        }
+        resolved
+        createdAt
+        updatedAt
+      }
+    }
+  }
+  ${AuthorFragmentFragmentDoc}
+`;
+
+/**
+ * __useListQuerierFeedbackQuery__
+ *
+ * To run a query within a React component, call `useListQuerierFeedbackQuery` and pass it any options that fit your needs.
+ * When your component renders, `useListQuerierFeedbackQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useListQuerierFeedbackQuery({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useListQuerierFeedbackQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    ListQuerierFeedbackQuery,
+    ListQuerierFeedbackQueryVariables
+  >
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useQuery<
+    ListQuerierFeedbackQuery,
+    ListQuerierFeedbackQueryVariables
+  >(ListQuerierFeedbackDocument, options);
+}
+export function useListQuerierFeedbackLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    ListQuerierFeedbackQuery,
+    ListQuerierFeedbackQueryVariables
+  >
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useLazyQuery<
+    ListQuerierFeedbackQuery,
+    ListQuerierFeedbackQueryVariables
+  >(ListQuerierFeedbackDocument, options);
+}
+export type ListQuerierFeedbackQueryHookResult = ReturnType<
+  typeof useListQuerierFeedbackQuery
+>;
+export type ListQuerierFeedbackLazyQueryHookResult = ReturnType<
+  typeof useListQuerierFeedbackLazyQuery
+>;
+export type ListQuerierFeedbackQueryResult = Apollo.QueryResult<
+  ListQuerierFeedbackQuery,
+  ListQuerierFeedbackQueryVariables
 >;
 export const ListQuerierPostsDocument = gql`
   query ListQuerierPosts($input: ListPostCollateInput!, $lang: LanguageEnum) {

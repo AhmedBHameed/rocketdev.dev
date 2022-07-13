@@ -135,6 +135,24 @@ const Navbar = () => {
               >
                 {t<string>('latest')}
               </Disclosure.Button>
+
+              <Disclosure.Button
+                as="a"
+                href={ROUTES.latest.path}
+                className={clsx(
+                  router.asPath.indexOf(ROUTES.courses.path) > -1
+                    ? 'bg-gray-900 text-white'
+                    : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                  'block px-3 py-2 rounded-md text-base font-medium'
+                )}
+                aria-current={
+                  router.asPath.indexOf(ROUTES.courses.path) > -1
+                    ? 'page'
+                    : undefined
+                }
+              >
+                {t('courses', {defaultValue: 'Courses'})}
+              </Disclosure.Button>
             </div>
           </Disclosure.Panel>
         </>
