@@ -1146,6 +1146,7 @@ export type QuerierPostFragmentFragment = {
   id?: string | null;
   slug?: string | null;
   isPremium?: boolean | null;
+  groupName?: string | null;
   prevPostId?: string | null;
   nextPostId?: string | null;
   createdAt?: Date | null;
@@ -1587,6 +1588,7 @@ export type ListQuerierCoursePostsQuery = {
       id?: string | null;
       slug?: string | null;
       isPremium?: boolean | null;
+      groupName?: string | null;
       prevPostId?: string | null;
       nextPostId?: string | null;
       createdAt?: Date | null;
@@ -1774,6 +1776,7 @@ export const QuerierPostFragmentFragmentDoc = gql`
     id
     slug
     isPremium
+    groupName
     postContents(lang: $lang) {
       id
       postImage

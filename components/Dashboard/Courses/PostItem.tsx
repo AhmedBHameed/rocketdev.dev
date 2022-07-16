@@ -131,8 +131,7 @@ const PostItem = ({
         <span className="absolute inset-0" aria-hidden="true" />
         <div className="flex justify-between items-center mb-3">
           <p className="font-medium text-lg">
-            {groupName || ''}
-            {slugToTitle(slug)}
+            {`${groupName || ''} => ${slugToTitle(slug)}`}
           </p>
           <span className="text-gray-400 text-xs">{id.slice(-6)}</span>
         </div>

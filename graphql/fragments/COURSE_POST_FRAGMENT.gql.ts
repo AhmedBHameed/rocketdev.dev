@@ -9,6 +9,7 @@ const COURSE_POST_FRAGMENT = gql`
     id
     slug
     isPremium
+    groupName
     postContents(lang: $lang) {
       id
       postImage
