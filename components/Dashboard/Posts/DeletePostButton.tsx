@@ -5,10 +5,8 @@ import {
   useDeletePostMutation,
 } from '../../../graphql/generated/graphql';
 import LIST_QUERIER_POSTS_QUERY from '../../../graphql/querier/LIST_POSTS.gql';
-import clsx from '../../../utils/clsx';
 import Alert from '../../Alert/Alert';
 import BaseButton from '../../Buttons/BaseButton';
-import Popup from '../../Popup/Popup';
 
 interface DeletePostButtonProps {
   id: string;

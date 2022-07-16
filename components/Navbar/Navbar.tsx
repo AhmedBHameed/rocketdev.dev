@@ -18,8 +18,8 @@ const Navbar = () => {
   const {t} = useTranslation('navbar');
   const {userProfile} = useVerifyMe();
 
-  const avatar = get(userProfile, 'verifyMe.avatar');
-  const isAdmin = get(userProfile, 'verifyMe.isSuper');
+  const avatar = get(userProfile, 'verifyMe.avatar', '');
+  const isAdmin = get(userProfile, 'verifyMe.isSuper', false);
 
   const menu = useMemo(() => {
     const menuList = [
@@ -106,10 +106,8 @@ const Navbar = () => {
 
                 {/* Profile dropdown */}
                 <ProfileMenu
-                  avatar={
-                    avatar ||
-                    'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
-                  }
+                  isLoggedIn={!!userProfile}
+                  avatar={avatar}
                   menu={menu}
                 />
               </div>

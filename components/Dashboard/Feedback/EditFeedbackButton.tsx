@@ -1,16 +1,8 @@
 import React, {useCallback, useState} from 'react';
-import {InteractionProps} from 'react-json-view';
-import {ulid} from 'ulid';
 import {
   Feedback,
-  LanguageEnum,
-  Post,
-  PostContent,
   useUpsertFeedbackMutation,
-  useUpsertPostContentMutation,
 } from '../../../graphql/generated/graphql';
-import LIST_QUERIER_POSTS_QUERY from '../../../graphql/querier/LIST_POSTS.gql';
-import clsx from '../../../utils/clsx';
 import omitDeepLodash from '../../../utils/omitDeepLodash';
 import LoadingButton from '../../Buttons/LoadingButton';
 import JsonViewContainer from '../../JsonView/JsonViewContainer';

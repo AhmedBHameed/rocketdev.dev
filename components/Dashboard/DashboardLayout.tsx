@@ -6,11 +6,9 @@ import useVerifyMe from '../hooks/verifyMeHook';
 import ProfileMenu from '../ProfileMenu/ProfileMenu';
 import useNavigateToDashboardLogin from './hooks/navigateToDashboardLoginHook';
 import {useState} from 'react';
-import {BellIcon, MenuAlt2Icon, XIcon} from '@heroicons/react/outline';
+import {BellIcon, MenuAlt2Icon} from '@heroicons/react/outline';
 import {SearchIcon} from '@heroicons/react/solid';
-import clsx from '../../utils/clsx';
 import Asidebar from './Asidebar/Asidebar';
-import ROUTES from '../../config/routes';
 
 interface DashboardLayoutProps {
   title?: string;
@@ -35,7 +33,6 @@ const DashboardLayout = ({children, title}: DashboardLayoutProps) => {
 
   return (
     <div>
-      {/* Static sidebar for desktop */}
       <Asidebar
         sidebarOpen={sidebarOpen}
         onToggleSidebar={() => setSidebarOpen(false)}
@@ -78,9 +75,8 @@ const DashboardLayout = ({children, title}: DashboardLayoutProps) => {
                 <span className="sr-only">View notifications</span>
                 <BellIcon className="h-6 w-6" aria-hidden="true" />
               </button>
-
-              {/* Profile dropdown */}
               <ProfileMenu
+                isLoggedIn={!!userProfile}
                 avatar={
                   avatar ||
                   'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
@@ -107,9 +103,7 @@ const DashboardLayout = ({children, title}: DashboardLayoutProps) => {
               <h1 className="text-2xl font-semibold text-gray-900">{title}</h1>
             </div>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-              {/* Replace with your content */}
               {children}
-              {/* /End replace */}
             </div>
           </div>
         </main>

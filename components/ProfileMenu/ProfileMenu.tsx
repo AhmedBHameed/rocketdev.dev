@@ -7,6 +7,7 @@ import Link from 'next/link';
 import {useRouter} from 'next/router';
 import {useClearTokensLazyQuery} from '../../graphql/generated/graphql';
 import ROUTES from '../../config/routes';
+import Avatar from '../Avatar/Avatar';
 
 interface MenuProps {
   name: string;
@@ -15,11 +16,12 @@ interface MenuProps {
 }
 
 interface ProfileMenuProps {
-  avatar: string;
+  isLoggedIn: boolean;
+  avatar?: string;
   menu: MenuProps[];
 }
 
-const ProfileMenu = ({menu, avatar}: ProfileMenuProps) => {
+const ProfileMenu = ({isLoggedIn, menu, avatar}: ProfileMenuProps) => {
   const router = useRouter();
 
   const [logout] = useClearTokensLazyQuery();
@@ -36,12 +38,16 @@ const ProfileMenu = ({menu, avatar}: ProfileMenuProps) => {
       <div>
         <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
           <span className="sr-only">Open user menu</span>
-          <img
-            crossOrigin="anonymous"
-            className="h-8 w-8 rounded-full"
-            src={isAvatarLink ? avatar : `${STATIC_ASSETS_PATH}${avatar}`}
-            alt="profile menu"
-          />
+          {avatar ? (
+            <img
+              crossOrigin="anonymous"
+              className="h-8 w-8 rounded-full"
+              src={isAvatarLink ? avatar : `${STATIC_ASSETS_PATH}${avatar}`}
+              alt="profile menu"
+            />
+          ) : (
+            <Avatar />
+          )}
         </Menu.Button>
       </div>
       <Transition
@@ -75,7 +81,7 @@ const ProfileMenu = ({menu, avatar}: ProfileMenuProps) => {
               className={clsx('text-gray-700', 'py-2 px-4')}
               onClick={handleLogout}
             >
-              Log out
+              {isLoggedIn ? 'Log out' : 'Log in'}
             </LinkButton>
           </Menu.Item>
         </Menu.Items>

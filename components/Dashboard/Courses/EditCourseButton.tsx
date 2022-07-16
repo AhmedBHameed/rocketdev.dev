@@ -1,4 +1,3 @@
-import {get} from 'lodash';
 import React, {useCallback, useState} from 'react';
 import {
   Course,
