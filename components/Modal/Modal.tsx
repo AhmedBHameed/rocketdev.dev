@@ -44,7 +44,17 @@ const Modal = ({open, title, children, onClose}: ModalProps) => {
                 className={clsx(
                   theme.bgMain,
                   theme.text,
-                  'w-full max-w-md transform overflow-hidden rounded-2xl p-6 text-left align-middle shadow-xl transition-all'
+                  'w-full',
+                  'max-w-2xl',
+                  'h-[calc(100vh-64px)]',
+                  'transform',
+                  'overflow-hidden',
+                  'rounded-2xl',
+                  'p-6',
+                  'text-left',
+                  'align-middle',
+                  'shadow-xl',
+                  'transition-all'
                 )}
               >
                 <Dialog.Title

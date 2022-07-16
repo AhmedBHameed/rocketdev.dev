@@ -4,6 +4,7 @@ import React, {useCallback, useEffect, useMemo} from 'react';
 import AlertError from '../../components/AlertError/AlertError';
 
 import AddCourseButton from '../../components/Dashboard/Courses/AddCourseButton';
+import DeleteCourseButton from '../../components/Dashboard/Courses/DeleteCourseButton';
 import EditCourseButton from '../../components/Dashboard/Courses/EditCourseButton';
 import ReorderPostsButton from '../../components/Dashboard/Courses/ReorderPostsButton';
 
@@ -53,8 +54,16 @@ const Courses = () => {
         key: 'postAction',
         render: (_, row) => <ReorderPostsButton courseId={row.id} />,
       },
+      {
+        title: 'Delete action',
+        dataIndex: 'deleteCourse',
+        key: 'deleteCourse',
+        render: (_, row) => (
+          <DeleteCourseButton courseId={row.id} page={page} perPage={perPage} />
+        ),
+      },
     ] as Column<Course>[];
-  }, []);
+  }, [page, perPage]);
 
   useEffect(() => {
     paginateCourseList(page, perPage);

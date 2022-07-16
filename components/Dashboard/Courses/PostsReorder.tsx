@@ -51,7 +51,7 @@ const PostsReorder = ({courseId, onItemOrderChange}: PostsReorderProps) => {
   }, [data]);
 
   return (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-1 max-h-96 overflow-y-auto">
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-1 overflow-y-auto">
       <DndProvider backend={HTML5Backend}>
         {coursePosts.map((post, index) => (
           <PostItem
