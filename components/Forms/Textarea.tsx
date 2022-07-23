@@ -1,4 +1,5 @@
 import React, {forwardRef} from 'react';
+import theme from '../../styles/theme';
 import clsx from '../../utils/clsx';
 
 interface TextareaProps {
@@ -48,16 +49,15 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           'px-2',
           'py-1',
           'border-2',
-          'border-gray-300',
           'rounded-md',
           'shadow-sm',
-          'dark:bg-zinc-400',
-          'bg-zinc-200',
           'placeholder-gray-500',
           'focus:outline-none',
-          'focus:ring-blue-500',
           'sm:text-sm',
+          'resize-y',
           className || '',
+          theme.bgMain,
+          theme.text,
           error ? 'border-red-500' : ''
         )}
         onChange={onChange}

@@ -49,6 +49,10 @@ const ROUTES = {
   dashboardPosts: {
     path: '/dashboard/posts',
   },
+  dashboardPostContent: {
+    path: '/dashboard/posts',
+    params: '/:postId',
+  },
 };
 
 export default ROUTES;

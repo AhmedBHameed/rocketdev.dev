@@ -1,9 +1,7 @@
 import React, {useCallback, useState} from 'react';
-import {InteractionProps} from 'react-json-view';
 import {ulid} from 'ulid';
 import {
   LanguageEnum,
-  Post,
   PostContent,
   useUpsertPostContentMutation,
 } from '../../../graphql/generated/graphql';
@@ -111,7 +109,7 @@ const EditPostContentButton = ({
   return (
     <>
       <LoadingButton onClick={() => setOpen(true)}>
-        Edit post content
+        Edit post content (JSON)
       </LoadingButton>
 
       <Modal

@@ -43,7 +43,7 @@ const FormControl: React.FC<FormControlProps> = ({
           className="mt-2 text-sm text-red-600"
           id={helperTextId}
         >
-          {error ? error : <>&nbsp;</>}
+          {error ? error : <></>}
         </small>
       )}
     </div>

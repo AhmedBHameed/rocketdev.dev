@@ -3752,6 +3752,35 @@
             "deprecationReason": null
           },
           {
+            "name": "getPostById",
+            "description": null,
+            "args": [
+              {
+                "name": "id",
+                "description": null,
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "ID",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              }
+            ],
+            "type": {
+              "kind": "OBJECT",
+              "name": "Post",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "getPremiumPost",
             "description": null,
             "args": [
@@ -3872,7 +3901,7 @@
           },
           {
             "name": "listPosts",
-            "description": "List all posts.",
+            "description": null,
             "args": [
               {
                 "name": "input",

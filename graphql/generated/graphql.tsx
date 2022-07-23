@@ -477,12 +477,12 @@ export enum PostTypeEnum {
 export type Querier = {
   __typename?: 'Querier';
   about?: Maybe<Scalars['String']>;
+  getPostById?: Maybe<Post>;
   getPremiumPost?: Maybe<Post>;
   id: Scalars['ID'];
   isSuper?: Maybe<Scalars['Boolean']>;
   listCoursePosts?: Maybe<Array<Maybe<Post>>>;
   listFeedback?: Maybe<Array<Maybe<Feedback>>>;
-  /** List all posts. */
   listPosts?: Maybe<Array<Maybe<Post>>>;
   listTags?: Maybe<Array<Maybe<Tag>>>;
   occupation?: Maybe<Scalars['String']>;
@@ -490,6 +490,10 @@ export type Querier = {
   totalFreeArticles?: Maybe<Scalars['Int']>;
   totalPosts?: Maybe<Scalars['Int']>;
   userActionsAsJson: Scalars['String'];
+};
+
+export type QuerierGetPostByIdArgs = {
+  id: Scalars['ID'];
 };
 
 export type QuerierGetPremiumPostArgs = {
@@ -1456,6 +1460,70 @@ export type UpsertPostMutation = {
   mutator?: {
     __typename?: 'Mutator';
     upsertPost?: {
+      __typename?: 'Post';
+      id?: string | null;
+      slug?: string | null;
+      nanoId?: string | null;
+      groupName?: string | null;
+      authorId?: string | null;
+      isPremium?: boolean | null;
+      visibility?: boolean | null;
+      tagIds?: Array<string | null> | null;
+      type?: PostTypeEnum | null;
+      prevPostId?: string | null;
+      nextPostId?: string | null;
+      createdAt?: Date | null;
+      updatedAt?: Date | null;
+      postContents?: Array<{
+        __typename?: 'PostContent';
+        id?: string | null;
+        postImage?: string | null;
+        lang?: LanguageEnum | null;
+        body?: string | null;
+        contentPreview?: string | null;
+        readingTime?: string | null;
+        publishedAt?: Date | null;
+        createdAt?: Date | null;
+        updatedAt?: Date | null;
+        metaTags?: {
+          __typename?: 'PostMetaTags';
+          injectHeader?: string | null;
+          injectCssStyle?: string | null;
+          description?: string | null;
+        } | null;
+      } | null> | null;
+      tags?: Array<{
+        __typename?: 'Tag';
+        id?: string | null;
+        imgSrc?: string | null;
+        name?: string | null;
+        description?: string | null;
+        color?: string | null;
+      } | null> | null;
+      author?: {
+        __typename?: 'User';
+        email?: any | null;
+        avatar?: string | null;
+        name?: {
+          __typename?: 'Username';
+          first?: string | null;
+          last?: string | null;
+        } | null;
+      } | null;
+    } | null;
+  } | null;
+};
+
+export type GetPostByIdQueryVariables = Exact<{
+  id: Scalars['ID'];
+  lang?: InputMaybe<LanguageEnum>;
+}>;
+
+export type GetPostByIdQuery = {
+  __typename?: 'Query';
+  querier?: {
+    __typename?: 'Querier';
+    getPostById?: {
       __typename?: 'Post';
       id?: string | null;
       slug?: string | null;
@@ -3115,6 +3183,66 @@ export type UpsertPostMutationResult =
 export type UpsertPostMutationOptions = Apollo.BaseMutationOptions<
   UpsertPostMutation,
   UpsertPostMutationVariables
+>;
+export const GetPostByIdDocument = gql`
+  query GetPostById($id: ID!, $lang: LanguageEnum) {
+    querier {
+      getPostById(id: $id) {
+        ...postFragment
+      }
+    }
+  }
+  ${PostFragmentFragmentDoc}
+`;
+
+/**
+ * __useGetPostByIdQuery__
+ *
+ * To run a query within a React component, call `useGetPostByIdQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetPostByIdQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetPostByIdQuery({
+ *   variables: {
+ *      id: // value for 'id'
+ *      lang: // value for 'lang'
+ *   },
+ * });
+ */
+export function useGetPostByIdQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    GetPostByIdQuery,
+    GetPostByIdQueryVariables
+  >
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useQuery<GetPostByIdQuery, GetPostByIdQueryVariables>(
+    GetPostByIdDocument,
+    options
+  );
+}
+export function useGetPostByIdLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetPostByIdQuery,
+    GetPostByIdQueryVariables
+  >
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useLazyQuery<GetPostByIdQuery, GetPostByIdQueryVariables>(
+    GetPostByIdDocument,
+    options
+  );
+}
+export type GetPostByIdQueryHookResult = ReturnType<typeof useGetPostByIdQuery>;
+export type GetPostByIdLazyQueryHookResult = ReturnType<
+  typeof useGetPostByIdLazyQuery
+>;
+export type GetPostByIdQueryResult = Apollo.QueryResult<
+  GetPostByIdQuery,
+  GetPostByIdQueryVariables
 >;
 export const GetPremiumPostDocument = gql`
   query GetPremiumPost($input: GetPremiumPostInput!, $lang: LanguageEnum) {

@@ -1,25 +1,27 @@
 import React, {useCallback, useEffect, useMemo, useState} from 'react';
-import {InteractionProps} from 'react-json-view';
-import Link from '../../components/Buttons/Link';
-import DashboardLayout from '../../components/Dashboard/DashboardLayout';
-import AddPostButton from '../../components/Dashboard/Posts/AddPostButton';
-import JsonViewContainer from '../../components/JsonView/JsonViewContainer';
-import Modal from '../../components/Modal/Modal';
-import Table, {Column} from '../../components/Table/Table';
+import Link from '../../../components/Buttons/Link';
+import DashboardLayout from '../../../components/Dashboard/DashboardLayout';
+import AddPostButton from '../../../components/Dashboard/Posts/AddPostButton';
+import JsonViewContainer from '../../../components/JsonView/JsonViewContainer';
+import Modal from '../../../components/Modal/Modal';
+import Table, {Column} from '../../../components/Table/Table';
 import {
   Post,
   useListQuerierPostsLazyQuery,
   useUpsertPostMutation,
-} from '../../graphql/generated/graphql';
-import slugToTitle from '../../utils/slugToTitle';
-import usePagination from '../../components/Table/hooks/paginationHook';
-import DeletePostButton from '../../components/Dashboard/Posts/DeletePostButton';
-import EditPostContentButton from '../../components/Dashboard/Posts/EditPostContentButton';
-import LIST_QUERIER_POSTS_QUERY from '../../graphql/querier/LIST_POSTS.gql';
+} from '../../../graphql/generated/graphql';
+import slugToTitle from '../../../utils/slugToTitle';
+import usePagination from '../../../components/Table/hooks/paginationHook';
+import DeletePostButton from '../../../components/Dashboard/Posts/DeletePostButton';
+import EditPostContentButton from '../../../components/Dashboard/Posts/EditPostContentButton';
+import LIST_QUERIER_POSTS_QUERY from '../../../graphql/querier/LIST_POSTS.gql';
 import {GetStaticProps} from 'next';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
+import {useRouter} from 'next/router';
+import ROUTES from '../../../config/routes';
 
 const DashboardPosts = () => {
+  const router = useRouter();
   const [openPostModel, setPostModal] = useState(false);
   const [post, setPost] = useState<Post | undefined>();
   const {page, perPage} = usePagination();
@@ -43,70 +45,10 @@ const DashboardPosts = () => {
     []
   );
 
-  const tableColumn = useMemo(() => {
-    return [
-      {
-        title: 'Title',
-        dataIndex: 'slug',
-        key: 'slug',
-        render: (slug: string) => slugToTitle(slug),
-      },
-      {
-        title: 'Is premium?',
-        dataIndex: 'isPremium',
-        key: 'isPremium',
-        render: (isPremium: boolean) => (isPremium ? 'Yes' : 'No'),
-      },
-      {
-        title: 'Type',
-        dataIndex: 'type',
-        key: 'type',
-      },
-      {
-        title: 'Grouped name',
-        dataIndex: 'groupName',
-        key: 'groupName',
-        render: (groupName: string) => slugToTitle(groupName),
-      },
-      {
-        title: 'Post content action',
-        dataIndex: 'editPostContent',
-        key: 'editPostContent',
-        render: (_, row) => (
-          <EditPostContentButton
-            postId={row.id}
-            postContents={row.postContents}
-            page={page}
-            perPage={perPage}
-          />
-        ),
-      },
-      {
-        title: 'Action',
-        dataIndex: 'edit',
-        key: 'edit',
-        render: (_, row) => (
-          <Link
-            className="text-red-500"
-            onClick={() => {
-              setPost(row);
-              setPostModal(true);
-            }}
-          >
-            Edit
-          </Link>
-        ),
-      },
-      {
-        title: 'Delete',
-        dataIndex: 'delete',
-        key: 'delete',
-        render: (_, row) => (
-          <DeletePostButton page={page} perPage={perPage} id={row.id} />
-        ),
-      },
-    ] as Column<Post>[];
-  }, [page, perPage]);
+  const redirectToPostContentUi = useCallback((postId) => {
+    const {path} = ROUTES.dashboardPostContent;
+    router.push(`${path}/${postId}`);
+  }, []);
 
   const handlePostUpdate = useCallback(async (post: Post) => {
     await upsertPost({
@@ -166,6 +108,84 @@ const DashboardPosts = () => {
     },
     [perPage]
   );
+
+  const tableColumn = useMemo(() => {
+    return [
+      {
+        title: 'Title',
+        dataIndex: 'slug',
+        key: 'slug',
+        render: (slug: string) => slugToTitle(slug),
+      },
+      {
+        title: 'Is premium?',
+        dataIndex: 'isPremium',
+        key: 'isPremium',
+        render: (isPremium: boolean) => (isPremium ? 'Yes' : 'No'),
+      },
+      {
+        title: 'Type',
+        dataIndex: 'type',
+        key: 'type',
+      },
+      {
+        title: 'Grouped name',
+        dataIndex: 'groupName',
+        key: 'groupName',
+        render: (groupName: string) => slugToTitle(groupName),
+      },
+      {
+        title: 'Post content action',
+        dataIndex: 'editPostContent',
+        key: 'editPostContent',
+        render: (_, row) => (
+          <EditPostContentButton
+            postId={row.id}
+            postContents={row.postContents}
+            page={page}
+            perPage={perPage}
+          />
+        ),
+      },
+      {
+        title: 'Post content action (New UI)',
+        dataIndex: 'editPostContentUi',
+        key: 'editPostContentUi',
+        render: (_, row) => (
+          <Link
+            className="text-green-500"
+            onClick={() => redirectToPostContentUi(row.id)}
+          >
+            Edit post content
+          </Link>
+        ),
+      },
+      {
+        title: 'Action',
+        dataIndex: 'edit',
+        key: 'edit',
+        render: (_, row) => (
+          <Link
+            className="text-green-500"
+            onClick={() => {
+              setPost(row);
+              setPostModal(true);
+            }}
+          >
+            Edit
+          </Link>
+        ),
+      },
+      {
+        title: 'Delete',
+        dataIndex: 'delete',
+        key: 'delete',
+        render: (_, row) => (
+          <DeletePostButton page={page} perPage={perPage} id={row.id} />
+        ),
+      },
+    ] as Column<Post>[];
+  }, [page, perPage]);
 
   useEffect(() => {
     paginatedPostList(page, perPage);

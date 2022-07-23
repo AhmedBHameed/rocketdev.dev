@@ -1,5 +1,6 @@
 import {ExclamationCircleIcon} from '@heroicons/react/solid';
 import React, {forwardRef} from 'react';
+import theme from '../../styles/theme';
 import clsx from '../../utils/clsx';
 
 interface TextInputProps {
@@ -55,16 +56,14 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
           'px-2',
           'py-1',
           'border-2',
-          'border-gray-300',
           'rounded-md',
           'shadow-sm',
-          'dark:bg-zinc-400',
-          'bg-zinc-200',
           'placeholder-gray-500',
           'focus:outline-none',
-          'focus:ring-blue-500',
           'sm:text-sm',
-          className || '',
+          className,
+          theme.bgMain,
+          theme.text,
           error ? 'border-red-500' : ''
         )}
         aria-label={ariaLabel}
