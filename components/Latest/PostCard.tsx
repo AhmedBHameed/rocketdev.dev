@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 import clsx from '../../utils/clsx';
 import BoldLabel from '../Label/BoldLabel';
-import MediumLabel from '../Label/MediumLabel';
+// import MediumLabel from '../Label/MediumLabel';
 import {ChevronDoubleRightIcon} from '@heroicons/react/outline';
 import {useTranslation} from 'next-i18next';
 import slugToTitle from '../../utils/slugToTitle';
@@ -50,9 +50,9 @@ const PostCard: React.FC<PostCardProps> = ({
               <h3 className={clsx('title-hover--title', 'text-xl')}>
                 <BoldLabel>{slugToTitle(title)}</BoldLabel>
               </h3>
-              <h3 className={clsx('text-base', 'mb-4', 'text-gray-400')}>
+              {/* <h3 className={clsx('text-base', 'mb-4', 'text-gray-400')}>
                 <MediumLabel>{subTitle}</MediumLabel>
-              </h3>
+              </h3> */}
               <p className={clsx('text-base')}>{contentPreview}</p>
             </div>
 

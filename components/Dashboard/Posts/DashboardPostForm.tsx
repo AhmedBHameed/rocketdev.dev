@@ -105,7 +105,7 @@ const DashboardPostForm = ({post, loading}: DashboardPostFormProps) => {
             metaTags: get(postContents, '0.metaTags', {
               injectHeader: '',
               injectCssStyle: '',
-              description: 'New post content',
+              description: '',
             }),
           },
         },
@@ -175,6 +175,11 @@ const DashboardPostForm = ({post, loading}: DashboardPostFormProps) => {
     'postContents.0.contentPreview.message',
     null
   );
+  const postContentImageError = get(
+    errors,
+    'postContents.0.postImage.message',
+    null
+  );
 
   return (
     <div className="mt-6 prose prose-indigo prose-2xl mx-auto">
@@ -191,6 +196,38 @@ const DashboardPostForm = ({post, loading}: DashboardPostFormProps) => {
             className="space-y-2"
           >
             <Row gap={4} xs={1}>
+              <Col>
+                <FormControl
+                  label={t('postImage', {
+                    ns: 'post',
+                    defaultValue: 'Post image (for preview only)',
+                  })}
+                  error={t(groupNameError)}
+                  htmlFor="postImage"
+                  helperTextId="postImage"
+                >
+                  <Controller
+                    control={control}
+                    name="postContents.0.postImage"
+                    render={({field: {value, onChange}}) => (
+                      <InputField
+                        id="postImage"
+                        ariaLabel="postImage"
+                        error={!!postContentImageError}
+                        name="postImage"
+                        onChange={(event) => onChange(event.target.value)}
+                        placeholder={t('postImagePlaceholder', {
+                          ns: 'post',
+                          defaultValue: 'Post image',
+                        })}
+                        testId="post-image-input"
+                        value={value}
+                      />
+                    )}
+                  />
+                </FormControl>
+              </Col>
+
               <Col>
                 <FormControl
                   label={t('slugTitle', {

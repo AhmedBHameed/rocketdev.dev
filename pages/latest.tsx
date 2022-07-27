@@ -32,6 +32,7 @@ interface LatestProps {
 }
 
 const Latest: NextPage<LatestProps> = ({posts, totalFreeArticles, error}) => {
+  console.log('🚀 ~ file: latest.tsx ~ line 35 ~ posts', posts);
   const {t} = useTranslation('latest');
 
   if (error)

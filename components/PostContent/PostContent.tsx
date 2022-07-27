@@ -1,16 +1,36 @@
 import {get} from 'lodash';
 import React from 'react';
+import ROUTES from '../../config/routes';
 import {Post} from '../../graphql/generated/graphql';
+import getUserName from '../../utils/getUserName';
 import slugToTitle from '../../utils/slugToTitle';
 import MDPreviewClient from '../MDPreview/MDPreviewClient';
+import MetaTags from '../MetaTags/MetaTags';
 
 interface PostContentProps {
   post?: Post;
 }
 
 const PostContent: React.FC<PostContentProps> = ({post}) => {
+  console.log({
+    articleBy: getUserName(get(post, 'author.name')),
+    articleId: post.id,
+    articleUrl: `https://rocketdev.dev${ROUTES.post.path}/${post.slug}/${post.nanoId}`,
+    description: get(post, 'postContents.0.contentPreview'),
+    imageUrl: get(post, 'postContents.0.postImage'),
+    title: slugToTitle(post.slug),
+  });
+
   return (
     <div className="relative py-24 overflow-hidden">
+      <MetaTags
+        articleBy={getUserName(get(post, 'author.name'))}
+        articleId={post.id}
+        articleUrl={`${ROUTES.post.path}/${post.slug}/${post.nanoId}`}
+        description={get(post, 'postContents.0.contentPreview')}
+        imageUrl={get(post, 'postContents.0.postImage')}
+        title={slugToTitle(post.slug)}
+      />
       {/* <div className="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full">
         <div
           className="relative h-full text-lg max-w-prose mx-auto"
