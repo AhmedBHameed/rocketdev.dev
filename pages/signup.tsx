@@ -55,10 +55,12 @@ const Signup = () => {
     },
   });
 
+  console.log(errors);
+
   const firstNameError = errors.firstName?.message;
   const lastNameError = errors.lastName?.message;
-  const emailError = errors.email?.message;
-  const passwordError = errors.password?.message;
+  const emailError = (errors.email as any as {message: string})?.message;
+  const passwordError = (errors.password as any as {message: string})?.message;
 
   const rtl = i18n.language === 'ar';
 
@@ -180,7 +182,7 @@ const Signup = () => {
               })}
               error={
                 emailError &&
-                t(emailError as string, {
+                t(emailError, {
                   ns: 'signup',
                 })
               }
@@ -216,7 +218,7 @@ const Signup = () => {
               })}
               error={
                 passwordError &&
-                t(passwordError as string, {
+                t(passwordError, {
                   ns: 'common',
                 })
               }

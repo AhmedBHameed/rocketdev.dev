@@ -3593,3 +3593,16 @@
   timestamp: '2022-07-27 22:56:09',
   stack: undefined
 }
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-07-27 23:03:50'
+}
