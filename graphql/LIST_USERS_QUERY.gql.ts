@@ -34,6 +34,7 @@ const LIST_USERS_QUERY = gql`
         house
         zip
       }
+      lastSeenAt
       createdAt
       updatedAt
     }

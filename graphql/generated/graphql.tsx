@@ -700,6 +700,7 @@ export type User = {
   id: Scalars['ID'];
   isActive?: Maybe<Scalars['Boolean']>;
   isSuper?: Maybe<Scalars['Boolean']>;
+  lastSeenAt?: Maybe<Scalars['Date']>;
   name?: Maybe<Username>;
   updatedAt?: Maybe<Scalars['Date']>;
 };
@@ -1009,6 +1010,7 @@ export type ListUsersQuery = {
     githubUrl?: string | null;
     isActive?: boolean | null;
     isSuper?: boolean | null;
+    lastSeenAt?: Date | null;
     createdAt?: Date | null;
     updatedAt?: Date | null;
     name?: {
@@ -2419,6 +2421,7 @@ export const ListUsersDocument = gql`
         house
         zip
       }
+      lastSeenAt
       createdAt
       updatedAt
     }
