@@ -489,6 +489,7 @@ export type Querier = {
   totalFeedback?: Maybe<Scalars['Int']>;
   totalFreeArticles?: Maybe<Scalars['Int']>;
   totalPosts?: Maybe<Scalars['Int']>;
+  totalTags?: Maybe<Scalars['Int']>;
   userActionsAsJson: Scalars['String'];
 };
 
@@ -1516,6 +1517,28 @@ export type UpsertPostMutation = {
   } | null;
 };
 
+export type UpsertTagMutationVariables = Exact<{
+  input: UpsertTagInput;
+}>;
+
+export type UpsertTagMutation = {
+  __typename?: 'Mutation';
+  mutator?: {
+    __typename?: 'Mutator';
+    upsertTag?: {
+      __typename?: 'Tag';
+      id?: string | null;
+      name?: string | null;
+      imgSrc?: string | null;
+      description?: string | null;
+      visibility?: boolean | null;
+      color?: string | null;
+      createdAt?: Date | null;
+      updatedAt?: Date | null;
+    } | null;
+  } | null;
+};
+
 export type GetPostByIdQueryVariables = Exact<{
   id: Scalars['ID'];
   lang?: InputMaybe<LanguageEnum>;
@@ -1795,6 +1818,29 @@ export type ListQuerierPostsQuery = {
           last?: string | null;
         } | null;
       } | null;
+    } | null> | null;
+  } | null;
+};
+
+export type ListQuerierTagsQueryVariables = Exact<{
+  input: ListTagCollateInput;
+}>;
+
+export type ListQuerierTagsQuery = {
+  __typename?: 'Query';
+  querier?: {
+    __typename?: 'Querier';
+    totalTags?: number | null;
+    listTags?: Array<{
+      __typename?: 'Tag';
+      id?: string | null;
+      name?: string | null;
+      imgSrc?: string | null;
+      description?: string | null;
+      visibility?: boolean | null;
+      color?: string | null;
+      createdAt?: Date | null;
+      updatedAt?: Date | null;
     } | null> | null;
   } | null;
 };
@@ -3187,6 +3233,64 @@ export type UpsertPostMutationOptions = Apollo.BaseMutationOptions<
   UpsertPostMutation,
   UpsertPostMutationVariables
 >;
+export const UpsertTagDocument = gql`
+  mutation UpsertTag($input: UpsertTagInput!) {
+    mutator {
+      upsertTag(input: $input) {
+        id
+        name
+        imgSrc
+        description
+        visibility
+        color
+        createdAt
+        updatedAt
+      }
+    }
+  }
+`;
+export type UpsertTagMutationFn = Apollo.MutationFunction<
+  UpsertTagMutation,
+  UpsertTagMutationVariables
+>;
+
+/**
+ * __useUpsertTagMutation__
+ *
+ * To run a mutation, you first call `useUpsertTagMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpsertTagMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [upsertTagMutation, { data, loading, error }] = useUpsertTagMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useUpsertTagMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    UpsertTagMutation,
+    UpsertTagMutationVariables
+  >
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useMutation<UpsertTagMutation, UpsertTagMutationVariables>(
+    UpsertTagDocument,
+    options
+  );
+}
+export type UpsertTagMutationHookResult = ReturnType<
+  typeof useUpsertTagMutation
+>;
+export type UpsertTagMutationResult = Apollo.MutationResult<UpsertTagMutation>;
+export type UpsertTagMutationOptions = Apollo.BaseMutationOptions<
+  UpsertTagMutation,
+  UpsertTagMutationVariables
+>;
 export const GetPostByIdDocument = gql`
   query GetPostById($id: ID!, $lang: LanguageEnum) {
     querier {
@@ -3503,4 +3607,72 @@ export type ListQuerierPostsLazyQueryHookResult = ReturnType<
 export type ListQuerierPostsQueryResult = Apollo.QueryResult<
   ListQuerierPostsQuery,
   ListQuerierPostsQueryVariables
+>;
+export const ListQuerierTagsDocument = gql`
+  query ListQuerierTags($input: ListTagCollateInput!) {
+    querier {
+      totalTags
+      listTags(input: $input) {
+        id
+        name
+        imgSrc
+        description
+        visibility
+        color
+        createdAt
+        updatedAt
+      }
+    }
+  }
+`;
+
+/**
+ * __useListQuerierTagsQuery__
+ *
+ * To run a query within a React component, call `useListQuerierTagsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useListQuerierTagsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useListQuerierTagsQuery({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useListQuerierTagsQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    ListQuerierTagsQuery,
+    ListQuerierTagsQueryVariables
+  >
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useQuery<ListQuerierTagsQuery, ListQuerierTagsQueryVariables>(
+    ListQuerierTagsDocument,
+    options
+  );
+}
+export function useListQuerierTagsLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    ListQuerierTagsQuery,
+    ListQuerierTagsQueryVariables
+  >
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useLazyQuery<
+    ListQuerierTagsQuery,
+    ListQuerierTagsQueryVariables
+  >(ListQuerierTagsDocument, options);
+}
+export type ListQuerierTagsQueryHookResult = ReturnType<
+  typeof useListQuerierTagsQuery
+>;
+export type ListQuerierTagsLazyQueryHookResult = ReturnType<
+  typeof useListQuerierTagsLazyQuery
+>;
+export type ListQuerierTagsQueryResult = Apollo.QueryResult<
+  ListQuerierTagsQuery,
+  ListQuerierTagsQueryVariables
 >;

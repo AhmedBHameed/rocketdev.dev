@@ -94,8 +94,6 @@ const DashboardPosts = () => {
             },
           });
         }
-
-        console.log(posts);
       },
     });
     setPost(post);

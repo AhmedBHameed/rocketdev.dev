@@ -152,8 +152,6 @@ const DashboardPostForm = ({post, loading}: DashboardPostFormProps) => {
               },
             });
           }
-
-          console.log(posts);
         },
       });
 

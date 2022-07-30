@@ -3,6 +3,7 @@ import {get} from 'lodash';
 import {GetServerSideProps, NextPage} from 'next';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import React from 'react';
+import AboutMe from '../../../components/AboutMe/AboutMe';
 import AlertError from '../../../components/AlertError/AlertError';
 import Layout from '../../../components/Layout';
 import PostContent from '../../../components/PostContent/PostContent';
@@ -45,6 +46,8 @@ const Post: NextPage<PostProps> = ({post, error}) => {
   return (
     <Layout>
       <PostContent post={post} />
+
+      <AboutMe />
     </Layout>
   );
 };

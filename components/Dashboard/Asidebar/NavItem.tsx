@@ -28,7 +28,7 @@ const NavItem = ({href, LinkIcon, label}: NavItemProps) => {
         )}
       >
         <LinkIcon
-          className={clsx('flex-shrink-0 h-6 w-6')}
+          className={clsx('flex-shrink-0', ' h-6', 'w-6', 'ml-2')}
           aria-hidden="true"
         />
         {label}

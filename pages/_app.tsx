@@ -8,7 +8,7 @@ import ToastMessage from '../components/ToastMessage/ToastMessage';
 
 const App = ({Component, pageProps}: AppProps) => {
   return (
-    <ThemeProvider attribute="class">
+    <ThemeProvider attribute="class" defaultTheme="dark">
       <ApolloProvider client={apolloClient}>
         <Component {...pageProps} />
         <ToastMessage />

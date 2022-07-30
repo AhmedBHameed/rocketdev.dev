@@ -3,7 +3,12 @@ module.exports = {
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
   ],
-  safelist: [],
+  safelist: [
+    'bg-zinc-200',
+    'dark:bg-gray-800',
+    'bg-neutral-100',
+    'dark:bg-neutral-800',
+  ],
   darkMode: 'class',
   theme: {
     extend: {

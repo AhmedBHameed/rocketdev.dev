@@ -2,10 +2,10 @@ import Link from 'next/link';
 import React from 'react';
 import clsx from '../../utils/clsx';
 import BoldLabel from '../Label/BoldLabel';
-// import MediumLabel from '../Label/MediumLabel';
-import {ChevronDoubleRightIcon} from '@heroicons/react/outline';
+import {ChevronsRight} from 'react-feather';
 import {useTranslation} from 'next-i18next';
 import slugToTitle from '../../utils/slugToTitle';
+import theme from '../../styles/theme';
 
 interface PostCardProps {
   title: string;
@@ -53,13 +53,15 @@ const PostCard: React.FC<PostCardProps> = ({
               {/* <h3 className={clsx('text-base', 'mb-4', 'text-gray-400')}>
                 <MediumLabel>{subTitle}</MediumLabel>
               </h3> */}
-              <p className={clsx('text-base')}>{contentPreview}</p>
+              <p className={clsx('text-base', 'mt-2', theme.subText)}>
+                {contentPreview}
+              </p>
             </div>
 
-            <p className={clsx('text-sm', 'flex', 'gap-2', 'mt-5')}>
-              {t<string>('readMore')}{' '}
-              <ChevronDoubleRightIcon
-                className={clsx('title-hover--readme_icon', 'w-4')}
+            <p className={clsx('text-sm', 'flex', 'items-center', 'gap-2')}>
+              {t('readMore')}{' '}
+              <ChevronsRight
+                className={clsx('title-hover--readme_icon', 'w-5')}
               />
             </p>
           </a>

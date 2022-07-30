@@ -12,15 +12,6 @@ interface PostContentProps {
 }
 
 const PostContent: React.FC<PostContentProps> = ({post}) => {
-  console.log({
-    articleBy: getUserName(get(post, 'author.name')),
-    articleId: post.id,
-    articleUrl: `https://rocketdev.dev${ROUTES.post.path}/${post.slug}/${post.nanoId}`,
-    description: get(post, 'postContents.0.contentPreview'),
-    imageUrl: get(post, 'postContents.0.postImage'),
-    title: slugToTitle(post.slug),
-  });
-
   return (
     <div className="relative py-24 overflow-hidden">
       <MetaTags

@@ -54,7 +54,8 @@ const Modal = ({open, title, children, onClose}: ModalProps) => {
                   'text-left',
                   'align-middle',
                   'shadow-xl',
-                  'transition-all'
+                  'transition-all',
+                  theme.bgMain
                 )}
               >
                 <Dialog.Title

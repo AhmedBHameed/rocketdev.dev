@@ -49,6 +49,9 @@ const ROUTES = {
   dashboardPosts: {
     path: '/dashboard/posts',
   },
+  dashboardTags: {
+    path: '/dashboard/tags',
+  },
   dashboardPostContent: {
     path: '/dashboard/posts',
     params: '/:postId',

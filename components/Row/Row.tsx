@@ -3,7 +3,7 @@ import React from 'react';
 import clsx from '../../utils/clsx';
 
 interface RowProps {
-  gutter?: [number, number];
+  gutter?: [number, number?];
   className?: string;
   children?: React.ReactNode;
   gap?: number;
@@ -33,18 +33,18 @@ const Row: React.FC<RowProps> = ({
         className,
         'grid',
 
-        xs === 1 && 'xs:grid-cols-1',
-        xs === 2 && 'xs:grid-cols-2',
-        xs === 3 && 'xs:grid-cols-3',
-        xs === 4 && 'xs:grid-cols-4',
-        xs === 5 && 'xs:grid-cols-5',
-        xs === 6 && 'xs:grid-cols-6',
-        xs === 7 && 'xs:grid-cols-7',
-        xs === 8 && 'xs:grid-cols-8',
-        xs === 9 && 'xs:grid-cols-9',
-        xs === 10 && 'xs:grid-cols-10',
-        xs === 11 && 'xs:grid-cols-11',
-        xs === 12 && 'xs:grid-cols-12',
+        xs === 1 && 'grid-cols-1',
+        xs === 2 && 'grid-cols-2',
+        xs === 3 && 'grid-cols-3',
+        xs === 4 && 'grid-cols-4',
+        xs === 5 && 'grid-cols-5',
+        xs === 6 && 'grid-cols-6',
+        xs === 7 && 'grid-cols-7',
+        xs === 8 && 'grid-cols-8',
+        xs === 9 && 'grid-cols-9',
+        xs === 10 && 'grid-cols-10',
+        xs === 11 && 'grid-cols-11',
+        xs === 12 && 'grid-cols-12',
 
         sm === 1 && 'sm:grid-cols-1',
         sm === 2 && 'sm:grid-cols-2',
@@ -116,31 +116,31 @@ const Row: React.FC<RowProps> = ({
         gap === 3 && 'gap-3',
         gap === 4 && 'gap-4',
 
-        get(gutter, '[0]', false) && 'mx-1',
-        get(gutter, '[0]', false) && 'mx-2',
-        get(gutter, '[0]', false) && 'mx-3',
-        get(gutter, '[0]', false) && 'mx-4',
-        get(gutter, '[0]', false) && 'mx-5',
-        get(gutter, '[0]', false) && 'mx-6',
-        get(gutter, '[0]', false) && 'mx-7',
-        get(gutter, '[0]', false) && 'mx-8',
-        get(gutter, '[0]', false) && 'mx-9',
-        get(gutter, '[0]', false) && 'mx-10',
-        get(gutter, '[0]', false) && 'mx-11',
-        get(gutter, '[0]', false) && 'mx-12',
+        get(gutter, '[0]') === 1 && 'px-1',
+        get(gutter, '[0]') === 2 && 'px-2',
+        get(gutter, '[0]') === 3 && 'px-3',
+        get(gutter, '[0]') === 4 && 'px-4',
+        get(gutter, '[0]') === 5 && 'px-5',
+        get(gutter, '[0]') === 6 && 'px-6',
+        get(gutter, '[0]') === 7 && 'px-7',
+        get(gutter, '[0]') === 8 && 'px-8',
+        get(gutter, '[0]') === 9 && 'px-9',
+        get(gutter, '[0]') === 10 && 'px-10',
+        get(gutter, '[0]') === 11 && 'px-11',
+        get(gutter, '[0]') === 12 && 'px-12',
 
-        get(gutter, '[1]', false) && 'my-1',
-        get(gutter, '[1]', false) && 'my-2',
-        get(gutter, '[1]', false) && 'my-3',
-        get(gutter, '[1]', false) && 'my-4',
-        get(gutter, '[1]', false) && 'my-5',
-        get(gutter, '[1]', false) && 'my-6',
-        get(gutter, '[1]', false) && 'my-7',
-        get(gutter, '[1]', false) && 'my-8',
-        get(gutter, '[1]', false) && 'my-9',
-        get(gutter, '[1]', false) && 'my-10',
-        get(gutter, '[1]', false) && 'my-11',
-        get(gutter, '[1]', false) && 'my-12'
+        get(gutter, '[1]') === 1 && 'py-1',
+        get(gutter, '[1]') === 2 && 'py-2',
+        get(gutter, '[1]') === 3 && 'py-3',
+        get(gutter, '[1]') === 4 && 'py-4',
+        get(gutter, '[1]') === 5 && 'py-5',
+        get(gutter, '[1]') === 6 && 'py-6',
+        get(gutter, '[1]') === 7 && 'py-7',
+        get(gutter, '[1]') === 8 && 'py-8',
+        get(gutter, '[1]') === 9 && 'py-9',
+        get(gutter, '[1]') === 10 && 'py-10',
+        get(gutter, '[1]') === 11 && 'py-11',
+        get(gutter, '[1]') === 12 && 'py-12'
       )}
     >
       {children}

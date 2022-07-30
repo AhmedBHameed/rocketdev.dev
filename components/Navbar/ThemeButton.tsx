@@ -1,7 +1,8 @@
-import {MoonIcon, SunIcon} from '@heroicons/react/solid';
 import {useTheme} from 'next-themes';
 import React, {useCallback, useEffect, useState} from 'react';
 import clsx from '../../utils/clsx';
+import {Sun, Moon} from 'react-feather';
+import palette from '../../styles/theme';
 
 const ThemeButton: React.FC = () => {
   const [isDark, setIsDark] = useState(true);
@@ -26,20 +27,19 @@ const ThemeButton: React.FC = () => {
       onClick={toggleTheme}
       className={clsx(
         'transition-colors',
-        'dark:bg-gray-800',
-        'dark:text-gray-400',
-        'dark:hover:text-white',
-        'text-gray-500',
-        'hover:text-gray-600',
-        'p-1',
         'rounded-full',
-        'focus:outline-none'
+        'focus:outline-none',
+        'h-8',
+        'w-8',
+        'p-1',
+        palette.text,
+        palette.bgSecondary
       )}
     >
       {isDark ? (
-        <SunIcon className="h-6 w-6" aria-hidden="true" />
+        <Sun className="h-full w-full" aria-hidden="true" />
       ) : (
-        <MoonIcon className="h-6 w-6" aria-hidden="true" />
+        <Moon className="h-full w-full" aria-hidden="true" />
       )}
     </button>
   );

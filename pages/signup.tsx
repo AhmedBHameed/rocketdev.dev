@@ -55,8 +55,6 @@ const Signup = () => {
     },
   });
 
-  console.log(errors);
-
   const firstNameError = errors.firstName?.message;
   const lastNameError = errors.lastName?.message;
   const emailError = (errors.email as any as {message: string})?.message;

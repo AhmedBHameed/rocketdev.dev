@@ -1,13 +1,14 @@
 import React, {Fragment, useMemo} from 'react';
 import {Dialog, Transition} from '@headlessui/react';
 import {
-  PencilAltIcon,
-  FolderIcon,
-  HomeIcon,
-  UsersIcon,
-  XIcon,
-  DocumentReportIcon,
-} from '@heroicons/react/outline';
+  Tag,
+  Edit,
+  BookOpen,
+  Users,
+  Home,
+  MessageSquare,
+  X,
+} from 'react-feather';
 import BrandLink from '../../BrandLink/BrandLink';
 import ROUTES from '../../../config/routes';
 import NavItem from './NavItem';
@@ -20,26 +21,31 @@ interface AsidebarProps {
 const Asidebar = ({sidebarOpen, onToggleSidebar}: AsidebarProps) => {
   const navigation = useMemo(() => {
     return [
+      {label: 'Dashboard', href: '#', LinkIcon: Home},
       {
-        label: 'Feedback',
-        href: ROUTES.dashboardFeedback.path,
-        LinkIcon: DocumentReportIcon,
+        label: 'Tags',
+        href: ROUTES.dashboardTags.path,
+        LinkIcon: Tag,
       },
-      {label: 'Dashboard', href: '#', LinkIcon: HomeIcon},
       {
         label: 'Users',
         href: ROUTES.dashboardUsers.path,
-        LinkIcon: UsersIcon,
+        LinkIcon: Users,
       },
       {
         label: 'Courses',
         href: ROUTES.dashboardCourses.path,
-        LinkIcon: FolderIcon,
+        LinkIcon: BookOpen,
       },
       {
         label: 'Posts',
         href: ROUTES.dashboardPosts.path,
-        LinkIcon: PencilAltIcon,
+        LinkIcon: Edit,
+      },
+      {
+        label: 'Feedback',
+        href: ROUTES.dashboardFeedback.path,
+        LinkIcon: MessageSquare,
       },
     ];
   }, []);
@@ -92,10 +98,7 @@ const Asidebar = ({sidebarOpen, onToggleSidebar}: AsidebarProps) => {
                       onClick={() => onToggleSidebar(false)}
                     >
                       <span className="sr-only">Close sidebar</span>
-                      <XIcon
-                        className="h-6 w-6 text-white"
-                        aria-hidden="true"
-                      />
+                      <X className="h-6 w-6 text-white" aria-hidden="true" />
                     </button>
                   </div>
                 </Transition.Child>

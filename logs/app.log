@@ -14147,3 +14147,709 @@
     '    at TCP.<anonymous> (node:net:687:12)',
   timestamp: '2022-07-30 01:54:34'
 }
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:94:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-30 18:19:03',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:94:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-30 18:57:56',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:94:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-30 19:18:35',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:94:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-30 19:21:02',
+  stack: undefined
+}
+{
+  message: 'Invalid or missing refresh token',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'INVALID_REFRESH_TOKEN_ERROR',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'InvalidRefreshTokenError: Invalid or missing refresh token',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:129:23)',
+        '    at Generator.throw (<anonymous>)',
+        '    at rejected (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:6:65)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Invalid or missing refresh token',
+      locations: [ { line: 1, column: 2 } ],
+      path: [ 'refreshTokens' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-30 19:21:02',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:94:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-30 19:21:02',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:94:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-30 19:23:17',
+  stack: undefined
+}
+{
+  message: 'Invalid or missing refresh token',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'INVALID_REFRESH_TOKEN_ERROR',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'InvalidRefreshTokenError: Invalid or missing refresh token',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:129:23)',
+        '    at Generator.throw (<anonymous>)',
+        '    at rejected (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:6:65)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Invalid or missing refresh token',
+      locations: [ { line: 1, column: 2 } ],
+      path: [ 'refreshTokens' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-30 19:23:17',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:94:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-30 19:23:17',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:94:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-30 19:23:27',
+  stack: undefined
+}
+{
+  message: 'Invalid or missing refresh token',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'INVALID_REFRESH_TOKEN_ERROR',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'InvalidRefreshTokenError: Invalid or missing refresh token',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:129:23)',
+        '    at Generator.throw (<anonymous>)',
+        '    at rejected (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:6:65)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Invalid or missing refresh token',
+      locations: [ { line: 1, column: 2 } ],
+      path: [ 'refreshTokens' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-30 19:23:27',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:94:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-30 19:23:27',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:94:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-30 19:23:29',
+  stack: undefined
+}
+{
+  message: 'Invalid or missing refresh token',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'INVALID_REFRESH_TOKEN_ERROR',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'InvalidRefreshTokenError: Invalid or missing refresh token',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:129:23)',
+        '    at Generator.throw (<anonymous>)',
+        '    at rejected (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:6:65)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Invalid or missing refresh token',
+      locations: [ { line: 1, column: 2 } ],
+      path: [ 'refreshTokens' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-30 19:23:29',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:94:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-30 19:23:29',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:94:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-30 19:33:42',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:94:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-30 19:53:59',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:94:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-30 20:54:52',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:94:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-30 21:17:34',
+  stack: undefined
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-07-30 22:09:28'
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:94:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-30 22:10:07',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:94:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 32 } ],
+      path: [ 'querier' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-30 22:47:20',
+  stack: undefined
+}
+{
+  message: 'Variable "$input" got invalid value { id: "01FKVE2B90D6C52BAEZ2KB8F6P", name: "HTML", imgSrc: "", description: "HyperText Markup Language", visibility: true, color: null, createdAt: "2022-04-24T22:31:36.539Z", updatedAt: "2022-04-24T22:31:36.540Z" }; Field "createdAt" is not defined by type "UpsertTagInput".',
+  locations: [ { line: 1, column: 20 } ],
+  path: undefined,
+  extensions: {
+    code: 'BAD_USER_INPUT',
+    exception: {
+      stacktrace: [
+        'GraphQLError: Variable "$input" got invalid value { id: "01FKVE2B90D6C52BAEZ2KB8F6P", name: "HTML", imgSrc: "", description: "HyperText Markup Language", visibility: true, color: null, createdAt: "2022-04-24T22:31:36.539Z", updatedAt: "2022-04-24T22:31:36.540Z" }; Field "createdAt" is not defined by type "UpsertTagInput".',
+        '    at /home/ahmed/Desktop/www/rocketdev.dev/node_modules/graphql/execution/values.js:147:11',
+        '    at coerceInputValueImpl (/home/ahmed/Desktop/www/rocketdev.dev/node_modules/graphql/utilities/coerceInputValue.js:131:9)',
+        '    at coerceInputValueImpl (/home/ahmed/Desktop/www/rocketdev.dev/node_modules/graphql/utilities/coerceInputValue.js:49:14)',
+        '    at coerceInputValue (/home/ahmed/Desktop/www/rocketdev.dev/node_modules/graphql/utilities/coerceInputValue.js:32:10)',
+        '    at coerceVariableValues (/home/ahmed/Desktop/www/rocketdev.dev/node_modules/graphql/execution/values.js:132:69)',
+        '    at getVariableValues (/home/ahmed/Desktop/www/rocketdev.dev/node_modules/graphql/execution/values.js:45:21)',
+        '    at /home/ahmed/Desktop/www/rocketdev.dev/node_modules/@apollo/gateway/src/index.ts:970:45',
+        '    at NoopContextManager.with (/home/ahmed/Desktop/www/rocketdev.dev/node_modules/@opentelemetry/api/src/context/NoopContextManager.ts:31:19)',
+        '    at ContextAPI.with (/home/ahmed/Desktop/www/rocketdev.dev/node_modules/@opentelemetry/api/src/api/context.ts:77:42)',
+        '    at NoopTracer.startActiveSpan (/home/ahmed/Desktop/www/rocketdev.dev/node_modules/@opentelemetry/api/src/trace/NoopTracer.ts:94:24)'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-30 22:54:21',
+  stack: undefined
+}
+{
+  message: 'Variable "$input" got invalid value { id: "01FKVE2B90D6C52BAEZ2KB8F6P", name: "HTML", imgSrc: "", description: "HyperText Markup Language", visibility: true, color: null, createdAt: "2022-04-24T22:31:36.539Z", updatedAt: "2022-04-24T22:31:36.540Z" }; Field "updatedAt" is not defined by type "UpsertTagInput".',
+  locations: [ { line: 1, column: 20 } ],
+  path: undefined,
+  extensions: {
+    code: 'BAD_USER_INPUT',
+    exception: {
+      stacktrace: [
+        'GraphQLError: Variable "$input" got invalid value { id: "01FKVE2B90D6C52BAEZ2KB8F6P", name: "HTML", imgSrc: "", description: "HyperText Markup Language", visibility: true, color: null, createdAt: "2022-04-24T22:31:36.539Z", updatedAt: "2022-04-24T22:31:36.540Z" }; Field "updatedAt" is not defined by type "UpsertTagInput".',
+        '    at /home/ahmed/Desktop/www/rocketdev.dev/node_modules/graphql/execution/values.js:147:11',
+        '    at coerceInputValueImpl (/home/ahmed/Desktop/www/rocketdev.dev/node_modules/graphql/utilities/coerceInputValue.js:131:9)',
+        '    at coerceInputValueImpl (/home/ahmed/Desktop/www/rocketdev.dev/node_modules/graphql/utilities/coerceInputValue.js:49:14)',
+        '    at coerceInputValue (/home/ahmed/Desktop/www/rocketdev.dev/node_modules/graphql/utilities/coerceInputValue.js:32:10)',
+        '    at coerceVariableValues (/home/ahmed/Desktop/www/rocketdev.dev/node_modules/graphql/execution/values.js:132:69)',
+        '    at getVariableValues (/home/ahmed/Desktop/www/rocketdev.dev/node_modules/graphql/execution/values.js:45:21)',
+        '    at /home/ahmed/Desktop/www/rocketdev.dev/node_modules/@apollo/gateway/src/index.ts:970:45',
+        '    at NoopContextManager.with (/home/ahmed/Desktop/www/rocketdev.dev/node_modules/@opentelemetry/api/src/context/NoopContextManager.ts:31:19)',
+        '    at ContextAPI.with (/home/ahmed/Desktop/www/rocketdev.dev/node_modules/@opentelemetry/api/src/api/context.ts:77:42)',
+        '    at NoopTracer.startActiveSpan (/home/ahmed/Desktop/www/rocketdev.dev/node_modules/@opentelemetry/api/src/trace/NoopTracer.ts:94:24)'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-30 22:54:21',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:94:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-30 23:06:42',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:94:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 32 } ],
+      path: [ 'querier' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-30 23:06:42',
+  stack: undefined
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-07-30 23:07:39'
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:94:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 29 } ],
+      path: [ 'mutator' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-30 23:28:50',
+  stack: undefined
+}
+{
+  message: 'Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: blogdb.tags index: name_1 dup key: { name: "New tag" }',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'INTERNAL_SERVER_ERROR',
+    serviceName: 'coding_school',
+    ok: 0,
+    codeName: 'DuplicateKey',
+    keyPattern: { name: 1 },
+    keyValue: { name: 'New tag' },
+    exception: {
+      stacktrace: [
+        'Error: Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: blogdb.tags index: name_1 dup key: { name: "New tag" }',
+        '    at TagDataSource.unknownError (webpack-internal:///./src/graphql/resolvers/tag/tag.datasource.ts:84:16)',
+        '    at TagDataSource.eval (webpack-internal:///./src/graphql/resolvers/tag/tag.datasource.ts:75:28)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/tag/tag.datasource.ts:5:58)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: blogdb.tags index: name_1 dup key: { name: "New tag" }',
+      locations: [ { line: 1, column: 142 } ],
+      path: [ '_entities', 0, 'upsertTag' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-07-30 23:30:49',
+  stack: undefined
+}

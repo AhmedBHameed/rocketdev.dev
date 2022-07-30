@@ -12,12 +12,15 @@ import Avatar from '../../components/Avatar/Avatar';
 import getUserName from '../../utils/getUserName';
 import JsonViewContainer from '../../components/JsonView/JsonViewContainer';
 import EditUserButton from '../../components/Dashboard/Users/EditUserButton';
-import {omit} from 'lodash';
+import {get, omit} from 'lodash';
 import EditAuthorizationButton from '../../components/Dashboard/Users/EditAuthorizationButton';
 import {GetStaticProps} from 'next';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
+import usePagination from '../../components/Table/hooks/paginationHook';
 
 const users = () => {
+  const {page, perPage} = usePagination();
+
   const [useAuthorization, setUseAuthorization] = useState<
     Authorization | undefined
   >();
@@ -41,15 +44,14 @@ const users = () => {
     []
   );
 
+  const handleOnPaginationChange = useCallback(
+    (selectedPage: number) => {
+      paginateListUsers(selectedPage, perPage);
+    },
+    [perPage]
+  );
+
   const handleAuthUpdate = useCallback((authorization: object) => {
-    console.log(authorization);
-    // upsertAuthorization({
-    //   variables: {
-    //     input: {
-    //       actions:
-    //     }
-    //   }
-    // })
     setOpenAuthModal(false);
   }, []);
 
@@ -93,7 +95,7 @@ const users = () => {
   }, []);
 
   useEffect(() => {
-    paginateListUsers(1, 1);
+    paginateListUsers(page, perPage);
   }, []);
 
   if (error)
@@ -109,6 +111,10 @@ const users = () => {
         rowKey="id"
         dataSource={data?.listUsers || []}
         columns={tableColumn}
+        pagination={{
+          totalItems: get(data, 'querier.totalTags', 0),
+          onChange: handleOnPaginationChange,
+        }}
       />
 
       <Modal
