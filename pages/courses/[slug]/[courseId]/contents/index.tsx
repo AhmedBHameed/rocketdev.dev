@@ -8,6 +8,7 @@ import React, {useCallback, useState} from 'react';
 import Col from '../../../../../components/Col/Col';
 import BoldLabel from '../../../../../components/Label/BoldLabel';
 import Layout from '../../../../../components/Layout';
+import ReadingTime from '../../../../../components/ReadingTime/ReadingTime';
 import Row from '../../../../../components/Row/Row';
 import ROUTES from '../../../../../config/routes';
 
@@ -147,7 +148,13 @@ const CourseContent = ({courseContents, courseSlug}: CourseContent) => {
                         theme.text
                       )}
                     >
-                      {post.postContents[0].readingTime}
+                      <ReadingTime
+                        readingTime={get(
+                          post,
+                          'postContents.0.readingTime',
+                          ''
+                        )}
+                      />
                     </span>
                   </RadioGroup.Description>
                   <span

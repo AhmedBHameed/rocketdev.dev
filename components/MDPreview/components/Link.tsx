@@ -9,7 +9,7 @@ const Link = ({children, ...reset}: LinkProps) => {
   return (
     <a
       {...reset}
-      className={clsx('text-blue-600', 'visited:text-purple-600')}
+      className={clsx('text-blue-500', 'dark:text-blue-400')}
       target="_blank"
     >
       {children}

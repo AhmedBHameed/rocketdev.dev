@@ -63,6 +63,7 @@ const Courses: NextPage<CoursesProps> = ({listCoursesQuery, error, locale}) => {
               }${ROUTES.contents.path}`}
               title={slugToTitle(course.slug)}
               contentPreview={course.description}
+              isPremium={course.isPremium}
             />
           </Col>
         ))}

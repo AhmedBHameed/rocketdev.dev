@@ -20,6 +20,7 @@ import slugToTitle from '../utils/slugToTitle';
 import {ApolloQueryResult} from '@apollo/client';
 import LIST_POSTS_QUERY from '../graphql/LIST_POSTS_QUERY.gql';
 import AlertError from '../components/AlertError/AlertError';
+import {get} from 'lodash';
 
 interface LatestProps {
   locale: string;
@@ -61,6 +62,7 @@ const Latest: NextPage<LatestProps> = ({posts, totalFreeArticles, error}) => {
             <PostCard
               href={`${postPath}/${post.slug}/${post.nanoId}`}
               title={slugToTitle(post.slug)}
+              readingTime={get(post, 'postContents.0.readingTime', '')}
               subTitle={post.postContents?.[0].metaTags.description}
               contentPreview={post.postContents?.[0].contentPreview}
             />

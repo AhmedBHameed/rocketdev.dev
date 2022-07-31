@@ -3,7 +3,6 @@ const theme = {
   subText: 'text-gray-500 dark:text-gray-400',
   bgMain: 'bg-zinc-200 dark:bg-gray-800',
   bgSecondary: 'bg-neutral-100 dark:bg-neutral-800',
-  red: '#F24125',
 };
 
 export default theme;

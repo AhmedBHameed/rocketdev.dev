@@ -16,13 +16,32 @@ import signupSchema from '../components/Signup/signupSchema';
 import {GetStaticProps} from 'next';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import LoadingButton from '../components/Buttons/LoadingButton';
+import {useNotifications} from '../components/ToastMessage/Hooks/NotificationsHook';
 
 const Signup = () => {
+  const {notify} = useNotifications();
   const {t, i18n} = useTranslation(['common', 'signup']);
   // const commonTrans = useTranslation('common');
 
   const router = useRouter();
-  const [signup, {loading}] = useSignupMutation();
+  const [signup, {loading}] = useSignupMutation({
+    onError: ({graphQLErrors}) => {
+      if (graphQLErrors[0].message.includes('E11000')) {
+        notify({
+          type: 'error',
+          title: 'Signup failed',
+          message: 'You email is already registered',
+        });
+        return;
+      }
+
+      notify({
+        type: 'error',
+        title: 'Signup failed',
+        message: 'Oops! something went wrong! Please try again',
+      });
+    },
+  });
 
   const handleLogin = useCallback(async (data: SignupInput) => {
     try {
@@ -35,9 +54,7 @@ const Signup = () => {
         },
       });
       router.push(ROUTES.signup.path);
-    } catch (e) {
-      console.log(e);
-    }
+    } catch {}
   }, []);
 
   const {
@@ -251,14 +268,13 @@ const Signup = () => {
                 className={clsx('mt-7', 'flex', 'items-center', 'justify-end')}
               >
                 <div className="text-sm mb-3">
-                  <Link
-                    href={ROUTES.login.path}
-                    className="font-medium text-red-500 hover:text-red-400"
-                  >
-                    {t('youHaveAccount', {
-                      ns: 'signup',
-                      defaultValue: 'You have an account?',
-                    })}
+                  <Link href={ROUTES.login.path}>
+                    <a className="font-medium text-red-500 hover:text-red-400">
+                      {t('youHaveAccount', {
+                        ns: 'signup',
+                        defaultValue: 'You have an account?',
+                      })}
+                    </a>
                   </Link>
                 </div>
               </div>

@@ -100,8 +100,8 @@ export const getServerSideProps: GetServerSideProps = async ({
   } catch (e) {
     httpError = {};
     const errors: {graphQLErrors: GraphQLErrors} = e;
-    const errorMessage = errors.graphQLErrors?.[0].message || '';
-    const errorCode = errors.graphQLErrors?.[0].extensions.code || '';
+    const errorMessage = get(errors, 'graphQLErrors.0.message', '');
+    const errorCode = get(errors, 'graphQLErrors.0.extensions.code', '');
 
     if (errorMessage.includes('ECONNREFUSED')) {
       httpError.message =

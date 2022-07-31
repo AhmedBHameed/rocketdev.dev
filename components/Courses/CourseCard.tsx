@@ -3,15 +3,17 @@ import React from 'react';
 import clsx from '../../utils/clsx';
 import BoldLabel from '../Label/BoldLabel';
 import MediumLabel from '../Label/MediumLabel';
-import {ChevronsRight} from 'react-feather';
 import {useTranslation} from 'next-i18next';
 import slugToTitle from '../../utils/slugToTitle';
 import theme from '../../styles/theme';
+import ReadMore from '../ReadMore/ReadMore';
+import PremiumSign from '../PremiumSign/PremiumSign';
 
 interface CourseCardProps {
   title: string;
   subTitle?: string;
   contentPreview: string;
+  isPremium?: boolean;
   onClick?: () => void;
   href: string;
 }
@@ -20,6 +22,7 @@ const CourseCard: React.FC<CourseCardProps> = ({
   title,
   subTitle,
   contentPreview,
+  isPremium,
   href,
   onClick,
 }) => {
@@ -48,8 +51,18 @@ const CourseCard: React.FC<CourseCardProps> = ({
         <Link href={href}>
           <a className={clsx('flex', 'flex-col', 'justify-between', 'h-full')}>
             <div>
-              <h3 className={clsx('title-hover--title', 'text-xl')}>
-                <BoldLabel>{slugToTitle(title)}</BoldLabel>
+              <h3
+                className={clsx(
+                  'flex',
+                  'justify-between',
+                  'items-center',
+                  'title-hover--title',
+                  'font-bold',
+                  'text-xl'
+                )}
+              >
+                {slugToTitle(title)}
+                {isPremium && <PremiumSign />}
               </h3>
               <h3 className={clsx('text-base', 'mb-4', 'text-gray-400')}>
                 <MediumLabel>{subTitle}</MediumLabel>
@@ -59,12 +72,7 @@ const CourseCard: React.FC<CourseCardProps> = ({
               </p>
             </div>
 
-            <p className={clsx('text-sm', 'flex', 'items-center', 'gap-2')}>
-              {t('readMore', {defaultValue: 'Read more'})}{' '}
-              <ChevronsRight
-                className={clsx('title-hover--readme_icon', 'w-4')}
-              />
-            </p>
+            <ReadMore />
           </a>
         </Link>
       </article>

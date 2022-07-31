@@ -18,12 +18,7 @@ import RocketDevSvg from '../components/SVG/LogoSvg';
 import {GITHUB_CLIENT_ID} from '../config/environments';
 import ROUTES from '../config/routes';
 import clsx from '../utils/clsx';
-import {
-  GetStaticProps,
-  // GetStaticPaths,
-  // GetServerSideProps,
-  NextPage,
-} from 'next';
+import {GetStaticProps, NextPage} from 'next';
 import Link from 'next/link';
 import useGithubLoginHook from '../components/hooks/githubLoginHook';
 import useCreateTokens from '../components/hooks/createTokensHook';
@@ -97,7 +92,7 @@ const Login: NextPage = () => {
   const emailError = errors.email?.message;
   const passwordError = errors.password?.message;
 
-  const loading = createTokensQuery.loading || githubQuery.loading;
+  const disabled = createTokensQuery.loading || githubQuery.loading;
 
   return (
     <div
@@ -137,8 +132,8 @@ const Login: NextPage = () => {
           <div className="mb-10">
             <LoadingButton
               type="submit"
-              loading={loading}
-              disabled={loading}
+              loading={githubQuery.loading}
+              disabled={disabled}
               icon={<i className="mr-5 ri-github-fill ri-2x"></i>}
               onClick={getGithubCode}
               className={clsx(
@@ -154,7 +149,7 @@ const Login: NextPage = () => {
                 'text-sm',
                 'font-medium',
                 'text-white',
-                loading
+                githubQuery.loading
                   ? 'disabled:opacity-50 disabled:cursor-not-allowed bg-gray-600'
                   : 'bg-gray-600 hover:bg-gray-700',
                 'focus:outline-none',
@@ -279,8 +274,8 @@ const Login: NextPage = () => {
             <div className={clsx('flex', 'items-center', 'flex-col')}>
               <LoadingButton
                 type="submit"
-                loading={loading}
-                disabled={loading}
+                loading={createTokensQuery.loading}
+                disabled={disabled}
                 className={clsx(
                   'w-full',
                   'flex',
@@ -294,7 +289,7 @@ const Login: NextPage = () => {
                   'text-sm',
                   'font-medium',
                   'text-white',
-                  loading
+                  createTokensQuery.loading
                     ? 'disabled:opacity-50 disabled:cursor-not-allowed bg-gray-600'
                     : 'bg-red-500 hover:bg-red-600',
                   'focus:outline-none',

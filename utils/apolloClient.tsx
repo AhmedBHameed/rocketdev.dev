@@ -6,6 +6,7 @@ import {
   InMemoryCache,
 } from '@apollo/client';
 import {onError} from '@apollo/client/link/error';
+import {get} from 'lodash';
 import {DOMAIN} from '../config/environments';
 import {httpClient} from './httpClient';
 
@@ -46,13 +47,14 @@ const errorLink = onError(({graphQLErrors, operation, forward}) => {
               })
           ).flatMap((res) => {
             const head = new Headers();
-            head.append('set-cookie', res.headers['set-cookie']);
+            const setCookie = get(res, 'headers.set-cookie');
+            if (setCookie) head.append('set-cookie', setCookie);
 
             const oldHeaders = operation.getContext().headers;
             operation.setContext({
               headers: {
                 ...oldHeaders,
-                'set-cookie': res.headers['set-cookie'],
+                ...(setCookie ? {'set-cookie': setCookie} : {}),
                 cookie: head.get('set-cookie'),
               },
             });

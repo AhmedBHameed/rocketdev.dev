@@ -31,7 +31,7 @@ const AboutMe = () => {
 
           <Col colSpan={8}>
             <h3 className={clsx(theme.text)}>
-              <span className={clsx(`text-[#F24125]`)}>Hi!</span> I'm Ahmed
+              <span className={clsx('text-red-500')}>Hi!</span> I'm Ahmed
               HAMEED!
             </h3>
             <p className="leading-tight">
@@ -42,7 +42,7 @@ const AboutMe = () => {
             <Row gap={4} xs={12}>
               <Col className="flex justify-center items-center">
                 <a href="https://www.ahmedhameed.dev" target="_blank">
-                  <Globe color={theme.red} />
+                  <Globe className="text-red-500" />
                 </a>
               </Col>
 
@@ -50,7 +50,7 @@ const AboutMe = () => {
 
               <Col className="flex justify-center items-center">
                 <a href="https://github.com/AhmedBHameed" target="_blank">
-                  <GitHub color={theme.red} />
+                  <GitHub className="text-red-500" />
                 </a>
               </Col>
 
@@ -58,7 +58,7 @@ const AboutMe = () => {
 
               <Col className="flex justify-center items-center">
                 <a href="mailto:contact@ahmedhameed.dev" target="_blank">
-                  <Mail color={theme.red} />
+                  <Mail className="text-red-500" />
                 </a>
               </Col>
 
@@ -69,7 +69,7 @@ const AboutMe = () => {
                   href="https://www.linkedin.com/in/ahmed-hameed-185b3612b/"
                   target="_blank"
                 >
-                  <Linkedin color={theme.red} />
+                  <Linkedin className="text-red-500" />
                 </a>
               </Col>
             </Row>

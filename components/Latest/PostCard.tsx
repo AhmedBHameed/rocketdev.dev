@@ -2,14 +2,16 @@ import Link from 'next/link';
 import React from 'react';
 import clsx from '../../utils/clsx';
 import BoldLabel from '../Label/BoldLabel';
-import {ChevronsRight} from 'react-feather';
 import {useTranslation} from 'next-i18next';
 import slugToTitle from '../../utils/slugToTitle';
 import theme from '../../styles/theme';
+import ReadingTime from '../ReadingTime/ReadingTime';
+import ReadMore from '../ReadMore/ReadMore';
 
 interface PostCardProps {
   title: string;
   subTitle?: string;
+  readingTime: string;
   contentPreview: string;
   onClick?: () => void;
   href: string;
@@ -17,7 +19,7 @@ interface PostCardProps {
 
 const PostCard: React.FC<PostCardProps> = ({
   title,
-  subTitle,
+  readingTime,
   contentPreview,
   href,
   onClick,
@@ -28,7 +30,7 @@ const PostCard: React.FC<PostCardProps> = ({
     <div
       className={clsx(
         'p-8',
-        'min-h-[250px]',
+        'min-h-[260px]',
         'rounded-2xl',
         'bg-neutral-100',
         'dark:bg-neutral-800',
@@ -47,23 +49,16 @@ const PostCard: React.FC<PostCardProps> = ({
         <Link href={href}>
           <a className={clsx('flex', 'flex-col', 'justify-between', 'h-full')}>
             <div>
+              <ReadingTime readingTime={readingTime} />
               <h3 className={clsx('title-hover--title', 'text-xl')}>
                 <BoldLabel>{slugToTitle(title)}</BoldLabel>
               </h3>
-              {/* <h3 className={clsx('text-base', 'mb-4', 'text-gray-400')}>
-                <MediumLabel>{subTitle}</MediumLabel>
-              </h3> */}
               <p className={clsx('text-base', 'mt-2', theme.subText)}>
                 {contentPreview}
               </p>
             </div>
 
-            <p className={clsx('text-sm', 'flex', 'items-center', 'gap-2')}>
-              {t('readMore')}{' '}
-              <ChevronsRight
-                className={clsx('title-hover--readme_icon', 'w-5')}
-              />
-            </p>
+            <ReadMore />
           </a>
         </Link>
       </article>
