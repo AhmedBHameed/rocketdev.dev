@@ -36,7 +36,7 @@ const Code = ({node, inline, className, ...props}: any) => {
   );
 
   return match ? (
-    <div className={clsx('bg-[#1e1e1e]', 'rounded', 'overflow-hidden')}>
+    <div className={clsx('rounded', 'overflow-hidden')}>
       <small
         className={clsx(
           'text-gray-50',
