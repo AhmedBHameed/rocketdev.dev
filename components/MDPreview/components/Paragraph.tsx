@@ -5,7 +5,7 @@ interface ParagraphProps {
   children?: React.ReactNode;
 }
 
-const Paragraph: React.FC<ParagraphProps> = ({children}) => {
+const Paragraph = ({children}: ParagraphProps) => {
   return <p className={clsx('dark:text-zinc-300')}>{children}</p>;
 };
 

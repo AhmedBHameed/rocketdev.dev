@@ -1,9 +1,6 @@
-import emoji from 'node-emoji';
+import emoji from 'emoji-dictionary';
 
 const parseEmojis = (markdown: string) => {
-  const emojify = (match: string) =>
-    `<span className="emoji">${emoji.emojify(match)}</span>`;
-
   markdown = markdown
     .replace(/:\+1:/g, ':thumbsup:')
     .replace(/:-1:/g, ':thumbsdown:')
@@ -13,7 +10,7 @@ const parseEmojis = (markdown: string) => {
         return m.replace(/:/g, '__colon__');
       }
     )
-    .replace(/:(\w+?):/gi, emojify)
+    .replace(/:(\w+?):/gi, (name) => emoji.getUnicode(name))
     .replace(/__colon__/g, ':');
 
   return markdown;

@@ -89,3 +89,31 @@ blockquote a {
     rgba(226, 232, 240, var(--tw-bg-opacity)) 70%
   );
 }
+
+/* Pre code snippet */
+pre {
+  @apply p-0 !important;
+}
+
+pre .codeStyle {
+  @apply pt-3 !important;
+}
+pre span[data='highlight'] {
+  background-color: rgba(230, 233, 238, 0.1);
+
+  @apply block;
+}
+
+pre .linenumber {
+  @apply relative text-gray-400 !important;
+}
+
+pre .linenumber:before {
+  content: '';
+  @apply ml-7 !important;
+}
+
+pre span[data='highlight'] .linenumber:after {
+  content: '';
+  @apply border-l-8 border-red-400 absolute left-0 top-0 h-full;
+}

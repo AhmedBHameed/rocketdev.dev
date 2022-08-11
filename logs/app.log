@@ -25054,3 +25054,1005 @@
   timestamp: '2022-07-31 18:53:13',
   stack: undefined
 }
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-07-31 22:37:56'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-07-31 22:37:56'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-07-31 22:37:56'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-07-31 22:37:56'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-07-31 22:37:56'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-07-31 22:37:56'
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:94:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-08-06 15:23:53',
+  stack: undefined
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:26:22'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:27:28'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:27:29'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:27:29'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:27:37'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:27:37'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:27:37'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:27:37'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:27:37'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:32:17'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:32:35'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:32:35'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:32:35'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:35:27'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:35:27'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:35:51'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:35:51'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:35:51'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:35:57'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:35:57'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:36:08'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:36:16'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:38:12'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:38:12'
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:94:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-08-06 15:40:24',
+  stack: undefined
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:40:30'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:40:30'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:40:30'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:40:30'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:40:30'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:40:30'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:43:31'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:43:38'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:43:38'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:43:38'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:43:38'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:47:58'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:47:58'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:47:58'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:47:58'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:47:58'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:47:58'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:52:09'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:52:09'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:56:04'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:56:04'
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:94:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-08-06 15:56:06',
+  stack: undefined
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:56:11'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:56:11'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 15:56:11'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 16:13:58'
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:94:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-08-06 16:15:38',
+  stack: undefined
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 16:18:07'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 16:18:07'
+}
+{
+  code: 'ECONNRESET',
+  level: 'error',
+  message: ' aborted',
+  stack: 'Error: aborted\n' +
+    '    at connResetException (node:internal/errors:691:14)\n' +
+    '    at abortIncoming (node:_http_server:597:17)\n' +
+    '    at socketOnClose (node:_http_server:591:3)\n' +
+    '    at Socket.emit (node:events:532:35)\n' +
+    '    at Socket.emit (node:domain:475:12)\n' +
+    '    at TCP.<anonymous> (node:net:687:12)',
+  timestamp: '2022-08-06 16:18:07'
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:94:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-08-06 16:37:23',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:94:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-08-06 16:53:53',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:94:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-08-06 17:33:39',
+  stack: undefined
+}
+{
+  message: 'request to http://localhost:5002/graphql failed, reason: socket hang up',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'INTERNAL_SERVER_ERROR',
+    exception: {
+      stacktrace: [
+        'FetchError: request to http://localhost:5002/graphql failed, reason: socket hang up',
+        '    at ClientRequest.<anonymous> (/home/ahmed/Desktop/www/rocketdev.dev/node_modules/minipass-fetch/lib/index.js:130:14)',
+        '    at ClientRequest.emit (node:events:520:28)',
+        '    at ClientRequest.emit (node:domain:475:12)',
+        '    at Socket.socketOnEnd (node:_http_client:466:9)',
+        '    at Socket.emit (node:events:532:35)',
+        '    at Socket.emit (node:domain:475:12)',
+        '    at endReadableNT (node:internal/streams/readable:1346:12)',
+        '    at processTicksAndRejections (node:internal/process/task_queues:83:21)'
+      ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-08-06 17:34:18',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:94:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 25 } ],
+      path: [ 'verifyMe' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-08-06 17:49:54',
+  stack: undefined
+}
+{
+  message: 'Unauthorized token! Invalid or empty tokens.',
+  locations: undefined,
+  path: undefined,
+  extensions: {
+    code: 'UNAUTHENTICATED',
+    serviceName: 'auth',
+    exception: {
+      stacktrace: [
+        'AuthenticationError: Unauthorized token! Invalid or empty tokens.',
+        '    at AuthDataSource.eval (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:94:23)',
+        '    at Generator.next (<anonymous>)',
+        '    at fulfilled (webpack-internal:///./src/graphql/resolvers/authentication/authentication.datasource.ts:5:58)',
+        '    at runMicrotasks (<anonymous>)',
+        '    at processTicksAndRejections (internal/process/task_queues.js:95:5)'
+      ],
+      message: 'Unauthorized token! Invalid or empty tokens.',
+      locations: [ { line: 1, column: 37 } ],
+      path: [ 'mutator' ]
+    }
+  },
+  level: 'error',
+  timestamp: '2022-08-06 18:06:06',
+  stack: undefined
+}

@@ -16,6 +16,7 @@ const Avatar = ({src, firstName, lastName}: AvatarProps) => {
           crossOrigin="anonymous"
           className="h-12 w-12 rounded-full"
           src={src}
+          title="avatar"
           alt="avatar"
         />
       </div>

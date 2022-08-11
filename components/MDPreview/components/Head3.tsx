@@ -1,13 +1,7 @@
 import React from 'react';
 import clsx from '../../../utils/clsx';
 
-interface Head3Props {
-  className?: string;
-  id?: string;
-  children?: React.ReactNode;
-}
-
-const Head3: React.FC<Head3Props> = (props) => {
+const Head3 = (props) => {
   return (
     <h3 {...props} className={clsx(props.className || '')}>
       <a

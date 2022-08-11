@@ -1,7 +1,6 @@
-import Markdown from 'markdown-to-jsx';
 import React from 'react';
 
-import Audio from './components/Audio';
+// import Audio from './components/Audio';
 import Blockquote from './components/Blockquote';
 import Code from './components/Code';
 import Head1 from './components/Head1';
@@ -12,7 +11,6 @@ import Link from './components/Link';
 import ListItem from './components/ListItem';
 import OrderList from './components/OrderList';
 import Paragraph from './components/Paragraph';
-import Pre from './components/Pre';
 import Strong from './components/Strong';
 import Table from './components/Table';
 import TableData from './components/TableData';
@@ -20,6 +18,10 @@ import TableHead from './components/TableHead';
 import TableHeaderCell from './components/TableHeaderCell';
 import TableRow from './components/TableRow';
 import parseEmojis from './utils/parseEmojis';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import move from './rehypeRaw';
+import rehypeRaw from './rehypeRaw';
 
 interface MDPreviewClientProps {
   markdown: string;
@@ -27,65 +29,40 @@ interface MDPreviewClientProps {
 
 const MDPreviewClient: React.FC<MDPreviewClientProps> = ({markdown}) => {
   return (
-    <Markdown
+    <ReactMarkdown
       children={parseEmojis(markdown)}
-      options={{
-        overrides: {
-          blockquote: {
-            component: Blockquote,
-          },
-          a: {
-            component: Link,
-          },
-          Audio: {
-            component: Audio,
-          },
-          h1: {
-            component: Head1,
-          },
-          h2: {
-            component: Head2,
-          },
-          h3: {
-            component: Head3,
-          },
-          pre: {
-            component: Pre,
-          },
-          code: {
-            component: Code,
-          },
-          p: {
-            component: Paragraph,
-          },
-          strong: {
-            component: Strong,
-          },
-          img: {
-            component: Img,
-          },
-          ol: {
-            component: OrderList,
-          },
-          li: {
-            component: ListItem,
-          },
-          table: {
-            component: Table,
-          },
-          thead: {
-            component: TableHead,
-          },
-          tr: {
-            component: TableRow,
-          },
-          th: {
-            component: TableHeaderCell,
-          },
-          td: {
-            component: TableData,
-          },
-        },
+      rehypePlugins={[remarkGfm, rehypeRaw]}
+      components={{
+        blockquote: Blockquote,
+
+        a: Link,
+        // Audio: Audio,
+
+        h1: Head1,
+
+        h2: Head2,
+
+        h3: Head3,
+
+        p: Paragraph,
+
+        strong: Strong,
+        code: Code,
+        img: (props: any) => <Img {...props} />,
+
+        ol: OrderList,
+
+        li: ListItem,
+
+        table: Table,
+
+        thead: TableHead,
+
+        tr: TableRow,
+
+        th: TableHeaderCell,
+
+        td: TableData,
       }}
     />
   );

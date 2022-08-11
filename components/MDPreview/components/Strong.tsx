@@ -5,7 +5,7 @@ interface StrongProps {
   children?: React.ReactNode;
 }
 
-const Strong: React.FC<StrongProps> = ({children}) => {
+const Strong = ({children}: StrongProps) => {
   return (
     <strong
       className={clsx('text-zinc-700', 'dark:text-zinc-300', 'font-bold')}
