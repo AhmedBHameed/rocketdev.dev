@@ -92,7 +92,7 @@ blockquote a {
 
 /* Pre code snippet */
 pre {
-  @apply p-0 !important;
+  @apply p-0 bg-[#1e1e1e] !important;
 }
 
 pre .codeStyle {
