@@ -37,14 +37,6 @@ const PostContent: React.FC<PostContentProps> = ({post}) => {
       site: '@Ahmed_B_HAMEED',
       cardType: 'summary_large_image',
     },
-    images: [
-      {
-        url: image,
-        width: 800,
-        height: 600,
-        alt: slug,
-      },
-    ],
   };
 
   return (
