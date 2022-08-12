@@ -15,50 +15,95 @@ import {LoginInput} from '../components/Login/models/LoginInput';
 import {useTranslation} from 'next-i18next';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import RocketDevSvg from '../components/SVG/LogoSvg';
-import {GITHUB_CLIENT_ID} from '../config/environments';
+import {DOMAIN, GITHUB_CLIENT_ID} from '../config/environments';
 import ROUTES from '../config/routes';
 import clsx from '../utils/clsx';
 import {GetStaticProps, NextPage} from 'next';
 import Link from 'next/link';
-import useGithubLoginHook from '../components/hooks/githubLoginHook';
-import useCreateTokens from '../components/hooks/createTokensHook';
 import LoadingButton from '../components/Buttons/LoadingButton';
+import {
+  useCreateTokensLazyQuery,
+  useGithubLoginLazyQuery,
+} from '../graphql/generated/graphql';
+import {get} from 'lodash';
+import {useNotifications} from '../components/ToastMessage/Hooks/NotificationsHook';
+import {ApolloError} from '@apollo/client';
 
 const Login: NextPage = () => {
   const router = useRouter();
+
   const {t, i18n} = useTranslation(['common', 'login']);
+  const {notify} = useNotifications();
 
-  const createTokensQuery = useCreateTokens();
+  const [createTokens, {loading: createTokenLoading}] =
+    useCreateTokensLazyQuery();
+  const [githubLogin, {loading: githubLoading}] = useGithubLoginLazyQuery();
 
-  const githubQuery = useGithubLoginHook();
+  const errorHandler = useCallback((error: ApolloError) => {
+    switch (true) {
+      case get(error, 'graphQLErrors[0].extensions.code') === 'UNAUTHENTICATED':
+        notify({
+          type: 'error',
+          title: 'Login failed',
+          message: get(error, 'graphQLErrors[0].message'),
+        });
+        break;
 
-  const handleLogin = useCallback(async (loginData: LoginInput) => {
-    try {
-      await createTokensQuery.createTokens({
-        email: loginData.email,
-        password: loginData.password,
-        rememberMe: loginData.rememberMe,
-      });
-      router.push(ROUTES.latest.path, undefined, {
-        locale: i18n.language,
-      });
-    } catch (e) {
-      console.log(e);
+      default:
+        notify({
+          type: 'error',
+          title: 'Login failed',
+          message: get(
+            error,
+            'graphQLErrors[0].message',
+            'Something went wrong! please try again'
+          ),
+        });
     }
   }, []);
 
+  const handleLogin = useCallback(
+    async (loginData: LoginInput) => {
+      const {error} = await createTokens({
+        variables: {
+          email: loginData.email,
+          password: loginData.password,
+          rememberMe: loginData.rememberMe,
+        },
+      });
+
+      if (error) {
+        errorHandler(error);
+        return;
+      }
+
+      router.push(ROUTES.latest.path, undefined, {
+        locale: i18n.resolvedLanguage,
+      });
+    },
+    [createTokens]
+  );
+
   const handleGithubLogin = useCallback(async (code: string) => {
-    try {
-      await githubQuery.githubLogin(code);
-      router.push(ROUTES.latest.path);
-    } catch (e) {
-      console.log(e);
+    const {error} = await githubLogin({
+      variables: {
+        code,
+      },
+    });
+
+    if (error) {
+      errorHandler(error);
+      return;
     }
+
+    router.push(ROUTES.latest.path, undefined, {
+      locale: i18n.resolvedLanguage,
+    });
   }, []);
 
   const getGithubCode = useCallback(() => {
     window.open(
-      `https://github.com/login/oauth/authorize?client_id=${GITHUB_CLIENT_ID}&scope=user&redirect_uri=${window.location.origin}/login`,
+      `https://github.com/login/oauth/authorize?client_id=${GITHUB_CLIENT_ID}&scope=user&redirect_uri=${DOMAIN}/login`,
       '_self'
     );
   }, []);
@@ -78,21 +123,23 @@ const Login: NextPage = () => {
   });
 
   useEffect(() => {
-    if (window) {
-      const githubCode = window.location.search.split('code=')[1];
+    const searchParams = router.query;
+    if (searchParams.code) handleGithubLogin(searchParams.code as string);
 
-      if (githubCode) {
-        handleGithubLogin(githubCode);
-      }
-    }
-  }, []);
+    if (searchParams.error && searchParams.error_description)
+      notify({
+        type: 'error',
+        title: 'Login failed',
+        message: searchParams.error_description,
+      });
+  }, [router]);
 
   const currentLocale = i18n.language;
 
   const emailError = errors.email?.message;
   const passwordError = errors.password?.message;
 
-  const disabled = createTokensQuery.loading || githubQuery.loading;
+  const disabled = createTokenLoading || githubLoading;
 
   return (
     <div
@@ -132,7 +179,7 @@ const Login: NextPage = () => {
           <div className="mb-10">
             <LoadingButton
               type="submit"
-              loading={githubQuery.loading}
+              loading={githubLoading}
               disabled={disabled}
               icon={<i className="mr-5 ri-github-fill ri-2x"></i>}
               onClick={getGithubCode}
@@ -149,7 +196,7 @@ const Login: NextPage = () => {
                 'text-sm',
                 'font-medium',
                 'text-white',
-                githubQuery.loading
+                githubLoading
                   ? 'disabled:opacity-50 disabled:cursor-not-allowed bg-gray-600'
                   : 'bg-gray-600 hover:bg-gray-700',
                 'focus:outline-none',
@@ -274,7 +321,7 @@ const Login: NextPage = () => {
             <div className={clsx('flex', 'items-center', 'flex-col')}>
               <LoadingButton
                 type="submit"
-                loading={createTokensQuery.loading}
+                loading={createTokenLoading}
                 disabled={disabled}
                 className={clsx(
                   'w-full',
@@ -289,7 +336,7 @@ const Login: NextPage = () => {
                   'text-sm',
                   'font-medium',
                   'text-white',
-                  createTokensQuery.loading
+                  createTokenLoading
                     ? 'disabled:opacity-50 disabled:cursor-not-allowed bg-gray-600'
                     : 'bg-red-500 hover:bg-red-600',
                   'focus:outline-none',

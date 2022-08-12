@@ -20,7 +20,6 @@ import TableRow from './components/TableRow';
 import parseEmojis from './utils/parseEmojis';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import move from './rehypeRaw';
 import rehypeRaw from './rehypeRaw';
 
 interface MDPreviewClientProps {
