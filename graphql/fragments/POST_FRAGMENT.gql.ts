@@ -39,6 +39,7 @@ const POST_FRAGMENT = gql`
     }
     prevPostId
     nextPostId
+    accessedByUserIds
     createdAt
     updatedAt
   }

@@ -3,9 +3,12 @@ import React from 'react';
 import {DOMAIN} from '../../config/environments';
 import ROUTES from '../../config/routes';
 import {Post} from '../../graphql/generated/graphql';
+import getUserName from '../../utils/getUserName';
 import slugToTitle from '../../utils/slugToTitle';
 import MDPreviewClient from '../MDPreview/MDPreviewClient';
 import MetaTags from '../MetaTags/MetaTags';
+import {format} from 'date-fns';
+import clsx from '../../utils/clsx';
 
 interface PostContentProps {
   post?: Post;
@@ -45,12 +48,17 @@ const PostContent: React.FC<PostContentProps> = ({post}) => {
   //     },
   //   ],
   // };
+
+  const updatedAt = format(new Date(get(post, 'updatedAt')), 'MMM dd, yyyy');
+  const authorName = getUserName(get(post, 'author.name', ''));
+  const readingTime = get(post, 'postContents.0.readingTime', '');
+
   return (
     <div className="relative py-24 overflow-hidden">
       <MetaTags
         articleBy="@Ahmed_B_HAMEED"
         articleId={post.id}
-        articleUrl={`${DOMAIN}/${ROUTES.post.path}/${post.slug}/${post.nanoId}`}
+        articleUrl={`${DOMAIN}${ROUTES.post.path}/${post.slug}/${post.nanoId}/`}
         description={twitterDescription}
         imageUrl={image}
         title={slug}
@@ -65,9 +73,14 @@ const PostContent: React.FC<PostContentProps> = ({post}) => {
               {slugToTitle(post?.slug || '')}
             </span>
           </h1>
-          <h2 className="mt-8 mb-16 text-xl italic font-bold text-gray-700 dark:text-gray-300 leading-8">
+          <h2 className="mt-8 text-xl italic opacity-90 font-bold text-gray-700 dark:text-gray-300 leading-8">
             {get(post, 'postContents[0].contentPreview', '')}
           </h2>
+
+          <small className={clsx('mb-10', 'mt-8', 'block', 'opacity-60')}>
+            By <strong>{authorName}</strong> • Updated: {updatedAt} •{' '}
+            {readingTime}
+          </small>
         </div>
         <div className="mt-6 prose prose-indigo prose-lg mx-auto">
           <MDPreviewClient markdown={get(post, 'postContents[0].body', '')} />

@@ -19,6 +19,7 @@ import {GetStaticProps} from 'next';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import {useRouter} from 'next/router';
 import ROUTES from '../../../config/routes';
+import titleToSlug from '../../../utils/titleToSlug';
 
 const DashboardPosts = () => {
   const router = useRouter();
@@ -59,8 +60,9 @@ const DashboardPosts = () => {
           nextPostId: post.nextPostId,
           prevPostId: post.prevPostId,
           postContentIds: post.postContentIds,
-          slug: post.slug,
+          slug: titleToSlug(post.slug),
           groupName: post.groupName,
+          accessedByUserIds: post.accessedByUserIds,
           type: post.type,
           visibility: post.visibility,
           tagIds: post.tagIds,

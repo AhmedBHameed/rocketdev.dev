@@ -91,7 +91,7 @@ const PostItem = ({
     },
   });
 
-  const [{isDragging}, drag] = useDrag({
+  const [, drag] = useDrag({
     type: 'POST_ITEM',
     item: (props) => {
       return {id, index};

@@ -11,7 +11,6 @@ const Link = ({children, ...reset}: LinkProps) => {
       {...reset}
       className={clsx('text-blue-500', 'dark:text-blue-400')}
       target="_blank"
-      title="external link"
     >
       {children}
     </a>

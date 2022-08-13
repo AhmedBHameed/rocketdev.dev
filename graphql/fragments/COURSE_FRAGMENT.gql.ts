@@ -22,7 +22,6 @@ const COURSE_FRAGMENT = gql`
     lang
     postIds
     publishedAt
-    accessedByUserIds
   }
 `;
 

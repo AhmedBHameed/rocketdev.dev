@@ -23,10 +23,15 @@ import {FormControl, InputField} from '../../Forms';
 import SelectMenu, {Option} from '../../Forms/SelectMenu';
 import Textarea from '../../Forms/Textarea';
 import Toggle from '../../Forms/Toggle';
+import useKeyPress from '../../hooks/keyPressHook';
 import MDPreviewClient from '../../MDPreview/MDPreviewClient';
 import Row from '../../Row/Row';
 import {useNotifications} from '../../ToastMessage/Hooks/NotificationsHook';
 import postSchema from './postSchema';
+import {ExternalLink} from 'react-feather';
+import Link from '../../Buttons/Link';
+import {DOMAIN} from '../../../config/environments';
+import ROUTES from '../../../config/routes';
 
 interface DashboardPostFormProps {
   loading?: boolean;
@@ -66,6 +71,7 @@ const DashboardPostForm = ({post, loading}: DashboardPostFormProps) => {
       visibility: get(post, 'visibility', false),
       nextPostId: get(post, 'nextPostId', ''),
       prevPostId: get(post, 'prevPostId', ''),
+      accessedByUserIds: get(post, 'accessedByUserIds', []),
       tagIds: get(post, 'tagIds', []),
       postContents: [
         {
@@ -91,6 +97,7 @@ const DashboardPostForm = ({post, loading}: DashboardPostFormProps) => {
       groupName,
       nextPostId,
       prevPostId,
+      accessedByUserIds,
       postContents,
     }: Post) => {
       await upsertPostContent({
@@ -118,8 +125,9 @@ const DashboardPostForm = ({post, loading}: DashboardPostFormProps) => {
             isPremium,
             nextPostId,
             prevPostId,
-            slug,
+            slug: titleToSlug(slug),
             groupName,
+            accessedByUserIds,
             type,
             visibility,
           },
@@ -164,6 +172,27 @@ const DashboardPostForm = ({post, loading}: DashboardPostFormProps) => {
     [upsertPost, upsertPostContent, notify]
   );
 
+  const postUrl = `${DOMAIN}${ROUTES.post.path}/${post.slug}/${post.nanoId}/`;
+
+  useKeyPress(
+    'ctrl+s,ctrl+o',
+    (event, handler) => {
+      switch (handler.key) {
+        case 'ctrl+s':
+          handleSubmit(submitPostAndPostContent)();
+          break;
+        case 'ctrl+o':
+          window.open(postUrl, '_blank');
+          break;
+      }
+
+      return false;
+    },
+    {
+      filter: '^(TEXTAREA)$',
+    }
+  );
+
   const slugError = get(errors, 'slug', null);
   const groupNameError = get(errors, 'groupName', null);
   const typeError = get(errors, 'type', null);
@@ -183,9 +212,20 @@ const DashboardPostForm = ({post, loading}: DashboardPostFormProps) => {
     <div className="mt-6 prose prose-indigo prose-2xl mx-auto">
       <Row gutter={[8, 8]} gap={4} xs={1}>
         <Col>
-          <article className={clsx('prose', 'lg:prose-xl', theme.text)}>
-            Post: {post.id || ''}
-          </article>
+          <Link onClick={() => window.open(postUrl, '_blank')}>
+            <article
+              className={clsx(
+                'prose',
+                'lg:prose-xl',
+                'flex',
+                'items-center',
+                theme.text
+              )}
+            >
+              Post: {post.id || ''}
+              <ExternalLink className={clsx('w-10')} />
+            </article>
+          </Link>
         </Col>
 
         <Col>

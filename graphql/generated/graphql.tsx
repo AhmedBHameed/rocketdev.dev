@@ -60,7 +60,6 @@ export type AuthorizationInput = {
 
 export type Course = {
   __typename?: 'Course';
-  accessedByUserIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
   author?: Maybe<User>;
   authorId?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['Date']>;
@@ -187,9 +186,9 @@ export type FilterTagInput = {
 };
 
 export type GetPremiumPostInput = {
-  courseId: Scalars['ID'];
-  postNanoId: Scalars['ID'];
-  postSlug: Scalars['String'];
+  nanoId: Scalars['ID'];
+  postId?: InputMaybe<Scalars['ID']>;
+  slug: Scalars['String'];
 };
 
 export enum LanguageEnum {
@@ -361,6 +360,7 @@ export type PaginationInput = {
 
 export type Post = {
   __typename?: 'Post';
+  accessedByUserIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
   author?: Maybe<User>;
   authorId?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['Date']>;
@@ -637,7 +637,6 @@ export type UpdateUserInput = {
 };
 
 export type UpsertCourseInput = {
-  accessedByUserIds?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
   authorId?: InputMaybe<Scalars['String']>;
   description?: InputMaybe<Scalars['String']>;
   id: Scalars['ID'];
@@ -664,6 +663,7 @@ export type UpsertPostContentInput = {
 };
 
 export type UpsertPostInput = {
+  accessedByUserIds?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
   authorId?: InputMaybe<Scalars['String']>;
   groupName?: InputMaybe<Scalars['String']>;
   id: Scalars['ID'];
@@ -836,6 +836,7 @@ export type GetPostQuery = {
     type?: PostTypeEnum | null;
     prevPostId?: string | null;
     nextPostId?: string | null;
+    accessedByUserIds?: Array<string | null> | null;
     createdAt?: Date | null;
     updatedAt?: Date | null;
     postContents?: Array<{
@@ -911,7 +912,6 @@ export type ListCoursesQuery = {
     lang?: LanguageEnum | null;
     postIds: Array<string | null>;
     publishedAt?: Date | null;
-    accessedByUserIds?: Array<string | null> | null;
     author?: {
       __typename?: 'User';
       email?: any | null;
@@ -954,6 +954,7 @@ export type ListPostsQuery = {
     type?: PostTypeEnum | null;
     prevPostId?: string | null;
     nextPostId?: string | null;
+    accessedByUserIds?: Array<string | null> | null;
     createdAt?: Date | null;
     updatedAt?: Date | null;
     postContents?: Array<{
@@ -1127,7 +1128,6 @@ export type CourseFragmentFragment = {
   lang?: LanguageEnum | null;
   postIds: Array<string | null>;
   publishedAt?: Date | null;
-  accessedByUserIds?: Array<string | null> | null;
   author?: {
     __typename?: 'User';
     email?: any | null;
@@ -1156,6 +1156,7 @@ export type QuerierPostFragmentFragment = {
   groupName?: string | null;
   prevPostId?: string | null;
   nextPostId?: string | null;
+  accessedByUserIds?: Array<string | null> | null;
   createdAt?: Date | null;
   updatedAt?: Date | null;
   postContents?: Array<{
@@ -1209,6 +1210,7 @@ export type PostFragmentFragment = {
   type?: PostTypeEnum | null;
   prevPostId?: string | null;
   nextPostId?: string | null;
+  accessedByUserIds?: Array<string | null> | null;
   createdAt?: Date | null;
   updatedAt?: Date | null;
   postContents?: Array<{
@@ -1400,7 +1402,6 @@ export type UpsertCourseMutation = {
       lang?: LanguageEnum | null;
       postIds: Array<string | null>;
       publishedAt?: Date | null;
-      accessedByUserIds?: Array<string | null> | null;
       author?: {
         __typename?: 'User';
         email?: any | null;
@@ -1475,6 +1476,7 @@ export type UpsertPostMutation = {
       type?: PostTypeEnum | null;
       prevPostId?: string | null;
       nextPostId?: string | null;
+      accessedByUserIds?: Array<string | null> | null;
       createdAt?: Date | null;
       updatedAt?: Date | null;
       postContents?: Array<{
@@ -1561,6 +1563,7 @@ export type GetPostByIdQuery = {
       type?: PostTypeEnum | null;
       prevPostId?: string | null;
       nextPostId?: string | null;
+      accessedByUserIds?: Array<string | null> | null;
       createdAt?: Date | null;
       updatedAt?: Date | null;
       postContents?: Array<{
@@ -1625,6 +1628,7 @@ export type GetPremiumPostQuery = {
       type?: PostTypeEnum | null;
       prevPostId?: string | null;
       nextPostId?: string | null;
+      accessedByUserIds?: Array<string | null> | null;
       createdAt?: Date | null;
       updatedAt?: Date | null;
       postContents?: Array<{
@@ -1684,6 +1688,7 @@ export type ListQuerierCoursePostsQuery = {
       groupName?: string | null;
       prevPostId?: string | null;
       nextPostId?: string | null;
+      accessedByUserIds?: Array<string | null> | null;
       createdAt?: Date | null;
       updatedAt?: Date | null;
       postContents?: Array<{
@@ -1780,6 +1785,7 @@ export type ListQuerierPostsQuery = {
       type?: PostTypeEnum | null;
       prevPostId?: string | null;
       nextPostId?: string | null;
+      accessedByUserIds?: Array<string | null> | null;
       createdAt?: Date | null;
       updatedAt?: Date | null;
       postContents?: Array<{
@@ -1882,7 +1888,6 @@ export const CourseFragmentFragmentDoc = gql`
     lang
     postIds
     publishedAt
-    accessedByUserIds
   }
   ${AuthorFragmentFragmentDoc}
   ${TagFragmentFragmentDoc}
@@ -1917,6 +1922,7 @@ export const QuerierPostFragmentFragmentDoc = gql`
     }
     prevPostId
     nextPostId
+    accessedByUserIds
     createdAt
     updatedAt
   }
@@ -1958,6 +1964,7 @@ export const PostFragmentFragmentDoc = gql`
     }
     prevPostId
     nextPostId
+    accessedByUserIds
     createdAt
     updatedAt
   }

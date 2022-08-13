@@ -1,5 +1,10 @@
 import {Post, PostTypeEnum} from '../../../graphql/generated/graphql';
-import {Joi, optionalString, requiredString} from '../../../utils/validations';
+import {
+  Joi,
+  optionalString,
+  requiredString,
+  requiredArray,
+} from '../../../utils/validations';
 
 const postSchema = Joi.object<Post>({
   id: requiredString(),
@@ -16,6 +21,7 @@ const postSchema = Joi.object<Post>({
       postImage: optionalString(),
     })
   ),
+  accessedByUserIds: requiredArray(),
   prevPostId: optionalString(),
   slug: requiredString(),
   tagIds: Joi.array().items(Joi.string()).required().messages({

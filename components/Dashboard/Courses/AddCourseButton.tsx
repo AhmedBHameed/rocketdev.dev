@@ -63,7 +63,6 @@ const AddCourseButton = ({page, perPage}: AddCourseButtonProps) => {
       variables: {
         input: {
           id: ulid(),
-          accessedByUserIds: [],
           authorId: userProfile.verifyMe.id,
           image: '',
           isPremium: true,

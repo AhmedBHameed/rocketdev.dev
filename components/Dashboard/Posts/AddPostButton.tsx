@@ -73,6 +73,7 @@ const AddPostButton = ({page, perPage}: AddPostButtonProps) => {
           nextPostId: '',
           prevPostId: '',
           postContentIds: [],
+          accessedByUserIds: [],
           tagIds: [],
           type: PostTypeEnum.Course,
           visibility: false,

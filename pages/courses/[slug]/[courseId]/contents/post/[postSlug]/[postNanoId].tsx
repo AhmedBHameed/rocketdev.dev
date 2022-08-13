@@ -90,9 +90,8 @@ export const getServerSideProps: GetServerSideProps = async ({
       },
       variables: {
         input: {
-          courseId: params.courseId as string,
-          postNanoId: params.postNanoId as string,
-          postSlug: params.postSlug as string,
+          nanoId: params.postNanoId as string,
+          slug: params.postSlug as string,
         },
         lang: LanguageEnum.En,
       },
