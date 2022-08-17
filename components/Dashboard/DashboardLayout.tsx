@@ -13,9 +13,10 @@ import Asidebar from './Asidebar/Asidebar';
 interface DashboardLayoutProps {
   title?: string;
   children?: React.ReactNode;
+  onSearch?: (search: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const DashboardLayout = ({children, title}: DashboardLayoutProps) => {
+const DashboardLayout = ({children, title, onSearch}: DashboardLayoutProps) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const {goToDashboardLogin} = useNavigateToDashboardLogin();
@@ -59,10 +60,11 @@ const DashboardLayout = ({children, title}: DashboardLayoutProps) => {
                   </div>
                   <input
                     id="search-field"
-                    className="block w-full h-full pl-8 pr-3 py-2 border-transparent text-gray-900 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-0 focus:border-transparent sm:text-sm"
+                    className="block w-full h-full pl-8 pr-3 py-2 border-transparent text-gray-50 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-0 focus:border-transparent sm:text-sm"
                     placeholder="Search"
                     type="search"
                     name="search"
+                    onChange={onSearch}
                   />
                 </div>
               </form>
@@ -102,7 +104,7 @@ const DashboardLayout = ({children, title}: DashboardLayoutProps) => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
               <h1 className="text-2xl font-semibold text-gray-900">{title}</h1>
             </div>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+            <div className="max-w-full mx-auto px-4 sm:px-6 md:px-8">
               {children}
             </div>
           </div>

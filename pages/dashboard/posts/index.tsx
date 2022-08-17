@@ -7,6 +7,7 @@ import Modal from '../../../components/Modal/Modal';
 import Table, {Column} from '../../../components/Table/Table';
 import {
   Post,
+  PostTypeEnum,
   useListQuerierPostsLazyQuery,
   useUpsertPostMutation,
 } from '../../../graphql/generated/graphql';
@@ -20,6 +21,11 @@ import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import {useRouter} from 'next/router';
 import ROUTES from '../../../config/routes';
 import titleToSlug from '../../../utils/titleToSlug';
+import Visibility from '../../../components/Visibility/Visibility';
+import {Edit, BookOpen} from 'react-feather';
+import PremiumSign from '../../../components/PremiumSign/PremiumSign';
+import clsx from '../../../utils/clsx';
+import {debounce} from 'lodash';
 
 const DashboardPosts = () => {
   const router = useRouter();
@@ -27,12 +33,12 @@ const DashboardPosts = () => {
   const [post, setPost] = useState<Post | undefined>();
   const {page, perPage} = usePagination();
 
-  const [fetchQuerierPosts, {data}] = useListQuerierPostsLazyQuery();
+  const [listQuerierPosts, {data}] = useListQuerierPostsLazyQuery();
   const [upsertPost] = useUpsertPostMutation();
 
   const paginatedPostList = useCallback(
     async (number: number, size: number) => {
-      await fetchQuerierPosts({
+      await listQuerierPosts({
         variables: {
           input: {
             page: {
@@ -44,6 +50,30 @@ const DashboardPosts = () => {
       });
     },
     []
+  );
+
+  const onSearch = useMemo(
+    () =>
+      debounce(async (search: string) => {
+        await listQuerierPosts({
+          variables: {
+            input: {
+              ...(search
+                ? {
+                    filter: {
+                      slug: search,
+                    },
+                  }
+                : {}),
+              page: {
+                number: 1,
+                size: perPage,
+              },
+            },
+          },
+        });
+      }, 500),
+    [perPage]
   );
 
   const redirectToPostContentUi = useCallback((postId) => {
@@ -112,10 +142,28 @@ const DashboardPosts = () => {
   const tableColumn = useMemo(() => {
     return [
       {
+        title: 'Type',
+        dataIndex: 'type',
+        key: 'type',
+        render: (type: string) =>
+          type === PostTypeEnum.Article ? (
+            <Edit className="w-8" />
+          ) : (
+            <BookOpen className="w-8" />
+          ),
+      },
+      {
         title: 'Title',
         dataIndex: 'slug',
         key: 'slug',
-        render: (slug: string) => slugToTitle(slug),
+        render: (slug: string, raw) => {
+          return (
+            <div className={clsx('flex', 'items-center')}>
+              {raw.isPremium && <PremiumSign />}
+              {slugToTitle(slug)}
+            </div>
+          );
+        },
       },
       {
         title: 'Is premium?',
@@ -124,28 +172,10 @@ const DashboardPosts = () => {
         render: (isPremium: boolean) => (isPremium ? 'Yes' : 'No'),
       },
       {
-        title: 'Type',
-        dataIndex: 'type',
-        key: 'type',
-      },
-      {
         title: 'Grouped name',
         dataIndex: 'groupName',
         key: 'groupName',
         render: (groupName: string) => slugToTitle(groupName),
-      },
-      {
-        title: 'Post content action',
-        dataIndex: 'editPostContent',
-        key: 'editPostContent',
-        render: (_, row) => (
-          <EditPostContentButton
-            postId={row.id}
-            postContents={row.postContents}
-            page={page}
-            perPage={perPage}
-          />
-        ),
       },
       {
         title: 'Post content action (New UI)',
@@ -177,11 +207,32 @@ const DashboardPosts = () => {
         ),
       },
       {
+        title: 'Published?',
+        dataIndex: 'visibility',
+        key: 'visibility',
+        render: (visibility: boolean, row) => (
+          <Visibility published={visibility} />
+        ),
+      },
+      {
         title: 'Delete',
         dataIndex: 'delete',
         key: 'delete',
         render: (_, row) => (
           <DeletePostButton page={page} perPage={perPage} id={row.id} />
+        ),
+      },
+      {
+        title: 'Post content action',
+        dataIndex: 'editPostContent',
+        key: 'editPostContent',
+        render: (_, row) => (
+          <EditPostContentButton
+            postId={row.id}
+            postContents={row.postContents}
+            page={page}
+            perPage={perPage}
+          />
         ),
       },
     ] as Column<Post>[];
@@ -192,7 +243,7 @@ const DashboardPosts = () => {
   }, []);
 
   return (
-    <DashboardLayout>
+    <DashboardLayout onSearch={(event) => onSearch(event.target.value)}>
       <div className="flex justify-end px-4">
         <AddPostButton page={page} perPage={perPage} />
       </div>
