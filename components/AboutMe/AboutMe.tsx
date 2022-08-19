@@ -31,7 +31,7 @@ const AboutMe = () => {
 
           <Col colSpan={8}>
             <h3 className={clsx(theme.text)}>
-              <span className={clsx('text-red-500')}>Hi!</span> I'm Ahmed
+              <span className={clsx('text-red-500')}>Hi!</span> I&apos;m Ahmed
               HAMEED!
             </h3>
             <p className="leading-tight">
@@ -41,7 +41,11 @@ const AboutMe = () => {
 
             <Row gap={4} xs={12}>
               <Col className="flex justify-center items-center">
-                <a href="https://www.ahmedhameed.dev" target="_blank">
+                <a
+                  href="https://www.ahmedhameed.dev"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <Globe className="text-red-500" />
                 </a>
               </Col>
@@ -49,15 +53,23 @@ const AboutMe = () => {
               <Col className="flex justify-center">&#9679;</Col>
 
               <Col className="flex justify-center items-center">
-                <a href="https://github.com/AhmedBHameed" target="_blank">
+                <a
+                  href="https://github.com/AhmedBHameed"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <GitHub className="text-red-500" />
                 </a>
               </Col>
 
-              <Col className="flex justify-center">&#9679;</Col>
+              <Col className="flex justXify-center">&#9679;</Col>
 
               <Col className="flex justify-center items-center">
-                <a href="mailto:contact@ahmedhameed.dev" target="_blank">
+                <a
+                  href="mailto:contact@ahmedhameed.dev"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <Mail className="text-red-500" />
                 </a>
               </Col>
@@ -68,6 +80,7 @@ const AboutMe = () => {
                 <a
                   href="https://www.linkedin.com/in/ahmed-hameed-185b3612b/"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <Linkedin className="text-red-500" />
                 </a>

@@ -8,6 +8,7 @@ import {useRouter} from 'next/router';
 import {useClearTokensLazyQuery} from '../../graphql/generated/graphql';
 import ROUTES from '../../config/routes';
 import Avatar from '../Avatar/Avatar';
+import Image from 'next/image';
 
 interface MenuProps {
   name: string;
@@ -29,9 +30,9 @@ const ProfileMenu = ({isLoggedIn, menu, avatar}: ProfileMenuProps) => {
   const handleLogout = useCallback(async () => {
     await logout();
     router.push(ROUTES.login.path);
-  }, []);
+  }, [router, logout]);
 
-  const isAvatarLink = avatar.includes('http');
+  const isAvatarLink = avatar?.includes('http');
 
   return (
     <Menu as="div" className="ml-3 relative">
@@ -39,10 +40,12 @@ const ProfileMenu = ({isLoggedIn, menu, avatar}: ProfileMenuProps) => {
         <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
           <span className="sr-only">Open user menu</span>
           {avatar ? (
-            <img
+            <Image
               crossOrigin="anonymous"
               className="h-8 w-8 rounded-full"
               src={isAvatarLink ? avatar : `${STATIC_ASSETS_PATH}${avatar}`}
+              width={32}
+              height={32}
               alt="profile menu"
             />
           ) : (

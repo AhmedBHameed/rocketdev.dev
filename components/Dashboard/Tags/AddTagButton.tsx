@@ -79,7 +79,7 @@ const AddTagButton = ({page, perPage}: AddTagButtonProps) => {
       message: 'Tag data has been created successfully',
       type: 'success',
     });
-  }, [page, perPage]);
+  }, [page, perPage, upsertTag, notify]);
 
   return (
     <LoadingButton loading={loading} onClick={handleOnSubmit}>

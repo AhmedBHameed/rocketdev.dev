@@ -18,33 +18,21 @@ const DeletePostButton = ({id, page, perPage}: DeletePostButtonProps) => {
   const [openConfirmation, setOpenConfirmation] = useState(false);
   const [deletePost] = useDeletePostMutation();
 
-  const handleDeletePost = useCallback(async (id: string) => {
-    await deletePost({
-      variables: {
-        id,
-      },
-      update: (
-        cache,
-        {
-          data: {
-            mutator: {deletePost},
-          },
-        }
-      ) => {
-        const posts = cache.readQuery<ListQuerierPostsQuery>({
-          query: LIST_QUERIER_POSTS_QUERY,
-          variables: {
-            input: {
-              page: {
-                number: page,
-                size: perPage,
-              },
+  const handleDeletePost = useCallback(
+    async (id: string) => {
+      await deletePost({
+        variables: {
+          id,
+        },
+        update: (
+          cache,
+          {
+            data: {
+              mutator: {deletePost},
             },
-          },
-        });
-
-        if (deletePost) {
-          cache.writeQuery({
+          }
+        ) => {
+          const posts = cache.readQuery<ListQuerierPostsQuery>({
             query: LIST_QUERIER_POSTS_QUERY,
             variables: {
               input: {
@@ -54,20 +42,35 @@ const DeletePostButton = ({id, page, perPage}: DeletePostButtonProps) => {
                 },
               },
             },
-            data: {
-              querier: {
-                ...posts.querier,
-                listPosts: posts.querier.listPosts.filter(
-                  (post) => post.id !== deletePost.id
-                ),
-              },
-            },
           });
-        }
-      },
-    });
-    setOpenConfirmation(false);
-  }, []);
+
+          if (deletePost) {
+            cache.writeQuery({
+              query: LIST_QUERIER_POSTS_QUERY,
+              variables: {
+                input: {
+                  page: {
+                    number: page,
+                    size: perPage,
+                  },
+                },
+              },
+              data: {
+                querier: {
+                  ...posts.querier,
+                  listPosts: posts.querier.listPosts.filter(
+                    (post) => post.id !== deletePost.id
+                  ),
+                },
+              },
+            });
+          }
+        },
+      });
+      setOpenConfirmation(false);
+    },
+    [page, perPage, deletePost]
+  );
 
   return (
     <>

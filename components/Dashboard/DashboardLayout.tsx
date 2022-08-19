@@ -1,5 +1,4 @@
 import {get} from 'lodash';
-import {useTranslation} from 'next-i18next';
 import React, {useCallback} from 'react';
 import {useClearTokensLazyQuery} from '../../graphql/generated/graphql';
 import useVerifyMe from '../hooks/verifyMeHook';
@@ -20,7 +19,7 @@ const DashboardLayout = ({children, title, onSearch}: DashboardLayoutProps) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const {goToDashboardLogin} = useNavigateToDashboardLogin();
-  const {t} = useTranslation('navbar');
+  // const {t} = useTranslation('navbar');
   const {userProfile} = useVerifyMe();
 
   const [logout] = useClearTokensLazyQuery();
@@ -28,7 +27,7 @@ const DashboardLayout = ({children, title, onSearch}: DashboardLayoutProps) => {
   const handleLogout = useCallback(async () => {
     await logout();
     goToDashboardLogin();
-  }, []);
+  }, [logout, goToDashboardLogin]);
 
   const avatar = get(userProfile, 'verifyMe.avatar');
 
@@ -79,10 +78,7 @@ const DashboardLayout = ({children, title, onSearch}: DashboardLayoutProps) => {
               </button>
               <ProfileMenu
                 isLoggedIn={!!userProfile}
-                avatar={
-                  avatar ||
-                  'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
-                }
+                avatar={avatar}
                 menu={[
                   {
                     name: 'Your Profile',

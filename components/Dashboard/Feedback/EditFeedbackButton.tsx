@@ -19,26 +19,29 @@ const EditFeedbackButton = ({feedback}: EditFeedbackButtonProps) => {
 
   const [upsertFeedback, {loading}] = useUpsertFeedbackMutation();
 
-  const handleFeedbackUpdate = useCallback(async (feedback: Feedback) => {
-    const cleanedFeedback = omitDeepLodash(feedback, ['__typename']);
-    await upsertFeedback({
-      variables: {
-        input: {
-          id: cleanedFeedback.id,
-          message: cleanedFeedback.message,
-          title: cleanedFeedback.title,
-          resolved: cleanedFeedback.resolved,
+  const handleFeedbackUpdate = useCallback(
+    async (feedback: Feedback) => {
+      const cleanedFeedback = omitDeepLodash(feedback, ['__typename']);
+      await upsertFeedback({
+        variables: {
+          input: {
+            id: cleanedFeedback.id,
+            message: cleanedFeedback.message,
+            title: cleanedFeedback.title,
+            resolved: cleanedFeedback.resolved,
+          },
         },
-      },
-    });
+      });
 
-    notify({
-      title: 'Feedback updated',
-      message: 'Feedback updated successfully',
-      type: 'success',
-    });
-    setOpen(false);
-  }, []);
+      notify({
+        title: 'Feedback updated',
+        message: 'Feedback updated successfully',
+        type: 'success',
+      });
+      setOpen(false);
+    },
+    [upsertFeedback, notify]
+  );
 
   return (
     <>

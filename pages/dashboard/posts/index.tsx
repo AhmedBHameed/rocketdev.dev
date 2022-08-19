@@ -49,7 +49,7 @@ const DashboardPosts = () => {
         },
       });
     },
-    []
+    [listQuerierPosts]
   );
 
   const onSearch = useMemo(
@@ -73,70 +73,76 @@ const DashboardPosts = () => {
           },
         });
       }, 500),
-    [perPage]
+    [perPage, listQuerierPosts]
   );
 
-  const redirectToPostContentUi = useCallback((postId) => {
-    const {path} = ROUTES.dashboardPostContent;
-    router.push(`${path}/${postId}`);
-  }, []);
+  const redirectToPostContentUi = useCallback(
+    (postId) => {
+      const {path} = ROUTES.dashboardPostContent;
+      router.push(`${path}/${postId}`);
+    },
+    [router]
+  );
 
-  const handlePostUpdate = useCallback(async (post: Post) => {
-    await upsertPost({
-      variables: {
-        input: {
-          id: post.id,
-          isPremium: post.isPremium,
-          nextPostId: post.nextPostId,
-          prevPostId: post.prevPostId,
-          postContentIds: post.postContentIds,
-          slug: titleToSlug(post.slug),
-          groupName: post.groupName,
-          accessedByUserIds: post.accessedByUserIds,
-          type: post.type,
-          visibility: post.visibility,
-          tagIds: post.tagIds,
-        },
-      },
-      update: (
-        cache,
-        {
-          data: {
-            mutator: {upsertPost},
+  const handlePostUpdate = useCallback(
+    async (post: Post) => {
+      await upsertPost({
+        variables: {
+          input: {
+            id: post.id,
+            isPremium: post.isPremium,
+            nextPostId: post.nextPostId,
+            prevPostId: post.prevPostId,
+            postContentIds: post.postContentIds,
+            slug: titleToSlug(post.slug),
+            groupName: post.groupName,
+            accessedByUserIds: post.accessedByUserIds,
+            type: post.type,
+            visibility: post.visibility,
+            tagIds: post.tagIds,
           },
-        }
-      ) => {
-        const posts = cache.readQuery<Post[]>({
-          query: LIST_QUERIER_POSTS_QUERY,
-        });
-        if (posts) {
-          const copyPosts = [...posts];
-
-          const modifiedIndex = copyPosts.findIndex(
-            (post) => post.id === upsertPost.id
-          );
-          copyPosts[modifiedIndex] = upsertPost as Post;
-
-          cache.writeQuery({
-            query: LIST_QUERIER_POSTS_QUERY,
+        },
+        update: (
+          cache,
+          {
             data: {
-              querier: {
-                listPosts: copyPosts,
-              },
+              mutator: {upsertPost},
             },
+          }
+        ) => {
+          const posts = cache.readQuery<Post[]>({
+            query: LIST_QUERIER_POSTS_QUERY,
           });
-        }
-      },
-    });
-    setPost(post);
-    setPostModal(false);
-  }, []);
+          if (posts) {
+            const copyPosts = [...posts];
+
+            const modifiedIndex = copyPosts.findIndex(
+              (post) => post.id === upsertPost.id
+            );
+            copyPosts[modifiedIndex] = upsertPost as Post;
+
+            cache.writeQuery({
+              query: LIST_QUERIER_POSTS_QUERY,
+              data: {
+                querier: {
+                  listPosts: copyPosts,
+                },
+              },
+            });
+          }
+        },
+      });
+      setPost(post);
+      setPostModal(false);
+    },
+    [upsertPost]
+  );
 
   const handleOnPaginationChange = useCallback(
     (selectedPage: number) => {
       paginatedPostList(selectedPage, perPage);
     },
-    [perPage]
+    [perPage, paginatedPostList]
   );
 
   const tableColumn = useMemo(() => {
@@ -236,10 +242,11 @@ const DashboardPosts = () => {
         ),
       },
     ] as Column<Post>[];
-  }, [page, perPage]);
+  }, [page, perPage, redirectToPostContentUi]);
 
   useEffect(() => {
     paginatedPostList(page, perPage);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

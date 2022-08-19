@@ -27,7 +27,7 @@ const useKeyPress = (
     return () => {
       hotkeys.unbind(keys, keyboardHandler);
     };
-  }, []);
+  }, [keys, config.filter]);
 };
 
 export default useKeyPress;

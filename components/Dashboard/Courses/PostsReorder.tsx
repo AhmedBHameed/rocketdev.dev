@@ -40,7 +40,7 @@ const PostsReorder = ({courseId, onItemOrderChange}: PostsReorderProps) => {
       onItemOrderChange(postOrder);
       setCoursePosts(postOrder);
     },
-    [coursePosts]
+    [coursePosts, onItemOrderChange]
   );
 
   useEffect(() => {

@@ -31,7 +31,7 @@ const Courses = () => {
         },
       });
     },
-    []
+    [listCoursesQuery]
   );
 
   const tableColumn = useMemo(() => {
@@ -67,7 +67,8 @@ const Courses = () => {
 
   useEffect(() => {
     paginateCourseList(page, perPage);
-  }, [page, perPage]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   if (error)
     return (

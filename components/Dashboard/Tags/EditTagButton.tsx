@@ -19,55 +19,58 @@ const EditTagButton = ({tag}: EditTagButtonProps) => {
 
   const [upsertTag, {loading}] = useUpsertTagMutation();
 
-  const handleOnSubmit = useCallback(async (tag: Tag) => {
-    const updatedTag = omitDeepLodash(tag, [
-      '__typename',
-      'createdAt',
-      'updatedAt',
-    ]);
+  const handleOnSubmit = useCallback(
+    async (tag: Tag) => {
+      const updatedTag = omitDeepLodash(tag, [
+        '__typename',
+        'createdAt',
+        'updatedAt',
+      ]);
 
-    await upsertTag({
-      variables: {
-        input: updatedTag,
-      },
-      update: (
-        cache,
-        {
-          data: {
-            mutator: {upsertTag},
-          },
-        }
-      ) => {
-        const tags = cache.readQuery<Tag[]>({
-          query: LIST_QUERIER_TAGS_QUERY,
-        });
-        if (tags) {
-          const copyTags = [...tags];
-
-          const modifiedIndex = copyTags.findIndex(
-            (post) => post.id === upsertTag.id
-          );
-          copyTags[modifiedIndex] = upsertTag;
-
-          cache.writeQuery({
-            query: LIST_QUERIER_TAGS_QUERY,
+      await upsertTag({
+        variables: {
+          input: updatedTag,
+        },
+        update: (
+          cache,
+          {
             data: {
-              querier: {
-                listTags: copyTags,
-              },
+              mutator: {upsertTag},
             },
+          }
+        ) => {
+          const tags = cache.readQuery<Tag[]>({
+            query: LIST_QUERIER_TAGS_QUERY,
           });
-        }
-      },
-    });
-    setSelectedTag(tag);
-    notify({
-      title: 'Tag updated',
-      message: 'Tag data has been updated successfully',
-      type: 'success',
-    });
-    setOpen(false);
-  }, []);
+          if (tags) {
+            const copyTags = [...tags];
+
+            const modifiedIndex = copyTags.findIndex(
+              (post) => post.id === upsertTag.id
+            );
+            copyTags[modifiedIndex] = upsertTag;
+
+            cache.writeQuery({
+              query: LIST_QUERIER_TAGS_QUERY,
+              data: {
+                querier: {
+                  listTags: copyTags,
+                },
+              },
+            });
+          }
+        },
+      });
+      setSelectedTag(tag);
+      notify({
+        title: 'Tag updated',
+        message: 'Tag data has been updated successfully',
+        type: 'success',
+      });
+      setOpen(false);
+    },
+    [notify, upsertTag]
+  );
 
   return (
     <>

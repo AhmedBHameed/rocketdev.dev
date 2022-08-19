@@ -28,7 +28,7 @@ import AlertError from '../components/AlertError/AlertError';
 const Feedback: NextPage = () => {
   const {loading: verifyMeLoading, error: verifyMeError} = useVerifyMe();
 
-  const {t, i18n} = useTranslation(['validation', 'feedback']);
+  const {t} = useTranslation(['validation', 'feedback']);
   const {notify} = useNotifications();
   const [upsertFeedback, {loading}] = useUpsertFeedbackMutation();
 
@@ -79,7 +79,7 @@ const Feedback: NextPage = () => {
         });
       }
     },
-    [notify, t]
+    [notify, t, upsertFeedback]
   );
 
   const message = watch('message');

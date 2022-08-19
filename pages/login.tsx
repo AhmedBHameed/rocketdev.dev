@@ -39,28 +39,32 @@ const Login: NextPage = () => {
     useCreateTokensLazyQuery();
   const [githubLogin, {loading: githubLoading}] = useGithubLoginLazyQuery();
 
-  const errorHandler = useCallback((error: ApolloError) => {
-    switch (true) {
-      case get(error, 'graphQLErrors[0].extensions.code') === 'UNAUTHENTICATED':
-        notify({
-          type: 'error',
-          title: 'Login failed',
-          message: get(error, 'graphQLErrors[0].message'),
-        });
-        break;
+  const errorHandler = useCallback(
+    (error: ApolloError) => {
+      switch (true) {
+        case get(error, 'graphQLErrors[0].extensions.code') ===
+          'UNAUTHENTICATED':
+          notify({
+            type: 'error',
+            title: 'Login failed',
+            message: get(error, 'graphQLErrors[0].message'),
+          });
+          break;
 
-      default:
-        notify({
-          type: 'error',
-          title: 'Login failed',
-          message: get(
-            error,
-            'graphQLErrors[0].message',
-            'Something went wrong! please try again'
-          ),
-        });
-    }
-  }, []);
+        default:
+          notify({
+            type: 'error',
+            title: 'Login failed',
+            message: get(
+              error,
+              'graphQLErrors[0].message',
+              'Something went wrong! please try again'
+            ),
+          });
+      }
+    },
+    [notify]
+  );
 
   const handleLogin = useCallback(
     async (loginData: LoginInput) => {
@@ -81,25 +85,28 @@ const Login: NextPage = () => {
         locale: i18n.resolvedLanguage,
       });
     },
-    [createTokens]
+    [router, i18n.resolvedLanguage, errorHandler, createTokens]
   );
 
-  const handleGithubLogin = useCallback(async (code: string) => {
-    const {error} = await githubLogin({
-      variables: {
-        code,
-      },
-    });
+  const handleGithubLogin = useCallback(
+    async (code: string) => {
+      const {error} = await githubLogin({
+        variables: {
+          code,
+        },
+      });
 
-    if (error) {
-      errorHandler(error);
-      return;
-    }
+      if (error) {
+        errorHandler(error);
+        return;
+      }
 
-    router.push(ROUTES.latest.path, undefined, {
-      locale: i18n.resolvedLanguage,
-    });
-  }, []);
+      router.push(ROUTES.latest.path, undefined, {
+        locale: i18n.resolvedLanguage,
+      });
+    },
+    [router, i18n.resolvedLanguage, errorHandler, githubLogin]
+  );
 
   const getGithubCode = useCallback(() => {
     window.open(
@@ -132,7 +139,8 @@ const Login: NextPage = () => {
         title: 'Login failed',
         message: searchParams.error_description,
       });
-  }, [router]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const currentLocale = i18n.language;
 

@@ -7,7 +7,7 @@ const useNavigateToDashboard = () => {
 
   const goToAdminDashboard = useCallback(() => {
     router.push(ROUTES.dashboard.path);
-  }, []);
+  }, [router]);
 
   return {
     goToAdminDashboard,

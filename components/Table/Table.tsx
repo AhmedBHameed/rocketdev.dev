@@ -83,7 +83,7 @@ const Table = <TItem extends object>({
                 </tbody>
               </table>
               <Pagination
-                totalItems={pagination?.totalItems - 1}
+                totalItems={pagination?.totalItems}
                 itemsPerPage={10}
                 onPagination={pagination?.onChange}
               />

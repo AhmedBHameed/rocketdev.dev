@@ -27,7 +27,7 @@ const Pagination = ({
       setItemOffset(newOffset);
       onPagination(selected + 1);
     },
-    [totalItems, onPagination]
+    [totalItems, onPagination, itemsPerPage]
   );
 
   return (

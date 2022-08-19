@@ -15,10 +15,7 @@ interface CheckboxProps {
   name?: string;
 }
 
-const Checkbox: React.FC<CheckboxProps> = forwardRef<
-  HTMLInputElement,
-  CheckboxProps
->(
+const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   (
     {
       ariaLabel,
@@ -72,5 +69,7 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef<
     </div>
   )
 );
+
+Checkbox.displayName = 'Checkbox';
 
 export default Checkbox;

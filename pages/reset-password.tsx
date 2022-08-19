@@ -40,7 +40,7 @@ const ForgotPasswordPage: React.FC = () => {
         console.log(e);
       }
     },
-    [router.query]
+    [router, resetPassword]
   );
 
   const {

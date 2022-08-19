@@ -33,14 +33,14 @@ const Feedback = () => {
         },
       });
     },
-    []
+    [fetchFeedback]
   );
 
   const handleOnPaginationChange = useCallback(
     (selectedPage: number) => {
       paginatedFeedbackList(selectedPage, perPage);
     },
-    [perPage]
+    [perPage, paginatedFeedbackList]
   );
 
   const tableColumn = useMemo(() => {
@@ -75,6 +75,7 @@ const Feedback = () => {
 
   useEffect(() => {
     paginatedFeedbackList(page, perPage);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

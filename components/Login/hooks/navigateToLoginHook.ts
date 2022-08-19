@@ -7,7 +7,7 @@ const useNavigateToLogin = () => {
 
   const goToLogin = useCallback(() => {
     router.push(ROUTES.login.path);
-  }, []);
+  }, [router]);
 
   return {
     goToLogin,

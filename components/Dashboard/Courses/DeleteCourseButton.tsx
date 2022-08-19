@@ -72,7 +72,7 @@ const DeleteCourseButton = ({
       });
       setOpenConfirmation(false);
     },
-    [page, perPage]
+    [page, perPage, deleteCourse]
   );
 
   return (

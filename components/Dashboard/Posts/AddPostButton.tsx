@@ -80,7 +80,7 @@ const AddPostButton = ({page, perPage}: AddPostButtonProps) => {
         },
       },
     });
-  }, [userProfile]);
+  }, [userProfile, upsertPost]);
 
   return (
     <LoadingButton loading={loading} onClick={handleAddNewPost}>

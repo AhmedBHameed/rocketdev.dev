@@ -76,7 +76,7 @@ const AddCourseButton = ({page, perPage}: AddCourseButtonProps) => {
         },
       },
     });
-  }, [userProfile]);
+  }, [userProfile, upsertCourse]);
 
   return (
     <LoadingButton loading={loading} onClick={handleAddNewCourse}>

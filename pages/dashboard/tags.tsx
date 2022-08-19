@@ -1,4 +1,5 @@
 import {get} from 'lodash';
+import Image from 'next/image';
 import React, {useCallback, useEffect, useMemo} from 'react';
 import AlertError from '../../components/AlertError/AlertError';
 import DashboardLayout from '../../components/Dashboard/DashboardLayout';
@@ -28,14 +29,14 @@ const Tags = () => {
         },
       });
     },
-    []
+    [listTagsQuery]
   );
 
   const handleOnPaginationChange = useCallback(
     (selectedPage: number) => {
       paginateListTags(selectedPage, perPage);
     },
-    [perPage]
+    [perPage, paginateListTags]
   );
 
   const tableColumn = useMemo(() => {
@@ -52,10 +53,12 @@ const Tags = () => {
         render: (_, row) => (
           <>
             {row.imgSrc && (
-              <img
+              <Image
                 className="inline-block h-14 w-14 rounded-md"
                 src={row.imgSrc}
                 alt=""
+                width={56}
+                height={56}
               />
             )}
           </>
@@ -77,6 +80,7 @@ const Tags = () => {
 
   useEffect(() => {
     paginateListTags(page, perPage);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (error)

@@ -26,25 +26,28 @@ const EditAuthorizationButton = ({
 
   const [upsertAuthorization, {loading}] = useUpsertAuthorizationMutation();
 
-  const handleOnSubmit = useCallback(async (updatedUser: Authorization) => {
-    const userAuth = omitDeepLodash(updatedUser, ['_id', '__typename']);
-    await upsertAuthorization({
-      variables: {
-        input: {
-          userId: userAuth.userId,
-          actions: (userAuth.actions || []) as ActionInput[],
+  const handleOnSubmit = useCallback(
+    async (updatedUser: Authorization) => {
+      const userAuth = omitDeepLodash(updatedUser, ['_id', '__typename']);
+      await upsertAuthorization({
+        variables: {
+          input: {
+            userId: userAuth.userId,
+            actions: (userAuth.actions || []) as ActionInput[],
+          },
         },
-      },
-    });
+      });
 
-    setAuthorizationData(updatedUser);
-    notify({
-      title: 'Authorization',
-      message: 'Authorization updated',
-      type: 'success',
-    });
-    setOpen(false);
-  }, []);
+      setAuthorizationData(updatedUser);
+      notify({
+        title: 'Authorization',
+        message: 'Authorization updated',
+        type: 'success',
+      });
+      setOpen(false);
+    },
+    [notify, upsertAuthorization]
+  );
 
   return (
     <>

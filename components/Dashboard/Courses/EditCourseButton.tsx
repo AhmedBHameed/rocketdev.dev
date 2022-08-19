@@ -21,25 +21,28 @@ const EditCourseButton = ({course}: EditCourseButtonProps) => {
 
   const [upsertCourse, {loading}] = useUpsertCourseMutation();
 
-  const handleOnSubmit = useCallback(async (updatedUserData: Course) => {
-    const updatedCourse = omitDeepLodash(updatedUserData, [
-      '__typename',
-      'tags',
-      'author',
-    ]);
-    await upsertCourse({
-      variables: {
-        input: updatedCourse,
-      },
-    });
-    setUser(updatedUserData);
-    notify({
-      title: 'Course updated',
-      message: 'Course data has been updated successfully',
-      type: 'success',
-    });
-    setOpen(false);
-  }, []);
+  const handleOnSubmit = useCallback(
+    async (updatedUserData: Course) => {
+      const updatedCourse = omitDeepLodash(updatedUserData, [
+        '__typename',
+        'tags',
+        'author',
+      ]);
+      await upsertCourse({
+        variables: {
+          input: updatedCourse,
+        },
+      });
+      setUser(updatedUserData);
+      notify({
+        title: 'Course updated',
+        message: 'Course data has been updated successfully',
+        type: 'success',
+      });
+      setOpen(false);
+    },
+    [notify, upsertCourse]
+  );
 
   return (
     <>

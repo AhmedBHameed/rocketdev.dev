@@ -59,7 +59,7 @@ const EditPostContentButton = ({
       });
       setOpen(false);
     },
-    [postId]
+    [postId, notify, upsertPostContent]
   );
 
   const addNewPostContent = useCallback(async () => {
@@ -93,7 +93,7 @@ const EditPostContentButton = ({
         },
       ],
     });
-  }, [postId]);
+  }, [page, perPage, postId, upsertPostContent]);
 
   if (!postContents.length)
     return (

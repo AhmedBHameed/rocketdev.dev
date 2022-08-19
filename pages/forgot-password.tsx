@@ -37,7 +37,7 @@ const ForgotPasswordPage: React.FC = () => {
         console.log(e);
       }
     },
-    []
+    [router, forgotPassword]
   );
 
   const {

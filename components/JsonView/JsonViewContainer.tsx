@@ -25,7 +25,7 @@ const JsonViewContainer = ({
 
   const handleOnSubmit = useCallback(async () => {
     onSubmit(object);
-  }, [object]);
+  }, [object, onSubmit]);
 
   return (
     <>

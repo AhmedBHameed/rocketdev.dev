@@ -18,25 +18,28 @@ const EditUserButton = ({user}: EditUserButtonProps) => {
 
   const [updatedUser, {loading}] = useUpdateUserMutation();
 
-  const handleOnSubmit = useCallback(async (updatedUserData: User) => {
-    await updatedUser({
-      variables: {
-        input: {
-          id: updatedUserData.id,
-          avatar: updatedUserData.avatar,
-          firstName: get(updatedUserData, 'name.first', ''),
-          lastName: get(updatedUserData, 'name.last', ''),
+  const handleOnSubmit = useCallback(
+    async (updatedUserData: User) => {
+      await updatedUser({
+        variables: {
+          input: {
+            id: updatedUserData.id,
+            avatar: updatedUserData.avatar,
+            firstName: get(updatedUserData, 'name.first', ''),
+            lastName: get(updatedUserData, 'name.last', ''),
+          },
         },
-      },
-    });
-    setUser(updatedUserData);
-    notify({
-      title: 'User updated',
-      message: 'User data has been updated successfully',
-      type: 'success',
-    });
-    setOpen(false);
-  }, []);
+      });
+      setUser(updatedUserData);
+      notify({
+        title: 'User updated',
+        message: 'User data has been updated successfully',
+        type: 'success',
+      });
+      setOpen(false);
+    },
+    [updatedUser, notify]
+  );
 
   return (
     <>

@@ -43,19 +43,22 @@ const Signup = () => {
     },
   });
 
-  const handleLogin = useCallback(async (data: SignupInput) => {
-    try {
-      await signup({
-        variables: {
-          firstName: data.firstName.trim(),
-          lastName: data.lastName.trim(),
-          email: data.email,
-          password: data.password,
-        },
-      });
-      router.push(ROUTES.signup.path);
-    } catch {}
-  }, []);
+  const handleLogin = useCallback(
+    async (data: SignupInput) => {
+      try {
+        await signup({
+          variables: {
+            firstName: data.firstName.trim(),
+            lastName: data.lastName.trim(),
+            email: data.email,
+            password: data.password,
+          },
+        });
+        router.push(ROUTES.signup.path);
+      } catch {}
+    },
+    [router, signup]
+  );
 
   const {
     control,

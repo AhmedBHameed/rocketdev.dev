@@ -14,11 +14,11 @@ import JsonViewContainer from '../../components/JsonView/JsonViewContainer';
 import EditUserButton from '../../components/Dashboard/Users/EditUserButton';
 import {get, omit} from 'lodash';
 import EditAuthorizationButton from '../../components/Dashboard/Users/EditAuthorizationButton';
-import {GetStaticProps} from 'next';
+import {GetStaticProps, NextPage} from 'next';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import usePagination from '../../components/Table/hooks/paginationHook';
 
-const users = () => {
+const Users: NextPage = () => {
   const {page, perPage} = usePagination();
 
   const [useAuthorization, setUseAuthorization] = useState<
@@ -41,14 +41,14 @@ const users = () => {
         },
       });
     },
-    []
+    [listUserQuery]
   );
 
   const handleOnPaginationChange = useCallback(
     (selectedPage: number) => {
       paginateListUsers(selectedPage, perPage);
     },
-    [perPage]
+    [perPage, paginateListUsers]
   );
 
   const handleAuthUpdate = useCallback((authorization: object) => {
@@ -96,6 +96,7 @@ const users = () => {
 
   useEffect(() => {
     paginateListUsers(page, perPage);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (error)
@@ -146,4 +147,4 @@ export const getStaticProps: GetStaticProps = async ({locale}) => {
   };
 };
 
-export default users;
+export default Users;

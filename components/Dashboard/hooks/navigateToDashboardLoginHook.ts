@@ -7,7 +7,7 @@ const useNavigateToDashboardLogin = () => {
 
   const goToDashboardLogin = useCallback(() => {
     router.push(ROUTES.dashboard.path);
-  }, []);
+  }, [router]);
 
   return {
     goToDashboardLogin,

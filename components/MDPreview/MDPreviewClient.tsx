@@ -29,7 +29,6 @@ interface MDPreviewClientProps {
 const MDPreviewClient: React.FC<MDPreviewClientProps> = ({markdown}) => {
   return (
     <ReactMarkdown
-      children={parseEmojis(markdown)}
       rehypePlugins={[remarkGfm, rehypeRaw]}
       components={{
         blockquote: Blockquote,
@@ -63,7 +62,9 @@ const MDPreviewClient: React.FC<MDPreviewClientProps> = ({markdown}) => {
 
         td: TableData,
       }}
-    />
+    >
+      {parseEmojis(markdown)}
+    </ReactMarkdown>
   );
 };
 

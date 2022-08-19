@@ -35,7 +35,7 @@ const ReorderPostsButton = ({courseId}: ReorderPostsButtonProps) => {
       type: 'success',
     });
     setOpen(false);
-  }, [courseId, coursePostsIds]);
+  }, [courseId, coursePostsIds, notify, upsertCourse]);
 
   return (
     <>
