@@ -1,7 +1,7 @@
 import React from 'react';
 import theme from '../../../styles/theme';
 import clsx from '../../../utils/clsx';
-import {ExclamationCircleIcon} from '@heroicons/react/outline';
+import {ExclamationCircleIcon} from '@heroicons/react/24/outline';
 
 interface BlockquoteProps {
   children?: React.ReactNode;

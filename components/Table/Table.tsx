@@ -17,8 +17,10 @@ interface TableProps<TItem extends object> {
   loading?: boolean;
   rowKey?: keyof TItem;
   pagination?: {
-    totalItems?: number;
-    onChange?: (selectedPAge: number) => void;
+    currentPage: number;
+    totalItems: number;
+    topPerPage: number;
+    onChange: (selectedPAge: number) => void;
   };
   scroll?: {
     y: number;
@@ -61,9 +63,12 @@ const Table = <TItem extends object>({
                     'divide-y divide-gray-500'
                   )}
                 >
-                  {dataSource.map((item) => {
+                  {dataSource.map((item, index) => {
                     return (
-                      <tr className="table-" key={`${item[rowKey]}`}>
+                      <tr
+                        className="table-"
+                        key={`${rowKey ? item[rowKey] : index}`}
+                      >
                         {columns.map((col, index) => {
                           return (
                             <td
@@ -82,11 +87,14 @@ const Table = <TItem extends object>({
                   })}
                 </tbody>
               </table>
-              <Pagination
-                totalItems={pagination?.totalItems}
-                itemsPerPage={10}
-                onPagination={pagination?.onChange}
-              />
+              {pagination && (
+                <Pagination
+                  currentPage={pagination.currentPage}
+                  totalItems={pagination.totalItems}
+                  topPerPage={pagination.topPerPage}
+                  onPagination={pagination.onChange}
+                />
+              )}
             </div>
           </div>
         </div>

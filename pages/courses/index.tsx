@@ -89,12 +89,9 @@ export const getServerSideProps: GetServerSideProps = async ({locale}) => {
       query: LIST_COURSES_QUERY,
       fetchPolicy: 'network-only',
       variables: {
-        input: {
-          page: {
-            number: 1,
-            size: 10,
-          },
-        },
+        query: encodeURIComponent(
+          `$orderby=id&$skip=0&$top=10` // $filter=isPremium eq false and (type eq '${PostTypeEnum.Article}') and (visibility eq true)&$orderby=slug&$skip=0&$top=10
+        ),
         // lang: locale as LanguageEnum,
       },
     });

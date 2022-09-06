@@ -1,8 +1,8 @@
 import {gql} from '@apollo/client';
 
 const LIST_USERS_QUERY = gql`
-  query ListUsers($input: ListUsersCollateInput!) {
-    listUsers(input: $input) {
+  query ListUsers($query: String!) {
+    listUsers(query: $query) {
       id
       name {
         first

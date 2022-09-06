@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {ToastContainer, Slide} from 'react-toastify';
+import {injectStyle} from 'react-toastify/dist/inject-style';
 
 /**
  * How to style with styled-components @see https://fkhadra.github.io/react-toastify/how-to-style/#how-to-style-with-styled-components
@@ -33,19 +34,24 @@ import {ToastContainer, Slide} from 'react-toastify';
  *  }, config);
  */
 
-const ToastMessage: React.FC = () => (
-  <ToastContainer
-    className="impct-toast"
-    position="bottom-left"
-    autoClose={3000}
-    hideProgressBar
-    newestOnTop
-    closeOnClick
-    rtl={false}
-    draggable={false}
-    pauseOnHover
-    transition={Slide}
-  />
-);
+const ToastMessage: React.FC = () => {
+  useEffect(() => {
+    injectStyle();
+  }, []);
+
+  return (
+    <ToastContainer
+      position="bottom-left"
+      autoClose={3000}
+      hideProgressBar
+      newestOnTop
+      closeOnClick
+      rtl={false}
+      draggable={false}
+      pauseOnHover
+      transition={Slide}
+    />
+  );
+};
 
 export default ToastMessage;

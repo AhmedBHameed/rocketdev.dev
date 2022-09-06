@@ -11,11 +11,11 @@ import LoadingButton from '../../Buttons/LoadingButton';
 import {useNotifications} from '../../ToastMessage/Hooks/NotificationsHook';
 
 interface AddTagButtonProps {
-  page: number;
-  perPage: number;
+  skip: number;
+  top: number;
 }
 
-const AddTagButton = ({page, perPage}: AddTagButtonProps) => {
+const AddTagButton = ({skip, top}: AddTagButtonProps) => {
   const {notify} = useNotifications();
 
   const [upsertTag, {loading}] = useUpsertTagMutation();
@@ -45,8 +45,8 @@ const AddTagButton = ({page, perPage}: AddTagButtonProps) => {
           variables: {
             input: {
               page: {
-                number: page,
-                size: perPage,
+                number: skip,
+                size: top,
               },
             },
           },
@@ -58,8 +58,8 @@ const AddTagButton = ({page, perPage}: AddTagButtonProps) => {
             variables: {
               input: {
                 page: {
-                  number: page,
-                  size: perPage,
+                  number: skip,
+                  size: top,
                 },
               },
             },
@@ -79,7 +79,7 @@ const AddTagButton = ({page, perPage}: AddTagButtonProps) => {
       message: 'Tag data has been created successfully',
       type: 'success',
     });
-  }, [page, perPage, upsertTag, notify]);
+  }, [skip, top, upsertTag, notify]);
 
   return (
     <LoadingButton loading={loading} onClick={handleOnSubmit}>

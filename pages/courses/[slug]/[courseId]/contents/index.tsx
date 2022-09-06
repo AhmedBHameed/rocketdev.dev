@@ -195,7 +195,7 @@ export const getServerSideProps: GetServerSideProps = async ({
       GetCourseContentsQueryVariables
     >({
       query: GET_COURSE_CONTENTS_QUERY,
-      fetchPolicy: 'network-only',
+      fetchPolicy: 'no-cache',
       context: {
         headers: {
           cookie,

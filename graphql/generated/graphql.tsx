@@ -196,56 +196,6 @@ export enum LanguageEnum {
   En = 'en',
 }
 
-/**
- * Input configuration to gather or arrange a list in their proper sequence. You can set filtering,sorting,paginating arguments for more specification.
- * This configuration applied on queries with a prefixed name of `list*`
- */
-export type ListCourseCollateInput = {
-  filter?: InputMaybe<CourseFilterInput>;
-  page?: InputMaybe<PaginationInput>;
-  sort?: InputMaybe<CourseSortingByFieldInput>;
-};
-
-/**
- * Input configuration to gather or arrange a list in their proper sequence. You can set filtering,sorting,paginating arguments for more specification.
- * This configuration applied on queries with a prefixed name of `list*`
- */
-export type ListFeedbackCollateInput = {
-  filter?: InputMaybe<FeedbackFilterInput>;
-  page?: InputMaybe<PaginationInput>;
-  sort?: InputMaybe<PostSortingByFieldInput>;
-};
-
-/**
- * Input configuration to gather or arrange a list in their proper sequence. You can set filtering,sorting,paginating arguments for more specification.
- * This configuration applied on queries with a prefixed name of `list*`
- */
-export type ListPostCollateInput = {
-  filter?: InputMaybe<PostFilterInput>;
-  page?: InputMaybe<PaginationInput>;
-  sort?: InputMaybe<PostSortingByFieldInput>;
-};
-
-/**
- * Input configuration to gather or arrange a list in their proper sequence. You can set filtering,sorting,paginating arguments for more specification.
- * This configuration applied on queries with a prefixed name of `list*`
- */
-export type ListTagCollateInput = {
-  filter?: InputMaybe<FilterTagInput>;
-  page?: InputMaybe<PaginationInput>;
-  sort?: InputMaybe<SortTagByFieldInput>;
-};
-
-/**
- * Input configuration to gather or arrange a list in their proper sequence. You can set filtering,sorting,paginating arguments for more specification.
- * This configuration applied on queries with a prefixed name of `list*`
- */
-export type ListUsersCollateInput = {
-  filter?: InputMaybe<UsersFilterInput>;
-  page?: InputMaybe<PaginationInput>;
-  sort?: InputMaybe<SortingByFieldInput>;
-};
-
 export type Message = {
   __typename?: 'Message';
   message?: Maybe<Scalars['String']>;
@@ -410,30 +360,6 @@ export type PostContentInput = {
   readingTime?: InputMaybe<Scalars['String']>;
 };
 
-/** Filtering configuration by fields. */
-export type PostFilterInput = {
-  _and?: InputMaybe<Array<InputMaybe<PostFilterInput>>>;
-  _eq?: InputMaybe<PostFilterInput>;
-  _gt?: InputMaybe<PostFilterInput>;
-  _gte?: InputMaybe<PostFilterInput>;
-  _in?: InputMaybe<Array<InputMaybe<PostFilterInput>>>;
-  _lt?: InputMaybe<PostFilterInput>;
-  _lte?: InputMaybe<PostFilterInput>;
-  _neq?: InputMaybe<PostFilterInput>;
-  _nin?: InputMaybe<Array<InputMaybe<PostFilterInput>>>;
-  _or?: InputMaybe<Array<InputMaybe<PostFilterInput>>>;
-  authorId?: InputMaybe<Scalars['ID']>;
-  createdAt?: InputMaybe<Scalars['String']>;
-  groupName?: InputMaybe<Scalars['String']>;
-  id?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
-  isPremium?: InputMaybe<Scalars['Boolean']>;
-  nanoId?: InputMaybe<Scalars['ID']>;
-  slug?: InputMaybe<Scalars['String']>;
-  type?: InputMaybe<PostTypeEnum>;
-  updatedAt?: InputMaybe<Scalars['String']>;
-  visibility?: InputMaybe<Scalars['Boolean']>;
-};
-
 export type PostMetaTags = {
   __typename?: 'PostMetaTags';
   description?: Maybe<Scalars['String']>;
@@ -459,14 +385,10 @@ export type PostSortingByFieldInput = {
   createdAt?: InputMaybe<SortingEnum>;
   id?: InputMaybe<SortingEnum>;
   isPremium?: InputMaybe<SortingEnum>;
-  lang?: InputMaybe<SortingEnum>;
   message?: InputMaybe<SortingEnum>;
-  publishedAt?: InputMaybe<SortingEnum>;
   resolved?: InputMaybe<SortingEnum>;
-  slug?: InputMaybe<SortingEnum>;
   title?: InputMaybe<SortingEnum>;
   updatedAt?: InputMaybe<SortingEnum>;
-  visibility?: InputMaybe<SortingEnum>;
 };
 
 export enum PostTypeEnum {
@@ -506,15 +428,15 @@ export type QuerierListCoursePostsArgs = {
 };
 
 export type QuerierListFeedbackArgs = {
-  input?: InputMaybe<ListFeedbackCollateInput>;
+  query?: InputMaybe<Scalars['String']>;
 };
 
 export type QuerierListPostsArgs = {
-  input?: InputMaybe<ListPostCollateInput>;
+  query?: InputMaybe<Scalars['String']>;
 };
 
 export type QuerierListTagsArgs = {
-  input?: InputMaybe<ListTagCollateInput>;
+  query?: InputMaybe<Scalars['String']>;
 };
 
 export type Query = {
@@ -523,13 +445,12 @@ export type Query = {
   createTokens?: Maybe<Auth>;
   getCourse?: Maybe<Course>;
   getCourseContents?: Maybe<Array<Maybe<Post>>>;
-  getPost?: Maybe<Post>;
+  getPublicPost?: Maybe<Post>;
   getUser?: Maybe<User>;
   getUserAuthorization?: Maybe<Authorization>;
   githubLogin?: Maybe<Auth>;
   listCourses?: Maybe<Array<Maybe<Course>>>;
-  /** List public posts with type of ARTICLE. Post with type of 'COURSE' will be excluded. */
-  listPosts?: Maybe<Array<Maybe<Post>>>;
+  listPublicPosts?: Maybe<Array<Maybe<Post>>>;
   listUsers?: Maybe<Array<Maybe<User>>>;
   querier?: Maybe<Querier>;
   refreshTokens?: Maybe<Auth>;
@@ -551,7 +472,7 @@ export type QueryGetCourseContentsArgs = {
   input: CourseContentsInput;
 };
 
-export type QueryGetPostArgs = {
+export type QueryGetPublicPostArgs = {
   nanoId: Scalars['ID'];
   slug: Scalars['String'];
 };
@@ -569,15 +490,15 @@ export type QueryGithubLoginArgs = {
 };
 
 export type QueryListCoursesArgs = {
-  input?: InputMaybe<ListCourseCollateInput>;
+  query?: InputMaybe<Scalars['String']>;
 };
 
-export type QueryListPostsArgs = {
-  input?: InputMaybe<ListPostCollateInput>;
+export type QueryListPublicPostsArgs = {
+  query?: InputMaybe<Scalars['String']>;
 };
 
 export type QueryListUsersArgs = {
-  input?: InputMaybe<ListUsersCollateInput>;
+  query?: InputMaybe<Scalars['String']>;
 };
 
 export type ResetPasswordInput = {
@@ -815,15 +736,15 @@ export type GetCourseContentsQuery = {
   } | null> | null;
 };
 
-export type GetPostQueryVariables = Exact<{
+export type GetPublicPostQueryVariables = Exact<{
   nanoId: Scalars['ID'];
   slug: Scalars['String'];
   lang?: InputMaybe<LanguageEnum>;
 }>;
 
-export type GetPostQuery = {
+export type GetPublicPostQuery = {
   __typename?: 'Query';
-  getPost?: {
+  getPublicPost?: {
     __typename?: 'Post';
     id?: string | null;
     slug?: string | null;
@@ -894,7 +815,7 @@ export type GithubLoginQuery = {
 };
 
 export type ListCoursesQueryVariables = Exact<{
-  input: ListCourseCollateInput;
+  query: Scalars['String'];
 }>;
 
 export type ListCoursesQuery = {
@@ -933,15 +854,15 @@ export type ListCoursesQuery = {
   } | null> | null;
 };
 
-export type ListPostsQueryVariables = Exact<{
-  input?: InputMaybe<ListPostCollateInput>;
+export type ListPublicPostsQueryVariables = Exact<{
+  query?: InputMaybe<Scalars['String']>;
   lang?: InputMaybe<LanguageEnum>;
 }>;
 
-export type ListPostsQuery = {
+export type ListPublicPostsQuery = {
   __typename?: 'Query';
   totalFreeArticles?: number | null;
-  listPosts?: Array<{
+  listPublicPosts?: Array<{
     __typename?: 'Post';
     id?: string | null;
     slug?: string | null;
@@ -997,7 +918,7 @@ export type ListPostsQuery = {
 };
 
 export type ListUsersQueryVariables = Exact<{
-  input: ListUsersCollateInput;
+  query: Scalars['String'];
 }>;
 
 export type ListUsersQuery = {
@@ -1732,7 +1653,7 @@ export type ListQuerierCoursePostsQuery = {
 };
 
 export type ListQuerierFeedbackQueryVariables = Exact<{
-  input: ListFeedbackCollateInput;
+  query: Scalars['String'];
 }>;
 
 export type ListQuerierFeedbackQuery = {
@@ -1763,7 +1684,7 @@ export type ListQuerierFeedbackQuery = {
 };
 
 export type ListQuerierPostsQueryVariables = Exact<{
-  input: ListPostCollateInput;
+  query: Scalars['String'];
   lang?: InputMaybe<LanguageEnum>;
 }>;
 
@@ -1829,7 +1750,7 @@ export type ListQuerierPostsQuery = {
 };
 
 export type ListQuerierTagsQueryVariables = Exact<{
-  input: ListTagCollateInput;
+  query?: InputMaybe<Scalars['String']>;
 }>;
 
 export type ListQuerierTagsQuery = {
@@ -2216,9 +2137,9 @@ export type GetCourseContentsQueryResult = Apollo.QueryResult<
   GetCourseContentsQuery,
   GetCourseContentsQueryVariables
 >;
-export const GetPostDocument = gql`
-  query GetPost($nanoId: ID!, $slug: String!, $lang: LanguageEnum) {
-    getPost(nanoId: $nanoId, slug: $slug) {
+export const GetPublicPostDocument = gql`
+  query GetPublicPost($nanoId: ID!, $slug: String!, $lang: LanguageEnum) {
+    getPublicPost(nanoId: $nanoId, slug: $slug) {
       ...postFragment
     }
   }
@@ -2226,16 +2147,16 @@ export const GetPostDocument = gql`
 `;
 
 /**
- * __useGetPostQuery__
+ * __useGetPublicPostQuery__
  *
- * To run a query within a React component, call `useGetPostQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetPostQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useGetPublicPostQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetPublicPostQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useGetPostQuery({
+ * const { data, loading, error } = useGetPublicPostQuery({
  *   variables: {
  *      nanoId: // value for 'nanoId'
  *      slug: // value for 'slug'
@@ -2243,29 +2164,39 @@ export const GetPostDocument = gql`
  *   },
  * });
  */
-export function useGetPostQuery(
-  baseOptions: Apollo.QueryHookOptions<GetPostQuery, GetPostQueryVariables>
+export function useGetPublicPostQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    GetPublicPostQuery,
+    GetPublicPostQueryVariables
+  >
 ) {
   const options = {...defaultOptions, ...baseOptions};
-  return Apollo.useQuery<GetPostQuery, GetPostQueryVariables>(
-    GetPostDocument,
+  return Apollo.useQuery<GetPublicPostQuery, GetPublicPostQueryVariables>(
+    GetPublicPostDocument,
     options
   );
 }
-export function useGetPostLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<GetPostQuery, GetPostQueryVariables>
+export function useGetPublicPostLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetPublicPostQuery,
+    GetPublicPostQueryVariables
+  >
 ) {
   const options = {...defaultOptions, ...baseOptions};
-  return Apollo.useLazyQuery<GetPostQuery, GetPostQueryVariables>(
-    GetPostDocument,
+  return Apollo.useLazyQuery<GetPublicPostQuery, GetPublicPostQueryVariables>(
+    GetPublicPostDocument,
     options
   );
 }
-export type GetPostQueryHookResult = ReturnType<typeof useGetPostQuery>;
-export type GetPostLazyQueryHookResult = ReturnType<typeof useGetPostLazyQuery>;
-export type GetPostQueryResult = Apollo.QueryResult<
-  GetPostQuery,
-  GetPostQueryVariables
+export type GetPublicPostQueryHookResult = ReturnType<
+  typeof useGetPublicPostQuery
+>;
+export type GetPublicPostLazyQueryHookResult = ReturnType<
+  typeof useGetPublicPostLazyQuery
+>;
+export type GetPublicPostQueryResult = Apollo.QueryResult<
+  GetPublicPostQuery,
+  GetPublicPostQueryVariables
 >;
 export const GithubLoginDocument = gql`
   query GithubLogin($code: ID!) {
@@ -2327,9 +2258,9 @@ export type GithubLoginQueryResult = Apollo.QueryResult<
   GithubLoginQueryVariables
 >;
 export const ListCoursesDocument = gql`
-  query ListCourses($input: ListCourseCollateInput!) {
+  query ListCourses($query: String!) {
     totalCourses
-    listCourses(input: $input) {
+    listCourses(query: $query) {
       ...courseFragment
     }
   }
@@ -2348,7 +2279,7 @@ export const ListCoursesDocument = gql`
  * @example
  * const { data, loading, error } = useListCoursesQuery({
  *   variables: {
- *      input: // value for 'input'
+ *      query: // value for 'query'
  *   },
  * });
  */
@@ -2384,10 +2315,10 @@ export type ListCoursesQueryResult = Apollo.QueryResult<
   ListCoursesQuery,
   ListCoursesQueryVariables
 >;
-export const ListPostsDocument = gql`
-  query ListPosts($input: ListPostCollateInput, $lang: LanguageEnum) {
+export const ListPublicPostsDocument = gql`
+  query ListPublicPosts($query: String, $lang: LanguageEnum) {
     totalFreeArticles
-    listPosts(input: $input) {
+    listPublicPosts(query: $query) {
       ...postFragment
     }
   }
@@ -2395,54 +2326,59 @@ export const ListPostsDocument = gql`
 `;
 
 /**
- * __useListPostsQuery__
+ * __useListPublicPostsQuery__
  *
- * To run a query within a React component, call `useListPostsQuery` and pass it any options that fit your needs.
- * When your component renders, `useListPostsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useListPublicPostsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useListPublicPostsQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useListPostsQuery({
+ * const { data, loading, error } = useListPublicPostsQuery({
  *   variables: {
- *      input: // value for 'input'
+ *      query: // value for 'query'
  *      lang: // value for 'lang'
  *   },
  * });
  */
-export function useListPostsQuery(
-  baseOptions?: Apollo.QueryHookOptions<ListPostsQuery, ListPostsQueryVariables>
-) {
-  const options = {...defaultOptions, ...baseOptions};
-  return Apollo.useQuery<ListPostsQuery, ListPostsQueryVariables>(
-    ListPostsDocument,
-    options
-  );
-}
-export function useListPostsLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    ListPostsQuery,
-    ListPostsQueryVariables
+export function useListPublicPostsQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    ListPublicPostsQuery,
+    ListPublicPostsQueryVariables
   >
 ) {
   const options = {...defaultOptions, ...baseOptions};
-  return Apollo.useLazyQuery<ListPostsQuery, ListPostsQueryVariables>(
-    ListPostsDocument,
+  return Apollo.useQuery<ListPublicPostsQuery, ListPublicPostsQueryVariables>(
+    ListPublicPostsDocument,
     options
   );
 }
-export type ListPostsQueryHookResult = ReturnType<typeof useListPostsQuery>;
-export type ListPostsLazyQueryHookResult = ReturnType<
-  typeof useListPostsLazyQuery
+export function useListPublicPostsLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    ListPublicPostsQuery,
+    ListPublicPostsQueryVariables
+  >
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useLazyQuery<
+    ListPublicPostsQuery,
+    ListPublicPostsQueryVariables
+  >(ListPublicPostsDocument, options);
+}
+export type ListPublicPostsQueryHookResult = ReturnType<
+  typeof useListPublicPostsQuery
 >;
-export type ListPostsQueryResult = Apollo.QueryResult<
-  ListPostsQuery,
-  ListPostsQueryVariables
+export type ListPublicPostsLazyQueryHookResult = ReturnType<
+  typeof useListPublicPostsLazyQuery
+>;
+export type ListPublicPostsQueryResult = Apollo.QueryResult<
+  ListPublicPostsQuery,
+  ListPublicPostsQueryVariables
 >;
 export const ListUsersDocument = gql`
-  query ListUsers($input: ListUsersCollateInput!) {
-    listUsers(input: $input) {
+  query ListUsers($query: String!) {
+    listUsers(query: $query) {
       id
       name {
         first
@@ -2493,7 +2429,7 @@ export const ListUsersDocument = gql`
  * @example
  * const { data, loading, error } = useListUsersQuery({
  *   variables: {
- *      input: // value for 'input'
+ *      query: // value for 'query'
  *   },
  * });
  */
@@ -3483,10 +3419,10 @@ export type ListQuerierCoursePostsQueryResult = Apollo.QueryResult<
   ListQuerierCoursePostsQueryVariables
 >;
 export const ListQuerierFeedbackDocument = gql`
-  query ListQuerierFeedback($input: ListFeedbackCollateInput!) {
+  query ListQuerierFeedback($query: String!) {
     querier {
       totalFeedback
-      listFeedback(input: $input) {
+      listFeedback(query: $query) {
         id
         title
         message
@@ -3514,7 +3450,7 @@ export const ListQuerierFeedbackDocument = gql`
  * @example
  * const { data, loading, error } = useListQuerierFeedbackQuery({
  *   variables: {
- *      input: // value for 'input'
+ *      query: // value for 'query'
  *   },
  * });
  */
@@ -3553,10 +3489,10 @@ export type ListQuerierFeedbackQueryResult = Apollo.QueryResult<
   ListQuerierFeedbackQueryVariables
 >;
 export const ListQuerierPostsDocument = gql`
-  query ListQuerierPosts($input: ListPostCollateInput!, $lang: LanguageEnum) {
+  query ListQuerierPosts($query: String!, $lang: LanguageEnum) {
     querier {
       totalPosts
-      listPosts(input: $input) {
+      listPosts(query: $query) {
         ...postFragment
       }
     }
@@ -3576,7 +3512,7 @@ export const ListQuerierPostsDocument = gql`
  * @example
  * const { data, loading, error } = useListQuerierPostsQuery({
  *   variables: {
- *      input: // value for 'input'
+ *      query: // value for 'query'
  *      lang: // value for 'lang'
  *   },
  * });
@@ -3616,10 +3552,10 @@ export type ListQuerierPostsQueryResult = Apollo.QueryResult<
   ListQuerierPostsQueryVariables
 >;
 export const ListQuerierTagsDocument = gql`
-  query ListQuerierTags($input: ListTagCollateInput!) {
+  query ListQuerierTags($query: String) {
     querier {
       totalTags
-      listTags(input: $input) {
+      listTags(query: $query) {
         id
         name
         imgSrc
@@ -3645,12 +3581,12 @@ export const ListQuerierTagsDocument = gql`
  * @example
  * const { data, loading, error } = useListQuerierTagsQuery({
  *   variables: {
- *      input: // value for 'input'
+ *      query: // value for 'query'
  *   },
  * });
  */
 export function useListQuerierTagsQuery(
-  baseOptions: Apollo.QueryHookOptions<
+  baseOptions?: Apollo.QueryHookOptions<
     ListQuerierTagsQuery,
     ListQuerierTagsQueryVariables
   >

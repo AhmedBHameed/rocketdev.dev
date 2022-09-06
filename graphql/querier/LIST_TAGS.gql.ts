@@ -1,10 +1,10 @@
 import {gql} from '@apollo/client';
 
 const LIST_QUERIER_TAGS_QUERY = gql`
-  query ListQuerierTags($input: ListTagCollateInput!) {
+  query ListQuerierTags($query: String) {
     querier {
       totalTags
-      listTags(input: $input) {
+      listTags(query: $query) {
         id
         name
         imgSrc

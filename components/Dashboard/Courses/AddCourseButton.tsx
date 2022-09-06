@@ -10,11 +10,11 @@ import useVerifyMe from '../../hooks/verifyMeHook';
 import LIST_COURSES_QUERY from '../../../graphql/LIST_COURSES_QUERY.gql';
 
 interface AddCourseButtonProps {
-  page: number;
-  perPage: number;
+  skip: number;
+  top: number;
 }
 
-const AddCourseButton = ({page, perPage}: AddCourseButtonProps) => {
+const AddCourseButton = ({skip, top}: AddCourseButtonProps) => {
   const {userProfile} = useVerifyMe();
 
   const [upsertCourse, {loading}] = useUpsertCourseMutation({
@@ -31,8 +31,8 @@ const AddCourseButton = ({page, perPage}: AddCourseButtonProps) => {
         variables: {
           input: {
             page: {
-              number: page,
-              size: perPage,
+              number: skip,
+              size: top,
             },
           },
         },
@@ -44,8 +44,8 @@ const AddCourseButton = ({page, perPage}: AddCourseButtonProps) => {
           variables: {
             input: {
               page: {
-                number: page,
-                size: perPage,
+                number: skip,
+                size: top,
               },
             },
           },

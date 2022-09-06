@@ -1,4 +1,4 @@
-import {EyeIcon, EyeOffIcon} from '@heroicons/react/solid';
+import {EyeIcon, EyeSlashIcon} from '@heroicons/react/24/solid';
 import React, {forwardRef, useState} from 'react';
 import theme from '../../styles/theme';
 import clsx from '../../utils/clsx';
@@ -93,7 +93,7 @@ const PasswordField = forwardRef<HTMLInputElement, PasswordFieldProps>(
           )}
         >
           {!isVisible ? (
-            <EyeOffIcon className="h-5 w-5" />
+            <EyeSlashIcon className="h-5 w-5" />
           ) : (
             <EyeIcon className="h-5 w-5" />
           )}

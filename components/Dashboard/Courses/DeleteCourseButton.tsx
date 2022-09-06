@@ -1,4 +1,4 @@
-import {TrashIcon} from '@heroicons/react/solid';
+import {TrashIcon} from '@heroicons/react/24/solid';
 import React, {useCallback, useState} from 'react';
 import {
   ListCoursesQuery,
@@ -10,15 +10,11 @@ import BaseButton from '../../Buttons/BaseButton';
 
 interface DeleteCourseButtonProps {
   courseId: string;
-  page: number;
-  perPage: number;
+  skip: number;
+  top: number;
 }
 
-const DeleteCourseButton = ({
-  courseId,
-  page,
-  perPage,
-}: DeleteCourseButtonProps) => {
+const DeleteCourseButton = ({courseId, skip, top}: DeleteCourseButtonProps) => {
   const [openConfirmation, setOpenConfirmation] = useState(false);
   const [deleteCourse] = useDeleteCourseMutation();
 
@@ -41,8 +37,8 @@ const DeleteCourseButton = ({
             variables: {
               input: {
                 page: {
-                  number: page,
-                  size: perPage,
+                  number: skip,
+                  size: top,
                 },
               },
             },
@@ -54,8 +50,8 @@ const DeleteCourseButton = ({
               variables: {
                 input: {
                   page: {
-                    number: page,
-                    size: perPage,
+                    number: skip,
+                    size: top,
                   },
                 },
               },
@@ -72,7 +68,7 @@ const DeleteCourseButton = ({
       });
       setOpenConfirmation(false);
     },
-    [page, perPage, deleteCourse]
+    [skip, top, deleteCourse]
   );
 
   return (

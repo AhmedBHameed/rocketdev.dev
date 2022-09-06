@@ -1,5 +1,5 @@
 import {Disclosure, Transition} from '@headlessui/react';
-import {ChevronUpIcon} from '@heroicons/react/solid';
+import {ChevronUpIcon} from '@heroicons/react/24/solid';
 import React from 'react';
 import theme from '../../styles/theme';
 import clsx from '../../utils/clsx';

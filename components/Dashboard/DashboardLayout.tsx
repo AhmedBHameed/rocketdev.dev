@@ -5,8 +5,8 @@ import useVerifyMe from '../hooks/verifyMeHook';
 import ProfileMenu from '../ProfileMenu/ProfileMenu';
 import useNavigateToDashboardLogin from './hooks/navigateToDashboardLoginHook';
 import {useState} from 'react';
-import {BellIcon, MenuAlt2Icon} from '@heroicons/react/outline';
-import {SearchIcon} from '@heroicons/react/solid';
+import {BellIcon, Bars3Icon} from '@heroicons/react/24/outline';
+import {MagnifyingGlassIcon} from '@heroicons/react/24/solid';
 import Asidebar from './Asidebar/Asidebar';
 
 interface DashboardLayoutProps {
@@ -45,7 +45,7 @@ const DashboardLayout = ({children, title, onSearch}: DashboardLayoutProps) => {
             onClick={() => setSidebarOpen(true)}
           >
             <span className="sr-only">Open sidebar</span>
-            <MenuAlt2Icon className="h-6 w-6" aria-hidden="true" />
+            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </button>
           <div className="flex-1 px-4 flex justify-between">
             <div className="flex-1 flex">
@@ -55,7 +55,10 @@ const DashboardLayout = ({children, title, onSearch}: DashboardLayoutProps) => {
                 </label>
                 <div className="relative w-full text-gray-400 focus-within:text-gray-600">
                   <div className="absolute inset-y-0 left-0 flex items-center pointer-events-none">
-                    <SearchIcon className="h-5 w-5" aria-hidden="true" />
+                    <MagnifyingGlassIcon
+                      className="h-5 w-5"
+                      aria-hidden="true"
+                    />
                   </div>
                   <input
                     id="search-field"

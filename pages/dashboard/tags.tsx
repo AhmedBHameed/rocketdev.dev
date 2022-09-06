@@ -13,30 +13,29 @@ import {
 } from '../../graphql/generated/graphql';
 
 const Tags = () => {
-  const {page, perPage} = usePagination();
+  const {skip, top} = usePagination();
   const [listTagsQuery, {data, error}] = useListQuerierTagsLazyQuery();
 
   const paginateListTags = useCallback(
-    async (pageNumber = 1, pageSize = 10) => {
+    async (skip = 0) => {
+      const params = new URLSearchParams();
+      params.set('$skip', `${skip}`);
+      params.set('$top', `${top}`);
+
       await listTagsQuery({
         variables: {
-          input: {
-            page: {
-              number: pageNumber,
-              size: pageSize,
-            },
-          },
+          query: params.toString(),
         },
       });
     },
-    [listTagsQuery]
+    [top, listTagsQuery]
   );
 
   const handleOnPaginationChange = useCallback(
     (selectedPage: number) => {
-      paginateListTags(selectedPage, perPage);
+      paginateListTags(selectedPage);
     },
-    [perPage, paginateListTags]
+    [paginateListTags]
   );
 
   const tableColumn = useMemo(() => {
@@ -79,7 +78,7 @@ const Tags = () => {
   }, []);
 
   useEffect(() => {
-    paginateListTags(page, perPage);
+    paginateListTags(skip);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -93,17 +92,17 @@ const Tags = () => {
   return (
     <DashboardLayout>
       <div className="flex justify-end px-4">
-        <AddTagButton page={page} perPage={perPage} />
+        <AddTagButton skip={skip} top={top} />
       </div>
 
       <Table
         rowKey="id"
         dataSource={get(data, 'querier.listTags', [])}
         columns={tableColumn}
-        pagination={{
-          totalItems: get(data, 'querier.totalTags', 0),
-          onChange: handleOnPaginationChange,
-        }}
+        // pagination={{
+        //   totalItems: get(data, 'querier.totalTags', 0),
+        //   onChange: handleOnPaginationChange,
+        // }}
       />
     </DashboardLayout>
   );

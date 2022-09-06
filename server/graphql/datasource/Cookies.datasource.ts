@@ -31,23 +31,16 @@ class CookiesDataSource extends RemoteGraphQLDataSource {
       const {accessToken, refreshToken, accessTokenExpire, refreshTokenExpire} =
         tokens;
 
-      if (accessTokenExpire > -1) {
-        res.cookie('ACCESS_TOKEN', accessToken, {
-          maxAge: accessTokenExpire,
-          httpOnly: true,
-        });
-        res.cookie('REFRESH_TOKEN', refreshToken, {
-          maxAge: refreshTokenExpire,
-          httpOnly: true,
-        });
-      } else {
-        res.cookie('ACCESS_TOKEN', accessToken, {
-          httpOnly: true,
-        });
-        res.cookie('REFRESH_TOKEN', refreshToken, {
-          httpOnly: true,
-        });
-      }
+      const shouldRememberCookies = accessTokenExpire > -1;
+      res.cookie('ACCESS_TOKEN', accessToken, {
+        ...(shouldRememberCookies ? {maxAge: accessTokenExpire} : {}),
+        httpOnly: true,
+      });
+      res.cookie('REFRESH_TOKEN', refreshToken, {
+        maxAge: refreshTokenExpire,
+        ...(shouldRememberCookies ? {maxAge: refreshTokenExpire} : {}),
+        httpOnly: true,
+      });
     }
 
     if (clearTokens) {

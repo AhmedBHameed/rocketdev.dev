@@ -12,14 +12,16 @@ import Avatar from '../../components/Avatar/Avatar';
 import getUserName from '../../utils/getUserName';
 import JsonViewContainer from '../../components/JsonView/JsonViewContainer';
 import EditUserButton from '../../components/Dashboard/Users/EditUserButton';
-import {get, omit} from 'lodash';
+import {omit} from 'lodash';
 import EditAuthorizationButton from '../../components/Dashboard/Users/EditAuthorizationButton';
 import {GetStaticProps, NextPage} from 'next';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import usePagination from '../../components/Table/hooks/paginationHook';
+import {useRouter} from 'next/router';
 
 const Users: NextPage = () => {
-  const {page, perPage} = usePagination();
+  const router = useRouter();
+  const {skip, top} = usePagination();
 
   const [useAuthorization, setUseAuthorization] = useState<
     Authorization | undefined
@@ -29,26 +31,27 @@ const Users: NextPage = () => {
   const [listUserQuery, {data, error}] = useListUsersLazyQuery();
 
   const paginateListUsers = useCallback(
-    async (pageNumber = 1, pageSize = 10) => {
+    async (skip = 0) => {
+      const params = new URLSearchParams();
+      params.set('$skip', `${skip}`);
+      params.set('$top', `${top}`);
+
+      router.push(`?${params.toString()}`);
+
       await listUserQuery({
         variables: {
-          input: {
-            page: {
-              number: pageNumber,
-              size: pageSize,
-            },
-          },
+          query: params.toString(),
         },
       });
     },
-    [listUserQuery]
+    [top, router, listUserQuery]
   );
 
   const handleOnPaginationChange = useCallback(
     (selectedPage: number) => {
-      paginateListUsers(selectedPage, perPage);
+      paginateListUsers(selectedPage);
     },
-    [perPage, paginateListUsers]
+    [paginateListUsers]
   );
 
   const handleAuthUpdate = useCallback((authorization: object) => {
@@ -95,7 +98,7 @@ const Users: NextPage = () => {
   }, []);
 
   useEffect(() => {
-    paginateListUsers(page, perPage);
+    paginateListUsers(skip);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -112,10 +115,10 @@ const Users: NextPage = () => {
         rowKey="id"
         dataSource={data?.listUsers || []}
         columns={tableColumn}
-        pagination={{
-          totalItems: get(data, 'querier.totalTags', 0),
-          onChange: handleOnPaginationChange,
-        }}
+        // pagination={{
+        //   totalItems: get(data, 'querier.totalTags', 0),
+        //   onChange: handleOnPaginationChange,
+        // }}
       />
 
       <Modal

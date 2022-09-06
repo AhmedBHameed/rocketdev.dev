@@ -1,13 +1,13 @@
 import {gql} from '@apollo/client';
 import POST_FRAGMENT from './fragments/POST_FRAGMENT.gql';
 
-const GET_POST_QUERY = gql`
+const GET_PUBLIC_POST_QUERY = gql`
   ${POST_FRAGMENT}
-  query GetPost($nanoId: ID!, $slug: String!, $lang: LanguageEnum) {
-    getPost(nanoId: $nanoId, slug: $slug) {
+  query GetPublicPost($nanoId: ID!, $slug: String!, $lang: LanguageEnum) {
+    getPublicPost(nanoId: $nanoId, slug: $slug) {
       ...postFragment
     }
   }
 `;
 
-export default GET_POST_QUERY;
+export default GET_PUBLIC_POST_QUERY;

@@ -20,10 +20,10 @@ const SERVER_ALLOWED_ORIGIN =
  * Database configuration
  * */
 const AUTH_SERVICE_BASE_URL = IS_PRODUCTION
-  ? 'https://auth.rocketdev.dev'
+  ? 'http://localhost:5001'
   : 'http://localhost:5001';
 const CODING_SCHOOL_SERVICE_BASE_URL = IS_PRODUCTION
-  ? 'https://api.rocketdev.dev'
+  ? 'http://localhost:5002'
   : 'http://localhost:5002';
 
 /**

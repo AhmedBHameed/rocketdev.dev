@@ -1,5 +1,6 @@
 import {GetStaticProps} from 'next';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
+import {useRouter} from 'next/router';
 import React, {useCallback, useEffect, useMemo} from 'react';
 import AlertError from '../../components/AlertError/AlertError';
 
@@ -15,23 +16,25 @@ import {Course, useListCoursesLazyQuery} from '../../graphql/generated/graphql';
 import slugToTitle from '../../utils/slugToTitle';
 
 const Courses = () => {
+  const router = useRouter();
   const [listCoursesQuery, {data, error}] = useListCoursesLazyQuery();
-  const {page, perPage} = usePagination();
+  const {top, skip} = usePagination();
 
   const paginateCourseList = useCallback(
-    async (pageNumber = 1, pageSize = 10) => {
+    async (skip = 0) => {
+      const params = new URLSearchParams();
+      params.set('$skip', `${skip}`);
+      params.set('$top', `${top}`);
+
+      router.push(`?${params.toString()}`);
+
       await listCoursesQuery({
         variables: {
-          input: {
-            page: {
-              number: pageNumber,
-              size: pageSize,
-            },
-          },
+          query: params.toString(),
         },
       });
     },
-    [listCoursesQuery]
+    [top, router, listCoursesQuery]
   );
 
   const tableColumn = useMemo(() => {
@@ -59,14 +62,14 @@ const Courses = () => {
         dataIndex: 'deleteCourse',
         key: 'deleteCourse',
         render: (_, row) => (
-          <DeleteCourseButton courseId={row.id} page={page} perPage={perPage} />
+          <DeleteCourseButton courseId={row.id} skip={skip} top={top} />
         ),
       },
     ] as Column<Course>[];
-  }, [page, perPage]);
+  }, [top, skip]);
 
   useEffect(() => {
-    paginateCourseList(page, perPage);
+    paginateCourseList(skip);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -80,7 +83,7 @@ const Courses = () => {
   return (
     <DashboardLayout>
       <div className="flex justify-end px-4">
-        <AddCourseButton page={page} perPage={perPage} />
+        <AddCourseButton skip={skip} top={top} />
       </div>
       <Table
         rowKey="id"

@@ -8,12 +8,12 @@ import AlertError from '../../../components/AlertError/AlertError';
 import Layout from '../../../components/Layout';
 import PostContent from '../../../components/PostContent/PostContent';
 import {
-  GetPostQuery,
-  GetPostQueryVariables,
+  GetPublicPostQuery,
+  GetPublicPostQueryVariables,
   LanguageEnum,
   Post,
 } from '../../../graphql/generated/graphql';
-import GET_POST_QUERY from '../../../graphql/GET_POST_QUERY.gql';
+import GET_PUBLIC_POST_QUERY from '../../../graphql/GET_POST_QUERY.gql';
 import apolloClient from '../../../utils/apolloClient';
 
 // TODO: Make error interface extendable.
@@ -62,12 +62,15 @@ export const getServerSideProps: GetServerSideProps = async ({
     'latest',
   ]);
 
-  let postQuery: ApolloQueryResult<GetPostQuery>;
+  let postQuery: ApolloQueryResult<GetPublicPostQuery>;
   let httpError = null;
 
   try {
-    postQuery = await apolloClient.query<GetPostQuery, GetPostQueryVariables>({
-      query: GET_POST_QUERY,
+    postQuery = await apolloClient.query<
+      GetPublicPostQuery,
+      GetPublicPostQueryVariables
+    >({
+      query: GET_PUBLIC_POST_QUERY,
       fetchPolicy: 'network-only',
       variables: {
         nanoId: params.nanoId as string,
@@ -86,7 +89,7 @@ export const getServerSideProps: GetServerSideProps = async ({
 
   return {
     props: {
-      post: get(postQuery, 'data.getPost'),
+      post: get(postQuery, 'data.getPublicPost'),
       error: httpError,
       ...translations,
     },

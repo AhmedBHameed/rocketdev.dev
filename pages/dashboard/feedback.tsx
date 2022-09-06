@@ -1,46 +1,46 @@
 import {get} from 'lodash';
 import {GetStaticProps} from 'next';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
-import React, {useCallback, useEffect, useMemo, useState} from 'react';
+import {useRouter} from 'next/router';
+import React, {useCallback, useEffect, useMemo} from 'react';
 import DashboardLayout from '../../components/Dashboard/DashboardLayout';
 import EditFeedbackButton from '../../components/Dashboard/Feedback/EditFeedbackButton';
 import usePagination from '../../components/Table/hooks/paginationHook';
 import Table, {Column} from '../../components/Table/Table';
 import {
   Feedback,
-  SortingEnum,
   useListQuerierFeedbackLazyQuery,
 } from '../../graphql/generated/graphql';
 import getUserName from '../../utils/getUserName';
 
 const Feedback = () => {
+  const router = useRouter();
+  const searchParams = router.query as {$skip?: string; $top?: string};
+
   const [fetchFeedback, {data}] = useListQuerierFeedbackLazyQuery();
-  const {page, perPage} = usePagination();
+  const {skip, top} = usePagination();
 
   const paginatedFeedbackList = useCallback(
-    async (number: number, size: number) => {
+    async (skip = 0) => {
+      const params = new URLSearchParams();
+      params.set('$orderby', 'resolved');
+      params.set('$skip', `${skip}`);
+      params.set('$top', `${top}`);
+
       await fetchFeedback({
         variables: {
-          input: {
-            sort: {
-              resolved: SortingEnum.Asc,
-            },
-            page: {
-              number,
-              size,
-            },
-          },
+          query: params.toString(),
         },
       });
     },
-    [fetchFeedback]
+    [top, fetchFeedback]
   );
 
   const handleOnPaginationChange = useCallback(
     (selectedPage: number) => {
-      paginatedFeedbackList(selectedPage, perPage);
+      paginatedFeedbackList(selectedPage * top);
     },
-    [perPage, paginatedFeedbackList]
+    [top, paginatedFeedbackList]
   );
 
   const tableColumn = useMemo(() => {
@@ -74,7 +74,7 @@ const Feedback = () => {
   }, []);
 
   useEffect(() => {
-    paginatedFeedbackList(page, perPage);
+    paginatedFeedbackList(skip);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -85,7 +85,9 @@ const Feedback = () => {
         dataSource={(get(data, 'querier.listFeedback', []) || []) as Feedback[]}
         columns={tableColumn}
         pagination={{
-          totalItems: get(data, 'querier.totalFeedback', 0),
+          currentPage: Math.floor(+(searchParams.$skip || skip) / top) + 1,
+          totalItems: data?.querier?.totalFeedback || 0,
+          topPerPage: +(searchParams.$top || top),
           onChange: handleOnPaginationChange,
         }}
       />

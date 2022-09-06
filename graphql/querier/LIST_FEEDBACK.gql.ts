@@ -3,10 +3,10 @@ import AUTHOR_FRAGMENT from '../fragments/AUTHOR_FRAGMENT.gql';
 
 const LIST_QUERIER_FEEDBACK_QUERY = gql`
   ${AUTHOR_FRAGMENT}
-  query ListQuerierFeedback($input: ListFeedbackCollateInput!) {
+  query ListQuerierFeedback($query: String!) {
     querier {
       totalFeedback
-      listFeedback(input: $input) {
+      listFeedback(query: $query) {
         id
         title
         message

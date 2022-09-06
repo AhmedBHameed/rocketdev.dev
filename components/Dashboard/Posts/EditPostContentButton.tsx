@@ -16,15 +16,15 @@ import {useNotifications} from '../../ToastMessage/Hooks/NotificationsHook';
 interface EditPostContentButtonProps {
   postId: string;
   postContents: PostContent[];
-  page: number;
-  perPage: number;
+  skip: number;
+  top: number;
 }
 
 const EditPostContentButton = ({
   postId,
   postContents,
-  page,
-  perPage,
+  skip,
+  top,
 }: EditPostContentButtonProps) => {
   const {notify} = useNotifications();
   const [open, setOpen] = useState(false);
@@ -63,6 +63,10 @@ const EditPostContentButton = ({
   );
 
   const addNewPostContent = useCallback(async () => {
+    const params = new URLSearchParams();
+    params.set('$skip', `${skip}`);
+    params.set('$top', `${top}`);
+
     await upsertPostContent({
       variables: {
         postId,
@@ -83,17 +87,12 @@ const EditPostContentButton = ({
         {
           query: LIST_QUERIER_POSTS_QUERY,
           variables: {
-            input: {
-              page: {
-                number: page,
-                size: perPage,
-              },
-            },
+            query: params.toString(),
           },
         },
       ],
     });
-  }, [page, perPage, postId, upsertPostContent]);
+  }, [skip, top, postId, upsertPostContent]);
 
   if (!postContents.length)
     return (

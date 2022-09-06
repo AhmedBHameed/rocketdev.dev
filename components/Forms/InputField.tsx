@@ -1,4 +1,4 @@
-import {ExclamationCircleIcon} from '@heroicons/react/solid';
+import {ExclamationCircleIcon} from '@heroicons/react/24/solid';
 import React, {forwardRef} from 'react';
 import theme from '../../styles/theme';
 import clsx from '../../utils/clsx';

@@ -11,11 +11,11 @@ import useVerifyMe from '../../hooks/verifyMeHook';
 import LIST_QUERIER_POSTS_QUERY from '../../../graphql/querier/LIST_POSTS.gql';
 
 interface AddPostButtonProps {
-  page: number;
-  perPage: number;
+  skip: number;
+  top: number;
 }
 
-const AddPostButton = ({page, perPage}: AddPostButtonProps) => {
+const AddPostButton = ({skip, top}: AddPostButtonProps) => {
   const {userProfile} = useVerifyMe();
 
   const [upsertPost, {loading}] = useUpsertPostMutation({
@@ -27,15 +27,14 @@ const AddPostButton = ({page, perPage}: AddPostButtonProps) => {
         },
       }
     ) => {
+      const params = new URLSearchParams();
+      params.set('$skip', `${skip}`);
+      params.set('$top', `${top}`);
+
       const posts = cache.readQuery<ListQuerierPostsQuery>({
         query: LIST_QUERIER_POSTS_QUERY,
         variables: {
-          input: {
-            page: {
-              number: page,
-              size: perPage,
-            },
-          },
+          query: params.toString(),
         },
       });
 
@@ -43,17 +42,12 @@ const AddPostButton = ({page, perPage}: AddPostButtonProps) => {
         cache.writeQuery({
           query: LIST_QUERIER_POSTS_QUERY,
           variables: {
-            input: {
-              page: {
-                number: page,
-                size: perPage,
-              },
-            },
+            query: params.toString(),
           },
           data: {
             querier: {
               totalPosts: posts.querier.totalPosts + 1,
-              listPosts: [{...upsertPost}, ...posts.querier.listPosts],
+              listPosts: [...posts.querier.listPosts, {...upsertPost}],
             },
           },
         });

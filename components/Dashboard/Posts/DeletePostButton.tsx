@@ -1,4 +1,4 @@
-import {TrashIcon} from '@heroicons/react/solid';
+import {TrashIcon} from '@heroicons/react/24/solid';
 import React, {useCallback, useState} from 'react';
 import {
   ListQuerierPostsQuery,
@@ -10,16 +10,20 @@ import BaseButton from '../../Buttons/BaseButton';
 
 interface DeletePostButtonProps {
   id: string;
-  page: number;
-  perPage: number;
+  skip: number;
+  top: number;
 }
 
-const DeletePostButton = ({id, page, perPage}: DeletePostButtonProps) => {
+const DeletePostButton = ({id, skip, top}: DeletePostButtonProps) => {
   const [openConfirmation, setOpenConfirmation] = useState(false);
   const [deletePost] = useDeletePostMutation();
 
   const handleDeletePost = useCallback(
     async (id: string) => {
+      const params = new URLSearchParams();
+      params.set('$skip', `${skip}`);
+      params.set('$top', `${top}`);
+
       await deletePost({
         variables: {
           id,
@@ -35,12 +39,7 @@ const DeletePostButton = ({id, page, perPage}: DeletePostButtonProps) => {
           const posts = cache.readQuery<ListQuerierPostsQuery>({
             query: LIST_QUERIER_POSTS_QUERY,
             variables: {
-              input: {
-                page: {
-                  number: page,
-                  size: perPage,
-                },
-              },
+              query: params.toString(),
             },
           });
 
@@ -48,12 +47,7 @@ const DeletePostButton = ({id, page, perPage}: DeletePostButtonProps) => {
             cache.writeQuery({
               query: LIST_QUERIER_POSTS_QUERY,
               variables: {
-                input: {
-                  page: {
-                    number: page,
-                    size: perPage,
-                  },
-                },
+                query: params.toString(),
               },
               data: {
                 querier: {
@@ -69,7 +63,7 @@ const DeletePostButton = ({id, page, perPage}: DeletePostButtonProps) => {
       });
       setOpenConfirmation(false);
     },
-    [page, perPage, deletePost]
+    [skip, top, deletePost]
   );
 
   return (

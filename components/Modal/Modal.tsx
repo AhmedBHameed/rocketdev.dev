@@ -3,7 +3,7 @@ import {Dialog, Transition} from '@headlessui/react';
 import theme from '../../styles/theme';
 import clsx from '../../utils/clsx';
 import BoldLabel from '../Label/BoldLabel';
-import {XCircleIcon} from '@heroicons/react/outline';
+import {XCircleIcon} from '@heroicons/react/24/outline';
 import BaseButton from '../Buttons/BaseButton';
 
 interface ModalProps {
@@ -30,7 +30,16 @@ const Modal = ({open, title, children, onClose}: ModalProps) => {
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-y-auto">
-          <div className="flex min-h-full items-center justify-center p-4 text-center">
+          <div
+            className={clsx(
+              'flex',
+              'min-h-full',
+              'items-center',
+              'justify-center',
+              'text-center',
+              'p-4'
+            )}
+          >
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -42,8 +51,6 @@ const Modal = ({open, title, children, onClose}: ModalProps) => {
             >
               <Dialog.Panel
                 className={clsx(
-                  theme.bgMain,
-                  theme.text,
                   'w-full',
                   'max-w-2xl',
                   'h-[calc(100vh-64px)]',
@@ -55,7 +62,9 @@ const Modal = ({open, title, children, onClose}: ModalProps) => {
                   'align-middle',
                   'shadow-xl',
                   'transition-all',
-                  theme.bgMain
+                  theme.text,
+                  'bg-zinc-200',
+                  'dark:bg-gray-800'
                 )}
               >
                 <Dialog.Title

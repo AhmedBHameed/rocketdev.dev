@@ -11,16 +11,16 @@ import ROUTES from '../config/routes';
 import apolloClient from '../utils/apolloClient';
 import {
   LanguageEnum,
-  ListPostsQuery,
-  ListPostsQueryVariables,
+  ListPublicPostsQuery,
+  ListPublicPostsQueryVariables,
   Post,
   PostTypeEnum,
 } from '../graphql/generated/graphql';
 import slugToTitle from '../utils/slugToTitle';
 import {ApolloQueryResult} from '@apollo/client';
-import LIST_POSTS_QUERY from '../graphql/LIST_POSTS_QUERY.gql';
 import AlertError from '../components/AlertError/AlertError';
 import {get} from 'lodash';
+import LIST_PUBLIC_POSTS_QUERY from '../graphql/LIST_PUBLIC_POSTS_QUERY.gql';
 
 interface LatestProps {
   locale: string;
@@ -79,24 +79,20 @@ export const getServerSideProps: GetServerSideProps = async ({locale}) => {
     'navbar',
     'latest',
   ]);
-  let listPostsQuery: ApolloQueryResult<ListPostsQuery>;
+  let listPostsQuery: ApolloQueryResult<ListPublicPostsQuery>;
   let httpError = null;
 
   try {
     listPostsQuery = await apolloClient.query<
-      ListPostsQuery,
-      ListPostsQueryVariables
+      ListPublicPostsQuery,
+      ListPublicPostsQueryVariables
     >({
-      query: LIST_POSTS_QUERY,
+      query: LIST_PUBLIC_POSTS_QUERY,
       fetchPolicy: 'network-only',
       variables: {
-        input: {
-          filter: {
-            isPremium: false,
-            type: PostTypeEnum.Article,
-            visibility: true,
-          },
-        },
+        query: encodeURIComponent(
+          `$orderby=slug` // $filter=isPremium eq false and (type eq '${PostTypeEnum.Article}') and (visibility eq true)&$orderby=slug&$skip=0&$top=10
+        ),
         lang: locale as LanguageEnum,
       },
     });
@@ -113,7 +109,7 @@ export const getServerSideProps: GetServerSideProps = async ({locale}) => {
   return {
     props: {
       locale,
-      posts: listPostsQuery.data.listPosts,
+      posts: get(listPostsQuery, 'data.listPublicPosts'),
       totalFreeArticles: listPostsQuery.data.totalFreeArticles,
       error: httpError,
       ...translations,

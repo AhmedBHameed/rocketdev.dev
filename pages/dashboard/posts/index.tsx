@@ -29,51 +29,51 @@ import {debounce} from 'lodash';
 
 const DashboardPosts = () => {
   const router = useRouter();
+  const searchParams = router.query as {$skip?: string; $top?: string};
+
   const [openPostModel, setPostModal] = useState(false);
   const [post, setPost] = useState<Post | undefined>();
-  const {page, perPage} = usePagination();
+  const {skip, top, total} = usePagination();
 
   const [listQuerierPosts, {data}] = useListQuerierPostsLazyQuery();
   const [upsertPost] = useUpsertPostMutation();
 
   const paginatedPostList = useCallback(
-    async (number: number, size: number) => {
+    async (skip: number) => {
+      const params = new URLSearchParams();
+      params.set('$skip', `${skip}`);
+      params.set('$top', `${top}`);
+
+      router.push(`?${params.toString()}`);
+
       await listQuerierPosts({
         variables: {
-          input: {
-            page: {
-              number,
-              size,
-            },
-          },
+          query: params.toString(),
         },
       });
     },
-    [listQuerierPosts]
+    [router, top, listQuerierPosts]
   );
 
   const onSearch = useMemo(
     () =>
       debounce(async (search: string) => {
+        const params = new URLSearchParams();
+
+        if (search) params.set('$filter', `contains(slug, '${search}')`);
+
+        params.set('$skip', '0');
+        params.set('$top', `${top}`);
+        params.set('$filter', `contains(slug,'${search}')`);
+        router.push(`?${params.toString()}`);
+
         await listQuerierPosts({
           variables: {
-            input: {
-              ...(search
-                ? {
-                    filter: {
-                      slug: search,
-                    },
-                  }
-                : {}),
-              page: {
-                number: 1,
-                size: perPage,
-              },
-            },
+            query: params.toString(),
           },
         });
       }, 500),
-    [perPage, listQuerierPosts]
+    [router, top, listQuerierPosts]
   );
 
   const redirectToPostContentUi = useCallback(
@@ -136,13 +136,6 @@ const DashboardPosts = () => {
       setPostModal(false);
     },
     [upsertPost]
-  );
-
-  const handleOnPaginationChange = useCallback(
-    (selectedPage: number) => {
-      paginatedPostList(selectedPage, perPage);
-    },
-    [perPage, paginatedPostList]
   );
 
   const tableColumn = useMemo(() => {
@@ -225,7 +218,7 @@ const DashboardPosts = () => {
         dataIndex: 'delete',
         key: 'delete',
         render: (_, row) => (
-          <DeletePostButton page={page} perPage={perPage} id={row.id} />
+          <DeletePostButton skip={skip} top={top} id={row.id} />
         ),
       },
       {
@@ -236,30 +229,43 @@ const DashboardPosts = () => {
           <EditPostContentButton
             postId={row.id}
             postContents={row.postContents}
-            page={page}
-            perPage={perPage}
+            skip={skip}
+            top={top}
           />
         ),
       },
     ] as Column<Post>[];
-  }, [page, perPage, redirectToPostContentUi]);
+  }, [skip, top, redirectToPostContentUi]);
+
+  const handleOnPaginationChange = useCallback(
+    (selectedPage: number) => {
+      // selectedPage Started from 0
+      paginatedPostList(selectedPage * top);
+    },
+    [top, paginatedPostList]
+  );
 
   useEffect(() => {
-    paginatedPostList(page, perPage);
+    if (router.isReady) {
+      const $skip = +(searchParams.$skip || '0');
+      paginatedPostList($skip);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [router.isReady]);
 
   return (
     <DashboardLayout onSearch={(event) => onSearch(event.target.value)}>
       <div className="flex justify-end px-4">
-        <AddPostButton page={page} perPage={perPage} />
+        <AddPostButton skip={skip} top={top} />
       </div>
       <Table
         rowKey="id"
         dataSource={(data?.querier?.listPosts || []) as Post[]}
         columns={tableColumn}
         pagination={{
-          totalItems: 11 || data?.querier?.totalPosts || 0,
+          currentPage: Math.floor(+(searchParams.$skip || skip) / top) + 1,
+          totalItems: data?.querier?.totalPosts || 0,
+          topPerPage: +(searchParams.$top || top),
           onChange: handleOnPaginationChange,
         }}
       />

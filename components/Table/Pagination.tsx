@@ -1,33 +1,25 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useCallback} from 'react';
 import ReactPaginate from 'react-paginate';
 import clsx from '../../utils/clsx';
 
 interface PaginationProps {
-  itemsPerPage: number;
+  topPerPage: number;
   totalItems: number;
-  onPagination?: (page: number) => void;
+  currentPage: number;
+  onPagination: (page: number) => void;
 }
 
 const Pagination = ({
-  itemsPerPage,
+  topPerPage,
   totalItems,
+  currentPage,
   onPagination,
 }: PaginationProps) => {
-  const [pageCount, setPageCount] = useState(0);
-  const [itemOffset, setItemOffset] = useState(0);
-
-  useEffect(() => {
-    setPageCount(Math.ceil(totalItems / itemsPerPage));
-  }, [itemOffset, totalItems, itemsPerPage]);
-
   const handlePageClick = useCallback(
     ({selected}: {selected: number}) => {
-      const newOffset = (selected * itemsPerPage) % totalItems;
-
-      setItemOffset(newOffset);
-      onPagination(selected + 1);
+      onPagination(selected);
     },
-    [totalItems, onPagination, itemsPerPage]
+    [onPagination]
   );
 
   return (
@@ -36,7 +28,8 @@ const Pagination = ({
       nextLabel="next >"
       onPageChange={handlePageClick}
       pageRangeDisplayed={3}
-      pageCount={pageCount}
+      forcePage={currentPage ? currentPage - 1 : 0}
+      pageCount={Math.ceil(totalItems / topPerPage)}
       previousLabel="< previous"
       renderOnZeroPageCount={null}
       className={clsx('flex', 'justify-center', 'items-center', 'mt-3')}

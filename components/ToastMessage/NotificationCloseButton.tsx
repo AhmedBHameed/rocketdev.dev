@@ -1,6 +1,6 @@
 import React from 'react';
 import {TypeOptions} from 'react-toastify';
-import {XCircleIcon} from '@heroicons/react/outline';
+import {XCircleIcon} from '@heroicons/react/24/outline';
 import clsx from '../../utils/clsx';
 
 interface NotificationCloseButtonProps {
