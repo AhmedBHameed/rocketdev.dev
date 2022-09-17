@@ -117,3 +117,8 @@ pre span[data='highlight'] .linenumber:after {
   content: '';
   @apply border-l-8 border-red-400 absolute left-0 top-0 h-full;
 }
+
+/* Service card */
+.service-card:hover {
+  @apply border-indigo-500;
+}
