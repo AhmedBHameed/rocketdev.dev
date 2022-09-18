@@ -313,6 +313,7 @@ export type Post = {
   accessedByUserIds?: Maybe<Array<Maybe<Scalars['ID']>>>;
   author?: Maybe<User>;
   authorId?: Maybe<Scalars['String']>;
+  courseId?: Maybe<Scalars['ID']>;
   createdAt?: Maybe<Scalars['Date']>;
   groupName?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['ID']>;
@@ -755,6 +756,7 @@ export type GetPublicPostQuery = {
     visibility?: boolean | null;
     tagIds?: Array<string | null> | null;
     type?: PostTypeEnum | null;
+    courseId?: string | null;
     prevPostId?: string | null;
     nextPostId?: string | null;
     accessedByUserIds?: Array<string | null> | null;
@@ -873,6 +875,7 @@ export type ListPublicPostsQuery = {
     visibility?: boolean | null;
     tagIds?: Array<string | null> | null;
     type?: PostTypeEnum | null;
+    courseId?: string | null;
     prevPostId?: string | null;
     nextPostId?: string | null;
     accessedByUserIds?: Array<string | null> | null;
@@ -1129,6 +1132,7 @@ export type PostFragmentFragment = {
   visibility?: boolean | null;
   tagIds?: Array<string | null> | null;
   type?: PostTypeEnum | null;
+  courseId?: string | null;
   prevPostId?: string | null;
   nextPostId?: string | null;
   accessedByUserIds?: Array<string | null> | null;
@@ -1395,6 +1399,7 @@ export type UpsertPostMutation = {
       visibility?: boolean | null;
       tagIds?: Array<string | null> | null;
       type?: PostTypeEnum | null;
+      courseId?: string | null;
       prevPostId?: string | null;
       nextPostId?: string | null;
       accessedByUserIds?: Array<string | null> | null;
@@ -1482,6 +1487,7 @@ export type GetPostByIdQuery = {
       visibility?: boolean | null;
       tagIds?: Array<string | null> | null;
       type?: PostTypeEnum | null;
+      courseId?: string | null;
       prevPostId?: string | null;
       nextPostId?: string | null;
       accessedByUserIds?: Array<string | null> | null;
@@ -1547,6 +1553,7 @@ export type GetPremiumPostQuery = {
       visibility?: boolean | null;
       tagIds?: Array<string | null> | null;
       type?: PostTypeEnum | null;
+      courseId?: string | null;
       prevPostId?: string | null;
       nextPostId?: string | null;
       accessedByUserIds?: Array<string | null> | null;
@@ -1704,6 +1711,7 @@ export type ListQuerierPostsQuery = {
       visibility?: boolean | null;
       tagIds?: Array<string | null> | null;
       type?: PostTypeEnum | null;
+      courseId?: string | null;
       prevPostId?: string | null;
       nextPostId?: string | null;
       accessedByUserIds?: Array<string | null> | null;
@@ -1877,6 +1885,7 @@ export const PostFragmentFragmentDoc = gql`
       createdAt
       updatedAt
     }
+    courseId
     tags {
       ...tagFragment
     }

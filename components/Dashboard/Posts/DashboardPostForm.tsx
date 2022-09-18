@@ -92,6 +92,7 @@ const DashboardPostForm = ({post, loading}: DashboardPostFormProps) => {
       type: get(post, 'type', PostTypeEnum.Course) as PostTypeEnum,
       groupName: get(post, 'groupName', ''),
       isPremium: get(post, 'isPremium', true),
+      // courseId: get(post, 'courseId', ''),
       visibility: get(post, 'visibility', false),
       nextPostId: get(post, 'nextPostId', ''),
       prevPostId: get(post, 'prevPostId', ''),
@@ -108,6 +109,10 @@ const DashboardPostForm = ({post, loading}: DashboardPostFormProps) => {
       ],
     },
   });
+  console.log(
+    '🚀 ~ file: DashboardPostForm.tsx ~ line 112 ~ DashboardPostForm ~ errors',
+    errors
+  );
 
   const postBody = watch('postContents.0.body');
   const submitPostAndPostContent = useCallback(
@@ -117,6 +122,7 @@ const DashboardPostForm = ({post, loading}: DashboardPostFormProps) => {
       slug,
       visibility,
       type,
+      courseId,
       groupName,
       nextPostId,
       prevPostId,
@@ -153,6 +159,7 @@ const DashboardPostForm = ({post, loading}: DashboardPostFormProps) => {
             accessedByUserIds,
             type,
             visibility,
+            ...(courseId ? {courseId} : {}),
           },
         },
         update: (

@@ -21,6 +21,7 @@ const postSchema = Joi.object<Post>({
       postImage: optionalString(),
     })
   ),
+  courseId: optionalString(),
   accessedByUserIds: requiredArray(),
   prevPostId: optionalString(),
   slug: requiredString(),

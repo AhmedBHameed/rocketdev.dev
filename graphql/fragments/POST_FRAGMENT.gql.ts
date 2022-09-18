@@ -31,6 +31,7 @@ const POST_FRAGMENT = gql`
       createdAt
       updatedAt
     }
+    courseId
     tags {
       ...tagFragment
     }
