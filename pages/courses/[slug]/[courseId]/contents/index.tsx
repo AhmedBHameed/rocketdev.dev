@@ -70,10 +70,7 @@ export const getServerSideProps: GetServerSideProps = async ({
         },
       },
       variables: {
-        input: {
-          courseId: (params.courseId || '') as string,
-          slug: (params.slug || '') as string,
-        },
+        courseId: (params.courseId || '') as string,
         lang: LanguageEnum.En,
       },
     });

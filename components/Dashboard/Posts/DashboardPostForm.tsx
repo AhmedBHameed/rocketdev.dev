@@ -1,6 +1,6 @@
 import {Tab} from '@headlessui/react';
 import {joiResolver} from '@hookform/resolvers/joi';
-import {get} from 'lodash';
+import {debounce, get} from 'lodash';
 import {useTranslation} from 'next-i18next';
 import React, {useCallback, useMemo} from 'react';
 import {Controller, useForm} from 'react-hook-form';
@@ -9,6 +9,7 @@ import {
   LanguageEnum,
   Post,
   PostTypeEnum,
+  useListCoursesLazyQuery,
   useUpsertPostContentMutation,
   useUpsertPostMutation,
 } from '../../../graphql/generated/graphql';
@@ -20,7 +21,7 @@ import titleToSlug from '../../../utils/titleToSlug';
 import LoadingButton from '../../Buttons/LoadingButton';
 import Col from '../../Col/Col';
 import {FormControl, InputField} from '../../Forms';
-import SelectMenu, {Option} from '../../Forms/SelectMenu';
+import SelectMenu from '../../Forms/SelectMenu';
 import Textarea from '../../Forms/Textarea';
 import Toggle from '../../Forms/Toggle';
 import useKeyPress from '../../hooks/keyPressHook';
@@ -32,6 +33,7 @@ import {ExternalLink} from 'react-feather';
 import Link from '../../Buttons/Link';
 import {DOMAIN} from '../../../config/environments';
 import ROUTES from '../../../config/routes';
+import Autocomplete from '../../Forms/Autocomplete';
 
 interface DashboardPostFormProps {
   loading?: boolean;
@@ -46,6 +48,27 @@ const DashboardPostForm = ({post, loading}: DashboardPostFormProps) => {
   const [upsertPostContent, {loading: isUpsertLoading}] =
     useUpsertPostContentMutation();
 
+  const [getCourses, {data: courses, error}] = useListCoursesLazyQuery();
+
+  const onSearchCourse = useMemo(
+    () =>
+      debounce(async (courseName: string) => {
+        const params = new URLSearchParams();
+
+        if (courseName) params.set('$filter', `contains(slug,'${courseName}')`);
+
+        params.set('$skip', '0');
+        params.set('$top', '50');
+
+        await getCourses({
+          variables: {
+            query: params.toString(),
+          },
+        });
+      }, 500),
+    [getCourses]
+  );
+
   const postTypeOptions = useMemo(() => {
     return [PostTypeEnum.Article, PostTypeEnum.Course].map((value) => ({
       value,
@@ -58,6 +81,7 @@ const DashboardPostForm = ({post, loading}: DashboardPostFormProps) => {
     formState: {errors, isValid},
     handleSubmit,
     watch,
+    getValues,
   } = useForm<Post>({
     resolver: joiResolver(postSchema),
     mode: 'onChange',
@@ -86,7 +110,6 @@ const DashboardPostForm = ({post, loading}: DashboardPostFormProps) => {
   });
 
   const postBody = watch('postContents.0.body');
-
   const submitPostAndPostContent = useCallback(
     async ({
       id,
@@ -189,7 +212,7 @@ const DashboardPostForm = ({post, loading}: DashboardPostFormProps) => {
       return false;
     },
     {
-      filter: '^(TEXTAREA)$',
+      filter: '^(INPUT|TEXTAREA)$',
     }
   );
 
@@ -210,24 +233,47 @@ const DashboardPostForm = ({post, loading}: DashboardPostFormProps) => {
 
   return (
     <div className="mt-6 prose prose-indigo prose-2xl mx-auto">
-      <Row gutter={[8, 8]} gap={4} xs={1}>
+      <Row gutter={[8, 0]} gap={3}>
         <Col>
-          <Link onClick={() => window.open(postUrl, '_blank')}>
-            <article
-              className={clsx(
-                'prose',
-                'lg:prose-xl',
-                'flex',
-                'items-center',
-                theme.text
-              )}
-            >
-              Post: {post.id || ''}
-              <ExternalLink className={clsx('w-10')} />
-            </article>
-          </Link>
+          <div className={clsx('flex', 'flex-nowrap', 'items-center')}>
+            <span className={clsx('prose', 'lg:prose-xl', theme.text)}>
+              Post:&nbsp;{post.id || ''}
+            </span>
+            <Link onClick={() => window.open(postUrl, '_blank')}>
+              <ExternalLink className={clsx('w-10', theme.text)} />
+            </Link>
+          </div>
         </Col>
+      </Row>
 
+      <Row gutter={[8, 12]} gap={3}>
+        <Col>
+          {getValues('type') === PostTypeEnum.Course && (
+            <Col>
+              <FormControl
+                label={t('belongToCourse', {
+                  ns: 'post',
+                  defaultValue: 'Belong to course',
+                })}
+                htmlFor="belongToCourse"
+                helperTextId="belongToCourse"
+              >
+                <Autocomplete
+                  id="belongToCourse"
+                  options={
+                    courses?.listCourses.map((course) => ({
+                      value: course.id,
+                      label: course.slug,
+                    })) || []
+                  }
+                  onSearch={onSearchCourse}
+                />
+              </FormControl>
+            </Col>
+          )}
+        </Col>
+      </Row>
+      <Row gutter={[8, 8]} gap={4} xs={1}>
         <Col>
           <form
             onSubmit={handleSubmit(submitPostAndPostContent)}

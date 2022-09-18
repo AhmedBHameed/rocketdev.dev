@@ -3561,14 +3561,14 @@
             "description": null,
             "args": [
               {
-                "name": "input",
+                "name": "courseId",
                 "description": null,
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
                   "ofType": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "CourseContentsInput",
+                    "kind": "SCALAR",
+                    "name": "ID",
                     "ofType": null
                   }
                 },

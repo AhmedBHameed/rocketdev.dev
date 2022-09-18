@@ -1,8 +1,8 @@
 import {gql} from '@apollo/client';
 
 const GET_COURSE_CONTENTS_QUERY = gql`
-  query GetCourseContents($input: CourseContentsInput!, $lang: LanguageEnum) {
-    getCourseContents(input: $input) {
+  query GetCourseContents($courseId: ID!, $lang: LanguageEnum) {
+    getCourseContents(courseId: $courseId) {
       id
       slug
       groupName

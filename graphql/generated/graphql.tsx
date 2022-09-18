@@ -469,7 +469,7 @@ export type QueryGetCourseArgs = {
 };
 
 export type QueryGetCourseContentsArgs = {
-  input: CourseContentsInput;
+  courseId: Scalars['ID'];
 };
 
 export type QueryGetPublicPostArgs = {
@@ -711,7 +711,7 @@ export type ForgotPasswordMutation = {
 };
 
 export type GetCourseContentsQueryVariables = Exact<{
-  input: CourseContentsInput;
+  courseId: Scalars['ID'];
   lang?: InputMaybe<LanguageEnum>;
 }>;
 
@@ -2067,8 +2067,8 @@ export type ForgotPasswordMutationOptions = Apollo.BaseMutationOptions<
   ForgotPasswordMutationVariables
 >;
 export const GetCourseContentsDocument = gql`
-  query GetCourseContents($input: CourseContentsInput!, $lang: LanguageEnum) {
-    getCourseContents(input: $input) {
+  query GetCourseContents($courseId: ID!, $lang: LanguageEnum) {
+    getCourseContents(courseId: $courseId) {
       id
       slug
       groupName
@@ -2098,7 +2098,7 @@ export const GetCourseContentsDocument = gql`
  * @example
  * const { data, loading, error } = useGetCourseContentsQuery({
  *   variables: {
- *      input: // value for 'input'
+ *      courseId: // value for 'courseId'
  *      lang: // value for 'lang'
  *   },
  * });
