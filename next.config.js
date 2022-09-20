@@ -10,6 +10,6 @@ module.exports = {
    * @see https://nextjs.org/docs/messages/next-image-unconfigured-host
    */
   images: {
-    domains: ['minio.rocketdev.dev'],
+    domains: ['minio.rocketdev.dev', 'avatars.githubusercontent.com'],
   },
 };

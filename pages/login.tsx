@@ -140,7 +140,7 @@ const Login: NextPage = () => {
         message: searchParams.error_description,
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [router.query]);
 
   const currentLocale = i18n.language;
 

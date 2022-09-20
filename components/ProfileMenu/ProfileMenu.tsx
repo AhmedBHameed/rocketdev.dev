@@ -37,12 +37,12 @@ const ProfileMenu = ({isLoggedIn, menu, avatar}: ProfileMenuProps) => {
   return (
     <Menu as="div" className="ml-3 relative">
       <div>
-        <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+        <Menu.Button className="bg-gray-800 h-8 w-8 relative flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
           <span className="sr-only">Open user menu</span>
           {avatar ? (
             <Image
               crossOrigin="anonymous"
-              className="h-8 w-8 rounded-full"
+              className="rounded-full absolute"
               src={isAvatarLink ? avatar : `${STATIC_ASSETS_PATH}${avatar}`}
               width={32}
               height={32}
