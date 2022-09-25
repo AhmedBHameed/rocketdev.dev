@@ -2,10 +2,10 @@ import React, {useCallback, useState} from 'react';
 import {ulid} from 'ulid';
 import {
   LanguageEnum,
+  ListQuerierPostsDocument,
   PostContent,
   useUpsertPostContentMutation,
 } from '../../../graphql/generated/graphql';
-import LIST_QUERIER_POSTS_QUERY from '../../../graphql/querier/LIST_POSTS.gql';
 import clsx from '../../../utils/clsx';
 import omitDeepLodash from '../../../utils/omitDeepLodash';
 import LoadingButton from '../../Buttons/LoadingButton';
@@ -85,7 +85,7 @@ const EditPostContentButton = ({
       },
       refetchQueries: () => [
         {
-          query: LIST_QUERIER_POSTS_QUERY,
+          query: ListQuerierPostsDocument,
           variables: {
             query: params.toString(),
           },

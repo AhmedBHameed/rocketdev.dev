@@ -1,0 +1,7 @@
+mutation UpsertPost($input: UpsertPostInput!, $lang: LanguageEnum) {
+  mutator {
+    upsertPost(input: $input) {
+      ...postFragment
+    }
+  }
+}

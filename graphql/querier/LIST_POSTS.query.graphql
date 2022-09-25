@@ -1,0 +1,8 @@
+query ListQuerierPosts($query: String!, $lang: LanguageEnum) {
+  querier {
+    totalPosts
+    listPosts(query: $query) {
+      ...postFragment
+    }
+  }
+}

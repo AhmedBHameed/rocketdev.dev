@@ -1,0 +1,7 @@
+query ListQuerierCoursePosts($courseId: ID!, $lang: LanguageEnum) {
+  querier {
+    listCoursePosts(courseId: $courseId) {
+      ...querierPostFragment
+    }
+  }
+}

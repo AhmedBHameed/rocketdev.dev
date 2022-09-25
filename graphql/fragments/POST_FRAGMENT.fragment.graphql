@@ -1,0 +1,39 @@
+fragment postFragment on Post {
+  id
+  slug
+  nanoId
+  groupName
+  authorId
+  isPremium
+  visibility
+  tagIds
+  type
+  postContents(lang: $lang) {
+    id
+    postImage
+    lang
+    body
+    contentPreview
+    readingTime
+    metaTags {
+      injectHeader
+      injectCssStyle
+      description
+    }
+    publishedAt
+    createdAt
+    updatedAt
+  }
+  courseId
+  tags {
+    ...tagFragment
+  }
+  author {
+    ...authorFragment
+  }
+  prevPostId
+  nextPostId
+  accessedByUserIds
+  createdAt
+  updatedAt
+}

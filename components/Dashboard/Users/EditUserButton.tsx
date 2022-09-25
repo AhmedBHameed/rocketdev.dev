@@ -24,6 +24,7 @@ const EditUserButton = ({user}: EditUserButtonProps) => {
         variables: {
           input: {
             id: updatedUserData.id,
+            email: updatedUserData.email,
             avatar: updatedUserData.avatar,
             firstName: get(updatedUserData, 'name.first', ''),
             lastName: get(updatedUserData, 'name.last', ''),

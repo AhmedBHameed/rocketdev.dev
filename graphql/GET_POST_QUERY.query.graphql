@@ -1,0 +1,5 @@
+query GetPublicPost($nanoId: ID!, $slug: String!, $lang: LanguageEnum) {
+  getPublicPost(nanoId: $nanoId, slug: $slug) {
+    ...postFragment
+  }
+}

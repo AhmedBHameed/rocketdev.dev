@@ -1,0 +1,8 @@
+fragment authorFragment on User {
+  email
+  avatar
+  name {
+    first
+    last
+  }
+}

@@ -6,6 +6,7 @@ import JsonViewContainer from '../../../components/JsonView/JsonViewContainer';
 import Modal from '../../../components/Modal/Modal';
 import Table, {Column} from '../../../components/Table/Table';
 import {
+  ListQuerierPostsDocument,
   Post,
   PostTypeEnum,
   useListQuerierPostsLazyQuery,
@@ -15,7 +16,6 @@ import slugToTitle from '../../../utils/slugToTitle';
 import usePagination from '../../../components/Table/hooks/paginationHook';
 import DeletePostButton from '../../../components/Dashboard/Posts/DeletePostButton';
 import EditPostContentButton from '../../../components/Dashboard/Posts/EditPostContentButton';
-import LIST_QUERIER_POSTS_QUERY from '../../../graphql/querier/LIST_POSTS.gql';
 import {GetStaticProps} from 'next';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import {useRouter} from 'next/router';
@@ -111,7 +111,7 @@ const DashboardPosts = () => {
           }
         ) => {
           const posts = cache.readQuery<Post[]>({
-            query: LIST_QUERIER_POSTS_QUERY,
+            query: ListQuerierPostsDocument,
           });
           if (posts) {
             const copyPosts = [...posts];
@@ -122,7 +122,7 @@ const DashboardPosts = () => {
             copyPosts[modifiedIndex] = upsertPost as Post;
 
             cache.writeQuery({
-              query: LIST_QUERIER_POSTS_QUERY,
+              query: ListQuerierPostsDocument,
               data: {
                 querier: {
                   listPosts: copyPosts,

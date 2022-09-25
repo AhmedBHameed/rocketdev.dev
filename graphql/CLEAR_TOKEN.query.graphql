@@ -1,0 +1,5 @@
+query ClearTokens {
+  clearTokens {
+    message
+  }
+}

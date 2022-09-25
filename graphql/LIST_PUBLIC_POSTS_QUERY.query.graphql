@@ -1,0 +1,6 @@
+query ListPublicPosts($query: String, $lang: LanguageEnum) {
+  totalFreeArticles
+  listPublicPosts(query: $query) {
+    ...postFragment
+  }
+}

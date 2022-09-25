@@ -10,12 +10,12 @@ import Layout from '../../../../../../../components/Layout';
 import useNavigateToLogin from '../../../../../../../components/Login/hooks/navigateToLoginHook';
 import PostContent from '../../../../../../../components/PostContent/PostContent';
 import {
+  GetPremiumPostDocument,
   GetPremiumPostQuery,
   GetPremiumPostQueryVariables,
   LanguageEnum,
   Post,
 } from '../../../../../../../graphql/generated/graphql';
-import GET_PREMIUM_POST from '../../../../../../../graphql/querier/GET_PREMIUM_POST.gql';
 import apolloClient from '../../../../../../../utils/apolloClient';
 
 interface CoursePost {
@@ -81,7 +81,7 @@ export const getServerSideProps: GetServerSideProps = async ({
       GetPremiumPostQuery,
       GetPremiumPostQueryVariables
     >({
-      query: GET_PREMIUM_POST,
+      query: GetPremiumPostDocument,
       fetchPolicy: 'network-only',
       context: {
         headers: {

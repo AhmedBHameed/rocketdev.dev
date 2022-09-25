@@ -7,13 +7,13 @@ import {Controller, useForm} from 'react-hook-form';
 import {ulid} from 'ulid';
 import {
   LanguageEnum,
+  ListQuerierPostsDocument,
   Post,
   PostTypeEnum,
   useListCoursesLazyQuery,
   useUpsertPostContentMutation,
   useUpsertPostMutation,
 } from '../../../graphql/generated/graphql';
-import LIST_QUERIER_POSTS_QUERY from '../../../graphql/querier/LIST_POSTS.gql';
 import theme from '../../../styles/theme';
 import clsx from '../../../utils/clsx';
 import slugToTitle from '../../../utils/slugToTitle';
@@ -171,7 +171,7 @@ const DashboardPostForm = ({post, loading}: DashboardPostFormProps) => {
           }
         ) => {
           const posts = cache.readQuery<Post[]>({
-            query: LIST_QUERIER_POSTS_QUERY,
+            query: ListQuerierPostsDocument,
           });
           if (posts) {
             const copyPosts = [...posts];
@@ -182,7 +182,7 @@ const DashboardPostForm = ({post, loading}: DashboardPostFormProps) => {
             copyPosts[modifiedIndex] = upsertPost as Post;
 
             cache.writeQuery({
-              query: LIST_QUERIER_POSTS_QUERY,
+              query: ListQuerierPostsDocument,
               data: {
                 querier: {
                   listPosts: copyPosts,

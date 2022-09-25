@@ -1,0 +1,7 @@
+query GetPostById($id: ID!, $lang: LanguageEnum) {
+  querier {
+    getPostById(id: $id) {
+      ...postFragment
+    }
+  }
+}

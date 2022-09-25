@@ -1,5 +1,6 @@
 import React, {useCallback} from 'react';
 import {
+  ListQuerierPostsDocument,
   ListQuerierPostsQuery,
   PostTypeEnum,
   useUpsertPostMutation,
@@ -8,7 +9,6 @@ import LoadingButton from '../../Buttons/LoadingButton';
 import {ulid} from 'ulid';
 import titleToSlug from '../../../utils/titleToSlug';
 import useVerifyMe from '../../hooks/verifyMeHook';
-import LIST_QUERIER_POSTS_QUERY from '../../../graphql/querier/LIST_POSTS.gql';
 
 interface AddPostButtonProps {
   skip: number;
@@ -32,7 +32,7 @@ const AddPostButton = ({skip, top}: AddPostButtonProps) => {
       params.set('$top', `${top}`);
 
       const posts = cache.readQuery<ListQuerierPostsQuery>({
-        query: LIST_QUERIER_POSTS_QUERY,
+        query: ListQuerierPostsDocument,
         variables: {
           query: params.toString(),
         },
@@ -40,7 +40,7 @@ const AddPostButton = ({skip, top}: AddPostButtonProps) => {
 
       if (upsertPost) {
         cache.writeQuery({
-          query: LIST_QUERIER_POSTS_QUERY,
+          query: ListQuerierPostsDocument,
           variables: {
             query: params.toString(),
           },

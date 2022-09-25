@@ -2,11 +2,10 @@ import {get} from 'lodash';
 import React, {useCallback} from 'react';
 import {ulid} from 'ulid';
 import {
+  ListQuerierTagsDocument,
   ListQuerierTagsQuery,
   useUpsertTagMutation,
 } from '../../../graphql/generated/graphql';
-import LIST_QUERIER_TAGS_QUERY from '../../../graphql/querier/LIST_TAGS.gql';
-
 import LoadingButton from '../../Buttons/LoadingButton';
 import {useNotifications} from '../../ToastMessage/Hooks/NotificationsHook';
 
@@ -41,7 +40,7 @@ const AddTagButton = ({skip, top}: AddTagButtonProps) => {
         }
       ) => {
         const tags = cache.readQuery<ListQuerierTagsQuery>({
-          query: LIST_QUERIER_TAGS_QUERY,
+          query: ListQuerierTagsDocument,
           variables: {
             input: {
               page: {
@@ -54,7 +53,7 @@ const AddTagButton = ({skip, top}: AddTagButtonProps) => {
 
         if (get(tags, 'querier.listTags.length', 0)) {
           cache.writeQuery({
-            query: LIST_QUERIER_TAGS_QUERY,
+            query: ListQuerierTagsDocument,
             variables: {
               input: {
                 page: {

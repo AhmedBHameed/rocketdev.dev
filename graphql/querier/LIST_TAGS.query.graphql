@@ -1,0 +1,15 @@
+query ListQuerierTags($query: String) {
+  querier {
+    totalTags
+    listTags(query: $query) {
+      id
+      name
+      imgSrc
+      description
+      visibility
+      color
+      createdAt
+      updatedAt
+    }
+  }
+}

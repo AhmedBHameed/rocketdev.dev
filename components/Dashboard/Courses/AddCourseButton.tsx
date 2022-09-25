@@ -1,13 +1,13 @@
 import React, {useCallback} from 'react';
 import {
   LanguageEnum,
+  ListCoursesDocument,
   ListCoursesQuery,
   useUpsertCourseMutation,
 } from '../../../graphql/generated/graphql';
 import LoadingButton from '../../Buttons/LoadingButton';
 import {ulid} from 'ulid';
 import useVerifyMe from '../../hooks/verifyMeHook';
-import LIST_COURSES_QUERY from '../../../graphql/LIST_COURSES_QUERY.gql';
 
 interface AddCourseButtonProps {
   skip: number;
@@ -27,7 +27,7 @@ const AddCourseButton = ({skip, top}: AddCourseButtonProps) => {
       }
     ) => {
       const listCourseQuery = cache.readQuery<ListCoursesQuery>({
-        query: LIST_COURSES_QUERY,
+        query: ListCoursesDocument,
         variables: {
           input: {
             page: {
@@ -40,7 +40,7 @@ const AddCourseButton = ({skip, top}: AddCourseButtonProps) => {
 
       if (upsertCourse) {
         cache.writeQuery({
-          query: LIST_COURSES_QUERY,
+          query: ListCoursesDocument,
           variables: {
             input: {
               page: {

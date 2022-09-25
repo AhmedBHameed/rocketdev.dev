@@ -1,0 +1,15 @@
+mutation UpsertFeedback($input: FeedbackInput!) {
+  mutator {
+    upsertFeedback(input: $input) {
+      id
+      title
+      message
+      author {
+        ...authorFragment
+      }
+      resolved
+      createdAt
+      updatedAt
+    }
+  }
+}

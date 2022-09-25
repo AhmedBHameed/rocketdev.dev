@@ -1,0 +1,6 @@
+query ListCourses($query: String!) {
+  totalCourses
+  listCourses(query: $query) {
+    ...courseFragment
+  }
+}

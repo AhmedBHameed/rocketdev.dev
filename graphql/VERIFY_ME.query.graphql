@@ -1,0 +1,18 @@
+query VerifyMe {
+  verifyMe {
+    id
+    avatar
+    isSuper
+    name {
+      first
+      last
+    }
+    authorization {
+      id
+      actions {
+        name
+        permissions
+      }
+    }
+  }
+}

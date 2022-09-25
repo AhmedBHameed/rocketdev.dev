@@ -1,10 +1,10 @@
 import {TrashIcon} from '@heroicons/react/24/solid';
 import React, {useCallback, useState} from 'react';
 import {
+  ListQuerierPostsDocument,
   ListQuerierPostsQuery,
   useDeletePostMutation,
 } from '../../../graphql/generated/graphql';
-import LIST_QUERIER_POSTS_QUERY from '../../../graphql/querier/LIST_POSTS.gql';
 import Alert from '../../Alert/Alert';
 import BaseButton from '../../Buttons/BaseButton';
 
@@ -37,7 +37,7 @@ const DeletePostButton = ({id, skip, top}: DeletePostButtonProps) => {
           }
         ) => {
           const posts = cache.readQuery<ListQuerierPostsQuery>({
-            query: LIST_QUERIER_POSTS_QUERY,
+            query: ListQuerierPostsDocument,
             variables: {
               query: params.toString(),
             },
@@ -45,7 +45,7 @@ const DeletePostButton = ({id, skip, top}: DeletePostButtonProps) => {
 
           if (deletePost) {
             cache.writeQuery({
-              query: LIST_QUERIER_POSTS_QUERY,
+              query: ListQuerierPostsDocument,
               variables: {
                 query: params.toString(),
               },

@@ -1,0 +1,8 @@
+query RefreshTokens {
+  refreshTokens {
+    accessToken
+    refreshToken
+    accessTokenExpire
+    refreshTokenExpire
+  }
+}

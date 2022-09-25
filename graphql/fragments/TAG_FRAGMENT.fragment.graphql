@@ -1,0 +1,7 @@
+fragment tagFragment on Tag {
+  id
+  imgSrc
+  name
+  description
+  color
+}

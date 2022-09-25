@@ -9,12 +9,12 @@ import Layout from '../../../../../components/Layout';
 import Row from '../../../../../components/Row/Row';
 import {ServiceCard} from '../../../../../components/ServiceCard/ServiceCard';
 import {
+  GetCourseContentsDocument,
   GetCourseContentsQuery,
   GetCourseContentsQueryVariables,
   LanguageEnum,
   Post,
 } from '../../../../../graphql/generated/graphql';
-import GET_COURSE_CONTENTS_QUERY from '../../../../../graphql/GET_COURSE_CONTENTS_QUERY.gql';
 import apolloClient from '../../../../../utils/apolloClient';
 import slugToTitle from '../../../../../utils/slugToTitle';
 
@@ -62,7 +62,7 @@ export const getServerSideProps: GetServerSideProps = async ({
       GetCourseContentsQuery,
       GetCourseContentsQueryVariables
     >({
-      query: GET_COURSE_CONTENTS_QUERY,
+      query: GetCourseContentsDocument,
       fetchPolicy: 'no-cache',
       context: {
         headers: {

@@ -8,12 +8,12 @@ import AlertError from '../../../components/AlertError/AlertError';
 import Layout from '../../../components/Layout';
 import PostContent from '../../../components/PostContent/PostContent';
 import {
+  GetPublicPostDocument,
   GetPublicPostQuery,
   GetPublicPostQueryVariables,
   LanguageEnum,
   Post,
 } from '../../../graphql/generated/graphql';
-import GET_PUBLIC_POST_QUERY from '../../../graphql/GET_POST_QUERY.gql';
 import apolloClient from '../../../utils/apolloClient';
 
 // TODO: Make error interface extendable.
@@ -70,7 +70,7 @@ export const getServerSideProps: GetServerSideProps = async ({
       GetPublicPostQuery,
       GetPublicPostQueryVariables
     >({
-      query: GET_PUBLIC_POST_QUERY,
+      query: GetPublicPostDocument,
       fetchPolicy: 'network-only',
       variables: {
         nanoId: params.nanoId as string,

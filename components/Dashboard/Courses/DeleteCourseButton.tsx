@@ -1,10 +1,10 @@
 import {TrashIcon} from '@heroicons/react/24/solid';
 import React, {useCallback, useState} from 'react';
 import {
+  ListCoursesDocument,
   ListCoursesQuery,
   useDeleteCourseMutation,
 } from '../../../graphql/generated/graphql';
-import LIST_COURSES_QUERY from '../../../graphql/LIST_COURSES_QUERY.gql';
 import Alert from '../../Alert/Alert';
 import BaseButton from '../../Buttons/BaseButton';
 
@@ -33,7 +33,7 @@ const DeleteCourseButton = ({courseId, skip, top}: DeleteCourseButtonProps) => {
           }
         ) => {
           const courses = cache.readQuery<ListCoursesQuery>({
-            query: LIST_COURSES_QUERY,
+            query: ListCoursesDocument,
             variables: {
               input: {
                 page: {
@@ -46,7 +46,7 @@ const DeleteCourseButton = ({courseId, skip, top}: DeleteCourseButtonProps) => {
 
           if (deleteCourse) {
             cache.writeQuery({
-              query: LIST_COURSES_QUERY,
+              query: ListCoursesDocument,
               variables: {
                 input: {
                   page: {

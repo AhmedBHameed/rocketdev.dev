@@ -553,6 +553,7 @@ export type Tag = {
 
 export type UpdateUserInput = {
   avatar?: InputMaybe<Scalars['String']>;
+  email?: InputMaybe<Scalars['EmailAddress']>;
   firstName?: InputMaybe<Scalars['String']>;
   id: Scalars['ID'];
   lastName?: InputMaybe<Scalars['String']>;
@@ -1349,36 +1350,6 @@ export type UpsertCourseMutation = {
   } | null;
 };
 
-export type UpsertPostContentMutationVariables = Exact<{
-  postId: Scalars['ID'];
-  input: UpsertPostContentInput;
-}>;
-
-export type UpsertPostContentMutation = {
-  __typename?: 'Mutation';
-  mutator?: {
-    __typename?: 'Mutator';
-    upsertPostContent?: {
-      __typename?: 'PostContent';
-      id?: string | null;
-      postImage?: string | null;
-      lang?: LanguageEnum | null;
-      body?: string | null;
-      contentPreview?: string | null;
-      readingTime?: string | null;
-      publishedAt?: Date | null;
-      createdAt?: Date | null;
-      updatedAt?: Date | null;
-      metaTags?: {
-        __typename?: 'PostMetaTags';
-        injectHeader?: string | null;
-        injectCssStyle?: string | null;
-        description?: string | null;
-      } | null;
-    } | null;
-  } | null;
-};
-
 export type UpsertPostMutationVariables = Exact<{
   input: UpsertPostInput;
   lang?: InputMaybe<LanguageEnum>;
@@ -1440,6 +1411,36 @@ export type UpsertPostMutation = {
           first?: string | null;
           last?: string | null;
         } | null;
+      } | null;
+    } | null;
+  } | null;
+};
+
+export type UpsertPostContentMutationVariables = Exact<{
+  postId: Scalars['ID'];
+  input: UpsertPostContentInput;
+}>;
+
+export type UpsertPostContentMutation = {
+  __typename?: 'Mutation';
+  mutator?: {
+    __typename?: 'Mutator';
+    upsertPostContent?: {
+      __typename?: 'PostContent';
+      id?: string | null;
+      postImage?: string | null;
+      lang?: LanguageEnum | null;
+      body?: string | null;
+      contentPreview?: string | null;
+      readingTime?: string | null;
+      publishedAt?: Date | null;
+      createdAt?: Date | null;
+      updatedAt?: Date | null;
+      metaTags?: {
+        __typename?: 'PostMetaTags';
+        injectHeader?: string | null;
+        injectCssStyle?: string | null;
+        description?: string | null;
       } | null;
     } | null;
   } | null;
@@ -3065,6 +3066,60 @@ export type UpsertCourseMutationOptions = Apollo.BaseMutationOptions<
   UpsertCourseMutation,
   UpsertCourseMutationVariables
 >;
+export const UpsertPostDocument = gql`
+  mutation UpsertPost($input: UpsertPostInput!, $lang: LanguageEnum) {
+    mutator {
+      upsertPost(input: $input) {
+        ...postFragment
+      }
+    }
+  }
+  ${PostFragmentFragmentDoc}
+`;
+export type UpsertPostMutationFn = Apollo.MutationFunction<
+  UpsertPostMutation,
+  UpsertPostMutationVariables
+>;
+
+/**
+ * __useUpsertPostMutation__
+ *
+ * To run a mutation, you first call `useUpsertPostMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpsertPostMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [upsertPostMutation, { data, loading, error }] = useUpsertPostMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *      lang: // value for 'lang'
+ *   },
+ * });
+ */
+export function useUpsertPostMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    UpsertPostMutation,
+    UpsertPostMutationVariables
+  >
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useMutation<UpsertPostMutation, UpsertPostMutationVariables>(
+    UpsertPostDocument,
+    options
+  );
+}
+export type UpsertPostMutationHookResult = ReturnType<
+  typeof useUpsertPostMutation
+>;
+export type UpsertPostMutationResult =
+  Apollo.MutationResult<UpsertPostMutation>;
+export type UpsertPostMutationOptions = Apollo.BaseMutationOptions<
+  UpsertPostMutation,
+  UpsertPostMutationVariables
+>;
 export const UpsertPostContentDocument = gql`
   mutation UpsertPostContent($postId: ID!, $input: UpsertPostContentInput!) {
     mutator {
@@ -3130,60 +3185,6 @@ export type UpsertPostContentMutationResult =
 export type UpsertPostContentMutationOptions = Apollo.BaseMutationOptions<
   UpsertPostContentMutation,
   UpsertPostContentMutationVariables
->;
-export const UpsertPostDocument = gql`
-  mutation UpsertPost($input: UpsertPostInput!, $lang: LanguageEnum) {
-    mutator {
-      upsertPost(input: $input) {
-        ...postFragment
-      }
-    }
-  }
-  ${PostFragmentFragmentDoc}
-`;
-export type UpsertPostMutationFn = Apollo.MutationFunction<
-  UpsertPostMutation,
-  UpsertPostMutationVariables
->;
-
-/**
- * __useUpsertPostMutation__
- *
- * To run a mutation, you first call `useUpsertPostMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useUpsertPostMutation` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [upsertPostMutation, { data, loading, error }] = useUpsertPostMutation({
- *   variables: {
- *      input: // value for 'input'
- *      lang: // value for 'lang'
- *   },
- * });
- */
-export function useUpsertPostMutation(
-  baseOptions?: Apollo.MutationHookOptions<
-    UpsertPostMutation,
-    UpsertPostMutationVariables
-  >
-) {
-  const options = {...defaultOptions, ...baseOptions};
-  return Apollo.useMutation<UpsertPostMutation, UpsertPostMutationVariables>(
-    UpsertPostDocument,
-    options
-  );
-}
-export type UpsertPostMutationHookResult = ReturnType<
-  typeof useUpsertPostMutation
->;
-export type UpsertPostMutationResult =
-  Apollo.MutationResult<UpsertPostMutation>;
-export type UpsertPostMutationOptions = Apollo.BaseMutationOptions<
-  UpsertPostMutation,
-  UpsertPostMutationVariables
 >;
 export const UpsertTagDocument = gql`
   mutation UpsertTag($input: UpsertTagInput!) {

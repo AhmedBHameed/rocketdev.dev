@@ -1,0 +1,7 @@
+mutation DeletePost($id: ID!) {
+  mutator {
+    deletePost(id: $id) {
+      id
+    }
+  }
+}

@@ -1,0 +1,14 @@
+mutation UpsertTag($input: UpsertTagInput!) {
+  mutator {
+    upsertTag(input: $input) {
+      id
+      name
+      imgSrc
+      description
+      visibility
+      color
+      createdAt
+      updatedAt
+    }
+  }
+}

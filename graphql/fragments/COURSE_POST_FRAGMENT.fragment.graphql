@@ -1,0 +1,33 @@
+fragment querierPostFragment on Post {
+  id
+  slug
+  isPremium
+  groupName
+  postContents(lang: $lang) {
+    id
+    postImage
+    lang
+    body
+    contentPreview
+    readingTime
+    metaTags {
+      injectHeader
+      injectCssStyle
+      description
+    }
+    publishedAt
+    createdAt
+    updatedAt
+  }
+  tags {
+    ...tagFragment
+  }
+  author {
+    ...authorFragment
+  }
+  prevPostId
+  nextPostId
+  accessedByUserIds
+  createdAt
+  updatedAt
+}

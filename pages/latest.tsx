@@ -11,16 +11,15 @@ import ROUTES from '../config/routes';
 import apolloClient from '../utils/apolloClient';
 import {
   LanguageEnum,
+  ListPublicPostsDocument,
   ListPublicPostsQuery,
   ListPublicPostsQueryVariables,
   Post,
-  PostTypeEnum,
 } from '../graphql/generated/graphql';
 import slugToTitle from '../utils/slugToTitle';
 import {ApolloQueryResult} from '@apollo/client';
 import AlertError from '../components/AlertError/AlertError';
 import {get} from 'lodash';
-import LIST_PUBLIC_POSTS_QUERY from '../graphql/LIST_PUBLIC_POSTS_QUERY.gql';
 
 interface LatestProps {
   locale: string;
@@ -87,7 +86,7 @@ export const getServerSideProps: GetServerSideProps = async ({locale}) => {
       ListPublicPostsQuery,
       ListPublicPostsQueryVariables
     >({
-      query: LIST_PUBLIC_POSTS_QUERY,
+      query: ListPublicPostsDocument,
       fetchPolicy: 'network-only',
       variables: {
         query: encodeURIComponent(

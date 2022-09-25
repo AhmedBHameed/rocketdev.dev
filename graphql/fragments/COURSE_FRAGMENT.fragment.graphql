@@ -1,0 +1,18 @@
+fragment courseFragment on Course {
+  id
+  slug
+  description
+  nanoId
+  author {
+    ...authorFragment
+  }
+  tags {
+    ...tagFragment
+  }
+  visibility
+  image
+  isPremium
+  lang
+  postIds
+  publishedAt
+}

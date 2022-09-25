@@ -4,6 +4,7 @@ import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import {useTranslation} from 'next-i18next';
 import {ApolloQueryResult} from '@apollo/client';
 import {
+  ListCoursesDocument,
   ListCoursesQuery,
   ListCoursesQueryVariables,
 } from '../../graphql/generated/graphql';
@@ -15,7 +16,6 @@ import Col from '../../components/Col/Col';
 import BoldLabel from '../../components/Label/BoldLabel';
 import slugToTitle from '../../utils/slugToTitle';
 import CourseCard from '../../components/Courses/CourseCard';
-import LIST_COURSES_QUERY from '../../graphql/LIST_COURSES_QUERY.gql';
 import apolloClient from '../../utils/apolloClient';
 import titleToSlug from '../../utils/titleToSlug';
 
@@ -86,7 +86,7 @@ export const getServerSideProps: GetServerSideProps = async ({locale}) => {
       ListCoursesQuery,
       ListCoursesQueryVariables
     >({
-      query: LIST_COURSES_QUERY,
+      query: ListCoursesDocument,
       fetchPolicy: 'network-only',
       variables: {
         query: encodeURIComponent(

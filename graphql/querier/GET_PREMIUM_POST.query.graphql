@@ -1,0 +1,7 @@
+query GetPremiumPost($input: GetPremiumPostInput!, $lang: LanguageEnum) {
+  querier {
+    getPremiumPost(input: $input) {
+      ...postFragment
+    }
+  }
+}

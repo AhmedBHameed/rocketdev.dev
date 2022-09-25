@@ -1,0 +1,8 @@
+query GithubLogin($code: ID!) {
+  githubLogin(code: $code) {
+    accessToken
+    refreshToken
+    accessTokenExpire
+    refreshTokenExpire
+  }
+}

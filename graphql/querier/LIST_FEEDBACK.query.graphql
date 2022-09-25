@@ -1,0 +1,16 @@
+query ListQuerierFeedback($query: String!) {
+  querier {
+    totalFeedback
+    listFeedback(query: $query) {
+      id
+      title
+      message
+      author {
+        ...authorFragment
+      }
+      resolved
+      createdAt
+      updatedAt
+    }
+  }
+}

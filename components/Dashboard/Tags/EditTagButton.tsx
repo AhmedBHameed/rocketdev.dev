@@ -1,6 +1,9 @@
 import React, {useCallback, useState} from 'react';
-import {Tag, useUpsertTagMutation} from '../../../graphql/generated/graphql';
-import LIST_QUERIER_TAGS_QUERY from '../../../graphql/querier/LIST_TAGS.gql';
+import {
+  ListQuerierTagsDocument,
+  Tag,
+  useUpsertTagMutation,
+} from '../../../graphql/generated/graphql';
 import omitDeepLodash from '../../../utils/omitDeepLodash';
 
 import LoadingButton from '../../Buttons/LoadingButton';
@@ -40,7 +43,7 @@ const EditTagButton = ({tag}: EditTagButtonProps) => {
           }
         ) => {
           const tags = cache.readQuery<Tag[]>({
-            query: LIST_QUERIER_TAGS_QUERY,
+            query: ListQuerierTagsDocument,
           });
           if (tags) {
             const copyTags = [...tags];
@@ -51,7 +54,7 @@ const EditTagButton = ({tag}: EditTagButtonProps) => {
             copyTags[modifiedIndex] = upsertTag;
 
             cache.writeQuery({
-              query: LIST_QUERIER_TAGS_QUERY,
+              query: ListQuerierTagsDocument,
               data: {
                 querier: {
                   listTags: copyTags,

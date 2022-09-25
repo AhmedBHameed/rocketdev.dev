@@ -1,6 +1,5 @@
 import {useCallback, useEffect, useState} from 'react';
-import {VerifyMeQuery} from '../../graphql/generated/graphql';
-import VERIFY_ME_QUERY from '../../graphql/VERIFY_ME.gql';
+import {VerifyMeDocument, VerifyMeQuery} from '../../graphql/generated/graphql';
 import apolloClient from '../../utils/apolloClient';
 
 const useVerifyMe = () => {
@@ -12,7 +11,7 @@ const useVerifyMe = () => {
     setLoading(true);
     try {
       const result = await apolloClient.query<VerifyMeQuery>({
-        query: VERIFY_ME_QUERY,
+        query: VerifyMeDocument,
       });
       setUserProfile(result.data);
       setLoading(false);

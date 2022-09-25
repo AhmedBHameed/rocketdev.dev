@@ -1,0 +1,14 @@
+query CreateTokens(
+  $email: EmailAddress!
+  $password: Password!
+  $rememberMe: Boolean
+) {
+  createTokens(
+    input: {email: $email, password: $password, rememberMe: $rememberMe}
+  ) {
+    accessToken
+    refreshToken
+    accessTokenExpire
+    refreshTokenExpire
+  }
+}
