@@ -1,0 +1,5 @@
+mutation ActivateUserAccount($hash: String!) {
+  activateUserAccount(hash: $hash) {
+    message
+  }
+}

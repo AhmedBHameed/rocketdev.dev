@@ -25,6 +25,13 @@ const Signup = () => {
 
   const router = useRouter();
   const [signup, {loading}] = useSignupMutation({
+    onCompleted: () => {
+      notify({
+        type: 'success',
+        title: 'Signup successful',
+        message: 'We sent you an email including activation link.',
+      });
+    },
     onError: ({graphQLErrors}) => {
       if (graphQLErrors[0].message.includes('E11000')) {
         notify({

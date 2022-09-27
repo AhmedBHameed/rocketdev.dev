@@ -18,6 +18,7 @@ import {GetStaticProps, NextPage} from 'next';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import usePagination from '../../components/Table/hooks/paginationHook';
 import {useRouter} from 'next/router';
+import DeleteUserButton from '../../components/Dashboard/Users/DeleteUserButton';
 
 const Users: NextPage = () => {
   const router = useRouter();
@@ -94,8 +95,16 @@ const Users: NextPage = () => {
           <EditUserButton user={omit(row, 'authorization')} />
         ),
       },
+      {
+        title: 'Delete',
+        dataIndex: 'delete',
+        key: 'delete',
+        render: (_, row) => (
+          <DeleteUserButton skip={skip} top={top} id={row.id} />
+        ),
+      },
     ] as Column<User>[];
-  }, []);
+  }, [skip, top]);
 
   useEffect(() => {
     paginateListUsers(skip);

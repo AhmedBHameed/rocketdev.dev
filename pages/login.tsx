@@ -22,6 +22,7 @@ import {GetStaticProps, NextPage} from 'next';
 import Link from 'next/link';
 import LoadingButton from '../components/Buttons/LoadingButton';
 import {
+  useActivateUserAccountMutation,
   useCreateTokensLazyQuery,
   useGithubLoginLazyQuery,
 } from '../graphql/generated/graphql';
@@ -38,6 +39,22 @@ const Login: NextPage = () => {
   const [createTokens, {loading: createTokenLoading}] =
     useCreateTokensLazyQuery();
   const [githubLogin, {loading: githubLoading}] = useGithubLoginLazyQuery();
+  const [activateUserAccount] = useActivateUserAccountMutation({
+    onCompleted: () => {
+      notify({
+        type: 'success',
+        title: 'Account activated',
+        message: 'You account has been activated successfully',
+      });
+    },
+    onError: ({graphQLErrors}) => {
+      notify({
+        type: 'error',
+        title: 'Account activation failed',
+        message: graphQLErrors[0].message,
+      });
+    },
+  });
 
   const errorHandler = useCallback(
     (error: ApolloError) => {
@@ -128,6 +145,18 @@ const Login: NextPage = () => {
       rememberMe: false,
     },
   });
+
+  useEffect(() => {
+    const searchParams = router.query;
+    if (searchParams.hash)
+      activateUserAccount({
+        variables: {
+          hash: searchParams.hash as string,
+        },
+      });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [router.query]);
 
   useEffect(() => {
     const searchParams = router.query;
