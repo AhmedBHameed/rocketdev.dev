@@ -3,7 +3,6 @@
     "esbenp.prettier-vscode",
     "dbaeumer.vscode-eslint",
     "aaron-bond.better-comments",
-    "alexkrechik.cucumberautocomplete",
     "graphql.vscode-graphql"
   ]
 }

@@ -62,6 +62,7 @@ export type Course = {
   __typename?: 'Course';
   author?: Maybe<User>;
   authorId?: Maybe<Scalars['String']>;
+  courseId?: Maybe<Scalars['ID']>;
   createdAt?: Maybe<Scalars['Date']>;
   description?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['ID']>;
@@ -597,6 +598,7 @@ export type UpsertPostContentInput = {
 export type UpsertPostInput = {
   accessedByUserIds?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
   authorId?: InputMaybe<Scalars['String']>;
+  courseId?: InputMaybe<Scalars['ID']>;
   groupName?: InputMaybe<Scalars['String']>;
   id: Scalars['ID'];
   isPremium?: InputMaybe<Scalars['Boolean']>;
@@ -765,8 +767,8 @@ export type GetPublicPostQuery = {
     isPremium?: boolean | null;
     visibility?: boolean | null;
     tagIds?: Array<string | null> | null;
-    type?: PostTypeEnum | null;
     courseId?: string | null;
+    type?: PostTypeEnum | null;
     prevPostId?: string | null;
     nextPostId?: string | null;
     accessedByUserIds?: Array<string | null> | null;
@@ -884,8 +886,8 @@ export type ListPublicPostsQuery = {
     isPremium?: boolean | null;
     visibility?: boolean | null;
     tagIds?: Array<string | null> | null;
-    type?: PostTypeEnum | null;
     courseId?: string | null;
+    type?: PostTypeEnum | null;
     prevPostId?: string | null;
     nextPostId?: string | null;
     accessedByUserIds?: Array<string | null> | null;
@@ -1141,8 +1143,8 @@ export type PostFragmentFragment = {
   isPremium?: boolean | null;
   visibility?: boolean | null;
   tagIds?: Array<string | null> | null;
-  type?: PostTypeEnum | null;
   courseId?: string | null;
+  type?: PostTypeEnum | null;
   prevPostId?: string | null;
   nextPostId?: string | null;
   accessedByUserIds?: Array<string | null> | null;
@@ -1399,8 +1401,8 @@ export type UpsertPostMutation = {
       isPremium?: boolean | null;
       visibility?: boolean | null;
       tagIds?: Array<string | null> | null;
-      type?: PostTypeEnum | null;
       courseId?: string | null;
+      type?: PostTypeEnum | null;
       prevPostId?: string | null;
       nextPostId?: string | null;
       accessedByUserIds?: Array<string | null> | null;
@@ -1517,8 +1519,8 @@ export type GetPostByIdQuery = {
       isPremium?: boolean | null;
       visibility?: boolean | null;
       tagIds?: Array<string | null> | null;
-      type?: PostTypeEnum | null;
       courseId?: string | null;
+      type?: PostTypeEnum | null;
       prevPostId?: string | null;
       nextPostId?: string | null;
       accessedByUserIds?: Array<string | null> | null;
@@ -1583,8 +1585,8 @@ export type GetPremiumPostQuery = {
       isPremium?: boolean | null;
       visibility?: boolean | null;
       tagIds?: Array<string | null> | null;
-      type?: PostTypeEnum | null;
       courseId?: string | null;
+      type?: PostTypeEnum | null;
       prevPostId?: string | null;
       nextPostId?: string | null;
       accessedByUserIds?: Array<string | null> | null;
@@ -1741,8 +1743,8 @@ export type ListQuerierPostsQuery = {
       isPremium?: boolean | null;
       visibility?: boolean | null;
       tagIds?: Array<string | null> | null;
-      type?: PostTypeEnum | null;
       courseId?: string | null;
+      type?: PostTypeEnum | null;
       prevPostId?: string | null;
       nextPostId?: string | null;
       accessedByUserIds?: Array<string | null> | null;
@@ -1899,6 +1901,7 @@ export const PostFragmentFragmentDoc = gql`
     isPremium
     visibility
     tagIds
+    courseId
     type
     postContents(lang: $lang) {
       id

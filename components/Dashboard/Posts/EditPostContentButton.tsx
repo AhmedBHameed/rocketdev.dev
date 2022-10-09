@@ -36,7 +36,10 @@ const EditPostContentButton = ({
       // remove inner keys from objects
 
       for (let postContent of postContents) {
-        const cleanedPostContent = omitDeepLodash(postContent, ['__typename']);
+        const cleanedPostContent = omitDeepLodash<
+          Omit<PostContent, '__typename'>
+        >(postContent, ['__typename']);
+
         await upsertPostContent({
           variables: {
             postId,
