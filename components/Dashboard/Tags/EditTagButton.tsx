@@ -2,6 +2,7 @@ import React, {useCallback, useState} from 'react';
 import {
   ListQuerierTagsDocument,
   Tag,
+  UpsertTagInput,
   useUpsertTagMutation,
 } from '../../../graphql/generated/graphql';
 import omitDeepLodash from '../../../utils/omitDeepLodash';
@@ -24,11 +25,10 @@ const EditTagButton = ({tag}: EditTagButtonProps) => {
 
   const handleOnSubmit = useCallback(
     async (tag: Tag) => {
-      const updatedTag = omitDeepLodash(tag, [
-        '__typename',
-        'createdAt',
-        'updatedAt',
-      ]);
+      const updatedTag = omitDeepLodash<Omit<UpsertTagInput, '__typename'>>(
+        tag,
+        ['__typename', 'createdAt', 'updatedAt']
+      );
 
       await upsertTag({
         variables: {

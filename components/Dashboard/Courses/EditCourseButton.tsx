@@ -1,6 +1,7 @@
 import React, {useCallback, useState} from 'react';
 import {
   Course,
+  UpsertCourseInput,
   useUpsertCourseMutation,
 } from '../../../graphql/generated/graphql';
 import omitDeepLodash from '../../../utils/omitDeepLodash';
@@ -23,11 +24,9 @@ const EditCourseButton = ({course}: EditCourseButtonProps) => {
 
   const handleOnSubmit = useCallback(
     async (updatedUserData: Course) => {
-      const updatedCourse = omitDeepLodash(updatedUserData, [
-        '__typename',
-        'tags',
-        'author',
-      ]);
+      const updatedCourse = omitDeepLodash<
+        Omit<UpsertCourseInput, '__typename'>
+      >(updatedUserData, ['__typename', 'tags', 'author']);
       await upsertCourse({
         variables: {
           input: updatedCourse,

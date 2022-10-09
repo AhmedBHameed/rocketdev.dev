@@ -21,7 +21,10 @@ const EditFeedbackButton = ({feedback}: EditFeedbackButtonProps) => {
 
   const handleFeedbackUpdate = useCallback(
     async (feedback: Feedback) => {
-      const cleanedFeedback = omitDeepLodash(feedback, ['__typename']);
+      const cleanedFeedback = omitDeepLodash<Omit<Feedback, '__typename'>>(
+        feedback,
+        ['__typename']
+      );
       await upsertFeedback({
         variables: {
           input: {

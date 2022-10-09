@@ -2,6 +2,7 @@ import React, {useCallback, useState} from 'react';
 import {
   ActionInput,
   Authorization,
+  AuthorizationInput,
   useUpsertAuthorizationMutation,
 } from '../../../graphql/generated/graphql';
 import omitDeepLodash from '../../../utils/omitDeepLodash';
@@ -28,7 +29,10 @@ const EditAuthorizationButton = ({
 
   const handleOnSubmit = useCallback(
     async (updatedUser: Authorization) => {
-      const userAuth = omitDeepLodash(updatedUser, ['_id', '__typename']);
+      const userAuth = omitDeepLodash<Omit<AuthorizationInput, '__typename'>>(
+        updatedUser,
+        ['_id', '__typename']
+      );
       await upsertAuthorization({
         variables: {
           input: {
