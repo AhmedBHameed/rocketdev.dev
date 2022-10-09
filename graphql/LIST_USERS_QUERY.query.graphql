@@ -1,4 +1,4 @@
-query ListUsers($query: String!) {
+query ListUsers($query: String) {
   listUsers(query: $query) {
     id
     name {

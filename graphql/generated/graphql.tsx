@@ -933,7 +933,7 @@ export type ListPublicPostsQuery = {
 };
 
 export type ListUsersQueryVariables = Exact<{
-  query: Scalars['String'];
+  query?: InputMaybe<Scalars['String']>;
 }>;
 
 export type ListUsersQuery = {
@@ -2420,7 +2420,7 @@ export type ListPublicPostsQueryResult = Apollo.QueryResult<
   ListPublicPostsQueryVariables
 >;
 export const ListUsersDocument = gql`
-  query ListUsers($query: String!) {
+  query ListUsers($query: String) {
     listUsers(query: $query) {
       id
       name {
@@ -2477,7 +2477,7 @@ export const ListUsersDocument = gql`
  * });
  */
 export function useListUsersQuery(
-  baseOptions: Apollo.QueryHookOptions<ListUsersQuery, ListUsersQueryVariables>
+  baseOptions?: Apollo.QueryHookOptions<ListUsersQuery, ListUsersQueryVariables>
 ) {
   const options = {...defaultOptions, ...baseOptions};
   return Apollo.useQuery<ListUsersQuery, ListUsersQueryVariables>(

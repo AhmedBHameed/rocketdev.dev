@@ -6,15 +6,16 @@ interface AvatarProps {
   src?: string;
   firstName?: string;
   lastName?: string;
+  className?: string;
 }
 
-const Avatar = ({src, firstName, lastName}: AvatarProps) => {
+const Avatar = ({src, firstName, className, lastName}: AvatarProps) => {
   if (src)
     return (
-      <div className="h-12 w-12 flex-shrink-0">
+      <div className={clsx(className ? className : 'h-12 w-12 flex-shrink-0')}>
         <img
           crossOrigin="anonymous"
-          className="h-12 w-12 rounded-full"
+          className="h-full w-full rounded-full"
           src={src}
           title="avatar"
           alt="avatar"

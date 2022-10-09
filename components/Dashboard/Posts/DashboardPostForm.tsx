@@ -1,16 +1,20 @@
 import {Tab} from '@headlessui/react';
 import {joiResolver} from '@hookform/resolvers/joi';
-import {debounce, get} from 'lodash';
+import {debounce, get, uniq} from 'lodash';
 import {useTranslation} from 'next-i18next';
-import React, {useCallback, useMemo} from 'react';
+import React, {useCallback, useMemo, useState} from 'react';
 import {Controller, useForm} from 'react-hook-form';
 import {ulid} from 'ulid';
 import {
+  Course,
   LanguageEnum,
   ListQuerierPostsDocument,
   Post,
   PostTypeEnum,
-  useListCoursesLazyQuery,
+  useListCoursesQuery,
+  useListUsersQuery,
+  User,
+  useUpsertCourseMutation,
   useUpsertPostContentMutation,
   useUpsertPostMutation,
 } from '../../../graphql/generated/graphql';
@@ -33,7 +37,11 @@ import {ExternalLink} from 'react-feather';
 import Link from '../../Buttons/Link';
 import {DOMAIN} from '../../../config/environments';
 import ROUTES from '../../../config/routes';
-import Autocomplete from '../../Forms/Autocomplete';
+import Autocomplete, {AutocompleteOptions} from '../../Forms/Autocomplete';
+import getUserName from '../../../utils/getUserName';
+import UserTag from '../../UserTag/UserTag';
+// import Editor from '../../WYSIWYG-draft/Editor';
+// import EditorProvider from '../../WYSIWYG-draft/EditorProvider';
 
 interface DashboardPostFormProps {
   loading?: boolean;
@@ -43,31 +51,34 @@ interface DashboardPostFormProps {
 const DashboardPostForm = ({post, loading}: DashboardPostFormProps) => {
   const {t} = useTranslation(['common', 'posts']);
   const {notify} = useNotifications();
+  const [courses, setCourses] = useState<Course[]>([]);
+  const [courseSearch, setCourseSearch] = useState('');
+  const [accessedByUsers, setAccessedByUsers] = useState<User[]>([]);
+
+  const [upsertCourse] = useUpsertCourseMutation();
 
   const [upsertPost] = useUpsertPostMutation();
   const [upsertPostContent, {loading: isUpsertLoading}] =
     useUpsertPostContentMutation();
 
-  const [getCourses, {data: courses, error}] = useListCoursesLazyQuery();
+  const {data: users} = useListUsersQuery({
+    onCompleted: (users) => {
+      setAccessedByUsers(
+        users.listUsers.filter((user) =>
+          post.accessedByUserIds?.includes(user.id)
+        )
+      );
+    },
+  });
 
-  const onSearchCourse = useMemo(
-    () =>
-      debounce(async (courseName: string) => {
-        const params = new URLSearchParams();
-
-        if (courseName) params.set('$filter', `contains(slug,'${courseName}')`);
-
-        params.set('$skip', '0');
-        params.set('$top', '50');
-
-        await getCourses({
-          variables: {
-            query: params.toString(),
-          },
-        });
-      }, 500),
-    [getCourses]
-  );
+  const {error} = useListCoursesQuery({
+    variables: {
+      query: '',
+    },
+    onCompleted: ({listCourses}) => {
+      setCourses(listCourses as Course[]);
+    },
+  });
 
   const postTypeOptions = useMemo(() => {
     return [PostTypeEnum.Article, PostTypeEnum.Course].map((value) => ({
@@ -75,6 +86,71 @@ const DashboardPostForm = ({post, loading}: DashboardPostFormProps) => {
       label: value,
     }));
   }, []);
+
+  const handleOnCourseChange = useMemo(
+    () =>
+      debounce(async (selectedCourse: AutocompleteOptions, postId: string) => {
+        const course = courses.find(
+          (course) => course.id === selectedCourse.value
+        );
+
+        await upsertPost({
+          variables: {
+            input: {
+              id: postId,
+              courseId: selectedCourse.value,
+            },
+          },
+          update: (
+            cache,
+            {
+              data: {
+                mutator: {upsertPost},
+              },
+            }
+          ) => {
+            const posts = cache.readQuery<Post[]>({
+              query: ListQuerierPostsDocument,
+            });
+            if (posts) {
+              const copyPosts = [...posts];
+
+              const modifiedIndex = copyPosts.findIndex(
+                (post) => post.id === upsertPost.id
+              );
+              copyPosts[modifiedIndex] = upsertPost as Post;
+
+              cache.writeQuery({
+                query: ListQuerierPostsDocument,
+                data: {
+                  querier: {
+                    listPosts: copyPosts,
+                  },
+                },
+              });
+            }
+          },
+        });
+
+        await upsertCourse({
+          variables: {
+            input: {
+              id: course.id,
+              postIds: uniq([...course.postIds, selectedCourse.value]),
+            },
+          },
+        });
+
+        notify({
+          title: 'Post appending',
+          message: `Post ID has been appended to "${slugToTitle(
+            course.slug
+          )}" course`,
+          type: 'success',
+        });
+      }, 500),
+    [courses, notify, upsertPost, upsertCourse]
+  );
 
   const {
     control,
@@ -109,10 +185,6 @@ const DashboardPostForm = ({post, loading}: DashboardPostFormProps) => {
       ],
     },
   });
-  console.log(
-    '🚀 ~ file: DashboardPostForm.tsx ~ line 112 ~ DashboardPostForm ~ errors',
-    errors
-  );
 
   const postBody = watch('postContents.0.body');
   const submitPostAndPostContent = useCallback(
@@ -199,7 +271,7 @@ const DashboardPostForm = ({post, loading}: DashboardPostFormProps) => {
         type: 'success',
       });
     },
-    [upsertPost, upsertPostContent, notify]
+    [accessedByUsers, upsertPost, upsertPostContent, notify]
   );
 
   const postUrl = `${DOMAIN}${ROUTES.post.path}/${post.slug}/${post.nanoId}/`;
@@ -241,6 +313,11 @@ const DashboardPostForm = ({post, loading}: DashboardPostFormProps) => {
   return (
     <div className="mt-6 prose prose-indigo prose-2xl mx-auto">
       <Row gutter={[8, 0]} gap={3}>
+        {/* <Col>
+          <EditorProvider markdown={postBody}>
+            <Editor />
+          </EditorProvider>
+        </Col> */}
         <Col>
           <div className={clsx('flex', 'flex-nowrap', 'items-center')}>
             <span className={clsx('prose', 'lg:prose-xl', theme.text)}>
@@ -253,7 +330,7 @@ const DashboardPostForm = ({post, loading}: DashboardPostFormProps) => {
         </Col>
       </Row>
 
-      <Row gutter={[8, 12]} gap={3}>
+      <Row gutter={[8, 8]} gap={3}>
         <Col>
           {getValues('type') === PostTypeEnum.Course && (
             <Col>
@@ -268,18 +345,23 @@ const DashboardPostForm = ({post, loading}: DashboardPostFormProps) => {
                 <Autocomplete
                   id="belongToCourse"
                   options={
-                    courses?.listCourses.map((course) => ({
+                    courses.map((course) => ({
                       value: course.id,
                       label: course.slug,
                     })) || []
                   }
-                  onSearch={onSearchCourse}
+                  value={post.courseId || ''}
+                  onSearch={setCourseSearch}
+                  onChange={(selected) =>
+                    handleOnCourseChange(selected, post.id)
+                  }
                 />
               </FormControl>
             </Col>
           )}
         </Col>
       </Row>
+
       <Row gutter={[8, 8]} gap={4} xs={1}>
         <Col>
           <form
@@ -453,6 +535,60 @@ const DashboardPostForm = ({post, loading}: DashboardPostFormProps) => {
                     )}
                   />
                 </FormControl>
+              </Col>
+
+              <Col>
+                <Row gutter={[0, 4]} gap={3}>
+                  <Controller
+                    control={control}
+                    name="accessedByUserIds"
+                    render={({field: {value, onChange}}) => (
+                      <>
+                        <Col>
+                          <FormControl
+                            label={t('accessedByUserLabel', {
+                              ns: 'post',
+                              defaultValue: 'Accessed by users',
+                            })}
+                            htmlFor="belongToCourse"
+                            helperTextId="belongToCourse"
+                          >
+                            <Autocomplete
+                              id="accessedByUserIds"
+                              options={
+                                users?.listUsers.map((user) => ({
+                                  value: user.id,
+                                  label: getUserName(user?.name),
+                                })) || []
+                              }
+                              value={post.courseId || ''}
+                              onChange={(selected) => {
+                                onChange(uniq([...value, selected.value]));
+                              }}
+                            />
+                          </FormControl>
+                        </Col>
+                        <Col className="flex flex-row gap-2">
+                          {value?.map((userId) => (
+                            <UserTag
+                              key={userId}
+                              user={users?.listUsers.find(
+                                (user) => user.id === userId
+                              )}
+                              onRemove={(removedUser) => {
+                                onChange(
+                                  value.filter(
+                                    (userId) => userId !== removedUser.id
+                                  )
+                                );
+                              }}
+                            />
+                          ))}
+                        </Col>
+                      </>
+                    )}
+                  />
+                </Row>
               </Col>
 
               <Col>

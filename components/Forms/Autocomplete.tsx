@@ -4,7 +4,7 @@ import clsx from '../../utils/clsx';
 import theme from '../../styles/theme';
 import {CheckIcon, ChevronUpDownIcon} from '@heroicons/react/24/solid';
 
-interface AutocompleteOptions {
+export interface AutocompleteOptions {
   label: string;
   value: string;
 }
@@ -15,7 +15,8 @@ interface AutocompleteProps {
   error?: boolean;
   value?: string;
   options: AutocompleteOptions[];
-  onSearch: (search: string) => void;
+  onSearch?: (search: string) => void;
+  onChange?: (options: AutocompleteOptions) => void;
 }
 
 const Autocomplete = ({
@@ -25,6 +26,7 @@ const Autocomplete = ({
   value,
   options = [],
   onSearch,
+  onChange,
 }: AutocompleteProps) => {
   const [selected, setSelected] = useState<AutocompleteOptions | null>(null);
   const [query, setQuery] = useState('');
@@ -39,6 +41,14 @@ const Autocomplete = ({
             .includes(query.toLowerCase().replace(/\s+/g, ''))
         );
 
+  const handleOnChange = useCallback(
+    (selected: AutocompleteOptions) => {
+      setSelected(selected);
+      onChange?.(selected);
+    },
+    [onChange]
+  );
+
   useEffect(() => {
     if (value)
       setSelected(options.find((option) => option.value === value) || null);
@@ -46,7 +56,7 @@ const Autocomplete = ({
 
   return (
     <div className="relative w-full">
-      <Combobox value={selected} onChange={setSelected}>
+      <Combobox value={selected} onChange={handleOnChange}>
         <div className="relative mt-1">
           <div className="relative w-full cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
             <Combobox.Input
@@ -73,7 +83,7 @@ const Autocomplete = ({
               onChange={(event) => {
                 const value = event.target.value;
                 setQuery(value);
-                onSearch(value);
+                onSearch?.(value);
               }}
             />
             <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
