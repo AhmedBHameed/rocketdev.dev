@@ -563,7 +563,9 @@ const DashboardPostForm = ({post, loading}: DashboardPostFormProps) => {
                               }
                               value={post.courseId || ''}
                               onChange={(selected) => {
-                                onChange(uniq([...value, selected.value]));
+                                onChange(
+                                  uniq([...(value || []), selected.value])
+                                );
                               }}
                             />
                           </FormControl>

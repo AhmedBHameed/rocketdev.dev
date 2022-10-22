@@ -1,4 +1,5 @@
-import React from 'react';
+import dynamic, {noSSR} from 'next/dynamic';
+import React, {useEffect, useState} from 'react';
 
 // import Audio from './components/Audio';
 import Blockquote from './components/Blockquote';
@@ -18,18 +19,35 @@ import TableHead from './components/TableHead';
 import TableHeaderCell from './components/TableHeaderCell';
 import TableRow from './components/TableRow';
 import parseEmojis from './utils/parseEmojis';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import rehypeRaw from './rehypeRaw';
+
+const remarkGfm: any = noSSR(() => import('remark-gfm') as any, {
+  ssr: false,
+});
+
+const rehypeRaw: any = noSSR(() => import('./rehypeRaw') as any, {
+  ssr: false,
+});
+
+const ReactMarkdown: any = dynamic(() => import('react-markdown') as any, {
+  ssr: false,
+});
 
 interface MDPreviewClientProps {
   markdown: string;
 }
 
 const MDPreviewClient: React.FC<MDPreviewClientProps> = ({markdown}) => {
-  return (
+  const [rehypeRawFn, setRehypeRawFn] = useState(null);
+  const [remarkGfmFn, setRemarkGfmFn] = useState(null);
+
+  useEffect(() => {
+    rehypeRaw.then((rehypeRaw) => setRehypeRawFn(rehypeRaw));
+    remarkGfm.then((remarkGfm) => setRemarkGfmFn(remarkGfm));
+  }, []);
+
+  return rehypeRawFn && remarkGfmFn ? (
     <ReactMarkdown
-      rehypePlugins={[remarkGfm, rehypeRaw]}
+      rehypePlugins={[remarkGfmFn.default, rehypeRawFn.default]}
       components={{
         blockquote: Blockquote,
 
@@ -65,6 +83,8 @@ const MDPreviewClient: React.FC<MDPreviewClientProps> = ({markdown}) => {
     >
       {parseEmojis(markdown)}
     </ReactMarkdown>
+  ) : (
+    <></>
   );
 };
 

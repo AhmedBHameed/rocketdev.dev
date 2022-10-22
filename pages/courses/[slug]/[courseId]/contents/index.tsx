@@ -1,9 +1,10 @@
 import {ApolloQueryResult} from '@apollo/client';
-import {get} from 'lodash';
+import {get, uniqBy} from 'lodash';
 import {GetServerSideProps} from 'next';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
-import React from 'react';
+import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import Col from '../../../../../components/Col/Col';
+import SelectMenu from '../../../../../components/Forms/SelectMenu';
 import BoldLabel from '../../../../../components/Label/BoldLabel';
 import Layout from '../../../../../components/Layout';
 import Row from '../../../../../components/Row/Row';
@@ -16,6 +17,7 @@ import {
   Post,
 } from '../../../../../graphql/generated/graphql';
 import apolloClient from '../../../../../utils/apolloClient';
+import clsx from '../../../../../utils/clsx';
 import slugToTitle from '../../../../../utils/slugToTitle';
 
 interface CourseContent {
@@ -24,6 +26,44 @@ interface CourseContent {
 }
 
 const CourseContent = ({courseContents, courseSlug}: CourseContent) => {
+  const localStorageKey = `${courseSlug}-selected-chapter-id`;
+
+  const [selectedChapterId, setSelectedChapterId] = useState('all');
+
+  const courseChapters = useMemo(
+    () =>
+      [
+        {
+          label: 'Show all',
+          value: 'all',
+        },
+      ].concat(
+        uniqBy(
+          courseContents.map((courseContent) => ({
+            label: courseContent.groupName.toLowerCase(),
+            value: courseContent.id,
+          })),
+          (option) => option.label
+        )
+      ),
+    []
+  );
+
+  const handleSelectedChapter = useCallback(
+    (selectedChapter: string) => {
+      localStorage.setItem(localStorageKey, selectedChapter);
+      setSelectedChapterId(selectedChapter);
+    },
+    [localStorageKey]
+  );
+
+  useEffect(() => {
+    if (localStorageKey) {
+      const selectedChapter = localStorage.getItem(localStorageKey) || 'all';
+      setSelectedChapterId(selectedChapter);
+    }
+  }, [localStorageKey]);
+
   return (
     <Layout>
       <Row gutter={[8, 8]} md={2}>
@@ -32,13 +72,30 @@ const CourseContent = ({courseContents, courseSlug}: CourseContent) => {
         </Col>
 
         <Col className="col-end-6">
-          <BoldLabel>Syllabus</BoldLabel>
+          <div className={clsx('flex', 'items-center', 'gap-2')}>
+            <BoldLabel>Chapter</BoldLabel>
+            <SelectMenu
+              id="chapter"
+              options={courseChapters}
+              name="chapter"
+              onChange={handleSelectedChapter}
+              placeholder="Select chapter"
+              testId="course-content-select"
+              value={selectedChapterId}
+            />
+          </div>
         </Col>
       </Row>
 
-      {courseContents.map((post, index) => (
-        <ServiceCard key={post.nanoId} post={post} index={index} />
-      ))}
+      {courseContents
+        .filter(
+          (courseContent) =>
+            selectedChapterId === 'all' ||
+            courseContent.id === selectedChapterId
+        )
+        .map((post, index) => (
+          <ServiceCard key={post.nanoId} post={post} index={index} />
+        ))}
     </Layout>
   );
 };
