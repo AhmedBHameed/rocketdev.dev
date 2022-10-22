@@ -26,7 +26,7 @@ interface CourseContent {
 }
 
 const CourseContent = ({courseContents, courseSlug}: CourseContent) => {
-  const localStorageKey = `${courseSlug}-selected-chapter-id`;
+  const localStorageKey = `${courseSlug}-selected-chapter`;
 
   const [selectedChapterId, setSelectedChapterId] = useState('all');
 
@@ -41,7 +41,7 @@ const CourseContent = ({courseContents, courseSlug}: CourseContent) => {
         uniqBy(
           courseContents.map((courseContent) => ({
             label: courseContent.groupName.toLowerCase(),
-            value: courseContent.id,
+            value: courseContent.groupName,
           })),
           (option) => option.label
         )
@@ -91,7 +91,7 @@ const CourseContent = ({courseContents, courseSlug}: CourseContent) => {
         .filter(
           (courseContent) =>
             selectedChapterId === 'all' ||
-            courseContent.id === selectedChapterId
+            courseContent.groupName === selectedChapterId
         )
         .map((post, index) => (
           <ServiceCard key={post.nanoId} post={post} index={index} />
