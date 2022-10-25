@@ -11,10 +11,9 @@ const NODE_ENV = process.env.NODE_ENV;
 const APP_VERSION = process.env.npm_package_version;
 const SERVER_PORT = 5000;
 const SERVER_BASE_PATH = process.env.SERVER_BASE_PATH || '';
-const SERVER_ALLOWED_ORIGIN =
-  'http://localhost:5000,http://192.168.0.95:5000,https://www.rocketdev.dev'?.split(
-    ','
-  );
+const SERVER_ALLOWED_ORIGIN = IS_PRODUCTION
+  ? ['https://www.rocketdev.dev']
+  : ['http://localhost:5000', 'http://192.168.0.95:5000'];
 
 /**
  * Database configuration

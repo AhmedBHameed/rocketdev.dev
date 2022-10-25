@@ -29,6 +29,7 @@ import {
 import {get} from 'lodash';
 import {useNotifications} from '../components/ToastMessage/Hooks/NotificationsHook';
 import {ApolloError} from '@apollo/client';
+import mkToastyClass from '../components/MKToasty/mkToastyClass';
 
 const Login: NextPage = () => {
   const router = useRouter();
@@ -98,6 +99,7 @@ const Login: NextPage = () => {
         return;
       }
 
+      await mkToastyClass.trigger();
       router.push(ROUTES.latest.path, undefined, {
         locale: i18n.resolvedLanguage,
       });
@@ -118,6 +120,7 @@ const Login: NextPage = () => {
         return;
       }
 
+      await mkToastyClass.trigger();
       router.push(ROUTES.latest.path, undefined, {
         locale: i18n.resolvedLanguage,
       });
