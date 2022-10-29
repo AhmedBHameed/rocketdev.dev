@@ -158,12 +158,14 @@ const ForgotPasswordPage: React.FC = () => {
                 className={clsx('mt-7', 'flex', 'items-center', 'justify-end')}
               >
                 <div className="text-sm mb-3">
-                  <Link href={ROUTES.login.path}>
-                    <a className="font-medium text-red-500 hover:text-red-400">
-                      {t('returnToLogin', {
-                        defaultValue: 'Return to login',
-                      })}
-                    </a>
+                  <Link
+                    href={ROUTES.login.path}
+                    className="font-medium text-red-500 hover:text-red-400">
+
+                    {t('returnToLogin', {
+                      defaultValue: 'Return to login',
+                    })}
+
                   </Link>
                 </div>
               </div>

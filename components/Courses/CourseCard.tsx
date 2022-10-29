@@ -48,32 +48,33 @@ const CourseCard: React.FC<CourseCardProps> = ({
         )}
         onClick={onClick}
       >
-        <Link href={href}>
-          <a className={clsx('flex', 'flex-col', 'justify-between', 'h-full')}>
-            <div>
-              <h3
-                className={clsx(
-                  'flex',
-                  'justify-between',
-                  'items-center',
-                  'title-hover--title',
-                  'font-bold',
-                  'text-xl'
-                )}
-              >
-                {slugToTitle(title)}
-                {isPremium && <PremiumSign />}
-              </h3>
-              <h3 className={clsx('text-base', 'mb-4', 'text-gray-400')}>
-                <MediumLabel>{subTitle}</MediumLabel>
-              </h3>
-              <p className={clsx('text-base', 'mt-2', theme.subText)}>
-                {contentPreview}
-              </p>
-            </div>
+        <Link
+          href={href}
+          className={clsx('flex', 'flex-col', 'justify-between', 'h-full')}>
 
-            <ReadMore />
-          </a>
+          <div>
+            <h3
+              className={clsx(
+                'flex',
+                'justify-between',
+                'items-center',
+                'title-hover--title',
+                'font-bold',
+                'text-xl'
+              )}
+            >
+              {slugToTitle(title)}
+              {isPremium && <PremiumSign />}
+            </h3>
+            <h3 className={clsx('text-base', 'mb-4', 'text-gray-400')}>
+              <MediumLabel>{subTitle}</MediumLabel>
+            </h3>
+            <p className={clsx('text-base', 'mt-2', theme.subText)}>
+              {contentPreview}
+            </p>
+          </div>
+          <ReadMore />
+
         </Link>
       </article>
     </div>

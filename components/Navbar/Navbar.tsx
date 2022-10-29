@@ -57,39 +57,33 @@ const Navbar = () => {
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center">
                   <Link href={ROUTES.home.path}>
-                    <a href="#">
-                      <RocketDevSvg />
-                    </a>
+                    <RocketDevSvg />
                   </Link>
                 </div>
                 <div className="hidden sm:flex sm:ml-6 items-center">
                   <div className={clsx(theme.text, 'flex space-x-4')}>
-                    <Link href={ROUTES.latest.path}>
-                      <a
-                        href="#"
-                        className={clsx(
-                          router.asPath.indexOf(ROUTES.latest.path) > -1
-                            ? 'bg-gray-100 dark:bg-gray-700'
-                            : 'hover:bg-gray-500',
-                          'px-3 py-2 rounded-md text-sm font-medium'
-                        )}
-                      >
-                        {t('latest')}
-                      </a>
+                    <Link
+                      href={ROUTES.latest.path}
+                      className={clsx(
+                        router.asPath.indexOf(ROUTES.latest.path) > -1
+                          ? 'bg-gray-100 dark:bg-gray-700'
+                          : 'hover:bg-gray-500',
+                        'px-3 py-2 rounded-md text-sm font-medium'
+                      )}
+                    >
+                      {t('latest')}
                     </Link>
 
-                    <Link href={ROUTES.courses.path}>
-                      <a
-                        href="#"
-                        className={clsx(
-                          router.asPath.indexOf(ROUTES.courses.path) > -1
-                            ? 'bg-gray-100 dark:bg-gray-700'
-                            : 'hover:bg-gray-500',
-                          'px-3 py-2 rounded-md text-sm font-medium'
-                        )}
-                      >
-                        {t('courses', {defaultValue: 'Courses'})}
-                      </a>
+                    <Link
+                      href={ROUTES.courses.path}
+                      className={clsx(
+                        router.asPath.indexOf(ROUTES.courses.path) > -1
+                          ? 'bg-gray-100 dark:bg-gray-700'
+                          : 'hover:bg-gray-500',
+                        'px-3 py-2 rounded-md text-sm font-medium'
+                      )}
+                    >
+                      {t('courses', {defaultValue: 'Courses'})}
                     </Link>
                   </div>
                 </div>

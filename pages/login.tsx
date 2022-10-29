@@ -346,13 +346,13 @@ const Login: NextPage = () => {
                   <Link
                     href={ROUTES.forgotPassword.path}
                     locale={currentLocale}
-                  >
-                    <a className="font-medium text-red-500 hover:text-red-400">
-                      {t('forgotPassword', {
-                        ns: 'login',
-                        defaultValue: 'Forgot password?',
-                      })}
-                    </a>
+                    className="font-medium text-red-500 hover:text-red-400">
+
+                    {t('forgotPassword', {
+                      ns: 'login',
+                      defaultValue: 'Forgot password?',
+                    })}
+
                   </Link>
                 </div>
               </div>
@@ -388,20 +388,21 @@ const Login: NextPage = () => {
                 Login
               </LoadingButton>
 
-              <Link href={ROUTES.signup.path} locale={currentLocale}>
-                <a
-                  className={clsx(
-                    'font-medium',
-                    'text-red-500',
-                    'hover:text-red-400',
-                    'mt-2'
-                  )}
-                >
-                  {t('youDontHaveAccount', {
-                    ns: 'login',
-                    defaultValue: "You don't have account?",
-                  })}
-                </a>
+              <Link
+                href={ROUTES.signup.path}
+                locale={currentLocale}
+                className={clsx(
+                  'font-medium',
+                  'text-red-500',
+                  'hover:text-red-400',
+                  'mt-2'
+                )}>
+
+                {t('youDontHaveAccount', {
+                  ns: 'login',
+                  defaultValue: "You don't have account?",
+                })}
+
               </Link>
             </div>
           </form>

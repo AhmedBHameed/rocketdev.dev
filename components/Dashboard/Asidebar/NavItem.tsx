@@ -14,25 +14,23 @@ const NavItem = ({href, LinkIcon, label}: NavItemProps) => {
   const router = useRouter();
 
   return (
-    <Link href={href}>
-      <a
-        href={href}
-        className={clsx(
-          'flex',
-          'gap-3',
-          'items-center',
-          'text-xl',
-          router.pathname === href
-            ? 'text-gray-300'
-            : 'text-gray-400 group-hover:text-gray-300'
-        )}
-      >
-        <LinkIcon
-          className={clsx('flex-shrink-0', ' h-6', 'w-6', 'ml-2')}
-          aria-hidden="true"
-        />
-        {label}
-      </a>
+    <Link
+      href={href}
+      className={clsx(
+        'flex',
+        'gap-3',
+        'items-center',
+        'text-xl',
+        router.pathname === href
+          ? 'text-gray-300'
+          : 'text-gray-400 group-hover:text-gray-300'
+      )}
+    >
+      <LinkIcon
+        className={clsx('flex-shrink-0', ' h-6', 'w-6', 'ml-2')}
+        aria-hidden="true"
+      />
+      {label}
     </Link>
   );
 };

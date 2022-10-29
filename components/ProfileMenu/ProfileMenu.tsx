@@ -8,7 +8,7 @@ import {useRouter} from 'next/router';
 import {useClearTokensLazyQuery} from '../../graphql/generated/graphql';
 import ROUTES from '../../config/routes';
 import Avatar from '../Avatar/Avatar';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 
 interface MenuProps {
   name: string;
@@ -66,15 +66,14 @@ const ProfileMenu = ({isLoggedIn, menu, avatar}: ProfileMenuProps) => {
           {menu.map((item) => (
             <Menu.Item key={item.name}>
               {({active}) => (
-                <Link href={item.href}>
-                  <a
-                    className={clsx(
-                      active ? 'bg-gray-100' : '',
-                      'block px-4 py-2 text-sm text-gray-700'
-                    )}
-                  >
-                    {item.name}
-                  </a>
+                <Link
+                  href={item.href}
+                  className={clsx(
+                    active ? 'bg-gray-100' : '',
+                    'block px-4 py-2 text-sm text-gray-700'
+                  )}
+                >
+                  {item.name}
                 </Link>
               )}
             </Menu.Item>

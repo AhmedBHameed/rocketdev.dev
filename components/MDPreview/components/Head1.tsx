@@ -1,11 +1,14 @@
 import React from 'react';
 import clsx from '../../../utils/clsx';
+import useGetHashIdFromChildren from '../hooks/useGetHashIdFromChildrenHook';
 
 const Head1 = (props) => {
+  let slug = useGetHashIdFromChildren(props);
+
   return (
-    <h1 {...props} className={clsx(props.className || '')}>
+    <h1 {...props} id={slug} className={clsx(props.className || '')}>
       <a
-        href={`#${props.id}`}
+        href={`#${slug}`}
         className={clsx('text-gray-800', 'dark:text-gray-200', 'no-underline')}
       >
         <span>{props.children}</span>

@@ -278,13 +278,15 @@ const Signup = () => {
                 className={clsx('mt-7', 'flex', 'items-center', 'justify-end')}
               >
                 <div className="text-sm mb-3">
-                  <Link href={ROUTES.login.path}>
-                    <a className="font-medium text-red-500 hover:text-red-400">
-                      {t('youHaveAccount', {
-                        ns: 'signup',
-                        defaultValue: 'You have an account?',
-                      })}
-                    </a>
+                  <Link
+                    href={ROUTES.login.path}
+                    className="font-medium text-red-500 hover:text-red-400">
+
+                    {t('youHaveAccount', {
+                      ns: 'signup',
+                      defaultValue: 'You have an account?',
+                    })}
+
                   </Link>
                 </div>
               </div>
