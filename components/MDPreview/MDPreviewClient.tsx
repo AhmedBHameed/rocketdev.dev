@@ -1,5 +1,5 @@
 import dynamic, {noSSR} from 'next/dynamic';
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 
 // import Audio from './components/Audio';
 import Blockquote from './components/Blockquote';
@@ -11,7 +11,7 @@ import Img from './components/Img';
 import Link from './components/Link';
 import ListItem from './components/ListItem';
 import OrderList from './components/OrderList';
-import Paragraph from './components/Paragraph';
+import Span from './components/Span';
 import Strong from './components/Strong';
 import Table from './components/Table';
 import TableData from './components/TableData';
@@ -19,6 +19,7 @@ import TableHead from './components/TableHead';
 import TableHeaderCell from './components/TableHeaderCell';
 import TableRow from './components/TableRow';
 import parseEmojis from './utils/parseEmojis';
+import redirectToId from '../../utils/redirectToId';
 
 const remarkGfm: any = noSSR(() => import('remark-gfm') as any, {
   ssr: false,
@@ -41,8 +42,12 @@ const MDPreviewClient: React.FC<MDPreviewClientProps> = ({markdown}) => {
   const [remarkGfmFn, setRemarkGfmFn] = useState(null);
 
   useEffect(() => {
-    rehypeRaw.then((rehypeRaw) => setRehypeRawFn(rehypeRaw));
-    remarkGfm.then((remarkGfm) => setRemarkGfmFn(remarkGfm));
+    Promise.all([
+      rehypeRaw.then((rehypeRaw) => setRehypeRawFn(rehypeRaw)),
+      remarkGfm.then((remarkGfm) => setRemarkGfmFn(remarkGfm)),
+    ]).then(() => {
+      redirectToId();
+    });
   }, []);
 
   return rehypeRawFn && remarkGfmFn ? (
@@ -60,7 +65,7 @@ const MDPreviewClient: React.FC<MDPreviewClientProps> = ({markdown}) => {
 
         h3: Head3,
 
-        p: Paragraph,
+        p: Span,
 
         strong: Strong,
         code: Code,

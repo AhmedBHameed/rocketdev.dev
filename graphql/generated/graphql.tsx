@@ -255,17 +255,22 @@ export type MutationUpsertAuthorizationArgs = {
 export type Mutator = {
   __typename?: 'Mutator';
   about?: Maybe<Scalars['String']>;
+  createFeedback?: Maybe<Feedback>;
   deleteCourse?: Maybe<Course>;
   deletePost?: Maybe<Post>;
   id: Scalars['ID'];
   isSuper?: Maybe<Scalars['Boolean']>;
   occupation?: Maybe<Scalars['String']>;
+  updateFeedback?: Maybe<Feedback>;
   upsertCourse?: Maybe<Course>;
-  upsertFeedback?: Maybe<Feedback>;
   upsertPost?: Maybe<Post>;
   upsertPostContent?: Maybe<PostContent>;
   upsertTag?: Maybe<Tag>;
   userActionsAsJson: Scalars['String'];
+};
+
+export type MutatorCreateFeedbackArgs = {
+  input: FeedbackInput;
 };
 
 export type MutatorDeleteCourseArgs = {
@@ -276,12 +281,12 @@ export type MutatorDeletePostArgs = {
   id: Scalars['ID'];
 };
 
-export type MutatorUpsertCourseArgs = {
-  input: UpsertCourseInput;
+export type MutatorUpdateFeedbackArgs = {
+  input: FeedbackInput;
 };
 
-export type MutatorUpsertFeedbackArgs = {
-  input: FeedbackInput;
+export type MutatorUpsertCourseArgs = {
+  input: UpsertCourseInput;
 };
 
 export type MutatorUpsertPostArgs = {
@@ -1041,6 +1046,86 @@ export type VerifyMeQuery = {
   } | null;
 };
 
+export type CreateFeedbackMutationVariables = Exact<{
+  input: FeedbackInput;
+}>;
+
+export type CreateFeedbackMutation = {
+  __typename?: 'Mutation';
+  mutator?: {
+    __typename?: 'Mutator';
+    createFeedback?: {
+      __typename?: 'Feedback';
+      id?: string | null;
+      title?: string | null;
+      message?: string | null;
+      resolved?: boolean | null;
+      createdAt?: Date | null;
+      updatedAt?: Date | null;
+      author?: {
+        __typename?: 'User';
+        email?: any | null;
+        avatar?: string | null;
+        name?: {
+          __typename?: 'Username';
+          first?: string | null;
+          last?: string | null;
+        } | null;
+      } | null;
+    } | null;
+  } | null;
+};
+
+export type FeedbackFragmentFragment = {
+  __typename?: 'Feedback';
+  id?: string | null;
+  title?: string | null;
+  message?: string | null;
+  resolved?: boolean | null;
+  createdAt?: Date | null;
+  updatedAt?: Date | null;
+  author?: {
+    __typename?: 'User';
+    email?: any | null;
+    avatar?: string | null;
+    name?: {
+      __typename?: 'Username';
+      first?: string | null;
+      last?: string | null;
+    } | null;
+  } | null;
+};
+
+export type UpdateFeedbackMutationVariables = Exact<{
+  input: FeedbackInput;
+}>;
+
+export type UpdateFeedbackMutation = {
+  __typename?: 'Mutation';
+  mutator?: {
+    __typename?: 'Mutator';
+    updateFeedback?: {
+      __typename?: 'Feedback';
+      id?: string | null;
+      title?: string | null;
+      message?: string | null;
+      resolved?: boolean | null;
+      createdAt?: Date | null;
+      updatedAt?: Date | null;
+      author?: {
+        __typename?: 'User';
+        email?: any | null;
+        avatar?: string | null;
+        name?: {
+          __typename?: 'Username';
+          first?: string | null;
+          last?: string | null;
+        } | null;
+      } | null;
+    } | null;
+  } | null;
+};
+
 export type AuthorFragmentFragment = {
   __typename?: 'User';
   email?: any | null;
@@ -1240,36 +1325,6 @@ export type DeleteUserMutationVariables = Exact<{
 export type DeleteUserMutation = {
   __typename?: 'Mutation';
   deleteUser?: {__typename?: 'Message'; message?: string | null} | null;
-};
-
-export type UpsertFeedbackMutationVariables = Exact<{
-  input: FeedbackInput;
-}>;
-
-export type UpsertFeedbackMutation = {
-  __typename?: 'Mutation';
-  mutator?: {
-    __typename?: 'Mutator';
-    upsertFeedback?: {
-      __typename?: 'Feedback';
-      id?: string | null;
-      title?: string | null;
-      message?: string | null;
-      resolved?: boolean | null;
-      createdAt?: Date | null;
-      updatedAt?: Date | null;
-      author?: {
-        __typename?: 'User';
-        email?: any | null;
-        avatar?: string | null;
-        name?: {
-          __typename?: 'Username';
-          first?: string | null;
-          last?: string | null;
-        } | null;
-      } | null;
-    } | null;
-  } | null;
 };
 
 export type UpdateUserMutationVariables = Exact<{
@@ -1822,6 +1877,20 @@ export const AuthorFragmentFragmentDoc = gql`
       last
     }
   }
+`;
+export const FeedbackFragmentFragmentDoc = gql`
+  fragment feedbackFragment on Feedback {
+    id
+    title
+    message
+    author {
+      ...authorFragment
+    }
+    resolved
+    createdAt
+    updatedAt
+  }
+  ${AuthorFragmentFragmentDoc}
 `;
 export const TagFragmentFragmentDoc = gql`
   fragment tagFragment on Tag {
@@ -2742,6 +2811,112 @@ export type VerifyMeQueryResult = Apollo.QueryResult<
   VerifyMeQuery,
   VerifyMeQueryVariables
 >;
+export const CreateFeedbackDocument = gql`
+  mutation CreateFeedback($input: FeedbackInput!) {
+    mutator {
+      createFeedback(input: $input) {
+        ...feedbackFragment
+      }
+    }
+  }
+  ${FeedbackFragmentFragmentDoc}
+`;
+export type CreateFeedbackMutationFn = Apollo.MutationFunction<
+  CreateFeedbackMutation,
+  CreateFeedbackMutationVariables
+>;
+
+/**
+ * __useCreateFeedbackMutation__
+ *
+ * To run a mutation, you first call `useCreateFeedbackMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateFeedbackMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createFeedbackMutation, { data, loading, error }] = useCreateFeedbackMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useCreateFeedbackMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    CreateFeedbackMutation,
+    CreateFeedbackMutationVariables
+  >
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useMutation<
+    CreateFeedbackMutation,
+    CreateFeedbackMutationVariables
+  >(CreateFeedbackDocument, options);
+}
+export type CreateFeedbackMutationHookResult = ReturnType<
+  typeof useCreateFeedbackMutation
+>;
+export type CreateFeedbackMutationResult =
+  Apollo.MutationResult<CreateFeedbackMutation>;
+export type CreateFeedbackMutationOptions = Apollo.BaseMutationOptions<
+  CreateFeedbackMutation,
+  CreateFeedbackMutationVariables
+>;
+export const UpdateFeedbackDocument = gql`
+  mutation updateFeedback($input: FeedbackInput!) {
+    mutator {
+      updateFeedback(input: $input) {
+        ...feedbackFragment
+      }
+    }
+  }
+  ${FeedbackFragmentFragmentDoc}
+`;
+export type UpdateFeedbackMutationFn = Apollo.MutationFunction<
+  UpdateFeedbackMutation,
+  UpdateFeedbackMutationVariables
+>;
+
+/**
+ * __useUpdateFeedbackMutation__
+ *
+ * To run a mutation, you first call `useUpdateFeedbackMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateFeedbackMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateFeedbackMutation, { data, loading, error }] = useUpdateFeedbackMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useUpdateFeedbackMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    UpdateFeedbackMutation,
+    UpdateFeedbackMutationVariables
+  >
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useMutation<
+    UpdateFeedbackMutation,
+    UpdateFeedbackMutationVariables
+  >(UpdateFeedbackDocument, options);
+}
+export type UpdateFeedbackMutationHookResult = ReturnType<
+  typeof useUpdateFeedbackMutation
+>;
+export type UpdateFeedbackMutationResult =
+  Apollo.MutationResult<UpdateFeedbackMutation>;
+export type UpdateFeedbackMutationOptions = Apollo.BaseMutationOptions<
+  UpdateFeedbackMutation,
+  UpdateFeedbackMutationVariables
+>;
 export const ActivateUserAccountDocument = gql`
   mutation ActivateUserAccount($hash: String!) {
     activateUserAccount(hash: $hash) {
@@ -2945,67 +3120,6 @@ export type DeleteUserMutationResult =
 export type DeleteUserMutationOptions = Apollo.BaseMutationOptions<
   DeleteUserMutation,
   DeleteUserMutationVariables
->;
-export const UpsertFeedbackDocument = gql`
-  mutation UpsertFeedback($input: FeedbackInput!) {
-    mutator {
-      upsertFeedback(input: $input) {
-        id
-        title
-        message
-        author {
-          ...authorFragment
-        }
-        resolved
-        createdAt
-        updatedAt
-      }
-    }
-  }
-  ${AuthorFragmentFragmentDoc}
-`;
-export type UpsertFeedbackMutationFn = Apollo.MutationFunction<
-  UpsertFeedbackMutation,
-  UpsertFeedbackMutationVariables
->;
-
-/**
- * __useUpsertFeedbackMutation__
- *
- * To run a mutation, you first call `useUpsertFeedbackMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useUpsertFeedbackMutation` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [upsertFeedbackMutation, { data, loading, error }] = useUpsertFeedbackMutation({
- *   variables: {
- *      input: // value for 'input'
- *   },
- * });
- */
-export function useUpsertFeedbackMutation(
-  baseOptions?: Apollo.MutationHookOptions<
-    UpsertFeedbackMutation,
-    UpsertFeedbackMutationVariables
-  >
-) {
-  const options = {...defaultOptions, ...baseOptions};
-  return Apollo.useMutation<
-    UpsertFeedbackMutation,
-    UpsertFeedbackMutationVariables
-  >(UpsertFeedbackDocument, options);
-}
-export type UpsertFeedbackMutationHookResult = ReturnType<
-  typeof useUpsertFeedbackMutation
->;
-export type UpsertFeedbackMutationResult =
-  Apollo.MutationResult<UpsertFeedbackMutation>;
-export type UpsertFeedbackMutationOptions = Apollo.BaseMutationOptions<
-  UpsertFeedbackMutation,
-  UpsertFeedbackMutationVariables
 >;
 export const UpdateUserDocument = gql`
   mutation UpdateUser($input: UpdateUserInput!) {

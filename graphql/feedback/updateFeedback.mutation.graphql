@@ -1,0 +1,7 @@
+mutation updateFeedback($input: FeedbackInput!) {
+  mutator {
+    updateFeedback(input: $input) {
+      ...feedbackFragment
+    }
+  }
+}

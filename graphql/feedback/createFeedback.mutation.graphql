@@ -1,0 +1,7 @@
+mutation CreateFeedback($input: FeedbackInput!) {
+  mutator {
+    createFeedback(input: $input) {
+      ...feedbackFragment
+    }
+  }
+}

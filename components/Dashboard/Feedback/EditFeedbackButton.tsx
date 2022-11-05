@@ -1,7 +1,7 @@
 import React, {useCallback, useState} from 'react';
 import {
   Feedback,
-  useUpsertFeedbackMutation,
+  useUpdateFeedbackMutation,
 } from '../../../graphql/generated/graphql';
 import omitDeepLodash from '../../../utils/omitDeepLodash';
 import LoadingButton from '../../Buttons/LoadingButton';
@@ -17,7 +17,7 @@ const EditFeedbackButton = ({feedback}: EditFeedbackButtonProps) => {
   const {notify} = useNotifications();
   const [open, setOpen] = useState(false);
 
-  const [upsertFeedback, {loading}] = useUpsertFeedbackMutation();
+  const [updateFeedback, {loading}] = useUpdateFeedbackMutation();
 
   const handleFeedbackUpdate = useCallback(
     async (feedback: Feedback) => {
@@ -25,7 +25,7 @@ const EditFeedbackButton = ({feedback}: EditFeedbackButtonProps) => {
         feedback,
         ['__typename']
       );
-      await upsertFeedback({
+      await updateFeedback({
         variables: {
           input: {
             id: cleanedFeedback.id,
@@ -43,7 +43,7 @@ const EditFeedbackButton = ({feedback}: EditFeedbackButtonProps) => {
       });
       setOpen(false);
     },
-    [upsertFeedback, notify]
+    [updateFeedback, notify]
   );
 
   return (

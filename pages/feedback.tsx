@@ -13,7 +13,7 @@ import {FormControl, InputField} from '../components/Forms';
 import Textarea from '../components/Forms/Textarea';
 import {
   FeedbackInput,
-  useUpsertFeedbackMutation,
+  useCreateFeedbackMutation,
 } from '../graphql/generated/graphql';
 import clsx from '../utils/clsx';
 import LoadingButton from '../components/Buttons/LoadingButton';
@@ -30,7 +30,7 @@ const Feedback: NextPage = () => {
 
   const {t} = useTranslation(['validation', 'feedback']);
   const {notify} = useNotifications();
-  const [upsertFeedback, {loading}] = useUpsertFeedbackMutation();
+  const [createFeedback, {loading}] = useCreateFeedbackMutation();
 
   const {
     control,
@@ -50,7 +50,7 @@ const Feedback: NextPage = () => {
   const sendFeedback = useCallback(
     async (feedback: Omit<FeedbackInput, 'id'>) => {
       try {
-        await upsertFeedback({
+        await createFeedback({
           variables: {
             input: {
               id: ulid(),
@@ -79,7 +79,7 @@ const Feedback: NextPage = () => {
         });
       }
     },
-    [notify, t, upsertFeedback]
+    [notify, t, createFeedback]
   );
 
   const message = watch('message');

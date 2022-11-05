@@ -1,0 +1,11 @@
+fragment feedbackFragment on Feedback {
+  id
+  title
+  message
+  author {
+    ...authorFragment
+  }
+  resolved
+  createdAt
+  updatedAt
+}

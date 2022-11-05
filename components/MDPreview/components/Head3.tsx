@@ -8,7 +8,7 @@ const Head3 = (props) => {
   return (
     <h3 {...props} id={slug} className={clsx(props.className || '')}>
       <a
-        href={`#${props.id}`}
+        href={`#${slug}`}
         className={clsx('text-gray-800', 'dark:text-gray-200', 'no-underline')}
       >
         <span>{props.children}</span>
